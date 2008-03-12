@@ -1,0 +1,21 @@
+<Combine name="tasque" fileversion="2.0">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="CombineConfiguration">
+      <Entry build="True" name="tasque" configuration="Debug" />
+      <Entry build="True" name="RtmNet" configuration="Debug" />
+    </Configuration>
+    <Configuration name="Release" ctype="CombineConfiguration">
+      <Entry build="True" name="tasque" configuration="Release" />
+      <Entry build="True" name="RtmNet" configuration="Release" />
+    </Configuration>
+  </Configurations>
+  <StartMode startupentry="tasque" single="True">
+    <Execute type="None" entry="tasque" />
+    <Execute type="None" entry="RtmNet" />
+    <Execute type="None" entry="ICalParser.Net" />
+  </StartMode>
+  <Entries>
+    <Entry filename="tasque.mdp" />
+    <Entry filename="RtmNet/RtmNet.mdp" />
+  </Entries>
+</Combine>

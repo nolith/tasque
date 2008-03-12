@@ -1,0 +1,1586 @@
+2008-03-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* Initial check in of Tasque to GNOME SVN.
+
+2008-03-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* data/images/tasque-22.png, data/images/tasque-32.png,
+	  data/images/tasque-24.png, data/images/tasque-16.png,
+	  data/images/tasque-48.png, MAINTAINERS: Updated graphics and new valid
+	  MAINTAINERS file
+
+2008-03-09  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Application.cs: Only use notify-sharp when enabled in configure.
+
+2008-03-08  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/TaskWindow.cs: Add support for keybindings to the TaskWindow, starting
+	  with Ctrl+n for creating a new task.
+
+2008-03-07  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Bumping to 0.1.5.
+
+2008-03-07  Boyd Timothy <btimothy@gmail.com> 
+
+	* NEWS: Updated for the 0.1.4 release.
+
+2008-03-07  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Show "Notes..." in a tasks right-click menu.  Fix the
+	  size of the delete and edit items in the menu.  Implement Edit.
+
+2008-03-06  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Rolling back most recent changes.  Looking
+	at a better way of doing this.
+
+2008-03-06  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Modify the conditional that prevents Hide ()
+	  from being called for the Completed group so if a user doesn't
+	  have "Show Completed Tasks" enabled, the completed group won't
+	  appear.
+
+2008-03-06  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Made "Task Filter" related widgets only
+	sensitive after a backend has been configured.  Also added an accessible
+	relationship for the backend combo box and its label.
+
+2008-03-06  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Hook up RowActivated and ButtonPressed events for the
+	  overdueGroup.
+
+2008-03-06  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceCategory.cs: Added code in ContainsTask() to
+	  prevent against null object reference exception.
+
+2008-03-06  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceCategory.cs: Use Novell.IceDesktop instead of
+	  included Novell.ICEDesktop/*.cs files.
+	* src/Backends/IceCore/IceTask.cs: Added
+	  IceDesktopStatus:Novell.IceDesktop.TaskStatus property and fixed up
+	  CreateNote to match the ITask interface.
+	* src/Backends/IceCore/Novell.ICEDesktop,
+	  src/Backends/IceCore/Novell.ICEDesktop/Folder.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/FolderEntry.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/User.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/Teamspace.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/DaemonInterface.cs: No longer
+	  need these files because we're using the classes from
+	  Novell.IceDesktop.dll.
+	* src/Backends/IceCore/IceBackend.cs: Use Novell.IceDesktop instead of
+	  included Novell.ICEDesktop/*.cs files, add DeleteTask() stub, and use
+	  Novell.IceDesktop.DaemonService to get a handle to the daemon.
+	* src/Makefile.am, tasque.mdp: No longer need the Novell.ICEDesktop/*.cs
+	  files because we're using the classes from Novell.IceDesktop.dll.
+	* configure.ac: Use Novell.IceDesktop.pc to get information to compile
+	  against Novell.IceDesktop.dll when using the ICEcore backend.
+
+2008-03-05  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/RemoteControl.cs, src/Makefile.am, configure.ac: Make tasque smart
+	  enough to build without notify-sharp support.
+
+2008-03-05  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/CompletedTaskGroup.cs: Update the date ranges at creation time so the
+	  user's preference of the range is used right off the bat instead of just
+	  showing all completed tasks.
+
+2008-03-04  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/CompletedTaskGroup.cs: Add a slider (Gtk.HScale) to allow the user to
+	  specify how far in the past completed tasks should be shown from. 
+	  Adjust the FilterFunc to pay attention to the range set by the slider.
+	* src/TaskGroup.cs: Added in ExtraWidget:Widget, HideWhenEmpty:bool,
+	  TimeRangeStart:DateTime, and TimeRangeEnd:DateTime properties to allow
+	  the CompletedTaskGroup to add an extra widget (a slider) on the
+	  right-hand side of the TaskGroup header area.
+	* src/Preferences.cs: Added a new preference named, "CompletedTasksRange".
+
+2008-03-03  Brian Merrell <bgmerrell@gmail.com> 
+
+	* src/TaskGroup.cs: clean up some debug code and change HeaderHeight method
+    to a property
+	* src/TaskWindow.cs: clean up some debug code and unnecessary comments
+
+2008-03-03  Brian Merrell <bgmerrell@gmail.com> 
+
+	* src/TaskGroup.cs: added some helper functions to calculate the new task
+	  position
+	* src/TaskWindow.cs: scroll to the new task when it's created
+
+2008-03-03  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs: Added clicked and activated events to Overdue widget
+
+2008-03-03  Johnny Jacob  <jjohnny@novell.com>	
+	
+	* src/Backends/EDS/EDSTask.cs: Added support for Create / Delete
+	/ Modify Task Notes.
+	* src/Backends/EDS/EDSNote.cs: Trimmed EDSNote Class :-).
+
+2008-03-02  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs, src/TaskWindow.cs: An attempt at getting our "scroll to
+	  new task" feature working again.  This code adds up the heights of the
+	  TaskGroups and then attempts to add on enough more based on the new
+	  entry's position in its TreeView.  It's closer, but not exactly the best
+	  yet.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Modified the behavior when a user creates a new task
+	  from the drop-down menu.  If the category selected is not currently
+	  being displayed, the code will switch to the selected category first so
+	  the user will be able to edit the name of the newly-created task.
+
+2008-03-02  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Backends/EDS/EDSBackends.cs: Added DeleteTask.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Use a MenuToolButton instead of a regular button for
+	  the addTaskButton so that a drop-down list can be shown (as an option)
+	  to allow the user to select which category to create the new task in.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: Added a TreeView control to allow the user to
+	  only show specific categories when "All" is selected.
+	* src/TaskWindow.cs: Watch the Preferences.ShowInAllCategory and adjust when
+	  it changes so that if the user happens to be showing the All category.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/AbstractTask.cs: Added a base implementation for
+	  CompareToByCompletionDate().
+	* src/ITask.cs: Added CompareToByCompletionDate (ITask task):int which is
+	  used now to sort in the CompletedTaskGroup.
+	* src/CompletedTaskGroup.cs: Modify the passed-in Tasks TreeModel so that
+	  they are sorted by task completion date.  I added a simple extra
+	  CompletedTasksSortModel class for this.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Show due date if uncomplete task or completion date
+	  if completed task.  Modify due date or completion date depending on
+	  completion status.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyTask.cs: Return true for IsComplete when state =
+	  TaskState.Complete only.
+	* src/Backends/Dummy/DummyBackend.cs: Add the fake task data back in since
+	  this is for debugging.
+	* src/CompletedTaskGroup.cs, src/Makefile.am, tasque.mdp: Add in
+	  CompletedTaskGroup.cs which will show the completed tasks when the user
+	  preference says to do so.
+	* src/TaskGroup.cs: Filter appropriately based on whether show completed
+	  tasks should be shown.
+	* src/TaskWindow.cs: Add CompletedTaskGroup at the bottom of the window.
+	* src/TasqueTreeView.cs: Behave properly for when show completed tasks is
+	  set.  Mark tasks as completed immediately without a timer when show
+	  completed tasks is true.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: Put the "Show completed tasks" checkbox back in.
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Preferences.cs: Added GetBool() and SetBool().
+
+2008-03-01  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs, src/TaskWindow.cs: Rename to proper upper-case method
+	  name getNChildren() -> GetNChildren().
+
+2008-02-29  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskGroup.cs, src/TaskWindow.cs, src/IBackend.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs, RtmNet/Rtm.cs: Added the ability to
+	  delete a task (right click on it)
+
+2008-02-29  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ITask.cs, src/INote.cs, src/NoteDialog.cs, src/AbstractTask.cs,
+	  src/Backends/Sqlite/SqliteTask.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Rtm/RtmNote.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyTask.cs, src/NoteWidget.cs: Removed the concept
+	  of a note Name and Text, now it's only Name
+	
+	  Fixed a bug in the NoteWidget that was crashing on new notes
+
+2008-02-29  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/NoteDialog.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Rtm/RtmBackend.cs, src/NoteWidget.cs, RtmNet/Response.cs,
+	  RtmNet/Rtm.cs: Updated all of the Notes related code in UI and in RTM to
+	  get notes working
+
+2008-02-22  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteBackend.cs: Updated default categories and
+	  stopped populating with dummy tasks
+
+2008-02-22  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteBackend.cs: Fixed up a bug where the default
+	  category was null
+
+2008-02-22  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ISyncEngine.cs, src/ISyncableBackend.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs, src/ISyncableCategory.cs,
+	  src/ISyncableTask.cs, src/ISyncableNote.cs, src/Makefile.am, tasque.mdp:
+	  Cleaned up my previous over-engineering mistake
+
+2008-02-22  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ISyncEngine.cs, src/Makefile.am, tasque.mdp: Added the SyncEngine
+	  interface
+
+2008-02-22  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ISyncableBackend.cs, src/ISyncableCategory.cs, src/ISyncableTask.cs,
+	  src/ISyncableNote.cs, src/Makefile.am, tasque.mdp: Added interfaces to
+	  implement the syncable backend
+
+2008-02-21  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: Check for null being returned by
+	  IBackend.GetPreferencesWidget () to prevent the preferences dialog from
+	  crashing when a backend that doesn't have a preferences widget is loaded
+	  at startup.
+
+2008-02-21  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteBackend.cs: Fixed up final but in SQLite code,
+	  it should all be working great now
+
+2008-02-21  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteCategory.cs, src/Backends/Sqlite/SqliteTask.cs,
+	  src/Backends/Sqlite/Database.cs, src/Backends/Sqlite/SqliteBackend.cs:
+	  First checkin where sqlite backend is running without major bugs
+
+2008-02-21  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskPriority.cs, src/Backends/Sqlite/SqliteCategory.cs,
+	  src/Backends/Sqlite/SqliteTask.cs, src/Backends/Sqlite/Database.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs: More updates, runs now but with
+	  some serious bugs
+
+2008-02-21  Johnny Jacob <johnnyjacob@gmail.com>
+
+	* src/Backend/EDS/*.cs : Added.
+	* configure.ac : Added --enable-backend-eds.
+	* src/Makefile.am : Included EDS directory
+
+2008-02-21  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteCategory.cs, src/Backends/Sqlite/SqliteTask.cs,
+	  src/Backends/Sqlite/Database.cs, src/Backends/Sqlite/SqliteBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: More work on the SQLite backend...
+	  committing for debugging
+
+2008-02-20  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/RemoteControl.cs: Prevent the AllCategory from being returned over
+	  DBus since this would likely just cause problems.
+
+2008-02-20  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs, src/Preferences.cs, src/TasqueTreeView.cs,
+	  src/AllCategory.cs: Add "ShowInAllCategory" preference, which is a
+	  string lits of category names that should be shown in the TaskWindow
+	  when "All" is selected.  If the setting doesn't exist or is empty, tasks
+	  from all categories will be shown.
+
+2008-02-20  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/AllCategory.cs: Return false in ContainsTask () since the AllCategory
+	  can never contain a task.
+
+2008-02-20  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Preferences.cs: Added a SettingChanged event so other components of
+	  Tasque (like the GUI) can adjust things when settings change.
+
+2008-02-20  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Preferences.cs: Added GetStringList() and SetStringList().  Made
+	  existing methods use the document.SelectSingleNode().  Also added error
+	  checking for null/empty argument values.
+	* tasque.mdp: Add System.Xml as a reference so code completion with
+	  System.Xml works in MonoDevelop.
+
+2008-02-19  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskWindow.cs: Make the add new task button available only after a
+	  backend has been configured and initialized and the task window dialog
+	  has been populated
+	* src/Backends/Rtm/RtmBackend.cs: set the configured bool when authorization
+	  has finished successfully 
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Removed "ShowExpanders = false" since we don't
+	  really need this in there and this property is not supported on older
+	  distros (prevented compiling on openSUSE 10.2).
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Bump version to 0.1.4.
+	
+	  			
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyBackend.cs: Moved a bunch of task category and
+	  task construction from the constructor to the Initialize () method so
+	  that when tasque loads at startup, we're not doing much work in the
+	  constructor.
+	* NEWS: Updated for the 0.1.3 release.
+
+2008-02-14  Brian G. Merrell <bgmerrell@gmail.com> 
+
+	* src/TaskGroup.cs:  Remove some debug print statements
+	* src/TaskWindow.cs:  Remove some debug print statements
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: If a new backend is selected that has a
+	  preferences widget and it's not already selected, automatically switch
+	  to that Notebook page when the user selects it.
+	* src/IBackend.cs: Move Tasque.IBackend -> Tasque.Backends.IBackend so that
+	  it's potentially possible for Tasque to be compiled with no backend
+	  built-in.  This is needed so that the Tasque.Backends namespace gets
+	  defined (other source files in Tasque reference it).
+	* src/Application.cs: Look for backends that implement
+	  Tasque.Backends.IBackend.  Disable certain items in the tray icon menu if
+	  the backend is not initialized.
+	* src/Makefile.am: Conditionally build the dummy and RTM backends.  Adjust
+	  EXTRA_DIST to make sure that during a `make dist` that all backend
+	  source files are included.
+	* src/Backends/IceCore/IceBackend.cs: Adjust for Tasque.IBackend ->
+	  Tasque.Backends.IBackend.
+	* configure.ac: Added a "--enable-backend-*" for each backend.  Enable the
+	  RTM backend by default if no other backends are specified.
+
+2008-02-19  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteCategory.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs: Updated to read and write
+	  Categories
+
+2008-02-19  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Sqlite/SqliteCategory.cs, src/Backends/Sqlite/Database.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs, tasque.mdp: Beginnings of sqlite
+	  code in sqlitebackend
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Check for TaskWindow.taskWindow being null in
+	  Reinitialize so this method can be called when the task window has never
+	  been used.
+	* src/Application.cs: If Application.Backend:set is called, always call
+	  TaskWindow.Reinitialize ().  This allows the TaskWindow to appear when a
+	  user initially selects a Task Management Backend.
+
+2008-02-19  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: Moved the RTM preferences into its own file
+	  (inside the Backends/Rtm directory).  Also start using Gtk.Notebook and
+	  dynamically allow the Backend to be specified by the user.
+	* src/TaskWindow.cs: Add static Reinitialize() call that basically wipes out
+	  the old TaskWindow and rebuilds a new one based on a newly selected
+	  backend.
+	* src/Preferences.cs: Added "CurrentBackend" to keep track of which backend
+	  the user has selected.
+	* src/Application.cs: Load available backends at startup and allow the
+	  backend to be set dynamically at runtime.  Disable some of the tasque
+	  menu items when no backend is set.
+	* src/Backends/Rtm/RtmPreferencesWidget.cs: Moved from PreferencesDialog.cs
+	  so that RTM preferences will only be visible when the RTM Backend is
+	  selected.
+	* src/Backends/Rtm/RtmBackend.cs: Move a lot of the stuf that was in the
+	  constructor into the Initialize() method so that RtmBackend could be
+	  constructed during startup by reflections.
+	* src/Backends/IceCore/IceBackend.cs: Rename "ICEcore Backend" -> "Novell
+	  Teaming and Conferencing".
+	* src/Backends/Dummy/DummyBackend.cs: Rename "Dummy Backend" -> "Debugging
+	  System".
+	* tasque.mdp: Add reference to RtmPreferencesWidget.cs.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/IBackend.cs, src/Backends/Sqlite/SqliteBackend.cs,
+	  src/Backends/Rtm/RtmBackend.cs, src/Backends/IceCore/IceBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: Added a Name:string property on
+	  IBackend so that backends can be selected in a preferences dialog by an
+	  end user.  Also added a method to allow backends to provide a
+	  configuration/preference dialog widget.
+	* src/Application.cs: Discover available backends at startup.  This will
+	  eventually be used by tasque to allow a backend to be selected by the
+	  user in the preferences dialog.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceTask.cs: Added implementation for setting many of
+	  the properties so they'll actually get saved to the T+C server. 
+	  Implemented also the code to activate/inactivated/complete/etc. tasks.
+	* src/Backends/IceCore/IceBackend.cs: Added SaveAndUpdateTask () which is
+	  used to save task information on the T+C server.
+
+2008-02-19  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Makefile.am, src/Backends/Sqlite/SqliteBackend.cs, tasque.mdp: Added
+	  Sqlite references for build and made Sqlite conditional in build
+
+2008-02-19  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Makefile.am, src/Backends/Sqlite,
+	  src/Backends/Sqlite/SqliteCategory.cs,
+	  src/Backends/Sqlite/SqliteTask.cs, src/Backends/Sqlite/SqliteNote.cs,
+	  src/Backends/Sqlite/SqliteBackend.cs, tasque.mdp: Added new Sqlite
+	  backend stubbed out and based on Dummy Backend
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceCategory.cs, src/Backends/IceCore/IceTask.cs:
+	  Removed some debug messages.
+	* src/Backends/IceCore/IceBackend.cs: Added an initial implementation for
+	  CreateTask ().  Modified UpdateTask () so it will add a new task.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceCategory.cs: Store the Teamspace and TaskFolder.
+	* src/Backends/IceCore/IceTask.cs: Construct a unique id used for keeping
+	  track of the Gtk.TreeIters.
+	* src/Backends/IceCore/IceBackend.cs: Keep track of the category and task
+	  Gtk.TreeIters so when the user refreshes, we don't get duplicates in the
+	  list.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceCategory.cs: Just store the name and id for now
+	  instead of the Teamspace and TaskFolder.
+	* src/Backends/IceCore/IceBackend.cs: Add in the AllCategory.  Use the right
+	  model for sortedCategories.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add another null check to prevent crashes.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceTask.cs: Fix the HasNotes so that it trims the
+	  Descriptions.  If we don't do this, all tasks appear as if they have
+	  notes.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/IceCore/IceBackend.cs, src/Backends/IceCore/IceCategory.cs,
+	  src/Backends/IceCore/IceNote.cs, src/Backends/IceCore/IceTask.cs:
+	  Initial read-only version of the IceBackend.  Totally NOT really
+	  working, though a task from the ICEcore server does show up in the main
+	  window.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add some null checks in PopulateWindow to prevent
+	  exceptions when using some backends (IceBackend).
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Added "--enable-backend-sqlite" and
+	  "--enable-backend-icecore" so they'll work properly.  Also added an echo
+	  at the end so the user can see what options are enabled.
+	* src/Backends/IceCore/IceBackend.cs: Stub out Configured:bool property so
+	  we'll compile against the latest IBackend.
+	* src/Backends/IceCore/Novell.ICEDesktop,
+	  src/Backends/IceCore/Novell.ICEDesktop/DaemonInterface.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/Folder.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/FolderEntry.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/Teamspace.cs,
+	  src/Backends/IceCore/Novell.ICEDesktop/User.cs: Add Novell.ICEDesktop
+	  items so we don't have to attempt to load the icedaemon.exe assembly at
+	  runtime.  Instead, we'll just use these classes so NDesk DBus can
+	  interface properly.
+	* src/Makefile.am: Use ENABLE_BACKEND_ICECORE instead of ENABLE_ICECORE.
+	* tasque.mdp: Added src/Backends/IceCore/Novell.ICEDesktop references.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/IBackend.cs: Clarify doc on Configured:bool property.
+
+2008-02-18  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Application.cs: Remove stray "new".
+
+2008-02-18  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* configure.ac: Bumped version to 0.1.3... again
+
+2008-02-18  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* NEWS: Updated for the 0.1.2 release.
+
+2008-02-18  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* configure.ac: Rolled back for an official release (which I messed up)
+
+2008-02-18  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* configure.ac: Release for 0.1.2 of tasque
+
+2008-02-18  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* RtmNet/Task.cs: Modified types on a Task to remain a string.  converting
+	  them to data types was causing a problem because they are not always an
+	  integer or a date
+
+2008-02-17  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs: Return the DueDateString in UTC
+	  format so that the dates are set properly on the server.
+
+2008-02-17  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac, src/PreferencesDialog.cs, src/Makefile.am: Added
+	  check for gtk-2.10+ with #if/#else to conditionally use LinkButton
+	  so we can build on older distros.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Bump version to 0.1.2.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* NEWS: Updated for the 0.1.1 release.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* README: Added Website, Bugs/Issues, and Mailing list URLs.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Added static ShowStatus (string statusText) so we can
+	  give users a little bit of feedback about what's going on.  Also tied in
+	  to the backend's sync events to update the status text.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskCalendar.cs: Start the "Choose Date..." calendar with today's date
+	  if the task doesn't have a due date set.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/RemoteControl.cs: Notify the user with notify-sharp when CreateTask is
+	  successful when using the remote (DBus) interface.
+
+2008-02-16  Boyd Timothy <btimothy@gmail.com> 
+
+	* Makefile.am, tomboy-tasque-addin.patch, tomboy-tasque-addin-v2.patch:
+	  Moved the v2 stuff into the base patch (svn can do the revisioning).
+	  Also added some additional try/catches to prevent crashes when Tasque
+	  isn't running.
+
+2008-02-15  Boyd Timothy <btimothy@gmail.com> 
+
+	* tasque-opensuse-1click.png: Adding sweet one-click-install icon created by
+	  Andrew J. to the project.
+	* Makefile.am: Add tomboy-tasque-addin-v2.patch to the dist.
+
+2008-02-15  Boyd Timothy <btimothy@gmail.com> 
+
+	* tomboy-tasque-addin-v2.patch: New Tomboy Tasque Addin that uses a
+	  MenuToolButton instead of burying itself in the Tools menu.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Bump version to 0.1.1.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* NEWS: Updated for the 0.1.0 release.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* data/Makefile.am: Fix `make distcheck` by including the dbus service.in
+	  file in EXTRA_DIST and clean off the service file in DISTCLEANFILES.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* Makefile.am, tomboy-tasque-addin.patch: Since we can't commit new features
+	  into Tomboy right now (GNOME is under feature freeze), here's the patch
+	  for a rudimentary Tomboy Tasque Add-in.  It should apply to the latest
+	  tomboy svn.
+
+2008-02-14  Brian G. Merrell <bgmerrell@gmail.com> 
+
+	* src/PreferencesDialog.cs: Changed some wording to save space and be
+	  more clear.  made the dialog slightly wider.
+	* src/TaskWindow.cs: No longer opening the preferences dialog from
+	  TaskWindow.cs
+	* src/Application.cs: Opening the preferences dialog from
+	  Application.cs instead of TaskWindow.cs (it was causing some
+	  problems)
+
+2008-02-14  Scott Reeves <scottreeves4@gmail.com> 
+
+	* src/PreferencesDialog.cs: Keep the desired shape of the dialog but remove
+	  the hard coded total size so large fonts do not get clippped
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Comment out "Show Completed Tasks" stuff for now
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/tasque.pc.in, src/Makefile.am, configure.ac: Added src/tasque.pc.in so
+	  other C# apps (aka Tomboy) can call and create tasks.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add SelectAndEdit as a static call so the remote
+	  interface can select and edit a task.
+	* src/RemoteControl.cs: Rename AddTask -> CreateTask.  Add GetCategoryNames
+	  ().
+	* create-task.py: Python test script to create a task via DBus.
+
+2008-02-14  Scott Reeves <scottreeves4@gmail.com> 
+
+	* src/PreferencesDialog.cs: Label on the button made it seem like the
+	  backend was telling me that it had authorized, rather than saying "once
+	  you have authorized ..."
+	
+	  Bottom button was clipped with the size hard coded.
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/Backends/Dummy/DummyBackend.cs:  flag the dummy backend as configured
+		by default so the preferences dialog doesn't come up first
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskWindow.cs:  Open preferences window first if no backend is
+		configured.
+	* src/IBackend.cs:  Add a Configured bool to interface
+	* src/Application.cs:  Provide a public ShowPreferences method to open
+		preferences dialog
+	* src/Backends/Rtm/RtmBackend.cs:  adhere to interface change
+	* src/Backends/Dummy/DummyBackend.cs:  adhere to interface change
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am: Add $(ICECORE_LIBS) so that if someone builds using
+	  --enable-icecore, things will work!
+	* src/Backends/IceCore/IceBackend.cs: Tiny little additions.  Might need to
+	  put this backend on hold until deskice has better task support (besides
+	  going out-of-band against ics).
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskGroup.cs:  added getNChildren method that returns number of
+		children for the treeview
+	* src/TaskWindow.cs:  Scrolling to the new task semi-intelligently instead of
+	  to the bottom
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am: Conditionally compile the IceBackend.
+	* src/Backends/IceCore/IceBackend.cs: Stubbed-out more implementation of the
+	  ICEcore backend.
+	* configure.ac: Add --enable-icecore.  Remove ICalParser.Net.
+	* Makefile.am, ICalParser.Net, ICalParser.Net/AssemblyInfo.cs,
+	  ICalParser.Net/Parser.cs, ICalParser.Net/Triple.cs,
+	  ICalParser.Net/Token.cs, ICalParser.Net/COPYING,
+	  ICalParser.Net/ICalParser.Net.mdp, ICalParser.Net/Makefile.am,
+	  ICalParser.Net/ICalUtil.cs, ICalParser.Net/ParserError.cs,
+	  ICalParser.Net/ical2rdf.cs, ICalParser.Net/README.txt,
+	  ICalParser.Net/Emitter.cs, ICalParser.Net/Scanner.cs,
+	  ICalParser.Net/TripleEmitter.cs, tasque.mds: Remove ICalParser.Net.  It's
+	  GPL (YUCK!).
+
+2008-02-14  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/RemoteControl.cs, src/RemoteControlProxy.cs, src/Makefile.am,
+	  tasque.mdp: Add DBUS remote control class.
+	* src/Application.cs: Register RemoteControl on Tasque startup, make Tasque
+	  single-instance via DBUS.
+	* configure.ac, data/Makefile.am, data/org.gnome.Tasque.service.in: Build
+	  infrastructure for installing Tasque DBUS service.
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskWindow.cs:  Was using wrong value to scroll to bottom on new task
+		creation.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am, configure.ac, tasque.mdp: Add ndesk-dbus and
+	  ndesk-dbus-glib into the build system.
+
+2008-02-14  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskWindow.cs:  Scroll to the bottom when a new task is created
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am, configure.ac, Makefile.am, ICalParser.Net,
+	  ICalParser.Net/AssemblyInfo.cs, ICalParser.Net/Parser.cs,
+	  ICalParser.Net/Triple.cs, ICalParser.Net/Token.cs,
+	  ICalParser.Net/COPYING, ICalParser.Net/ICalParser.Net.mdp,
+	  ICalParser.Net/Makefile.am, ICalParser.Net/ICalUtil.cs,
+	  ICalParser.Net/ParserError.cs, ICalParser.Net/ical2rdf.cs,
+	  ICalParser.Net/README.txt, ICalParser.Net/Emitter.cs,
+	  ICalParser.Net/Scanner.cs, ICalParser.Net/TripleEmitter.cs, tasque.mds:
+	  Add ICalParser.Net for eventual use by the ICEcore Backend.
+
+2008-02-14  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* RtmNet/Rtm.cs: Remove ampersand hacks.  No longer necessary.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* configure.ac: Add ndesk-dbus-1.0 as a build requirement.  This will be
+	  used to expose some DBus interfaces so things like Tomboy can create
+	  tasks.  Additionally, the ICEcore Backend will use this.
+	* src/Backends/IceCore, src/Backends/IceCore/IceBackend.cs,
+	  src/Backends/IceCore/IceCategory.cs, src/Backends/IceCore/IceNote.cs,
+	  src/Backends/IceCore/IceTask.cs, src/Makefile.am, tasque.mdp: Stubbing
+	  out a new backend for ICEcore.
+
+2008-02-14  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/NoteWidget.cs: Show and hide the page widgets when we switch back and
+	  forth between notebook pages.  This makes it so they shrink and grow in
+	  size accordingly.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/NoteDialog.cs, src/NoteWidget.cs: Fixed up notes to work without a
+	  real note being present
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/NoteDialog.cs: Added an add button and hooked up an event
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* TODO: Changed the text of the TODO file to link directly to our RTM Tasque
+	  list (which is now published).
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am, src/NoteDialog.cs, src/NoteWidget.cs, tasque.mdp: Added
+	  NoteDialog.cs and NoteWidget.cs.
+	* src/TaskGroup.cs, src/TaskWindow.cs: Expose a RowActivated event and pop
+	  open NoteDialogs when rows are activated.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs: Removed unused nameEntry to kill one of the
+	  compiler warnings.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs: Fixed the sizing of the about dialog
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/PreferencesDialog.cs: small tweak on the preferences dialog
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs: Fixed the about a little
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskCalendar.cs, src/Makefile.am, src/TasqueTreeView.cs, tasque.mdp:
+	  Added TaskCalendar to select due dates from a calendar
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/Makefile.am:  remove 256 icon
+	* data/images/Makefile.am:  remove 256 icon
+	* data/images:  remove 256 icon
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Added a statusbar so we have a grabber to more easily
+	  resize the window.  We can eventually tie in with events spit out by the
+	  IBackend and display them.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/tasque.in, src/Makefile.am, RtmNet/Makefile.am: Updated to use the
+	  right lib/tasque folder (on 64 bit)
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add the number of tasks in a category in parenthesis in
+	  the ComboBox.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TasqueTreeView.cs, data/tasque.desktop.in: updated the desktop file and
+	  also fixed up compare on modified event
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs: Removed extra
+	  comments
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add a little bit of padding to the top area of the
+	  window and set the WrapWidth on the category ComboBox to 1 so that it
+	  will never popup upward.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Makefile.am: Fixed build to pass make distcheck
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/Application.cs: Now saves off the size and position
+	  of the window
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  centered text, window no longer resizeable,
+		changed default size of window to be more aesthetic.
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images/Makefile.am:  add clock icon images to makefile
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs: Fixed the name of the main window
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs: Beautified the main window
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskGroup.cs: Updated headers of tasks
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images:  tasque icon updates (tango looking)
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs, RtmNet/Rtm.cs: Fixed bug where backend
+	  sets no date to a bogus date
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/TasqueTreeView.cs: Updated the way dates are
+	  displayed in the list
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TasqueTreeView.cs: Added dates in date selector
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Process events manually before looking for the
+	  TreeIter.  This allows auto select and edit when creating a new task
+	  against threaded backends like RTM.
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images:  tasque icon updates
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/Backends/Dummy/DummyBackend.cs: Fixed up the
+	  DummyBackend to initialize correctly
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ICategory.cs, src/TasqueTreeView.cs, src/Backends/Rtm/RtmCategory.cs,
+	  src/Backends/Dummy/DummyCategory.cs, src/AllCategory.cs: Fixed up
+	  categories so it didn't depend on object comparison on filtering tasks. 
+	  Did this by added a require method on ICategory
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Don't use the passed-in model as the TreeModel
+	  initially.  Also escape the task name so it doesn't get interpreted as
+	  Pango Markup.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Only load 12 animation icons instead of 13.  Also
+	  modify "Next Week -> In 1 Week".
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images/clock-16-6.png:  Fixed broken icon
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/IBackend.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: Added events in the backend so we
+	  know when it's ready to display data
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Makefile.am: Removed clock-16-12.png.
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images:  Change color plain Jane inkscape timer icons (using tango
+	  color palette)
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Adjust to use 12 icons instead of 13.
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images:  Added plain Jane inkscape timer icons
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Added EnterEditMode () to select and automatically put
+	  the row into editing the task name.
+	* src/TaskWindow.cs: Added EnterEditMode ().
+	* src/TasqueTreeView.cs: Add in title columns even though we don't display
+	  them just in case this helps out accessibility.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Stubbed out EnterEditMode.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Add a Name:string property.  Add ContainsTask.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyBackend.cs: Pay attention to the ICategory passed
+	  in during CreateTask.  Use the "Work" category as the default list.
+
+2008-02-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* RtmNet/Rtm.cs: Support ampserand ("&") in task names.  This is rough,
+	  inefficient, and probably should apply to additional text fields, but it
+	  gets the job done.  Fixes issue 2.
+
+2008-02-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/tasque.in: Specify /bin/bash instead of /bin/sh, since "exec -a" is
+	  bash-only.  Fixes issue 1.
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	Animate the inactive state (the period between when the user marks a
+	task as complete and when it actually gets completed and disappears
+	from the list).
+
+	* src/Makefile.am: Include the inactivate animation images as resources so
+	  they can be retrieved via Utilities.GetIcon ().
+	* src/TasqueTreeView.cs: Added animation for the inactive timeout.  It
+	  WORKS!!!!
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Removed unused class variable "filterCategory".
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* README: Obviously I should not be committing this late!
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* README: I got the 100th commit!
+
+2008-02-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Preferences.cs: Add code to validate preferences to make sure that
+	  certain required defaults are set so the code doesn't puke.
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs: Updated to
+	  create, delete, and save notes (well, kinda)
+
+2008-02-13  Brian Merrell <bgmerrell@gmail.com>
+
+	* data/images:  Added placeholder pics for clock timer
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ITask.cs, src/AbstractTask.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Changed AddNode to CreateNode(with
+	  parameters)
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ITask.cs, src/AbstractTask.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Updated task with a SaveNote option 
+
+2008-02-13  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/INote.cs, src/Backends/Rtm/RtmNote.cs,
+	  src/Backends/Dummy/DummyNote.cs: Added interface to set values on notes
+
+2008-02-12  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Remove some debug print statements and added
+	  actual logging information.
+
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmNote.cs,
+	  RtmNet/RtmNet.mdp, RtmNet/Task.cs, RtmNet/Makefile.am, RtmNet/Note.cs:
+	  Added new Note class to RTMNet and hooked up Notes to be Read from RTM
+	  and displayed
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Preferences.cs: Add InactivateTimeoutKey, GetInt (), and SetInt ().
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs: Hooked up rename task
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs, RtmNet/Rtm.cs: Hooked up to create new
+	  tasks in RTM
+
+2008-02-12  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Preferences dialog now checks connection status
+		based on precense of AuthToken in config
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/IBackend.cs, src/Backends/Rtm/RtmCategory.cs,
+	  src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs, RtmNet/Rtm.cs: Added Categories to
+	  Tasks and updated backend to support moving tasks to new categories
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Added code to respond to the Task Name being edited
+	  so it can be updated/saved.
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ITask.cs, src/AbstractTask.cs, src/TasqueTreeView.cs: Fixed up tasks so
+	  if clicked off, the timer is removed from them
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs, src/TaskWindow.cs, src/TasqueTreeView.cs,
+	  src/Backends/Dummy/DummyTask.cs: Added code to refilter the tasks based
+	  on the selected category.
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs, RtmNet/Rtm.cs: Added methods to complete
+	  and uncomplete tasks in RTM
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/Rtm.cs: Added support for changing the due date
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmCategory.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/List.cs, RtmNet/Response.cs, RtmNet/Rtm.cs, RtmNet/Task.cs:
+	  Cleaned up Backend a bit and added more functions
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TaskWindow.cs, src/Backends/Rtm/RtmBackend.cs: fixed bug that was
+	  crashing on categories
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ICategory.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyCategory.cs: Updated Categories
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/RtmConfigurationSettings.cs, RtmNet/RtmNet.mdp,
+	  RtmNet/Response.cs, RtmNet/Rtm.cs, RtmNet/RtmConfiguationManager.cs,
+	  RtmNet/Makefile.am: Updated to set the priority on the backend in RTM
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/PreferencesDialog.cs, src/Backends/Rtm/RtmBackend.cs: Modify prefs
+	  calls.
+	* src/ICategory.cs: Comment out all unnecessary/weird/uncommented stuff.
+	* src/TaskWindow.cs: Get the Category ComboBox working.
+	* src/Preferences.cs: Use simple Get () and Set () methods.
+	* src/Makefile.am, tasque.mdp: Add AllCategory.cs.
+	* src/TasqueTreeView.cs: Set fixed widths on all the columns.
+	* src/Backends/Dummy/DummyBackend.cs: Add All category, some additional
+	  categories, and add categories onto all the tasks.
+	* src/AllCategory.cs: Special category for showing the All category.
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs, RtmNet/Utils.cs: Removed some comments
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/Utils.cs, RtmNet/Task.cs: Fixed up tasks so they work without the
+	  RTM backend (for creating new tasks)
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Switch the location of the Add Task button and the
+	  Category drop-down.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: HoverSelection so that you don't have to click a
+	  task before you can edit its options.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Remove the debug statement in OnNumberOfTasksChanged.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Call Refilter () in OnRealized () to make sure
+	  completed items do not appear initially.
+	* src/Backends/Dummy/DummyBackend.cs: Add a completed task for testing.
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs: Added support for updating dates
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/TasqueTreeView.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Rtm/RtmBackend.cs: Added state support so we can really use
+	  the RTM Backend
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Remove DummyBackend from comments since we can now
+	  launch it from the command-line.
+	* src/Application.cs: Add code to allow us to use the DummyBackend by
+	  specifying it as a command-line argument.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Use Task.State instead of Task.IsComplete.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs, src/TasqueTreeView.cs: Add code to hide/show a TaskGroup
+	  depending on whether it contains tasks or not.  Also, as the number of
+	  tasks changes for a group, hide/show appropriately.
+
+2008-02-12  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Show completed task toggle button implemented
+	* src/Preferences.cs:  Added config field for ShowCompletedTasks
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Adjust the inactive time to be 5 seconds and also
+	  refilter the list better when a task is completed.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Filter out deleted & completed tasks.  Also
+	  refilter/rebuild the treeview when a task is deleted.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyTask.cs, src/Backends/Dummy/DummyBackend.cs: Add
+	  task id, store the backend in the dummy task, and update the task in the
+	  model when the task changes.
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/ITask.cs, src/INote.cs, src/AbstractTask.cs, src/Makefile.am,
+	  src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmNote.cs,
+	  src/Backends/Dummy/DummyTask.cs, src/Backends/Dummy/DummyNote.cs,
+	  RtmNet/RtmNet.mdp, tasque.mdp, tasque.mds: Added the iNote, RtmNote, and
+	  DummyNote classes.
+	
+	  Also added new interfaces on Tasks
+
+2008-02-12 Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Added link button, show completed tasks toggle,
+		and rtm logo.
+	* src/Makefile.am:  Added rtmLogo.png
+	* data/images/Makefile.am:  Added rtmLogo.png
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Start implementation of the inactivate timer.
+	* src/Backends/Dummy/DummyTask.cs: Implement Activate (), Inactivate (), and
+	  Complete ().
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/IBackend.cs, src/Application.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: Threaded the backend on RTM to read
+	  the tasks
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/IBackend.cs, src/Application.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: Changed test to Refresh method
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/AbstractTask.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Add SupportsMultipleNotes:bool,
+	  State:TaskState, Activate(), Inactivate (), and Delete ().
+	* src/TaskState.cs, src/Makefile.am, tasque.mdp: Add TaskState.
+	* src/TasqueTreeView.cs: Use Task.Activate () and Task.Inactivate ().
+
+2008-02-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/Utils.cs, RtmNet/Task.cs: Fixed up date parsing and connected up
+	  the compare function
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TasqueTreeView.cs: Do the right thing when clicking the toggle button.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Add a commented-out line for switching to RtmBackend.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/IBackend.cs, src/Makefile.am, src/Backends/IBackend.cs, tasque.mdp:
+	  Moved IBackend.cs from src/Backends/ -> src/ since it seems more clean
+	  this way (all of our other interfaces are defined in src/).
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskGroup.cs: Make sure that tasks with no due date fall into the very
+	  last category possible.
+
+2008-02-12  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/AbstractTask.cs: New abstract class that implements CompareTo.
+	* src/Makefile.am, tasque.mdp: Add AbstractTask.cs.
+	* src/Backends/Dummy/DummyTask.cs: Inherit AbstractTask.
+
+2008-02-11  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Cleaned up the preferences dialog a little bit.
+	  Added different widgets for a user that is authed and a user that is not.
+	  Temporarily using authStatus, but we need something more accurate.  I would
+	  like to make the labels wrap instead of stretching the window.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/Response.cs, RtmNet/Utils.cs, RtmNet/Rtm.cs, RtmNet/Task.cs:
+	  Updated Rtm class to read tasks and populate the model
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyBackend.cs: Added a fake task with no due date.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs:
+	  Rename Compare -> CompareTo.
+	* src/TaskGroup.cs: Remove the VBox spacing.  It was putting weird spaces
+	  after the category names.
+	* src/Backends/Dummy/DummyTask.cs: Rename Compare -> CompareTo and fix the
+	  CompareTo to sort properly.
+	* src/Backends/Dummy/DummyBackend.cs: Add in some fake tasks.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Backends/Dummy/DummyBackend.cs: Added some extra fake tasks.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Utilities.cs: Removed "break" after return statements to prevent
+	  compiler warnings.
+	* src/TaskGroup.cs: New widget to show grouped tasks in the TaskWindow.
+	* src/ITaskDivider.cs: Don't need to use ITaskDivider anymore.  Replacing it
+	  with TaskGroup.
+	* src/TaskWindow.cs: Use TaskGroup to show the tasks.  Moved all the
+	  TreeView code -> TasqueTreeView.
+	* src/Makefile.am: Remove ITaskDivider and add TaskGroup.
+	* src/TasqueTreeView.cs: Build all the columns/etc. here.
+	* src/Backends/Rtm/RtmBackend.cs, src/Backends/IBackend.cs,
+	  src/Backends/Dummy/DummyBackend.cs: Rename AllTasks -> Tasks.  Removed
+	  FilteredTasks.  Rename TaskLists -> Categories.
+	* tasque.mdp: Remove ITaskList and replace it with TaskGroup.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Dummy/DummyCategory.cs: Added category support into
+	  RtmBackend.  Added new properties in a ICategory
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Utilities.cs: Added GetLocalizedDayOfWeek (DayOfWeek):string.
+	* src/TaskWindow.cs: Added code to start presenting the user with a
+	  drop-down list for modifying a task's due date.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Backends/Rtm/RtmBackend.cs, RtmNet/List.cs, RtmNet/Response.cs,
+	  RtmNet/Rtm.cs: Added test code that gets the list of lists from RTM
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/Backends/IBackend.cs, src/Backends/Dummy/DummyBackend.cs,
+	  RtmNet/RtmConfigurationSettings.cs, RtmNet/RtmApiException.cs,
+	  RtmNet/List.cs, RtmNet/User.cs, RtmNet/Contacts.cs,
+	  RtmNet/RtmWebException.cs, RtmNet/Groups.cs,
+	  RtmNet/RtmException.cs, RtmNet/SignatureRequiredException.cs,
+	  RtmNet/Categories.cs, RtmNet/Enums.cs, RtmNet/AssemblyInfo.cs,
+	  RtmNet/ResponseXmlException.cs, RtmNet/Response.cs, RtmNet/Tags.cs,
+	  RtmNet/DateGranularity.cs,
+	  RtmNet/AuthenticationRequiredException.cs, RtmNet/Utils.cs,
+	  RtmNet/Auth.cs, RtmNet/ApiKeyRequiredException.cs, RtmNet/Rtm.cs,
+	  RtmNet/Task.cs, RtmNet/Methods.cs,
+	  RtmNet/RtmConfiguationManager.cs, RtmNet/GroupSearchResults.cs:
+	  Swiched out files to be unix files and added a Calvin Action
+
+2008-02-11  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Basic authentication process added
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* RtmNet/Enums.cs, RtmNet/Rtm.cs: Removed all other services and fixed
+	  up the URLs for RTM
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Preferences.cs, src/Backends/Rtm/RtmBackend.cs: Added more
+	  authentication code for initial status
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Preferences.cs, src/Backends/Rtm/RtmBackend.cs, RtmNet/Rtm.cs,
+	  tasque.mdp: Updated RtmBackend with authentication code
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs, src/Backends/Rtm/RtmCategory.cs,
+	  src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs,
+	  RtmNet/Rtm.cs, tasque.mdp: Added RtmBackend to Application with
+	  static method to call it
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/ITaskDivider.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Add HasNotes:bool property.
+	* src/TaskWindow.cs: Show the notes column.  Also stub out the due date
+	  column.
+	* src/Makefile.am: Include note.png as a resource that's built into the
+	  assembly.
+	* data/images/note-22.svg, data/images/Makefile.am, data/images/note-16.png:
+	  New "note" icon.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* RtmNet/RtmNet.mdp: Added RtmNet as a dependency
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* configure.ac, Makefile.am, RtmNet/List.cs, RtmNet/RtmApiException.cs,
+	  RtmNet/RtmConfigurationSettings.cs, RtmNet/Contacts.cs,
+	  RtmNet/User.cs, RtmNet/Groups.cs, RtmNet/RtmWebException.cs,
+	  RtmNet/SignatureRequiredException.cs, RtmNet/RtmException.cs,
+	  RtmNet/RtmNet.mdp, RtmNet/Categories.cs, RtmNet/Enums.cs,
+	  RtmNet/example_app.config, RtmNet/AssemblyInfo.cs,
+	  RtmNet/License.txt, RtmNet/ResponseXmlException.cs,
+	  RtmNet/Response.cs, RtmNet/Tags.cs, RtmNet/DateGranularity.cs,
+	  RtmNet/AuthenticationRequiredException.cs, RtmNet/Utils.cs,
+	  RtmNet/Auth.cs, RtmNet/ApiKeyRequiredException.cs, RtmNet/Rtm.cs,
+	  RtmNet/Task.cs, RtmNet/Methods.cs,
+	  RtmNet/RtmConfiguationManager.cs, RtmNet/GroupSearchResults.cs,
+	  RtmNet/Makefile.am, tasque.mdp: Added the RtmNet library to make Web
+	  2.0 calls into RTM
+
+2008-02-11  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Added a skeleton dialog for preferences
+	* src/Preferences.cs:  Stripped out uneeded code
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Added a TODO note about watching mouse hover on the
+	  TreeView.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/ITaskDivider.cs, src/TaskWindow.cs, src/TaskPriority.cs,
+	  src/Makefile.am, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs, tasque.mdp: Added TaskPriority.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/ITaskDivider.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Added Completed() and Reopen() methods.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ITask.cs, src/ITaskDivider.cs, src/Backends/Rtm/RtmTask.cs,
+	  src/Backends/Dummy/DummyTask.cs: Updated ITask to have
+	  CompletionDate:DateTime and IsComplete:bool properties.
+	* src/TaskWindow.cs: Add a checkbox column.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* RtmNet, RtmNet/RtmNet.mdp, tasque.mdp, tasque.mds: Added RtmNet to
+	  Project
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs, src/Makefile.am, src/Backends/Dummy,
+	  src/Backends/Dummy/DummyTask.cs, src/Backends/Dummy/DummyBackend.cs,
+	  src/Backends/Dummy/DummyCategory.cs, tasque.mdp: Added a DummyBackend for
+	  testing until the RtmBackend is ready.
+	* src/Backends/Rtm/RtmTask.cs: Fixed the namespace from Tasque ->
+	  Tasque.Backends.Rtm.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ISpecialTask.cs, src/ITaskDivider.cs, src/ICategory.cs,
+	  src/TaskWindow.cs, src/Makefile.am, src/Backends/Rtm/RtmCategory.cs,
+	  src/Backends/Rtm/RtmTaskList.cs, src/Backends/Rtm/RtmBackend.cs,
+	  src/ITaskList.cs, tasque.mdp: Rename ITaskList -> ICategory and
+	  ISpecialTask -> ITaskDivider.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Use IBackend instead of ITaskBackend.
+	* src/Backends/Rtm/RtmTaskBackend.cs, src/Backends/Rtm/RtmBackend.cs: Rename
+	  RtmTaskBackend -> RtmBackend.
+	* src/Backends/Rtm/RtmTaskManager.cs: Moved RtmTaskManager functionality ->
+	  RtmBackend.
+	* src/Backends/IBackend.cs, src/Backends/ITaskBackend.cs: Rename
+	  ITaskBackend -> IBackend.
+	* src/Backends/ITaskManager.cs: Moved ITaskManager stuff to IBackend.
+	* tasque.mdp: Update references to changed file names.
+
+2008-02-11  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/RtmTask.cs, src/TaskManager.cs: Moved to Backends/Rtm/.
+	* src/TaskWindow.cs: Use the backend interfaces instead of hardcoding
+	  specifically to a certain one.
+	* src/Makefile.am: Added ITaskList.cs, compile Backends/*.cs and
+	  Backends/Rtm/*.cs.
+	* src/Backends/Rtm/RtmTaskBackend.cs: RTM's ITaskBackend implementation.
+	* src/Backends/Rtm/RtmTaskManager.cs: RTM's ITaskManager implementation.
+	* src/Backends/Rtm/RtmTaskList.cs: RTM's ITaskList implementation.
+	* src/Backends/Rtm/RtmTask.cs: RTM's ITask implementation.
+	* src/Backends/ITaskBackend.cs: Interface that backends must implement to
+	  provide tasks for Tasque.
+	* src/Backends/ITaskManager.cs: Task manager where all the tasks and such
+	  are found.
+	* src/ITaskList.cs: The interface for a task list.  Like a list that tasks
+	  belong to.
+	* Makefile.include: We don't use this right now, but maybe in the future.
+	* tasque.mdp: Added all the backend files.
+
+2008-02-11  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/RtmDeveloperKey.txt: Email with RTM Developer key
+
+2008-02-10  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs: Started working on code to allow a user to modify the
+	  text of a task.  Should probably reference what I did in Tomboy to get
+	  this working more quickly.
+	* src/TaskManager.cs: Added CreateTask ().
+
+2008-02-10  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/ISpecialTask.cs: Fixed a sorting problem of the special task groups.
+
+2008-02-10  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/TaskWindow.cs, src/TaskManager.cs, src/TasqueTreeView.cs, tasque.mdp,
+	  tasque.mds: Stubbed out a TaskManager and some supporting task code to
+	  start working on some GUI concepts.
+
+2008-02-09  Boyd Timothy <btimothy@gmail.com> 
+
+	* TODO: Added a couple TODO/notes.
+
+2008-02-09  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Application.cs: Add "New Task ..." item to Tasque's right-click toolbar
+	  menu.
+	* src/Makefile.am: Add TasqueTreeView.cs.
+	* src/TasqueTreeView.cs: Stub to hopefully do cool things with this later.
+	* src/TaskWindow.cs: Add "Add Task" button.  Stub out lists combobox.  Allow
+	  AddTask to be called from other classes.
+	* tasque.mdp: Addeed TasqueTreeView.cs.
+
+2008-02-09  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Utilities.cs: Added GetPrettyPrintDate().
+	* src/CellRendererDate.cs, src/DateButton.cs: New files for special Date UI
+	  elements.
+	* src/Makefile.am: Build CellRendererDate.cs and DateButton.cs.
+	* tasque.mdp: Enabled makefile integration so that when you build in
+	  MonoDevelop, it's really just using the makefiles.  Also added the
+	  assembly references so code completion will work in MonoDevelop.
+
+2008-02-08  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs: Fixed the about screen homepage
+
+2008-02-08  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/Application.cs: Fixed up broken boilerplate stuff
+	* src/TaskWindow.cs: Fixed up broken boilerplate stuff
+
+2008-02-08  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* configure.ac: Fixed project to configure
+
+2008-02-08  Boyd Timothy <btimothy@gmail.com>
+
+	* TODO: Added an item
+
+2008-02-08  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* ALL FILES: Initial checkin of code
+

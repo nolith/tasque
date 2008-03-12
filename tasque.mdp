@@ -1,0 +1,89 @@
+<Project name="tasque" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Debug" assembly="tasque" />
+      <Build debugmode="True" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Release" assembly="tasque" />
+      <Build debugmode="False" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="src/Application.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Defines.cs.in" subtype="Code" buildaction="Nothing" />
+    <File name="src/Logger.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Preferences.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/PreferencesDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TrayLib.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Utilities.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/CellRendererDate.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/DateButton.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskTreeView.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/ITask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends" subtype="Directory" buildaction="Compile" />
+    <File name="src/Backends/Rtm" subtype="Directory" buildaction="Compile" />
+    <File name="src/Backends/Rtm/RtmBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Rtm/RtmTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/ICategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Rtm/RtmCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Dummy" subtype="Directory" buildaction="Compile" />
+    <File name="src/Backends/Dummy/DummyBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Dummy/DummyCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Dummy/DummyTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskPriority.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskGroup.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/AbstractTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/IBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskState.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/INote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Dummy/DummyNote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Rtm/RtmNote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/AllCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/TaskCalendar.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/NoteDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/NoteWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/IceCore" subtype="Directory" buildaction="Compile" />
+    <File name="src/Backends/IceCore/IceBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/IceCore/IceCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/IceCore/IceNote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/IceCore/IceTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/RemoteControl.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/RemoteControlProxy.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Sqlite/SqliteBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Sqlite/SqliteCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Sqlite/SqliteNote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Sqlite/SqliteTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Sqlite/Database.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Rtm/RtmPreferencesWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/CompletedTaskGroup.cs" subtype="Code" buildaction="Compile" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="glib-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="gdk-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="gtk-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="notify-sharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=2df29c54e245917a" />
+    <ProjectReference type="Assembly" localcopy="True" refto="RtmNet/RtmNet.dll" />
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <ProjectReference type="Gac" localcopy="True" refto="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099" />
+    <ProjectReference type="Gac" localcopy="True" refto="NDesk.DBus.GLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099" />
+    <ProjectReference type="Gac" localcopy="True" refto="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <ProjectReference type="Gac" localcopy="True" refto="Mono.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  </References>
+  <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="True" RelativeMakefileName="Makefile.am" IsAutotoolsProject="True" RelativeConfigureInPath=".">
+    <BuildFilesVar />
+    <DeployFilesVar />
+    <ResourcesVar />
+    <OthersVar />
+    <GacRefVar />
+    <AsmRefVar />
+    <ProjectRefVar />
+  </MonoDevelop.Autotools.MakefileInfo>
+</Project>

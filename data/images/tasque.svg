@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="/home/calvin/code/tasky/data/images"
+   sodipodi:docname="tasky.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/calvin/code/tasky/data/images/tasky-256.png"
+   inkscape:export-xdpi="67.760002"
+   inkscape:export-ydpi="67.760002">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.61349736"
+     inkscape:cx="-119.83098"
+     inkscape:cy="905.06846"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     showguides="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1152"
+     inkscape:window-x="0"
+     inkscape:window-y="21" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#eeeeec;fill-rule:evenodd;stroke:#555753;stroke-width:33.60154343;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -1503.1992,-170.83705 L -1503.1992,115.5614 L -1216.8008,115.5614 L -1216.8008,-170.83705 L -1503.1992,-170.83705 z "
+       id="path2172"
+       inkscape:export-filename="/home/calvin/code/tasky/data/images/tasky-48.png"
+       inkscape:export-xdpi="12.71"
+       inkscape:export-ydpi="12.71" />
+    <path
+       style="fill:#ce5c00;stroke:#ce5c00;stroke-width:45.33768463;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5102"
+       d="M -1417.5164,-54.770532 C -1406.8274,-47.708522 -1398.2116,-38.297819 -1389.6001,-28.915163 C -1379.0687,-15.301258 -1368.9907,-1.3430004 -1358.5581,12.34821 C -1352.7265,19.895106 -1347.1338,27.587691 -1342.2662,35.786105 C -1341.1481,38.964137 -1338.5517,41.671857 -1336.9206,44.167032 C -1365.5836,59.744548 -1364.7236,65.277742 -1359.8744,41.4654 C -1354.5507,15.022872 -1343.7478,-9.8123823 -1333.0241,-34.391976 C -1318.0313,-68.88434 -1300.2158,-101.51521 -1277.3163,-131.28425 C -1264.4623,-148.12727 -1248.5179,-161.9012 -1231.1523,-173.77123 L -1202.6688,-184.96898 C -1220.6301,-173.40426 -1237.1671,-159.79771 -1250.4603,-142.865 C -1273.5438,-113.50057 -1291.6289,-81.217243 -1306.2318,-46.755228 C -1316.7248,-22.604696 -1327.449,1.8290553 -1332.1643,27.91764 C -1336.0803,49.941889 -1332.8167,50.284389 -1363.5655,61.253707 C -1365.6177,58.095551 -1368.1281,55.163739 -1369.464,51.453906 C -1374.03,43.289039 -1379.3489,35.614025 -1384.9497,28.117235 C -1395.0868,14.339547 -1405.1217,0.47010689 -1415.8381,-12.859362 C -1424.3773,-21.964634 -1432.8463,-31.322974 -1443.8314,-37.511223 L -1417.5164,-54.770532 z "
+       inkscape:export-filename="/home/calvin/code/tasky/data/images/tasky-48.png"
+       inkscape:export-xdpi="12.71"
+       inkscape:export-ydpi="12.71" />
+  </g>
+</svg>

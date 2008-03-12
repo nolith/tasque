@@ -1,0 +1,41 @@
+Tasque NEWS
+
+Website: http://live.gnome.org/Tasque
+Bugs/Issues: http://code.google.com/p/tasque/issues/list
+Mailing list: http://groups.google.com/group/tasque
+
+Version 0.1.4
+* Added "Show Completed Tasks" preference.
+* Added user preference to filter what appears in "All" category.
+* Added drop-down menu to "Add Task" button for specific categories.
+* Added right-click on task for notes, delete, and edit.
+* Added basic note support when using RTM.
+* Added support for Evolution Data Server (EDS), Johnny Jacob.
+* Support for local-only tasks (SQLite Backend).
+* Fixed building without notify-sharp support.
+* Fixed ICECore Backend to build against Novell.IceDesktop.dll.
+
+Version 0.1.3
+* Added configure options to enable specific backends (--enable-backend-*).
+* Added dynamic backend support (backend can be switched at runtime).
+* Added support for third-party backends (backends can be a DLL).
+* Added ICEcore Backend (work in progress).
+* Added SQLite Backend (work in progress).
+
+Version 0.1.2
+* Bug fixes in build system
+* Fixed up Dates in UTC
+* Fixed up a problem reading from RTM
+
+Version 0.1.1
+* Added status bar message support.
+* Notification (notify-sharp) when new task is created via DBus.
+* Improved Tomboy UI (Tasque button in toolbar).
+* Fixed "Choose Date..." behavior when task has no date currently set.
+* Fixed Tomboy crash if Tasque is not running.
+
+Version 0.1.0
+* Initial release.
+* Online-only support for Remember the Milk (RTM).
+* Tasque Add-in for Tomboy (tomboy-tasque-addin.patch).
+

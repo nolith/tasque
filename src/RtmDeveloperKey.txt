@@ -1,0 +1,32 @@
+This is the email received from Remember The Milk to do development.
+
+Hi there,
+
+Thank you for requesting a Remember The Milk API key.
+
+Your api_key is: b29f7517b6584035d07df3170b80c430
+Your shared secret is: 93eb5f83628b2066
+
+For more information on how to utilize your API key, please see the API
+documentation at: http://www.rememberthemilk.com/services/api/
+
+If you have any questions about using the API, please see the developer
+mailing list: http://groups.google.com/group/rememberthemilk-api/
+
+If you're writing a web-based application, you'll most likely want to
+set a callback URL for it. Feel free to provide us with a callback URL
+at your convenience. For more information about callback URLs, please
+see: http://www.rememberthemilk.com/services/api/authentication.rtm
+
+You may also provide us with a logo for your service/application. This
+will be shown to users during the authentication process.
+
+Thanks for your interest in Remember The Milk -- happy hacking.
+
+Regards,
+Emily, Omar, & Bob T. Monkey
+
+Remember The Milk
+http://www.rememberthemilk.com/
+
+

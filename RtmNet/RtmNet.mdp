@@ -1,0 +1,59 @@
+<Project name="RtmNet" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Debug" assemblyKeyFile="." assembly="RtmNet" />
+      <Build debugmode="True" target="Library" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Release" assemblyKeyFile="." assembly="RtmNet" />
+      <Build debugmode="False" target="Library" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="ApiKeyRequiredException.cs" subtype="Code" buildaction="Compile" />
+    <File name="AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="Auth.cs" subtype="Code" buildaction="Compile" />
+    <File name="AuthenticationRequiredException.cs" subtype="Code" buildaction="Compile" />
+    <File name="Categories.cs" subtype="Code" buildaction="Compile" />
+    <File name="Contacts.cs" subtype="Code" buildaction="Compile" />
+    <File name="DateGranularity.cs" subtype="Code" buildaction="Compile" />
+    <File name="Enums.cs" subtype="Code" buildaction="Compile" />
+    <File name="example_app.config" subtype="Code" buildaction="Nothing" />
+    <File name="Groups.cs" subtype="Code" buildaction="Compile" />
+    <File name="GroupSearchResults.cs" subtype="Code" buildaction="Compile" />
+    <File name="License.txt" subtype="Code" buildaction="Nothing" />
+    <File name="List.cs" subtype="Code" buildaction="Compile" />
+    <File name="Methods.cs" subtype="Code" buildaction="Compile" />
+    <File name="Response.cs" subtype="Code" buildaction="Compile" />
+    <File name="ResponseXmlException.cs" subtype="Code" buildaction="Compile" />
+    <File name="Rtm.cs" subtype="Code" buildaction="Compile" />
+    <File name="RtmApiException.cs" subtype="Code" buildaction="Compile" />
+    <File name="RtmException.cs" subtype="Code" buildaction="Compile" />
+    <File name="RtmWebException.cs" subtype="Code" buildaction="Compile" />
+    <File name="SignatureRequiredException.cs" subtype="Code" buildaction="Compile" />
+    <File name="Tags.cs" subtype="Code" buildaction="Compile" />
+    <File name="Task.cs" subtype="Code" buildaction="Compile" />
+    <File name="User.cs" subtype="Code" buildaction="Compile" />
+    <File name="Utils.cs" subtype="Code" buildaction="Compile" />
+    <File name="Note.cs" subtype="Code" buildaction="Compile" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Configuration.Install, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </References>
+  <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="True" RelativeMakefileName="./Makefile.am" IsAutotoolsProject="True" RelativeConfigureInPath="../">
+    <BuildFilesVar Name="CSFILES" />
+    <DeployFilesVar />
+    <ResourcesVar Name="RESOURCES" />
+    <OthersVar />
+    <GacRefVar Name="ASSEMBLIES" Prefix="-r:" />
+    <AsmRefVar Name="ASSEMBLIES" Prefix="-r:" />
+    <ProjectRefVar Name="ASSEMBLIES" Prefix="-r:" />
+  </MonoDevelop.Autotools.MakefileInfo>
+</Project>
