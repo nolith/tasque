@@ -432,7 +432,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				ImageMenuItem showTasksItem = new ImageMenuItem
 					(Catalog.GetString ("Show Tasks ..."));
 
-				showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-24", 24));
+				showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
 				showTasksItem.Sensitive = backend != null && backend.Initialized;
 				showTasksItem.Activated += OnShowTaskWindow;
 				popupMenu.Add (showTasksItem);
@@ -461,7 +461,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				ImageMenuItem refreshAction = new ImageMenuItem
 					(Catalog.GetString ("Refresh Tasks"));
 
-				refreshAction.Image = new Gtk.Image(Utilities.GetIcon (Gtk.Stock.Execute, 24));
+				refreshAction.Image = new Gtk.Image(Utilities.GetIcon (Gtk.Stock.Execute, 16));
 				refreshAction.Sensitive = backend != null && backend.Initialized;
 				refreshAction.Activated += OnRefreshAction;
 				popupMenu.Add (refreshAction);

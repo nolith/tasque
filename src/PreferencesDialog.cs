@@ -83,7 +83,7 @@ namespace Tasque
 		private void Init()
 		{
 			Logger.Debug("Called Preferences Init");
-			this.Icon = Utilities.GetIcon ("tasque-48", 48);
+			this.Icon = Utilities.GetIcon ("tasque-16", 16);
 			// Update the window title
 			this.Title = string.Format ("Tasque Preferences");	
 			

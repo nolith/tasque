@@ -1,5 +1,12 @@
 2008-03-12  Boyd Timothy <btimothy@gmail.com> 
 
+	* src/PreferencesDialog.cs, src/NoteDialog.cs, src/Application.cs,
+	  src/TaskWindow.cs: Adjust icons that are used in the window titlebar to
+	  be 16x16 so they appear better.  Also adjust the tasque icon and execute
+	  icon in the tray icon to be 16x16 to match the rest of the menu.
+
+2008-03-12  Boyd Timothy <btimothy@gmail.com> 
+
 	* Initial check in of Tasque to GNOME SVN.
 
 2008-03-11  Calvin Gaisford <calvinrg@gmail.com> 
