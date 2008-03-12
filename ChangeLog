@@ -1,3 +1,8 @@
+2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/PreferencesDialog.cs: Updated to not include the All category in prefs
+	  dialog
+
 2008-03-12  Boyd Timothy <btimothy@gmail.com> 
 
 	* src/PreferencesDialog.cs, src/NoteDialog.cs, src/Application.cs,

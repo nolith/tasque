@@ -478,9 +478,9 @@ namespace Tasque
 			
 			do {
 				ICategory cat = model.GetValue (iter, 0) as ICategory;
-				if (cat == null)
-					continue;
-				
+				if (cat == null || cat is AllCategory)
+					continue;				
+
 				list.Add (cat.Name);
 			} while (model.IterNext (ref iter) == true);
 			
