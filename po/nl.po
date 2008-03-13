@@ -1,0 +1,40 @@
+# Dutch translation of tasque
+# Copyright (C) 2008 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tasque package.
+# Daniel van Eeden <gnomenl@myname.nl>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque-svn-20080229 \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tasky/issues/list \n"
+"POT-Creation-Date: 2008-02-29 22:48+0100\n"
+"PO-Revision-Date: 2008-02-29 22:52+0100\n" 
+"Last-Translator: Daniel van Eeden <gnomenl@myname.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Application.cs:378
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Copyright © 2008 Novell, Inc."
+
+#: src/Application.cs:379
+msgid "A Useful Task List"
+msgstr "Een bruikbare takenlijst"
+
+#: src/Application.cs:381
+msgid "Tasque Project Homepage"
+msgstr "Tasque Project Webstek"
+
+#: src/Application.cs:431
+msgid "Show Tasks ..."
+msgstr "Taken tonen ..."
+
+#: src/Application.cs:439
+msgid "New Task ..."
+msgstr "Nieuwe Taak ..."
+
+#: src/Application.cs:460
+msgid "Refresh Tasks"
+msgstr "Taken vernieuwen"
