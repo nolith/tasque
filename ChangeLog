@@ -1,5 +1,9 @@
 2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
 
+	* NEWS: Updated NEWS for release 0.1.5
+
+2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
+
 	* src/Application.cs: Updated the About dialog with the correct project
 	  location
 

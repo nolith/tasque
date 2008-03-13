@@ -4,6 +4,12 @@ Website: http://live.gnome.org/Tasque
 Bugs/Issues: http://code.google.com/p/tasque/issues/list
 Mailing list: http://groups.google.com/group/tasque
 
+Version 0.1.5
+* Fixed category filter when showing "All" in Task view
+* New beautiful "jimmac" Icon
+* New project name "Tasque"
+* Ctrl+n for new task creation
+
 Version 0.1.4
 * Added "Show Completed Tasks" preference.
 * Added user preference to filter what appears in "All" category.
