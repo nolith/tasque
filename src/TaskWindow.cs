@@ -47,6 +47,7 @@ namespace Tasque
 		private IBackend backend;
 		private ScrolledWindow scrolledWindow;
 		
+		private Entry addTaskEntry;
 		private MenuToolButton addTaskButton;
 		private Gtk.ComboBox categoryComboBox;
 		private Gtk.VBox targetVBox;
@@ -82,6 +83,8 @@ namespace Tasque
 			taskGroups = new List<TaskGroup> ();
 			noteDialogs = new Dictionary<ITask, NoteDialog> ();
 			InitWindow();
+			
+			Realized += OnRealized;
 		}
 
 		void InitWindow()
@@ -125,8 +128,11 @@ namespace Tasque
 			topHBox.BorderWidth = 4;
 			
 			categoryComboBox = new ComboBox ();
+			categoryComboBox.WidthRequest = 150;
 			categoryComboBox.WrapWidth = 1;
 			CellRendererText comboBoxRenderer = new Gtk.CellRendererText ();
+			comboBoxRenderer.WidthChars = 20;
+			comboBoxRenderer.Ellipsize = Pango.EllipsizeMode.End;
 			categoryComboBox.PackStart (comboBoxRenderer, true);
 			categoryComboBox.SetCellDataFunc (comboBoxRenderer,
 				new Gtk.CellLayoutDataFunc (CategoryComboBoxDataFunc));
@@ -140,12 +146,21 @@ namespace Tasque
 			spacer.Show ();
 			topHBox.PackStart (spacer, true, true, 0);
 			
+			// The new task entry widget
+			addTaskEntry = new Entry (Catalog.GetString ("New task..."));
+			addTaskEntry.Sensitive = false;
+			addTaskEntry.Focused += OnAddTaskEntryFocused;
+			addTaskEntry.Changed += OnAddTaskEntryChanged;
+			addTaskEntry.Activated += OnAddTaskEntryActivated;
+			addTaskEntry.Show ();
+			topHBox.PackStart (addTaskEntry, true, true, 0);
+			
 			// Use a small add icon so the button isn't mammoth-sized
 			HBox buttonHBox = new HBox (false, 6);
 			Image addImage = new Image (Gtk.Stock.Add, IconSize.Menu);
 			addImage.Show ();
 			buttonHBox.PackStart (addImage, false, false, 0);
-			Label l = new Label (Catalog.GetString ("_Add Task"));
+			Label l = new Label (Catalog.GetString ("_Add"));
 			l.Show ();
 			buttonHBox.PackStart (l, true, true, 0);
 			buttonHBox.Show ();
@@ -160,7 +175,7 @@ namespace Tasque
 			addTaskButton.Show ();
 			topHBox.PackStart (addTaskButton, false, false, 0);
 			
-			globalKeys.AddAccelerator (OnAddTask,
+			globalKeys.AddAccelerator (OnGrabEntryFocus,
 			                           (uint) Gdk.Key.n,
 			                           Gdk.ModifierType.ControlMask,
 			                           Gtk.AccelFlags.Visible);
@@ -471,6 +486,104 @@ namespace Tasque
 			
 			TaskWindow.ShowWindow ();
 		}
+		
+		public void HighlightTask (ITask task)
+		{
+			Gtk.TreeIter iter;
+			
+			// Make sure we've waited around for the new task to fully
+			// be added to the TreeModel before continuing.  Some
+			// backends might be threaded and will have used something
+			// like Gtk.Idle.Add () to actually store the new Task in
+			// their TreeModel.
+			while (Gtk.Application.EventsPending ())
+				Gtk.Application.RunIteration ();
+
+			foreach (TaskGroup taskGroup in taskGroups) {
+				if (taskGroup.ContainsTask (task, out iter) == true) {
+					taskGroup.TreeView.Selection.SelectIter (iter);
+					break;
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Search through the TaskGroups looking for the specified task and
+		/// adjust the window so the new task is showing.
+		/// </summary>
+		/// <param name="task">
+		/// A <see cref="ITask"/>
+		/// </param>
+		public void ScrollToTask (ITask task)
+		{
+			// TODO: NEED to add something to NOT scroll the window if the new
+			// task is already showing in the window!
+			
+			// Make sure we've waited around for the new task to fully
+			// be added to the TreeModel before continuing.  Some
+			// backends might be threaded and will have used something
+			// like Gtk.Idle.Add () to actually store the new Task in
+			// their TreeModel.
+			while (Gtk.Application.EventsPending ())
+				Gtk.Application.RunIteration ();
+			
+			Gtk.TreeIter iter;
+			
+			// Make sure we've waited around for the new task to fully
+			// be added to the TreeModel before continuing.  Some
+			// backends might be threaded and will have used something
+			// like Gtk.Idle.Add () to actually store the new Task in
+			// their TreeModel.
+			while (Gtk.Application.EventsPending ())
+				Gtk.Application.RunIteration ();
+
+			int taskGroupHeights = 0;
+			
+			foreach (TaskGroup taskGroup in taskGroups) {
+				
+				//Logger.Debug("taskGroupHeights: {0}", taskGroupHeights);
+				TreePath start;
+				TreePath end;
+				if (taskGroup.TreeView.GetVisibleRange (out start, out end) == true) {
+					Logger.Debug ("TaskGroup '{0}' range: {1} - {2}",
+						taskGroup.DisplayName,
+						start.ToString (),
+						end.ToString ());
+				} else {
+					Logger.Debug ("TaskGroup range not visible: {0}", taskGroup.DisplayName);
+				}
+				
+				if (taskGroup.ContainsTask (task, out iter) == true) {
+					Logger.Debug ("Found new task group: {0}", taskGroup.DisplayName);
+					
+					// Get the header height
+					int headerHeight = taskGroup.HeaderHeight;
+				
+					// Get the total number items in the TaskGroup
+					int nChildren = taskGroup.GetNChildren(iter);
+					//Logger.Debug("n children: {0}", nChildren);
+
+					// Calculate size of each item
+					double itemSize = (double)(taskGroup.Requisition.Height-headerHeight) / nChildren;
+					//Logger.Debug("item size: {0}", itemSize);
+				
+					// Get the index of the new item within the TaskGroup
+					int newTaskIndex = taskGroup.GetIterIndex (iter);
+					//Logger.Debug("new task index: {0}", newTaskIndex);
+						
+					// Calculate the scrolling distance
+					double scrollDistance = (itemSize*newTaskIndex)+taskGroupHeights;
+					//Logger.Debug("Scroll distance = ({0}*{1})+{2}+{3}: {4}", itemSize, newTaskIndex, taskGroupHeights, headerHeight, scrollDistance);
+	
+					//scroll to the new task
+					scrolledWindow.Vadjustment.Value = scrollDistance;
+					taskGroup.TreeView.Selection.SelectIter (iter);
+				}
+				if (taskGroup.Visible) {
+					taskGroupHeights += taskGroup.Requisition.Height;
+				}
+			}
+		}
 		#endregion // Public Methods
 		
 		#region Private Methods
@@ -520,7 +633,6 @@ namespace Tasque
 			return count;
 		}
 		
-		
 		/// <summary>
 		/// Search through the TaskGroups looking for the specified task and:
 		/// 1) scroll the window to its location, 2) enter directly into edit
@@ -536,8 +648,6 @@ namespace Tasque
 		/// </param>
 		private void EnterEditMode (ITask task, bool adjustScrolledWindow)
 		{
-			Gtk.TreeIter iter;
-			
 			// Make sure we've waited around for the new task to fully
 			// be added to the TreeModel before continuing.  Some
 			// backends might be threaded and will have used something
@@ -545,44 +655,19 @@ namespace Tasque
 			// their TreeModel.
 			while (Gtk.Application.EventsPending ())
 				Gtk.Application.RunIteration ();
-
-			int taskGroupHeights = 0;
 			
+			if (adjustScrolledWindow == true)
+				ScrollToTask (task);
+			
+			
+			Gtk.TreeIter iter;
 			foreach (TaskGroup taskGroup in taskGroups) {
-				
-				//Logger.Debug("taskGroupHeights: {0}", taskGroupHeights);
-				
 				if (taskGroup.ContainsTask (task, out iter) == true) {
 					Logger.Debug ("Found new task group: {0}", taskGroup.DisplayName);
 					
 					// Get the header height
-					int headerHeight = taskGroup.HeaderHeight;
-				
-					// Get the total number items in the TaskGroup
-					int nChildren = taskGroup.GetNChildren(iter);
-					//Logger.Debug("n children: {0}", nChildren);
-
-					// Calculate size of each item
-					double itemSize = (double)(taskGroup.Requisition.Height-headerHeight) / nChildren;
-					//Logger.Debug("item size: {0}", itemSize);
-				
-					// Get the index of the new item within the TaskGroup
-					int newTaskIndex = taskGroup.GetIterIndex (iter);
-					//Logger.Debug("new task index: {0}", newTaskIndex);
-						
-					// Calculate the scrolling distance
-					double scrollDistance = (itemSize*newTaskIndex)+taskGroupHeights;
-					//Logger.Debug("Scroll distance = ({0}*{1})+{2}+{3}: {4}", itemSize, newTaskIndex, taskGroupHeights, headerHeight, scrollDistance);
-	
-					//scroll to the new task
-					if (adjustScrolledWindow == true)
-						scrolledWindow.Vadjustment.Value = scrollDistance;
-					
 					taskGroup.EnterEditMode (task, iter);
 					return;
-				}
-				if (taskGroup.Visible) {
-					taskGroupHeights += taskGroup.Requisition.Height;
 				}
 			}
 		}
@@ -658,9 +743,30 @@ namespace Tasque
 			
 			dialog.Present ();
 		}
+		
+		private ITask CreateTask (string taskText, ICategory category)
+		{
+			ITask task = backend.CreateTask (taskText, category);
+			
+			if (task == null) {
+				// TODO: Change the status to say there was an error
+				Logger.Debug ("Error creating a new task!");
+			} else {
+				// Clear out the entry
+				addTaskEntry.Text = Catalog.GetString ("New task...");
+				addTaskEntry.GrabFocus ();
+			}
+			
+			return task;
+		}
 		#endregion // Private Methods
 
 		#region Event Handlers
+		private void OnRealized (object sender, EventArgs args)
+		{
+			addTaskEntry.GrabFocus ();
+		}
+		
 		private void WindowDeleted (object sender, DeleteEventArgs args)
 		{
 			int x;
@@ -695,25 +801,63 @@ namespace Tasque
 			
 			OnCategoryChanged (this, EventArgs.Empty);
 		}
+		
+		void OnGrabEntryFocus (object sender, EventArgs args)
+		{
+			addTaskEntry.GrabFocus ();
+		}
+		
+		void OnAddTaskEntryFocused (object sender, EventArgs args)
+		{
+			// Select all the text in the text field so it's ready for the user
+			// to start typing.
+			addTaskEntry.SelectRegion (-1, -1);
+		}
+		
+		void OnAddTaskEntryChanged (object sender, EventArgs args)
+		{
+			string text = addTaskEntry.Text.Trim ();
+			if (text.Length == 0
+					|| text.CompareTo (Catalog.GetString ("New task...")) == 0) {
+				addTaskButton.Sensitive = false;
+			} else {
+				addTaskButton.Sensitive = true;
+			}
+		}
+		
+		void OnAddTaskEntryActivated (object sender, EventArgs args)
+		{
+			string newTaskText = addTaskEntry.Text.Trim ();
+			if (newTaskText.Length == 0)
+				return;
+			
+			OnAddTask (sender, args);
+		}
 
 		void OnAddTask (object sender, EventArgs args)
 		{
+			string newTaskText = addTaskEntry.Text.Trim ();
+			if (newTaskText.Length == 0)
+				return;
+			
 			Gtk.TreeIter iter;
 			if (categoryComboBox.GetActiveIter (out iter) == false)
 				return;
 			
 			ICategory category =
 				categoryComboBox.Model.GetValue (iter, 0) as ICategory;
-
-			ITask task = backend.CreateTask (Catalog.GetString ("New task"), category);
 			
-			// Scroll to the task and put it into "edit" mode
-			EnterEditMode (task, true);
+			ITask task = CreateTask (newTaskText, category);
 			
+			HighlightTask (task);
 		}
 		
 		void OnNewTaskByCategory (object sender, EventArgs args)
 		{
+			string newTaskText = addTaskEntry.Text.Trim ();
+			if (newTaskText.Length == 0)
+				return;
+			
 			CategoryMenuItem item = sender as CategoryMenuItem;
 			if (item == null)
 				return;
@@ -744,11 +888,9 @@ namespace Tasque
 				}
 			}
 			
-			ITask task =
-				backend.CreateTask (Catalog.GetString ("New task"),
-									item.Category);
+			ITask task = CreateTask (newTaskText, item.Category);
 			
-			EnterEditMode (task, true);
+			HighlightTask (task);
 		}
 		
 		void OnCategoryChanged (object sender, EventArgs args)
@@ -917,7 +1059,7 @@ namespace Tasque
 			TaskWindow.ShowStatus (status);
 			if (Application.Backend.Configured) {
 				RebuildAddTaskMenu (Application.Backend.Categories);
-				addTaskButton.Sensitive = true;
+				addTaskEntry.Sensitive = true;
 			}
 		}
 		#endregion // Event Handlers

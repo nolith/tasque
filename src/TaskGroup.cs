@@ -191,7 +191,11 @@ namespace Tasque
 				Refilter ();
 			}
 		}
-
+		
+		public Gtk.TreeView TreeView
+		{
+			get { return this.treeView; }
+		}
 		#endregion // Public Properties
 		
 		#region Public Methods
