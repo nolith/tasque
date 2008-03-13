@@ -152,6 +152,8 @@ namespace Tasque
 			addTaskEntry.Focused += OnAddTaskEntryFocused;
 			addTaskEntry.Changed += OnAddTaskEntryChanged;
 			addTaskEntry.Activated += OnAddTaskEntryActivated;
+			addTaskEntry.FocusInEvent += OnAddTaskEntryFocused;
+			addTaskEntry.FocusOutEvent += OnAddTaskEntryUnfocused;
 			addTaskEntry.Show ();
 			topHBox.PackStart (addTaskEntry, true, true, 0);
 			
@@ -761,7 +763,7 @@ namespace Tasque
 				Logger.Debug ("Error creating a new task!");
 			} else {
 				// Clear out the entry
-				addTaskEntry.Text = Catalog.GetString ("New task...");
+				addTaskEntry.Text = string.Empty;
 				addTaskEntry.GrabFocus ();
 			}
 			
@@ -817,9 +819,22 @@ namespace Tasque
 		
 		void OnAddTaskEntryFocused (object sender, EventArgs args)
 		{
-			// Select all the text in the text field so it's ready for the user
-			// to start typing.
-			addTaskEntry.SelectRegion (-1, -1);
+			// Clear the entry if it contains the default text
+			if (addTaskEntry.Text == Catalog.GetString ("New task...")) {
+				addTaskEntry.Text = string.Empty;
+				addTaskEntry.ModifyText (Gtk.StateType.Normal);
+			}
+		}
+		
+		void OnAddTaskEntryUnfocused (object sender, EventArgs args)
+		{
+			// Restore the default text if nothing is entered
+			if (addTaskEntry.Text == string.Empty) {
+				addTaskEntry.Text = Catalog.GetString ("New task...");
+				Gdk.Color insensitiveColor =
+					addTaskEntry.Style.Text (Gtk.StateType.Insensitive);
+				addTaskEntry.ModifyText (Gtk.StateType.Normal, insensitiveColor);
+			}
 		}
 		
 		void OnAddTaskEntryChanged (object sender, EventArgs args)
@@ -1082,6 +1097,10 @@ namespace Tasque
 			if (Application.Backend.Configured) {
 				RebuildAddTaskMenu (Application.Backend.Categories);
 				addTaskEntry.Sensitive = true;
+				// Keep insensitive text color
+				Gdk.Color insensitiveColor =
+					addTaskEntry.Style.Text (Gtk.StateType.Insensitive);
+				addTaskEntry.ModifyText (Gtk.StateType.Normal, insensitiveColor);
 			}
 		}
 		#endregion // Event Handlers

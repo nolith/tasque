@@ -1,3 +1,11 @@
+2008-03-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/TaskWindow.cs: When focusing on the Add Task field, clear our
+	  "New task..." text.  Restore this text if field is empty when
+	  unfocused.  Empty field after creating a new task.  Text color in
+	  field appears insensitive when field is not focused, if default
+	  "New task..." text is there.
+
 2008-03-13  Boyd Timothy <btimothy@gmail.com> 
 
 	* src/Application.cs, src/TaskWindow.cs: Change the code so that when the
