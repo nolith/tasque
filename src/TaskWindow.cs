@@ -89,7 +89,7 @@ namespace Tasque
 			int height;
 			int width;
 			
-			this.Icon = Utilities.GetIcon ("tasque-16", 16);
+			this.Icon = Utilities.GetIcon ("tasque-48", 48);
 			// Update the window title
 			Title = string.Format ("Tasque");	
 
