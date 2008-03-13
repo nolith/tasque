@@ -1,3 +1,8 @@
+2008-03-12  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* data/images/tasque.svg, data/images/Makefile.am: Added real SVG of
+	  Tasque icon for scalable goodness.
+
 2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
 
 	* src/PreferencesDialog.cs: Updated to not include the All category in prefs
