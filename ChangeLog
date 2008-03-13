@@ -1,5 +1,10 @@
 2008-03-12  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* data/images/tasque-icons-source.svg: Added jimmac's source SVG for
+	  the Tasque icons.
+
+2008-03-12  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* data/images/tasque.svg, data/images/Makefile.am: Added real SVG of
 	  Tasque icon for scalable goodness.
 
