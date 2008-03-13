@@ -690,7 +690,7 @@ namespace Tasque
 		
 		void OnSettingChanged (Preferences preferences, string settingKey)
 		{
-			if (settingKey.CompareTo (Preferences.ShowInAllCategory) != 0)
+			if (settingKey.CompareTo (Preferences.HideInAllCategory) != 0)
 				return;
 			
 			OnCategoryChanged (this, EventArgs.Empty);
@@ -733,11 +733,10 @@ namespace Tasque
 					// See if the item.Category is currently being shown in
 					// the "All" category and if not, select the category
 					// specifically.
-					List<string> categoriesToShow =
+					List<string> categoriesToHide =
 						Application.Preferences.GetStringList (
-							Preferences.ShowInAllCategory);
-					if (categoriesToShow != null && categoriesToShow.Count > 0
-							&& categoriesToShow.Contains (item.Category.Name) == false) {
+							Preferences.HideInAllCategory);
+					if (categoriesToHide != null && categoriesToHide.Contains (item.Category.Name)) {
 						SelectCategory (item.Category.Name);
 					}
 				} else if (selectedCategory.Name.CompareTo (item.Category.Name) != 0) {

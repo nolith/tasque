@@ -13,13 +13,13 @@ namespace Tasque
 		// category is selected in the TaskWindow.  If the list is empty, tasks
 		// from all categories will be shown.  Otherwise, only tasks from the
 		// specified lists will be shown.
-		List<string> categoriesToShow;
+		List<string> categoriesToHide;
 		
 		public AllCategory ()
 		{
 			Preferences preferences = Application.Preferences;
-			categoriesToShow =
-				preferences.GetStringList (Preferences.ShowInAllCategory);
+			categoriesToHide =
+				preferences.GetStringList (Preferences.HideInAllCategory);
 			Application.Preferences.SettingChanged += OnSettingChanged;
 		}
 		
@@ -34,21 +34,21 @@ namespace Tasque
 			// categories should be displayed in the AllCategory.
 			ICategory category = task.Category;
 			if (category == null)
-				return false;
-			
-			if (categoriesToShow.Count == 0)
 				return true;
 			
-			return categoriesToShow.Contains (category.Name);
+			//if (categoriesToHide.Count == 0)
+			//	return true;
+			
+			return (!categoriesToHide.Contains (category.Name));
 		}
 		
 		private void OnSettingChanged (Preferences preferences, string settingKey)
 		{
-			if (settingKey.CompareTo (Preferences.ShowInAllCategory) != 0)
+			if (settingKey.CompareTo (Preferences.HideInAllCategory) != 0)
 				return;
 			
-			categoriesToShow =
-				preferences.GetStringList (Preferences.ShowInAllCategory);
+			categoriesToHide =
+				preferences.GetStringList (Preferences.HideInAllCategory);
 		}
 	}
 }

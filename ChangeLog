@@ -1,3 +1,10 @@
+2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
+
+	* src/PreferencesDialog.cs, src/AllCategory.cs, src/TaskWindow.cs,
+	  src/Preferences.cs: Modified the preferences so there is a
+	  HideInAllCategory and any category listed will not be shown in the All
+	  Category.
+
 2008-03-12  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* data/images/tasque-icons-source.svg: Added jimmac's source SVG for

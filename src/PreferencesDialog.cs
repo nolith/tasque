@@ -51,7 +51,7 @@ namespace Tasque
 		int 					selectedBackend;
 		Gtk.CheckButton			showCompletedTasksCheckButton;
 		Gtk.TreeModelFilter		filteredCategories;
-		List<string>			categoriesToShow;
+		List<string>			categoriesToHide;
 		Gtk.TreeView			categoriesTree;
 		
 		//
@@ -304,10 +304,10 @@ namespace Tasque
 		private void LoadPreferences()
 		{
 			Logger.Debug("Loading preferences");
-			categoriesToShow =
-				Application.Preferences.GetStringList (Preferences.ShowInAllCategory);
-			if (categoriesToShow == null || categoriesToShow.Count == 0)
-				categoriesToShow = BuildNewCategoryList ();
+			categoriesToHide =
+				Application.Preferences.GetStringList (Preferences.HideInAllCategory);
+			//if (categoriesToHide == null || categoriesToHide.Count == 0)
+			//	categoriesToHide = BuildNewCategoryList ();
 		}
 
 		private void ConnectEvents()
@@ -385,9 +385,9 @@ namespace Tasque
 			Application.Preferences.Set (Preferences.CurrentBackend,
 										 newBackend.GetType ().ToString ());
 			
-			categoriesToShow = BuildNewCategoryList ();
-			Application.Preferences.SetStringList (Preferences.ShowInAllCategory,
-												   categoriesToShow);
+			//categoriesToHide = BuildNewCategoryList ();
+			//Application.Preferences.SetStringList (Preferences.HideInAllCategory,
+			//									   categoriesToHide);
 			RebuildCategoryTree ();
 		}
 		
@@ -399,23 +399,23 @@ namespace Tasque
 			Gtk.CellRendererToggle crt = cell as Gtk.CellRendererToggle;
 			ICategory category = model.GetValue (iter, 0) as ICategory;
 			if (category == null) {
-				crt.Active = false;
+				crt.Active = true;
 				return;
 			}
 			
 			// If the setting is null or empty, show all categories
-			if (categoriesToShow == null || categoriesToShow.Count == 0) {
+			if (categoriesToHide == null || categoriesToHide.Count == 0) {
 				crt.Active = true;
 				return;
 			}
 			
 			// Check to see if the category is specified in the list
-			if (categoriesToShow.Contains (category.Name) == true) {
-				crt.Active = true;
+			if (categoriesToHide.Contains (category.Name) == true) {
+				crt.Active = false;
 				return;
 			}
 			
-			crt.Active = false;
+			crt.Active = true;
 		}
 		
 		private void TextCellDataFunc (Gtk.TreeViewColumn treeColumn,
@@ -445,18 +445,19 @@ namespace Tasque
 			if (category == null)
 				return;
 			
-			if (categoriesToShow == null)
-				categoriesToShow = BuildNewCategoryList ();
+			//if (categoriesToHide == null)
+			//	categoriesToHide = BuildNewCategoryList ();
 			
-			if (categoriesToShow.Contains (category.Name))
-				categoriesToShow.Remove (category.Name);
+			if (categoriesToHide.Contains (category.Name))
+				categoriesToHide.Remove (category.Name);
 			else
-				categoriesToShow.Add (category.Name);
+				categoriesToHide.Add (category.Name);
 			
-			Application.Preferences.SetStringList (Preferences.ShowInAllCategory,
-												   categoriesToShow);
+			Application.Preferences.SetStringList (Preferences.HideInAllCategory,
+												   categoriesToHide);
 		}
 		
+/*
 		/// <summary>
 		/// Build a new category list setting from all the categories
 		/// </summary>
@@ -486,6 +487,7 @@ namespace Tasque
 			
 			return list;
 		}
+*/
 		
 		void RebuildCategoryTree ()
 		{

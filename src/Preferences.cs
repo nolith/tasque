@@ -52,7 +52,7 @@ namespace Tasque
 		/// A list of category names to show in the TaskWindow when the "All"
 		/// category is selected.
 		/// </summary>
-		public static string ShowInAllCategory = "ShowInAllCategory";
+		public static string HideInAllCategory = "HideInAllCategory";
 		public static string ShowCompletedTasksKey = "ShowCompletedTasks";
 		public static string UserNameKey = "UserName";
 		public static string UserIdKey = "UserID";
