@@ -401,7 +401,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		{
 			// Show the TaskWindow and then cause a new task to be created
 			TaskWindow.ShowWindow ();
-			TaskWindow.AddTask ();
+			TaskWindow.GrabNewTaskEntryFocus ();
 		}
 
 		private void OnQuit (object sender, EventArgs args)

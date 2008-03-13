@@ -447,6 +447,14 @@ namespace Tasque
 			}
 		}
 		
+		public static void GrabNewTaskEntryFocus ()
+		{
+			if (taskWindow == null)
+				TaskWindow.ShowWindow ();
+			
+			taskWindow.addTaskEntry.GrabFocus ();
+		}
+		
 		public static void SelectAndEdit (ITask task)
 		{
 			ShowWindow ();

@@ -1,3 +1,10 @@
+2008-03-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Application.cs, src/TaskWindow.cs: Change the code so that when the
+	  user selects "New task..." from the tray icon, it will open the task
+	  window and put their cursor in the new task entry widget instead of just
+	  create a task called "New task..."
+
 2008-03-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/Utilities.cs, src/TaskTreeView.cs: Moved ParseTaskText method
