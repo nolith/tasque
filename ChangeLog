@@ -1,3 +1,14 @@
+2008-03-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/TaskTreeView.cs: Support for parsing due date out of undated
+	  tasks.  Currently handles "today", "tomorrow", and anything
+	  understood by DateTime.Parse.  Favors future dates, but will obey a
+	  year if one is specified.
+	* src/Preferences.cs: Added hidden preference for enabling due date
+	  parsing, which defaults to true.  Added support for preference
+	  defaults.  Changed a bunch of static strings to const strings in
+	  support of this.
+
 2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
 
 	* configure.ac: Bumped to 0.1.6

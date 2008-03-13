@@ -43,19 +43,20 @@ namespace Tasque
 		private System.Xml.XmlDocument document;
 		private string location;
 		
-		public static string AuthTokenKey = "AuthToken";
-		public static string CurrentBackend = "CurrentBackend";
-		public static string InactivateTimeoutKey = "InactivateTimeout";
-		public static string SelectedCategoryKey = "SelectedCategory";
+		public const string AuthTokenKey = "AuthToken";
+		public const string CurrentBackend = "CurrentBackend";
+		public const string InactivateTimeoutKey = "InactivateTimeout";
+		public const string SelectedCategoryKey = "SelectedCategory";
+		public const string ParseDateEnabledKey = "ParseDateEnabled";
 		
 		/// <summary>
 		/// A list of category names to show in the TaskWindow when the "All"
 		/// category is selected.
 		/// </summary>
-		public static string HideInAllCategory = "HideInAllCategory";
-		public static string ShowCompletedTasksKey = "ShowCompletedTasks";
-		public static string UserNameKey = "UserName";
-		public static string UserIdKey = "UserID";
+		public const string HideInAllCategory = "HideInAllCategory";
+		public const string ShowCompletedTasksKey = "ShowCompletedTasks";
+		public const string UserNameKey = "UserName";
+		public const string UserIdKey = "UserID";
 		
 		/// <summary>
 		/// This setting allows a user to specify how many completed tasks to
@@ -68,7 +69,7 @@ namespace Tasque
 		/// <returns>
 		/// A <see cref="System.String"/>
 		/// </returns>
-		public static string CompletedTasksRange = "CompletedTasksRange";
+		public const string CompletedTasksRange = "CompletedTasksRange";
 		
 		public delegate void SettingChangedHandler (Preferences preferences,
 													string settingKey);
@@ -82,13 +83,31 @@ namespace Tasque
 			string xPath = string.Format ("//{0}", settingKey.Trim ());
 			XmlNode node = document.SelectSingleNode (xPath);
 			if (node == null || node is XmlElement == false)
-				return null;
+				return SetDefault (settingKey);
 			
 			XmlElement element = node as XmlElement;
 			if( (element == null) || (element.InnerText.Length < 1) )
-				return null;
+				return SetDefault (settingKey);
 			else
 				return element.InnerText;
+		}
+		
+		private string SetDefault (string settingKey)
+		{
+			string val = GetDefault (settingKey);
+			if (val != null)
+				Set (settingKey, val);
+			return val;
+		}
+		
+		private string GetDefault (string settingKey)
+		{
+			switch (settingKey) {
+			case ParseDateEnabledKey:
+				return true.ToString ();
+			default:
+				return null;
+			}
 		}
 		
 		public void Set (string settingKey, string settingValue)
