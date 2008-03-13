@@ -1,5 +1,10 @@
 2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
 
+	* src/Application.cs: Updated the About dialog with the correct project
+	  location
+
+2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 
+
 	* src/TaskWindow.cs: Fixed the main window icon to be larger
 
 2008-03-12  Calvin Gaisford <calvinrg@gmail.com> 

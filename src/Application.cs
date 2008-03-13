@@ -379,7 +379,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			about.Copyright =
 				Catalog.GetString ("Copyright \xa9 2008 Novell, Inc.");
 			about.Comments = Catalog.GetString ("A Useful Task List");
-			about.Website = "http://code.google.com/p/tasque";
+			about.Website = "http://live.gnome.org/Tasque";
 			about.WebsiteLabel = Catalog.GetString("Tasque Project Homepage");
 			about.Authors = authors;
 			//about.Documenters = documenters;
