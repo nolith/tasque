@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using Gtk;
 using Mono.Unix;
 
@@ -545,79 +544,22 @@ namespace Tasque
 				return;
 			
 			string newText = args.NewText;
+			
+			// Attempt to derive due date information from text.
 			if (Application.Preferences.GetBool (Preferences.ParseDateEnabledKey) &&
 			    task.State == TaskState.Active &&
-			    task.DueDate == DateTime.MinValue)
-				newText = ParseTaskText (newText, task);
+			    task.DueDate == DateTime.MinValue) {
+				
+				string parsedTaskText;
+				DateTime parsedDueDate;
+				Utilities.ParseTaskText (newText, out parsedTaskText, out parsedDueDate);
+				
+				if (parsedDueDate != DateTime.MinValue)
+					task.DueDate = parsedDueDate;
+				newText = parsedTaskText;
+			}
+			
 			task.Name = newText;
-		}
-		
-		/// <summary>
-		/// Parse the task name in order to derive due date information.
-		/// </summary>
-		/// <param name="taskText">
-		/// A <see cref="System.String"/> representing the text entered
-		/// into the task name field.
-		/// </param>
-		/// <param name="task">
-		/// The <see cref="ITask"/> object to which due date information
-		/// should be added, if any is found.
-		/// </param>
-		/// <returns>
-		/// The taskText with the due date section of the string removed.
-		/// </returns>
-		string ParseTaskText (string taskText, ITask task)
-		{
-			// First, look for ways that the right side of the entered
-			// text can be directly parsed as a date
-			string[] words = taskText.Split (' ');
-			for (int i = 1; i < words.Length; i++) {
-				string possibleDate = string.Join (" ", words, i, words.Length - i);
-				DateTime result;
-				if (DateTime.TryParse (possibleDate, out result)) {
-					// Favor future dates, unless year was specifically mentioned
-					if (!possibleDate.Contains (result.Year.ToString ()))
-						while (result < DateTime.Today)
-							result = result.AddYears (1);
-					
-					// Set task due date and return the task
-					// name with the date part removed.
-					task.DueDate = result;
-					return string.Join (" ", words, 0, i);
-				}
-			}
-			
-			// Then try some more natural language parsing
-			
-			// A regular expression to capture a task that is due today
-			string today = Catalog.GetString (@"^(?<task>.+)\s+today\W*$");
-			// A regular expression to capture a task that is due tomorrow
-			string tomorrow = Catalog.GetString (@"^(?<task>.+)\s+tomorrow\W*$");
-			
-			// Additional regular expressions to consider using
-			//string abbrevDate = Catalog.GetString (@"^(?<task>.+)(on )?(the )?(?<day>\d{1,2})((th)|(nd)|(rd)|(st))\W*$");
-			//string nextDayName = Catalog.GetString (@"^(?<task>.+)(on )?next\s+(?<day>[a-z]+)\W*$");
-			//string dayName = Catalog.GetString (@"^(?<task>.+)\s+(on )?(?<day>[a-z]+)\W*$");
-			
-			Match match = Regex.Match (taskText, today, RegexOptions.IgnoreCase);
-			if (match.Success) {
-				string trimmedTaskText = match.Groups ["task"].Value;
-				if (!string.IsNullOrEmpty (trimmedTaskText)) {
-					task.DueDate = DateTime.Now;
-					return trimmedTaskText;
-				}
-			}
-			
-			match = Regex.Match (taskText, tomorrow, RegexOptions.IgnoreCase);
-			if (match.Success) {
-				string trimmedTaskText = match.Groups ["task"].Value;
-				if (!string.IsNullOrEmpty (trimmedTaskText)) {
-					task.DueDate = DateTime.Now.AddDays (1);
-					return trimmedTaskText;
-				}
-			}
-			
-			return taskText;
 		}
 		
 		/// <summary>

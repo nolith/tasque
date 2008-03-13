@@ -1,3 +1,10 @@
+2008-03-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Utilities.cs, src/TaskTreeView.cs: Moved ParseTaskText method
+	  from TaskTreeView to Utilities.
+	* src/TaskWindow.cs: Parse newly entered task text for due date
+	  information.
+
 2008-03-13  Boyd Timothy <btimothy@gmail.com> 
 
 	* src/TaskGroup.cs: Add an entry widget at the top of the window for users

@@ -836,8 +836,8 @@ namespace Tasque
 
 		void OnAddTask (object sender, EventArgs args)
 		{
-			string newTaskText = addTaskEntry.Text.Trim ();
-			if (newTaskText.Length == 0)
+			string enteredTaskText = addTaskEntry.Text.Trim ();
+			if (enteredTaskText.Length == 0)
 				return;
 			
 			Gtk.TreeIter iter;
@@ -846,8 +846,22 @@ namespace Tasque
 			
 			ICategory category =
 				categoryComboBox.Model.GetValue (iter, 0) as ICategory;
+		
+			// If enabled, attempt to parse due date information
+			// out of the entered task text.
+			DateTime taskDueDate = DateTime.MinValue;
+			string taskName;
+			if (Application.Preferences.GetBool (Preferences.ParseDateEnabledKey))
+				Utilities.ParseTaskText (
+				                         enteredTaskText,
+				                         out taskName,
+				                         out taskDueDate);
+			else
+				taskName = enteredTaskText;
 			
-			ITask task = CreateTask (newTaskText, category);
+			ITask task = CreateTask (taskName, category);
+			if (taskDueDate != DateTime.MinValue)
+				task.DueDate = taskDueDate;
 			
 			HighlightTask (task);
 		}
