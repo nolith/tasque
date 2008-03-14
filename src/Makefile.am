@@ -1,3 +1,5 @@
+SUBDIRS = Backends
+
 CSC = gmcs
 
 TARGET = Tasque.exe
@@ -27,14 +29,6 @@ RTM_CSFILES = \
 else
 RTM_CSFILES =
 endif
-
-if ENABLE_BACKEND_ICECORE
-ICECORE_CSFILES = \
-	$(srcdir)/Backends/IceCore/*.cs
-else
-ICECORE_CSFILES =
-endif
-
 
 if ENABLE_BACKEND_SQLITE
 SQLITE_CSFILES = \

@@ -256,11 +256,22 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		{
 			List<IBackend> backends = new List<IBackend> ();
 			
-			foreach (Type type in asm.GetTypes ()) {
-				if (type.IsClass == false)
+			Type[] types = null;
+			
+			try {
+				types = asm.GetTypes ();
+			} catch (Exception e) {
+				Logger.Warn ("Exception reading types from assembly '{0}': {1}",
+					asm.ToString (), e.Message);
+				return backends;
+			}
+			foreach (Type type in types) {
+				if (type.IsClass == false) {
 					continue; // Skip non-class types
-				if (type.GetInterface ("Tasque.Backends.IBackend") == null)
+				}
+				if (type.GetInterface ("Tasque.Backends.IBackend") == null) {
 					continue;
+				}
 				Logger.Debug ("Found Available Backend: {0}", type.ToString ());
 				
 				IBackend availableBackend = null;
@@ -274,8 +285,9 @@ Logger.Debug ("args [0]: {0}", args [0]);
 					continue;
 				}
 				
-				if (availableBackend != null)
+				if (availableBackend != null) {
 					backends.Add (availableBackend);
+				}
 			}
 			
 			return backends;

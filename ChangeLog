@@ -1,3 +1,12 @@
+2008-03-13  Boyd Timothy <btimothy@gmail.com> 
+
+	* src/Application.cs: Do better checking when checking for types in a
+	  backend dll so Tasque doesn't crash when there are problems.
+	* src/Backends/IceCore/Makefile.am, src/Backends/Makefile.am,
+	  src/Makefile.am: Modify the makefiles to build IceCore.Backend.dll
+	  instead of packaging it directly inside Tasque.exe.
+	* configure.ac: Add src/Backends/Makefile and src/Backends/IceCore/Makefile.
+
 2008-03-13  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/TaskWindow.cs: When focusing on the Add Task field, clear our

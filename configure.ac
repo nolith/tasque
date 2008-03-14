@@ -194,11 +194,18 @@ AC_CONFIG_FILES([
 ./RtmNet/Makefile
 ./src/Makefile
 ./src/tasque.pc
+./src/Backends/Makefile
+./src/Backends/IceCore/Makefile
 ./data/Makefile
 ./data/images/Makefile
 ./data/sounds/Makefile
 ./po/Makefile.in
 ])
+
+#./src/Backends/Dummy/Makefile
+#./src/Backends/EDS/Makefile
+#./src/Backends/Rtm/Makefile
+#./src/Backends/Sqlite/Makefile
 
 AC_OUTPUT
 
