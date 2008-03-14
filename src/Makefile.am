@@ -1,4 +1,4 @@
-SUBDIRS = Backends
+SUBDIRS = . Backends
 
 CSC = gmcs
 
