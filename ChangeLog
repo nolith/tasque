@@ -1,5 +1,10 @@
 2008-03-14  Boyd Timothy <btimothy@gmail.com> 
 
+	* src/Backends/IceCore/IceTask.cs: Make the task priorities match up with
+	  ICEcore so that 1=1, 2=2, 3=3, and None=5.
+
+2008-03-14  Boyd Timothy <btimothy@gmail.com> 
+
 	* src/Makefile.am: Build Tasque.exe before building any Backends.
 
 2008-03-13  Boyd Timothy <btimothy@gmail.com> 

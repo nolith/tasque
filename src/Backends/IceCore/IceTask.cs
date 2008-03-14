@@ -140,10 +140,10 @@ namespace Tasque.Backends.IceCore
 				
 				switch (priorityString) {
 				case "1":
-				case "2":
 					return TaskPriority.High;
-				case "3":
+				case "2":
 					return TaskPriority.Medium;
+				case "3":
 				case "4":
 					return TaskPriority.Low;
 				}
@@ -153,13 +153,13 @@ namespace Tasque.Backends.IceCore
 			set {
 				switch (value) {
 				case TaskPriority.High:
-					entry.Priority = "2";
+					entry.Priority = "1";
 					break;
 				case TaskPriority.Medium:
-					entry.Priority = "3";
+					entry.Priority = "2";
 					break;
 				case TaskPriority.Low:
-					entry.Priority = "4";
+					entry.Priority = "3";
 					break;
 				default:
 					entry.Priority = "5";
