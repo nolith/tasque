@@ -1,5 +1,12 @@
 2008-03-14  Boyd Timothy <btimothy@gmail.com> 
 
+	* configure.ac: Fixed a problem in the logic where the icecore backend
+	  wasn't being evaluated.  The user/builder would only see this when
+	  specifying only icecore as the backend.  In this case, the only thing
+	  that would happen is that it would also cause RTM to be built.
+
+2008-03-14  Boyd Timothy <btimothy@gmail.com> 
+
 	* src/Backends/IceCore/IceTask.cs: Make the task priorities match up with
 	  ICEcore so that 1=1, 2=2, 3=3, and None=5.
 

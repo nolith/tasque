@@ -163,7 +163,7 @@ AC_SUBST(EVOLUTION_SHARP_LIBS)
 if test "x$enable_backend_dummy" = "xno" ; then
 	if test "x$enable_backend_rtm" = "xno" ; then
 		if test "x$enable_backend_sqlite" = "xno" ; then
-			if test "x$enable_backend_sqlite" = "xno" ; then
+			if test "x$enable_backend_icecore" = "xno" ; then
 				if test "x$enable_backend_eds" = "xno" ; then
 					# No other backend was enabled, so enable
 					# the RTM Backend by default
