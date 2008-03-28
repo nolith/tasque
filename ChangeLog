@@ -1,3 +1,7 @@
+2008-03-28  Johnny Jacob  <jjohnny@novell.com>
+
+	* tasque.mdp: Added EDS Backend into mdp.
+
 2008-03-14  Boyd Timothy <btimothy@gmail.com> 
 
 	* configure.ac: Fixed a problem in the logic where the icecore backend
