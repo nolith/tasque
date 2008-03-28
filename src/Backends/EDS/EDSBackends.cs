@@ -88,18 +88,27 @@ namespace Tasque.Backends.EDS
                #region Public Methods
                public ITask CreateTask (string taskName, ICategory category)
                {
+		       Gtk.TreeIter taskIter;
+		       EDSTask edsTask;
 
-                       Console.WriteLine ("CreateTask reached");
-
+		       //FIXME : AllCategory
                        if (category == null || category is Tasque.AllCategory)
                                return null;
 
                        EDSCategory edsCategory = category as EDSCategory;
                        CalComponent task = new CalComponent (edsCategory.TaskList);
                        task.Summary = taskName;
+
+                       lock (taskLock) {
+			       edsTask = new EDSTask (task, edsCategory);
+			       taskIter = taskStore.AppendNode ();
+			       taskStore.SetValue (taskIter, 0, edsTask);
+			       taskIters [task.Uid] = taskIter;
+		       }
+
                        task.Commit ();
 
-                       return null;
+                       return edsTask;
                }
 
 	       public void DeleteTask(ITask task)
@@ -122,7 +131,7 @@ namespace Tasque.Backends.EDS
                        try {
                                UpdateCategories ();
                        } catch (Exception e) {
-                               Console.WriteLine ("Oops! : " + e);
+                               Logger.Debug ("Oops! : " + e);
                        }
 
                        initialized = true;
@@ -185,11 +194,13 @@ namespace Tasque.Backends.EDS
                                EDSTask edsTask;
                                EDSCategory edsCategory;
                                foreach (CalComponent task in addedTasks) {
-                                       edsCategory = new EDSCategory (task.Source);
-                                       edsTask = new EDSTask (task, edsCategory);
-                                       taskIter = taskStore.AppendNode ();
-                                       taskStore.SetValue (taskIter, 0, edsTask);
-                                       taskIters [task.Uid] = taskIter;
+				       if(!taskIters.ContainsKey(task.Uid)) {
+					       edsCategory = new EDSCategory (task.Source);
+					       edsTask = new EDSTask (task, edsCategory);
+					       taskIter = taskStore.AppendNode ();
+					       taskStore.SetValue (taskIter, 0, edsTask);
+					       taskIters [edsTask.Id] = taskIter;
+				       }
                                }
                        }
                }
@@ -203,10 +214,9 @@ namespace Tasque.Backends.EDS
                        CalComponent[] modifiedTasks = CalUtil.ICalToCalComponentArray (args.Objects.Handle, ((CalView) o).Client);
 
                        foreach (CalComponent task in modifiedTasks) {
-                               edsCategory = new EDSCategory (task.Source);
-                               edsTask = new EDSTask (task, edsCategory);
-
-                               if(taskIters.ContainsKey(edsTask.Id)) {
+                               if(taskIters.ContainsKey(task.Uid)) {
+				       edsCategory = new EDSCategory (task.Source);
+				       edsTask = new EDSTask (task, edsCategory);
                                        iter = taskIters[edsTask.Id];
                                        taskStore.SetValue (iter, 0, edsTask);
                                }
@@ -233,7 +243,6 @@ namespace Tasque.Backends.EDS
                                        taskStore.Remove (ref iter);
                                }
 
-                               Console.WriteLine (id.Uid);
                        }
 
                        Logger.Debug ("{0} Tasks removed in EDS", removedTasksList.Count);

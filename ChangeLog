@@ -1,3 +1,8 @@
+2008-03-28  Johnny Jacob  <jjohnny@novell.com>	
+
+	* src/Backends/EDS/EDSBackends.cs : Fixed CreateTask. Moving 
+	out of event model :( .
+	
 2008-03-28  Johnny Jacob  <jjohnny@novell.com>
 
 	* tasque.mdp: Added EDS Backend into mdp.
