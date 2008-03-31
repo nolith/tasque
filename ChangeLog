@@ -1,3 +1,8 @@
+2008-03-29  Johnny Jacob  <jjohnny@novell.com>
+
+	* src/Backends/EDS/EDSTask.cs: Handle TaskState in 
+	Constructor.
+
 2008-03-28  Johnny Jacob  <jjohnny@novell.com>	
 
 	* src/Backends/EDS/EDSBackends.cs : Fixed CreateTask. Moving 

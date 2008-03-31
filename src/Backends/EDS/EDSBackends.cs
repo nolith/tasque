@@ -214,6 +214,7 @@ namespace Tasque.Backends.EDS
                        CalComponent[] modifiedTasks = CalUtil.ICalToCalComponentArray (args.Objects.Handle, ((CalView) o).Client);
 
                        foreach (CalComponent task in modifiedTasks) {
+			       Logger.Debug ("Modified : " + task.Summary);
                                if(taskIters.ContainsKey(task.Uid)) {
 				       edsCategory = new EDSCategory (task.Source);
 				       edsTask = new EDSTask (task, edsCategory);

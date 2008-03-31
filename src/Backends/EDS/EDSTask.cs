@@ -31,7 +31,13 @@ namespace Tasque.Backends.EDS
                        this.category = category;
                        this.completionDate = task.Dtend;
                        this.taskComp = task;
+		       
+		       if (task.Status == CalStatus.Completed)
+			       this.state = TaskState.Completed;
+		       else
+			       this.state = TaskState.Active;
 
+		       //Descriptions
 		       notes = new List<INote>();
 
 		       foreach(string description in task.Descriptions) {
@@ -102,12 +108,7 @@ namespace Tasque.Backends.EDS
 
                public override bool IsComplete
                {
-                       get {
-                               if (completionDate == DateTime.MinValue)
-                                       return false;
-
-                               return true;
-                       }
+		       get { return state == TaskState.Completed; }
                }
 
                public override TaskPriority Priority
@@ -210,7 +211,7 @@ namespace Tasque.Backends.EDS
 
                public override void Complete ()
                {
-                       Logger.Debug ("EDSTask.Complete ()");
+                       Logger.Debug ("EDSTask.Complete () : " + Name);
                        this.taskComp.Status = CalStatus.Completed;
                        CompletionDate = DateTime.Now;
                        state = TaskState.Completed;
