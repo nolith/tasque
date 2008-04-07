@@ -1,3 +1,9 @@
+2008-04-07  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* src/Makefile.am:
+	* src/Tasque.exe.config: Add dllmaps for libX11 and GDK.
+	Fixes bug #526663.
+
 2008-03-29  Johnny Jacob  <jjohnny@novell.com>
 
 	* src/Backends/EDS/EDSTask.cs: Handle TaskState in 

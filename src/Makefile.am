@@ -123,7 +123,7 @@ $(TARGET): $(CSFILES) Defines.cs
 	$(CSC) -unsafe -out:$@ $(CSFLAGS) $(NOTIFY_SHARP_CSFLAGS) $(CSC_DEFINES) $^ $(ASSEMBLIES) $(RESOURCES)
 
 tasquelibdir = $(prefix)/lib/tasque
-tasquelib_DATA = $(TARGET)	
+tasquelib_DATA = $(TARGET) $(TARGET).config
 
 bin_SCRIPTS = $(WRAPPER)
 
