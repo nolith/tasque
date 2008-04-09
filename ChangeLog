@@ -1,3 +1,9 @@
+2008-04-09  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* configure.ac: Fix typo in configure.ac. Fixes bug #525272.
+	Also use PKG_PROG_PKG_CONFIG instead of AC_PATH_PROG for checking
+	for pkg-config.
+
 2008-04-07  Sebastian Dröge  <slomo@circular-chaos.org>
 
 	* src/Makefile.am:

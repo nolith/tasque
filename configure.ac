@@ -12,10 +12,7 @@ IT_PROG_INTLTOOL([0.35])
 AC_PROG_LIBTOOL
 
 dnl pkg-config
-AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
-if test "x$PKG_CONFIG" = "xno"; then
-        AC_MSG_ERROR([You need to install pkg-config])
-fi
+PKG_PROG_PKG_CONFIG
 
 AC_PROG_INSTALL
 
@@ -147,8 +144,8 @@ AM_CONDITIONAL(ENABLE_BACKEND_ICECORE, test "x$enable_backend_icecore" = "xyes")
 
 AC_ARG_ENABLE(backend_eds,
        AC_HELP_STRING([--enable-backend-eds],
-               [Enable the EDS Backend [default=no]])  ,
-               enable_backend_eds=yes, enable_backend_eds=no)]
+               [Enable the EDS Backend [default=no]]),
+               enable_backend_eds=yes, enable_backend_eds=no)
 AM_CONDITIONAL(ENABLE_BACKEND_EDS, test "x$enable_backend_eds" = "xyes")
 if test "x$enable_backend_eds" = "xyes" ; then
        # FIXME : Is this the right way to do this ?
