@@ -64,7 +64,7 @@ namespace Tasque
 			try {
 				log = File.CreateText (Path.Combine (
 					Environment.GetEnvironmentVariable ("HOME"), 
-					".banter.log"));
+					".tasque.log"));
 				log.Flush ();
 			} catch (IOException) {
 				// FIXME: Use temp file

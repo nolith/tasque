@@ -1,3 +1,7 @@
+2008-04-15  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Logger.cs: Rename log from .banter.log to .tasque.log.
+
 2008-04-09  Sebastian Dröge  <slomo@circular-chaos.org>
 
 	* configure.ac: Fix typo in configure.ac. Fixes bug #525272.
