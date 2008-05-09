@@ -128,6 +128,7 @@ namespace Tasque
 			topHBox.BorderWidth = 4;
 			
 			categoryComboBox = new ComboBox ();
+			categoryComboBox.Accessible.Description = "Category Selection";
 			categoryComboBox.WidthRequest = 150;
 			categoryComboBox.WrapWidth = 1;
 			CellRendererText comboBoxRenderer = new Gtk.CellRendererText ();
@@ -166,10 +167,10 @@ namespace Tasque
 			l.Show ();
 			buttonHBox.PackStart (l, true, true, 0);
 			buttonHBox.Show ();
-			addTaskButton =
+			addTaskButton = 
 				new MenuToolButton (buttonHBox, Catalog.GetString ("_Add Task"));
 			addTaskButton.UseUnderline = true;
-			// Disactivate the button until the backend is initialized
+		    	// Disactivate the button until the backend is initialized
 			addTaskButton.Sensitive = false;
 			Gtk.Menu addTaskMenu = new Gtk.Menu ();
 			addTaskButton.Menu = addTaskMenu;
@@ -751,6 +752,9 @@ namespace Tasque
 				dialog = noteDialogs [task];
 			}
 			
+			if (!task.HasNotes) {
+				dialog.CreateNewNote();
+			}
 			dialog.Present ();
 		}
 		

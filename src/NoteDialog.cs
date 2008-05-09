@@ -85,20 +85,26 @@ namespace Tasque
 		}
 		#endregion // Properties
 		
-		#region Private Methods
+		#region Public Methods
+		public void CreateNewNote()
+		{
+			Logger.Debug("Creating a new note");
+			NoteWidget noteWidget = new NoteWidget (null);
+			noteWidget.TextChanged += OnNoteTextChanged;
+			noteWidget.DeleteButtonClicked += OnDeleteButtonClicked;
+			noteWidget.Show ();
+			targetVBox.PackStart (noteWidget, false, false, 0);
+		}
+		#endregion // Public Methods
+		
+		#region Private Method
 		#endregion // PrivateMethods
 		
 		#region Event Handlers
 		void OnAddButtonClicked (object sender, EventArgs args)
 		{
 			Logger.Debug("Add button clicked in dialog");
-			NoteWidget noteWidget = new NoteWidget (null);
-			noteWidget.TextChanged += OnNoteTextChanged;
-			noteWidget.DeleteButtonClicked += OnDeleteButtonClicked;
-			noteWidget.Show ();
-			targetVBox.PackStart (noteWidget, false, false, 0);
-			
-			// TODO: Implement NoteDialog.OnAddButtonClicked
+			this.CreateNewNote();
 		}
 
 		

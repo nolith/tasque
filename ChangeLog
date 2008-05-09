@@ -1,3 +1,11 @@
+2008-05-09  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/NoteDialog.cs:  Added public CreateNewNote method to use when
+	when creating new notes.
+	* src/TaskWindow.cs:  Call CreateNewNote to put the user into "Edit
+	Note" mode when they open notes w/ 0 current notes.  Also added an
+	accessible description for the category selection combo box.
+
 2008-04-15  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/Logger.cs: Rename log from .banter.log to .tasque.log.
