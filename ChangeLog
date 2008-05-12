@@ -1,3 +1,7 @@
+2008-05-12  Lucas Rocha <lucasr@gnome.org>
+
+	* po/POTFILES.in: added missing files for translation.
+
 2008-05-09  Brian Merrell <bgmerrell@gmail.com>
 
 	* src/NoteDialog.cs:  Added public CreateNewNote method to use when

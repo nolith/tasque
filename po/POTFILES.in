@@ -1,3 +1,11 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+[encoding: UTF-8]
 src/Application.cs
+src/AllCategory.cs
+src/CompletedTaskGroup.cs
+src/PreferencesDialog.cs
+src/RemoteControl.cs
+src/TaskTreeView.cs
+src/TaskWindow.cs
+src/Utilities.cs
