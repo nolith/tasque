@@ -1,0 +1,40 @@
+# Brazilian Portuguese translation of tasque.
+# Copyright (C) 2008 Lucas Rocha 
+# This file is distributed under the same license as the tasque package.
+# Lucas Rocha <lucasr@gnome.org>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-12 18:37+0300\n"
+"PO-Revision-Date: 2008-05-12 18:40+0300\n"
+"Last-Translator: Lucas Rocha <lucasr@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/Application.cs:392
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Copyright © 2008 Novell, Inc."
+
+#: ../src/Application.cs:393
+msgid "A Useful Task List"
+msgstr "Uma Lista de Tarefas Útil"
+
+#: ../src/Application.cs:395
+msgid "Tasque Project Homepage"
+msgstr "Página Web do Projeto Tasque"
+
+#: ../src/Application.cs:445
+msgid "Show Tasks ..."
+msgstr "Mostrar Tarefas..."
+
+#: ../src/Application.cs:453
+msgid "New Task ..."
+msgstr "Nova Tarefa..."
+
+#: ../src/Application.cs:474
+msgid "Refresh Tasks"
+msgstr "Atualizar Tarefas"
