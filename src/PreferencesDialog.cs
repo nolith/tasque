@@ -129,33 +129,6 @@ namespace Tasque
 			notebook.Show ();
 			this.VBox.PackStart (notebook, true, true, 0);
 
-			/* Available preferences
-			// Preferences
-			// Show completed tasks
-			showCompletedTasksCheck = new CheckButton("Show Completed Tasks");
-			showCompletedTasksCheck.Show();
-			mainVBox.PackStart(showCompletedTasksCheck, false, false, 0);
-			*/
-
-			/*  Available backends
-			label = new Label();
-			label.Show();
-			label.Justify = Gtk.Justification.Left;
-			label.SetAlignment (0.0f, 0.5f);
-			label.LineWrap = false;
-			label.UseMarkup = true;
-			label.UseUnderline = false;
-			label.Markup = "<span weight=\"bold\" size=\"large\">Backend</span>";
-			mainVBox.PackStart(label, false, false, 0);
-
-			// List of available backends
-			string [] backends = new string[] { "Remember the Milk" };
-			ComboBox backendComboBox = new ComboBox(backends);
-			backendComboBox.Active = 0;
-			backendComboBox.Show();
-			mainVBox.PackStart(backendComboBox, false, false, 0);
-			*/
-
 			DeleteEvent += WindowDeleted;
 		}
 		

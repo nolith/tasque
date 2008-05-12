@@ -1,3 +1,10 @@
+2008-05-12  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/PreferencesDialog.cs:  Removed some of my old, commented out
+	code.
+	* src/TaskWindow.cs:  Organize the status bar messages when syncing
+	with a backend.  They should make more sense now.
+
 2008-05-12  Lucas Rocha <lucasr@gnome.org>
 
 	* po/POTFILES.in: added missing files for translation.

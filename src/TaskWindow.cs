@@ -210,13 +210,7 @@ namespace Tasque
 			scrolledWindow.AddWithViewport(innerEb);
 			
 			statusbar = new Gtk.Statusbar ();
-			statusContext = statusbar.GetContextId ("tasque-statusbar");
-			currentStatusMessageId =
-				statusbar.Push (statusContext,
-								Catalog.GetString ("Loading tasks..."));
-			
 			statusbar.HasResizeGrip = true;
-			
 			statusbar.Show ();
 
 			mainVBox.PackEnd (statusbar, false, false, 0);
@@ -1089,22 +1083,26 @@ namespace Tasque
 		
 		private void OnBackendSyncStarted ()
 		{
-			TaskWindow.ShowStatus (Catalog.GetString ("Reloading tasks..."));
+			TaskWindow.ShowStatus (Catalog.GetString ("Loading tasks..."));
 		}
 		
 		private void OnBackendSyncFinished ()
 		{
 			Logger.Debug("Backend sync finished");
-			string status =
-				string.Format ("Tasks loaded: {0}",DateTime.Now.ToString ());
-			TaskWindow.ShowStatus (status);
 			if (Application.Backend.Configured) {
+				string status =
+					string.Format ("Tasks loaded: {0}",DateTime.Now.ToString ());
+				TaskWindow.ShowStatus (status);
 				RebuildAddTaskMenu (Application.Backend.Categories);
 				addTaskEntry.Sensitive = true;
 				// Keep insensitive text color
 				Gdk.Color insensitiveColor =
 					addTaskEntry.Style.Text (Gtk.StateType.Insensitive);
 				addTaskEntry.ModifyText (Gtk.StateType.Normal, insensitiveColor);
+			} else {
+				string status =
+					string.Format ("Not connected.");
+				TaskWindow.ShowStatus (status);
 			}
 		}
 		#endregion // Event Handlers
