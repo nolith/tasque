@@ -138,6 +138,10 @@ $(WRAPPER): $(srcdir)/$(WRAPPER).in Makefile
 		< $< > $@
 	chmod +x $(WRAPPER)
 
+$(TARGET).config: $(srcdir)/$(TARGET).config.in Makefile
+	sed -e "s|\@pkglibdir\@|$(pkglibdir)|" \
+	    < $< > $@
+
 Defines.cs: $(srcdir)/Defines.cs.in Makefile
 	sed -e "s|\@version\@|$(VERSION)|"     \
 		-e "s|\@datadir\@|$(datadir)|"     \
@@ -147,6 +151,7 @@ Defines.cs: $(srcdir)/Defines.cs.in Makefile
 EXTRA_DIST = \
 	$(CSFILES)					\
 	$(WRAPPER).in				\
+	$(TARGET).config.in		\
 	$(srcdir)/Defines.cs.in		\
 	$(srcdir)/tasque.pc.in		\
 	$(srcdir)/Backends/Dummy/*.cs	\
@@ -160,12 +165,14 @@ pkgconfig_DATA = tasque.pc
 
 CLEANFILES = \
 	$(TARGET)					\
+	$(TARGET).config	\
 	$(TARGET).mdb				\
 	$(WRAPPER)					\
 	Defines.cs
 
 DISTCLEANFILES =                        \
         $(WRAPPER)			\
-		$(TARGET)			\
-		$(TARGET).mdb		\
-		Defines.cs			
+	$(TARGET)			\
+	$(TARGET).config	\
+	$(TARGET).mdb		\
+	Defines.cs

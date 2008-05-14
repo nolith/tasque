@@ -1,5 +1,11 @@
 2008-05-14  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/Tasque.exe.config, src/Tasque.exe.config.in, src/Makefile.am: Fix
+	  `make distcheck` by adding Tasque.exe.config.in, modeled after
+	  Tomboy setup.
+
+2008-05-14  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* tasque.mdp: F5 == make run
 
 	Patch courtesy of Eric Butler  <eric@extremeboredom.net>:
