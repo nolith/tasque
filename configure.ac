@@ -39,6 +39,7 @@ AM_GCONF_SOURCE_2
 PKG_CHECK_MODULES([GLIB_SHARP_20], [glib-sharp-2.0])
 PKG_CHECK_MODULES([GNOME_SHARP_20], [gnome-sharp-2.0])
 PKG_CHECK_MODULES([GTK_DOTNET_20], [gtk-dotnet-2.0])
+PKG_CHECK_MODULES([GTK_SHARP_20], [gtk-sharp-2.0 >= 2.10.0])
 PKG_CHECK_MODULES([NDESK_DBUS_10], [ndesk-dbus-1.0])
 PKG_CHECK_MODULES([NDESK_DBUS_GLIB_10], [ndesk-dbus-glib-1.0])
 
@@ -85,13 +86,6 @@ fi
 #
 # DEFINES uses for #if statements
 #
-CSC_DEFINES=""
-if pkg-config --atleast-version=2.10 gtk-sharp-2.0; then
-	CSC_DEFINES="-d:GTK_2_10"
-fi
-AC_SUBST(CSC_DEFINES)
-
-
 AC_ARG_WITH(dbus_service_dir, [  --with-dbus-service-dir=DIR            Where to install Tasque's DBus service file.])
 AM_CONDITIONAL(WITH_DBUS_SERVICE_DIR, test "x$with_dbus_service_dir" != "x")
 if test "x$with_dbus_service_dir" != "x"; then

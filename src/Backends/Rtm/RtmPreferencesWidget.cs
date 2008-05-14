@@ -8,11 +8,7 @@ namespace Tasque.Backends.RtmBackend
 {
 	public class RtmPreferencesWidget : Gtk.EventBox
 	{
-		#if GTK_2_10
  		private LinkButton		authButton;
-		#else
-		private Button			authButton;
-		#endif
 		
 		private Label			statusLabel;
 		private Gtk.Image		image;
@@ -60,11 +56,7 @@ namespace Tasque.Backends.RtmBackend
 			statusLabel.UseMarkup = true;
 			statusLabel.UseUnderline = false;
 
-			#if GTK_2_10
 			authButton = new LinkButton("Click Here to Connect");
-			#else
-			authButton = new Button("Click Here to Connect");
-			#endif
 			
 			authButton.Clicked += OnAuthButtonClicked;
 			

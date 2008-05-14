@@ -57,7 +57,7 @@ namespace Tasque
 		private RemoteControl remoteControl;
 		private Gdk.Pixbuf normalPixBuf;
 		private Gtk.Image trayImage;
-		private Egg.TrayIcon trayIcon;	
+		private Gtk.StatusIcon trayIcon;	
 		private Preferences preferences;
 		private EventBox eb;
 		private IBackend backend;
@@ -328,20 +328,15 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		private void SetupTrayIcon ()
 		{
-			eb = new EventBox();
-			normalPixBuf = Utilities.GetIcon ("tasque-24", 24);
-			trayImage = new Gtk.Image(normalPixBuf);
-			eb.Add(trayImage);
-
+			trayIcon = new Gtk.StatusIcon();
+			trayIcon.Pixbuf = Utilities.GetIcon ("tasque-24", 24);
+			
 			// hooking event
-			eb.ButtonPressEvent += OnTrayIconClick;
-			trayIcon = new Egg.TrayIcon("Tasque");
-			trayIcon.Add(eb); 
+			trayIcon.Activate += OnTrayIconClick;
+			trayIcon.PopupMenu += OnTrayIconPopupMenu;
 
-//			trayIcon.EnterNotifyEvent += OnTrayIconEnterNotifyEvent;
-//			trayIcon.LeaveNotifyEvent += OnTrayIconLeaveNotifyEvent;
 			// showing the trayicon
-			trayIcon.ShowAll();			
+			trayIcon.Visible = true;
 		}
 
 
@@ -433,65 +428,63 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		
 		
 
-		private void OnTrayIconClick (object o, ButtonPressEventArgs args) // handler for mouse click
+		private void OnTrayIconClick (object sender, EventArgs args) // handler for mouse click
 		{
-			if (args.Event.Button == 1) {
-				TaskWindow.ShowWindow();
-			} else if (args.Event.Button == 3) {
-				// FIXME: Eventually get all these into UIManagerLayout.xml file
-				Menu popupMenu = new Menu();
+			TaskWindow.ShowWindow();
+		}
 
-				ImageMenuItem showTasksItem = new ImageMenuItem
-					(Catalog.GetString ("Show Tasks ..."));
+		private void OnTrayIconPopupMenu (object sender, EventArgs args)
+		{
+			// FIXME: Eventually get all these into UIManagerLayout.xml file
+			Menu popupMenu = new Menu();
 
-				showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
-				showTasksItem.Sensitive = backend != null && backend.Initialized;
-				showTasksItem.Activated += OnShowTaskWindow;
-				popupMenu.Add (showTasksItem);
-				
-				ImageMenuItem newTaskItem = new ImageMenuItem
-					(Catalog.GetString ("New Task ..."));
-				newTaskItem.Image = new Gtk.Image (Gtk.Stock.New, IconSize.Menu);
-				newTaskItem.Sensitive = backend != null && backend.Initialized;
-				newTaskItem.Activated += OnNewTask;
-				popupMenu.Add (newTaskItem);
+			ImageMenuItem showTasksItem = new ImageMenuItem
+				(Catalog.GetString ("Show Tasks ..."));
 
-				SeparatorMenuItem separator = new SeparatorMenuItem ();
-				popupMenu.Add (separator);
+			showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
+			showTasksItem.Sensitive = backend != null && backend.Initialized;
+			showTasksItem.Activated += OnShowTaskWindow;
+			popupMenu.Add (showTasksItem);
+			
+			ImageMenuItem newTaskItem = new ImageMenuItem
+				(Catalog.GetString ("New Task ..."));
+			newTaskItem.Image = new Gtk.Image (Gtk.Stock.New, IconSize.Menu);
+			newTaskItem.Sensitive = backend != null && backend.Initialized;
+			newTaskItem.Activated += OnNewTask;
+			popupMenu.Add (newTaskItem);
 
-				ImageMenuItem preferences = new ImageMenuItem (Gtk.Stock.Preferences, null);
-				preferences.Activated += OnPreferences;
-				popupMenu.Add (preferences);
+			SeparatorMenuItem separator = new SeparatorMenuItem ();
+			popupMenu.Add (separator);
 
-				ImageMenuItem about = new ImageMenuItem (Gtk.Stock.About, null);
-				about.Activated += OnAbout;
-				popupMenu.Add (about);
+			ImageMenuItem preferences = new ImageMenuItem (Gtk.Stock.Preferences, null);
+			preferences.Activated += OnPreferences;
+			popupMenu.Add (preferences);
 
-				separator = new SeparatorMenuItem ();
-				popupMenu.Add (separator);
+			ImageMenuItem about = new ImageMenuItem (Gtk.Stock.About, null);
+			about.Activated += OnAbout;
+			popupMenu.Add (about);
 
-				ImageMenuItem refreshAction = new ImageMenuItem
-					(Catalog.GetString ("Refresh Tasks"));
+			separator = new SeparatorMenuItem ();
+			popupMenu.Add (separator);
 
-				refreshAction.Image = new Gtk.Image(Utilities.GetIcon (Gtk.Stock.Execute, 16));
-				refreshAction.Sensitive = backend != null && backend.Initialized;
-				refreshAction.Activated += OnRefreshAction;
-				popupMenu.Add (refreshAction);
-				
-				separator = new SeparatorMenuItem ();
-				popupMenu.Add (separator);
-				
-				ImageMenuItem quit = new ImageMenuItem ( Gtk.Stock.Quit, null);
-				quit.Activated += OnQuit;
-				popupMenu.Add (quit);
+			ImageMenuItem refreshAction = new ImageMenuItem
+				(Catalog.GetString ("Refresh Tasks"));
 
-				popupMenu.ShowAll(); // shows everything
-				//popupMenu.Popup(null, null, null, IntPtr.Zero, args.Event.Button, args.Event.Time);
-				popupMenu.Popup(null, null, null, args.Event.Button, args.Event.Time);
-			}
+			refreshAction.Image = new Gtk.Image(Utilities.GetIcon (Gtk.Stock.Execute, 16));
+			refreshAction.Sensitive = backend != null && backend.Initialized;
+			refreshAction.Activated += OnRefreshAction;
+			popupMenu.Add (refreshAction);
+			
+			separator = new SeparatorMenuItem ();
+			popupMenu.Add (separator);
+			
+			ImageMenuItem quit = new ImageMenuItem ( Gtk.Stock.Quit, null);
+			quit.Activated += OnQuit;
+			popupMenu.Add (quit);
+
+			popupMenu.ShowAll(); // shows everything
+			popupMenu.Popup();
 		}		
-
-
 
 		public static void Main(string[] args)
 		{
@@ -540,8 +533,9 @@ Logger.Debug ("args [0]: {0}", args [0]);
 #if ENABLE_NOTIFY_SHARP
 		public static void ShowAppNotification(Notification notification)
 		{
-			notification.AttachToWidget(
-					Tasque.Application.Instance.trayIcon);
+			// TODO: Use this API for newer versions of notify-sharp
+			//notification.AttachToStatusIcon(
+			//		Tasque.Application.Instance.trayIcon);
 			notification.Show();
 		}
 #endif

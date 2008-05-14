@@ -70,7 +70,6 @@ CSFILES = \
 	$(srcdir)/TaskState.cs \
 	$(srcdir)/TaskWindow.cs \
 	$(srcdir)/TaskTreeView.cs \
-	$(srcdir)/TrayLib.cs \
 	$(srcdir)/Utilities.cs \
 	\
 	$(DUMMY_CSFILES) \
@@ -120,7 +119,7 @@ ASSEMBLIES =  \
 	$(EVOLUTION_SHARP_LIBS)
 
 $(TARGET): $(CSFILES) Defines.cs
-	$(CSC) -unsafe -out:$@ $(CSFLAGS) $(NOTIFY_SHARP_CSFLAGS) $(CSC_DEFINES) $^ $(ASSEMBLIES) $(RESOURCES)
+	$(CSC) -unsafe -out:$@ $(CSFLAGS) $(NOTIFY_SHARP_CSFLAGS) $^ $(ASSEMBLIES) $(RESOURCES)
 
 tasquelibdir = $(prefix)/lib/tasque
 tasquelib_DATA = $(TARGET) $(TARGET).config
