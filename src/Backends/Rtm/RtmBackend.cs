@@ -230,9 +230,13 @@ namespace Tasque.Backends.RtmBackend
 				rtm = new Rtm(apiKey, sharedSecret);
 			
 			runningRefreshThread = true;
+			Logger.Debug("ThreadState: " + refreshThread.ThreadState);
 			if (refreshThread.ThreadState == ThreadState.Running) {
 				Logger.Debug ("RtmBackend refreshThread already running");
 			} else {
+				if (!refreshThread.IsAlive) {
+					refreshThread  = new Thread(RefreshThreadLoop);
+				}
 				refreshThread.Start();
 			}
 			runRefreshEvent.Set();		
