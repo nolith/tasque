@@ -183,6 +183,12 @@ namespace Tasque
 			                           Gdk.ModifierType.ControlMask,
 			                           Gtk.AccelFlags.Visible);
 			
+			globalKeys.AddAccelerator (delegate (object sender, EventArgs e) {
+				Application.Instance.Quit (); },
+			                           (uint) Gdk.Key.q,
+			                           Gdk.ModifierType.ControlMask,
+			                           Gtk.AccelFlags.Visible);
+			
 			topHBox.Show ();
 			mainVBox.PackStart (topHBox, false, false, 0);
 

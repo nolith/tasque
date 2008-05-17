@@ -1,3 +1,9 @@
+2008-05-16  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Application.cs: Rename QuitMainLoop to Quit, have it call the
+	  OnQuit handler used in the StatusIcon menu.
+	* src/TaskWindow.cs: Bind ctrl+q to Application.Quit.
+
 2008-05-14  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/Tasque.exe.config, src/Tasque.exe.config.in, src/Makefile.am: Fix

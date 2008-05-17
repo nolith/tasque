@@ -413,7 +413,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		private void OnQuit (object sender, EventArgs args)
 		{
-			Logger.Info ("OnQuitAction called - terminating application");
+			Logger.Info ("OnQuit called - terminating application");
 			if (backend != null) {
 				backend.Cleanup();
 			}
@@ -546,9 +546,9 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			program.Run ();
 		}
 
-		public void QuitMainLoop ()
+		public void Quit ()
 		{
-			//	actionManager ["QuitAction"].Activate ();
+			OnQuit (null, null);
 		}
 
 	}
