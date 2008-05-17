@@ -230,9 +230,22 @@ namespace RtmNet
 			if (variables.Length > 0)
 			{
 				req.ContentType = "application/x-www-form-urlencoded";
-				StreamWriter sw = new StreamWriter(req.GetRequestStream());
-				sw.Write(variables);
-				sw.Close();
+				StreamWriter sw = null;
+				try
+				{
+					sw = new StreamWriter(req.GetRequestStream());
+					sw.Write(variables);
+					sw.Close();
+				}
+				catch(WebException ex)
+				{
+					throw new RtmWebException(ex.Message, ex);
+				}
+				finally
+				{
+					if (sw != null)
+						sw.Close();
+				}
 			}
 			else
 			{

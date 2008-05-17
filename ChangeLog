@@ -1,5 +1,10 @@
 2008-05-17  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* RtmNet/Rtm.cs: Prevent crash when requests timeout during network
+	  failure.  Fixes bug #533609, patch courtesy of Charles Schaefer.
+
+2008-05-17  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/Backends/Rtm/RtmBackend.cs: Checking if the refresh Thread is
 	  still alive and, if it isn't, create a new Thread to be used. 
 	  Prevents crash when switching away from and then back to RTM
