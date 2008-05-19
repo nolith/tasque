@@ -131,6 +131,7 @@ namespace Tasque
 			categoryComboBox.Accessible.Description = "Category Selection";
 			categoryComboBox.WidthRequest = 150;
 			categoryComboBox.WrapWidth = 1;
+			categoryComboBox.Sensitive = false;
 			CellRendererText comboBoxRenderer = new Gtk.CellRendererText ();
 			comboBoxRenderer.WidthChars = 20;
 			comboBoxRenderer.Ellipsize = Pango.EllipsizeMode.End;
@@ -1101,6 +1102,7 @@ namespace Tasque
 				TaskWindow.ShowStatus (status);
 				RebuildAddTaskMenu (Application.Backend.Categories);
 				addTaskEntry.Sensitive = true;
+				categoryComboBox.Sensitive = true;
 				// Keep insensitive text color
 				Gdk.Color insensitiveColor =
 					addTaskEntry.Style.Text (Gtk.StateType.Insensitive);
