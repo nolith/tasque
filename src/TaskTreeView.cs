@@ -574,6 +574,11 @@ namespace Tasque
 		/// </param>
 		void OnDateEdited (object sender, Gtk.EditedArgs args)
 		{
+			if (args.NewText == null) {
+				Logger.Debug ("New date text null, not setting date");
+				return;
+			}
+			
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new TreePath (args.Path);
 			if (Model.GetIter (out iter, path) == false)

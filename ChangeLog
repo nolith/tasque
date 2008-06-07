@@ -1,5 +1,10 @@
 2008-06-07  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/TaskTreeView.cs: Prevent crash when double-clicking date widget. 
+	  Fixes bug #525282.
+
+2008-06-07  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* data/images/Makefile.am: Update GTK+ icon cache on uninstall.  Fixes
 	  bug #536740, patch courtesy of Andrew Starr-Bochicchio.
 
