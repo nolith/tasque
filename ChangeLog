@@ -1,3 +1,8 @@
+2008-06-07  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* data/images/Makefile.am: Update GTK+ icon cache on uninstall.  Fixes
+	  bug #536740, patch courtesy of Andrew Starr-Bochicchio.
+
 2008-05-19  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/TaskWindow.cs: De-sensitize categoryComboBox during task window
