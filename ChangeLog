@@ -1,3 +1,10 @@
+2008-06-11  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* configure.ac: Removed seemingly unused $enable_ice_desktop variable. 
+	  Make sure to check that Novell.IceDesktop is actually available
+	  when running configure.  Fixes bug #537906.
+	* NEWS: Getting ready for 0.1.6 release.
+
 2008-06-07  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/TaskTreeView.cs: Prevent crash when double-clicking date widget. 

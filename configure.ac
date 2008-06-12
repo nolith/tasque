@@ -124,13 +124,16 @@ AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$enable_backend_sqlite" = "xyes")
 #
 # ICEcore for IceBackend Support
 #
-PKG_CHECK_MODULES(ICE_DESKTOP, Novell.IceDesktop, enable_ice_desktop="yes", enable_ice_desktop="no")
-AC_SUBST(ICE_DESKTOP_LIBS)
 AC_ARG_ENABLE(backend_icecore,
 	AC_HELP_STRING([--enable-backend-icecore],
 		[Enable the ICEcore Backend [default=no]]),
 		enable_backend_icecore=yes, enable_backend_icecore=no)
 AM_CONDITIONAL(ENABLE_BACKEND_ICECORE, test "x$enable_backend_icecore" = "xyes")
+if test "x$enable_backend_icecore" = "xyes" ; then
+       # FIXME : Is this the right way to do this ?
+       PKG_CHECK_MODULES(ICE_DESKTOP, Novell.IceDesktop)
+fi
+AC_SUBST(ICE_DESKTOP_LIBS)
 
 #
 # Evolution-Sharp for EDSBackend Support
