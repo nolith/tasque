@@ -1,9 +1,11 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
+data/tasque.desktop.in
 src/Application.cs
 src/AllCategory.cs
 src/CompletedTaskGroup.cs
+src/NoteDialog.cs
 src/PreferencesDialog.cs
 src/RemoteControl.cs
 src/TaskTreeView.cs
