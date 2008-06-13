@@ -735,14 +735,19 @@ namespace Tasque
 			
 			private bool PulseAnimation ()
 			{
-				// Emit this signal to cause the TreeView to update the row
-				// where the task is located.  This will allow the
-				// CellRendererPixbuf to update the icon.
-				tree.Model.EmitRowChanged (path, iter);
-				
-				// Return true so that this method will be called after an
-				// additional timeout duration has elapsed.
-				return true;
+				if (tree.Model == null) {
+					// Widget has been closed, no need to call this again
+					return false;
+				} else {
+					// Emit this signal to cause the TreeView to update the row
+					// where the task is located.  This will allow the
+					// CellRendererPixbuf to update the icon.
+					tree.Model.EmitRowChanged (path, iter);
+					
+					// Return true so that this method will be called after an
+					// additional timeout duration has elapsed.
+					return true;
+				}
 			}
 		}
 		#endregion // Private Classes

@@ -1,3 +1,8 @@
+2008-06-12  Ankit Jain  <radical@gmail.com>
+
+	* src/TaskTreeView.cs (PulseAnimation): Disable this when the window is
+	gone.  Fixes bug #538144.
+
 2008-06-11  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* configure.ac: Removed seemingly unused $enable_ice_desktop variable. 
