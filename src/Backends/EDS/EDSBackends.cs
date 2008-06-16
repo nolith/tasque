@@ -128,10 +128,12 @@ namespace Tasque.Backends.EDS
                        iter = categoryListStore.Append ();
                        categoryListStore.SetValue (iter, 0, allCategory);
 
+		       Logger.Debug ("Initializing EDS Backend ");
+
                        try {
-                               UpdateCategories ();
+			       ListenForGroups ();
                        } catch (Exception e) {
-                               Logger.Debug ("Oops! : " + e);
+                               Logger.Debug ("Fatal : " + e);
                        }
 
                        initialized = true;
@@ -142,6 +144,7 @@ namespace Tasque.Backends.EDS
 
                public Gtk.Widget GetPreferencesWidget ()
                {
+		       Logger.Debug ("No Preference Widget ");
                        return null;
                }
 
@@ -188,6 +191,7 @@ namespace Tasque.Backends.EDS
 
                public void TasksAdded (object o, Evolution.ObjectsAddedArgs args)
                {
+		       Logger.Debug ("Tasks Added ");
                        CalComponent[] addedTasks = CalUtil.ICalToCalComponentArray (args.Objects.Handle, ((CalView) o).Client);
                        lock (taskLock) {
                                Gtk.TreeIter taskIter;
@@ -207,6 +211,7 @@ namespace Tasque.Backends.EDS
 
                public void TasksModified (object o, Evolution.ObjectsModifiedArgs args)
                {
+		       Logger.Debug ("Tasks Modified ");
                        Gtk.TreeIter iter;
                        EDSTask edsTask;
                        EDSCategory edsCategory;
@@ -233,6 +238,7 @@ namespace Tasque.Backends.EDS
 
                public void TasksRemoved (object o, Evolution.ObjectsRemovedArgs args)
                {
+		       Logger.Debug ("Tasks Removed");
                        Gtk.TreeIter iter;
 
                        GLib.List removedTasksList = new GLib.List (args.Uids.Handle,
@@ -250,46 +256,91 @@ namespace Tasque.Backends.EDS
 
                }
 
-               public void UpdateCategories ()
-               {
-                       SourceList slist = new SourceList ("/apps/evolution/tasks/sources");
-                       SList taskGroupList = slist.Groups;
-                       EDSCategory edsCategory;
+	       private void ListenForGroups ()
+	       {
+		       Logger.Debug ("Listening for Changes in EDS Task Groups ");
+		       SourceList slist = new SourceList ("/apps/evolution/tasks/sources");
 
+		       if (slist == null)
+			       Logger.Debug ("Unable to find sources");
+
+		       slist.GroupAdded += OnGroupAdded;
+		       slist.GroupRemoved += OnGroupRemoved;
+
+		       foreach (SourceGroup group in slist.Groups) {
+			       ListenForSources (group);
+		       }
+	       }
+
+	       private void OnGroupAdded (object o, GroupAddedArgs args)
+	       {
+		       Logger.Debug ("Groups Added.");
+		       SourceGroup group = args.Group;
+		       ListenForSources (group);
+	       }
+
+	       private void ListenForSources (SourceGroup group)
+	       {
+		       Logger.Debug ("ListenForSources.");
+
+		       //FIXME : Bug in e-sharp :( ? 
+		       group.SourceAdded += OnSourceAdded;
+		       group.SourceRemoved += OnSourceRemoved;
+
+		       foreach (Evolution.Source source in group.Sources) {
+			       AddCategory (source);
+		       }
+	       }
+
+	       private void OnGroupRemoved (object o, GroupRemovedArgs args)
+	       {
+		       Logger.Debug ("Groups Removed.");
+	       }
+
+	       private void OnSourceAdded (object o, SourceAddedArgs args) 
+	       {
+		       Logger.Debug ("Source Added");
+		       Evolution.Source source = args.Source;
+		       AddCategory (source);
+	       }
+
+	       private void OnSourceRemoved (object o, SourceRemovedArgs args) 
+	       {
+		       Logger.Debug ("Source Removed");
+		       Evolution.Source source = args.Source;
+		       //RemoveCategory (source);
+	       }
+
+	       private void AddCategory (Evolution.Source source)
+	       {
+		       Logger.Debug ("AddCategory");
+                       EDSCategory edsCategory;
                        Gtk.TreeIter iter;
 
-                       foreach (SourceGroup taskGroup in taskGroupList) {
-                               Logger.Debug ("\nGroup UID:{0}, Name:{1}", taskGroup.Uid, taskGroup.Name);
+		       if (source.IsLocal()) {
+			       Cal taskList = new Cal (source, CalSourceType.Todo);
 
-                               SList categoriesList = taskGroup.Sources;
+			       edsCategory = new EDSCategory (source, taskList);
+			       iter = categoryListStore.Append ();
+			       categoryListStore.SetValue (iter, 0, edsCategory);
 
-                               foreach (Evolution.Source taskListSource in categoriesList) {
-                                       if (taskListSource.IsLocal()) {
-                                               Cal taskList = new Cal (taskListSource, CalSourceType.Todo);
+			       if (!taskList.Open (true)) {
+				       Logger.Debug ("laskList Open failed");
+				       return;
+			       }
 
-                                               edsCategory = new EDSCategory (taskListSource, taskList);
-                                               iter = categoryListStore.Append ();
-                                               categoryListStore.SetValue (iter, 0, edsCategory);
+			       CalView query = taskList.GetCalView ("#t");
+			       if (query == null) {
+				       Logger.Debug ("Query object creation failed");
+				       return;
+			       } else
+				       query.Start ();
 
-                                               if (!taskList.Open (true)) {
-                                                       Logger.Debug ("laskList Open failed");
-                                                       continue;
-                                               }
-
-                                               CalView query = taskList.GetCalView ("#t");
-                                               if (query == null) {
-                                                       Logger.Debug ("Query object creation failed");
-                                                       continue;
-                                               } else
-                                                       query.Start ();
-
-                                               query.ObjectsModified += TasksModified;
-                                               query.ObjectsAdded += TasksAdded;
-                                               query.ObjectsRemoved += TasksRemoved;
-                                       }
-                               }
-                       }
-               }
+			       query.ObjectsModified += TasksModified;
+			       query.ObjectsAdded += TasksAdded;
+			       query.ObjectsRemoved += TasksRemoved;
+		       }
+	       }
 
                public void UpdateTask (EDSTask task)
                {

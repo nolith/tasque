@@ -1,3 +1,8 @@
+2008-06-16  Johnny Jacob  <jjohnny@novell.com>
+	
+	* src/Backends/EDS/EDSBackends.cs: Listen on Source List for
+	new groups and sources. Added debug statements.
+	
 2008-06-12  Ankit Jain  <radical@gmail.com>
 
 	* src/TaskTreeView.cs (PulseAnimation): Disable this when the window is
