@@ -1,3 +1,11 @@
+2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Application.cs: Check every minute to see if the day has changed.
+	   If it has, and the TaskWindow is open, reinitialize the
+	  TaskWindow.  Fixes bug #525306.
+	* src/TaskWindow.cs: Add static IsOpen property to determine if a
+	  TaskWindow exists and is currently realized.
+
 2008-06-16  Johnny Jacob  <jjohnny@novell.com>
 	
 	* src/Backends/EDS/EDSBackends.cs: Listen on Source List for

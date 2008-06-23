@@ -484,6 +484,13 @@ namespace Tasque
 				taskWindow.statusbar.Push (taskWindow.statusContext,
 										   statusText);
 		}
+
+		public static bool IsOpen
+		{
+			get {
+				return taskWindow != null && taskWindow.IsRealized;
+			}
+		}
 		
 		/// <summary>
 		/// This should be called after a new IBackend has been set

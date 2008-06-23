@@ -63,6 +63,8 @@ namespace Tasque
 		private IBackend backend;
 		private PreferencesDialog preferencesDialog;
 		
+		private DateTime currentDay = DateTime.Today;
+		
 		/// <value>
 		/// Keep track of the available backends.  The key is the Type name of
 		/// the backend.
@@ -201,6 +203,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			LoadAvailableBackends ();
 
 			GLib.Idle.Add(InitializeIdle);
+			GLib.Timeout.Add (60000, CheckForDaySwitch);
 		}
 		
 		/// <summary>
@@ -321,6 +324,19 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			
 			return false;
 		}
+		
+		private bool CheckForDaySwitch ()
+		{
+			if (DateTime.Today != currentDay) {
+				Logger.Debug ("Day has changed, reloading tasks");
+				currentDay = DateTime.Today;
+				// Reinitialize window according to new date
+				if (TaskWindow.IsOpen)
+					TaskWindow.Reinitialize ();
+			}
+			
+			return true;
+		}
 
 		private void UpdateTrayIcon()
 		{
@@ -417,7 +433,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			if (backend != null) {
 				backend.Cleanup();
 			}
-			TaskWindow.SavePosition();			
+			TaskWindow.SavePosition();
 			program.Quit (); // Should this be called instead?
 		}
 		
@@ -518,8 +534,10 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		public static void OnExitSignal (int signal)
 		{
-			if (ExitingEvent != null) ExitingEvent (null, EventArgs.Empty);
-			if (signal >= 0) System.Environment.Exit (0);
+			if (ExitingEvent != null)
+				ExitingEvent (null, EventArgs.Empty);
+			if (signal >= 0)
+				System.Environment.Exit (0);
 		}
 
 		public static event EventHandler ExitingEvent = null;
