@@ -1,5 +1,9 @@
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* NEWS: Fix links to bugs and mailing list.
+
+2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* configure.ac: Bump version to 0.1.7.
 
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 

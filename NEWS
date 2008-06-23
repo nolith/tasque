@@ -1,8 +1,8 @@
 Tasque NEWS
 
 Website: http://live.gnome.org/Tasque
-Bugs/Issues: http://code.google.com/p/tasque/issues/list
-Mailing list: http://groups.google.com/group/tasque
+Bugs/Issues: http://bugzilla.gnome.org/browse.cgi?product=Tasque
+Mailing list: http://groups.google.com/group/tasky
 
 Version 0.1.6
 * New task entry widget at top of Tasque window.
