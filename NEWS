@@ -4,13 +4,13 @@ Website: http://live.gnome.org/Tasque
 Bugs/Issues: http://code.google.com/p/tasque/issues/list
 Mailing list: http://groups.google.com/group/tasque
 
-Version 0.1.6 (Not yet released)
+Version 0.1.6
 * New task entry widget at top of Tasque window.
 * When entering a new task, parse for due date information.
 * Cleaner SVG icon, Jakub Steiner.
 * Use Gtk.StatusIcon, Eric Butler.
 * Crash fixes from Charles Schaefer (#533609, #533607).
-* Bug fixes: #525282, #536740, #532764, #526663, #525272
+* Bug fixes: #525306, #525282, #536740, #532764, #526663, #525272, #538144
 
 Version 0.1.5
 * Fixed category filter when showing "All" in Task view

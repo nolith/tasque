@@ -1,5 +1,9 @@
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* NEWS: Updated for 0.1.6.
+
+2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/Application.cs: Check every minute to see if the day has changed.
 	   If it has, and the TaskWindow is open, reinitialize the
 	  TaskWindow.  Fixes bug #525306.
