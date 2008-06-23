@@ -1,5 +1,12 @@
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/TaskWindow.cs: Check that newly created task is non-null before
+	  trying to use it.  Return if null (should show message to user,
+	  though).  Fixes crash found when adding an EDS task in the "All"
+	  category.
+
+2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* NEWS: Updated for 0.1.6.
 
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 

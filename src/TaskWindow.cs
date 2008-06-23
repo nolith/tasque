@@ -895,6 +895,9 @@ namespace Tasque
 				taskName = enteredTaskText;
 			
 			ITask task = CreateTask (taskName, category);
+			if (task == null)
+				return; // TODO: Explain error to user!
+			
 			if (taskDueDate != DateTime.MinValue)
 				task.DueDate = taskDueDate;
 			
