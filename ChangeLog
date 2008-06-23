@@ -1,5 +1,9 @@
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* configure.ac: Bump version to 0.1.7.
+
+2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/TaskWindow.cs: Check that newly created task is non-null before
 	  trying to use it.  Return if null (should show message to user,
 	  though).  Fixes crash found when adding an EDS task in the "All"
