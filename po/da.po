@@ -1,0 +1,335 @@
+# Danish translation of tasque.
+# Copyright (C) 2008 Lucas Rocha 
+# This file is distributed under the same license as the tasque package.
+# Søren Juul <zpon.dk@gmail.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-24 11:25+0200\n"
+"PO-Revision-Date: 2008-06-24 11:24+0200\n"
+"Last-Translator: Søren Juul <zpon.dk@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/tasque.desktop.in.h:1
+msgid "Easy quick task management"
+msgstr ""
+
+#: ../data/tasque.desktop.in.h:2
+#, fuzzy
+msgid "Task Manager"
+msgstr "Opgavenavn"
+
+#: ../data/tasque.desktop.in.h:3
+msgid "Tasque"
+msgstr ""
+
+#: ../src/Application.cs:403
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Copyright © 2008 Novell, Inc."
+
+#: ../src/Application.cs:404
+msgid "A Useful Task List"
+msgstr "En handy opgaveliste"
+
+#: ../src/Application.cs:406
+msgid "Tasque Project Homepage"
+msgstr "Tasque-projekthjemmeside"
+
+#: ../src/Application.cs:458
+msgid "Show Tasks ..."
+msgstr "Vis opgaver..."
+
+#: ../src/Application.cs:466
+msgid "New Task ..."
+msgstr "Ny opgave..."
+
+#: ../src/Application.cs:487
+msgid "Refresh Tasks"
+msgstr "Opdater opgaver"
+
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
+msgid "All"
+msgstr "Alle"
+
+#: ../src/CompletedTaskGroup.cs:205 ../src/Utilities.cs:283
+msgid "Yesterday"
+msgstr "I går"
+
+#: ../src/CompletedTaskGroup.cs:207
+msgid "Last 7 Days"
+msgstr "De sidste 7 dage"
+
+#: ../src/CompletedTaskGroup.cs:209
+msgid "Last Month"
+msgstr "Sidste måned"
+
+#: ../src/CompletedTaskGroup.cs:211
+msgid "Last Year"
+msgstr "Sidste år"
+
+#: ../src/NoteDialog.cs:22
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:107
+msgid "General"
+msgstr "Generelt"
+
+#: ../src/PreferencesDialog.cs:146
+msgid "Task Management System"
+msgstr "Opgavestyringssystem"
+
+#: ../src/PreferencesDialog.cs:188
+msgid "Task Filtering"
+msgstr "Opgavefiltrering"
+
+#: ../src/PreferencesDialog.cs:207
+msgid "Show _completed tasks"
+msgstr "Vis _udførte opgaver"
+
+#. Categories TreeView
+#: ../src/PreferencesDialog.cs:216
+msgid "Only _show these categories when \"All\" is selected:"
+msgstr "Vi_s kun disse kategorier når \"Alle\" er valgt:"
+
+#: ../src/PreferencesDialog.cs:234
+msgid "Category"
+msgstr "Kategori"
+
+#: ../src/RemoteControl.cs:109
+msgid "New task created."
+msgstr "Ny opgave oprettet."
+
+#. Title for Completed/Checkbox Column
+#: ../src/TaskTreeView.cs:72 ../src/TaskWindow.cs:346
+msgid "Completed"
+msgstr "Udført"
+
+#. Title for Priority Column
+#: ../src/TaskTreeView.cs:89
+msgid "Priority"
+msgstr "Prioritet"
+
+#: ../src/TaskTreeView.cs:102 ../src/TaskTreeView.cs:300
+#: ../src/TaskTreeView.cs:524
+msgid "1"
+msgstr "1"
+
+#. High
+#: ../src/TaskTreeView.cs:103 ../src/TaskTreeView.cs:297
+#: ../src/TaskTreeView.cs:522
+msgid "2"
+msgstr "2"
+
+#. Medium
+#: ../src/TaskTreeView.cs:104 ../src/TaskTreeView.cs:294
+#: ../src/TaskTreeView.cs:520
+msgid "3"
+msgstr "3"
+
+#. Low
+#: ../src/TaskTreeView.cs:105 ../src/TaskTreeView.cs:303
+msgid "-"
+msgstr "-"
+
+#. Title for Task Name Column
+#: ../src/TaskTreeView.cs:119
+msgid "Task Name"
+msgstr "Opgavenavn"
+
+#. Title for Due Date Column
+#: ../src/TaskTreeView.cs:161
+msgid "Due Date"
+msgstr "Forfaldsdato"
+
+#: ../src/TaskTreeView.cs:175 ../src/TaskTreeView.cs:177
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:606
+#: ../src/TaskTreeView.cs:609 ../src/TaskTreeView.cs:614
+msgid "M/d - "
+msgstr "d/M - "
+
+#: ../src/TaskTreeView.cs:175 ../src/TaskTreeView.cs:606
+#: ../src/TaskWindow.cs:279 ../src/Utilities.cs:277
+msgid "Today"
+msgstr "I dag"
+
+#: ../src/TaskTreeView.cs:177 ../src/TaskTreeView.cs:609
+#: ../src/TaskWindow.cs:297 ../src/Utilities.cs:296
+msgid "Tomorrow"
+msgstr "I morgen"
+
+#: ../src/TaskTreeView.cs:179 ../src/TaskTreeView.cs:181
+#: ../src/TaskTreeView.cs:183 ../src/TaskTreeView.cs:185
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:354
+#: ../src/TaskTreeView.cs:623
+msgid "M/d - ddd"
+msgstr "d/M - ddd"
+
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:614
+msgid "In 1 Week"
+msgstr "På 1 uge"
+
+#: ../src/TaskTreeView.cs:190 ../src/TaskTreeView.cs:611
+#: ../src/Utilities.cs:309
+msgid "No Date"
+msgstr "Igen dato"
+
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:616
+msgid "Choose Date..."
+msgstr "Vælg dato..."
+
+#. Title for Notes Column
+#: ../src/TaskTreeView.cs:207
+msgid "Notes"
+msgstr "Noter"
+
+#. Title for Timer Column
+#: ../src/TaskTreeView.cs:224
+msgid "Timer"
+msgstr "Stopur"
+
+#: ../src/TaskTreeView.cs:356
+msgid "M/d/yy - ddd"
+msgstr "d/M/åå - ddd"
+
+#. The new task entry widget
+#. Clear the entry if it contains the default text
+#: ../src/TaskWindow.cs:152 ../src/TaskWindow.cs:835 ../src/TaskWindow.cs:845
+#: ../src/TaskWindow.cs:856
+msgid "New task..."
+msgstr "Ny opgave..."
+
+#: ../src/TaskWindow.cs:167
+msgid "_Add"
+msgstr "_Tilføj"
+
+#: ../src/TaskWindow.cs:172
+msgid "_Add Task"
+msgstr "_Tilføj opgave"
+
+#: ../src/TaskWindow.cs:261
+msgid "Overdue"
+msgstr "Overskredet"
+
+#: ../src/TaskWindow.cs:315
+msgid "Next 7 Days"
+msgstr "Næste 7 Dage"
+
+#: ../src/TaskWindow.cs:331
+msgid "Future"
+msgstr "Fremtidig"
+
+#: ../src/TaskWindow.cs:1024
+msgid "_Notes..."
+msgstr "_Noter..."
+
+#: ../src/TaskWindow.cs:1031
+msgid "_Delete task"
+msgstr "_Slet opgave"
+
+#: ../src/TaskWindow.cs:1036
+msgid "_Edit task"
+msgstr "R_ediger opgave"
+
+#: ../src/TaskWindow.cs:1103
+msgid "Loading tasks..."
+msgstr "Indlæser opgaver..."
+
+#: ../src/Utilities.cs:275
+#, csharp-format
+msgid "Today, {0}"
+msgstr "I dag, {0}"
+
+#: ../src/Utilities.cs:281
+#, csharp-format
+msgid "Yesterday, {0}"
+msgstr "I går, {0}"
+
+#: ../src/Utilities.cs:287
+#, csharp-format
+msgid "{0} days ago, {1}"
+msgstr "{0} dage siden, {1}"
+
+#: ../src/Utilities.cs:289
+#, csharp-format
+msgid "{0} days ago"
+msgstr "{0} dage siden"
+
+#: ../src/Utilities.cs:294
+#, csharp-format
+msgid "Tomorrow, {0}"
+msgstr "I morgen, {0}"
+
+#: ../src/Utilities.cs:300
+#, csharp-format
+msgid "In {0} days, {1}"
+msgstr "På {0} dage, {1}"
+
+#: ../src/Utilities.cs:302
+#, csharp-format
+msgid "In {0} days"
+msgstr "På {0} dage"
+
+#: ../src/Utilities.cs:306
+msgid "MMMM d, h:mm tt"
+msgstr "MMMM d, h:mm tt"
+
+#: ../src/Utilities.cs:307
+msgid "MMMM d"
+msgstr "MMMM d"
+
+#: ../src/Utilities.cs:312
+msgid "MMMM d yyyy, h:mm tt"
+msgstr "d MMMM yyyy h:mm tt"
+
+#: ../src/Utilities.cs:313
+msgid "MMMM d yyyy"
+msgstr "d MMMM yyyy"
+
+#: ../src/Utilities.cs:322
+msgid "Sunday"
+msgstr "Søndag"
+
+#: ../src/Utilities.cs:324
+msgid "Monday"
+msgstr "Mandag"
+
+#: ../src/Utilities.cs:326
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+#: ../src/Utilities.cs:328
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: ../src/Utilities.cs:330
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: ../src/Utilities.cs:332
+msgid "Friday"
+msgstr "Fredag"
+
+#: ../src/Utilities.cs:334
+msgid "Saturday"
+msgstr "Lørdag"
+
+#. Then try some more natural language parsing
+#. A regular expression to capture a task that is due today
+#: ../src/Utilities.cs:380
+msgid "^(?<task>.+)\\s+today\\W*$"
+msgstr "^(?<task>.+)\\s+i dag\\W*$"
+
+#. A regular expression to capture a task that is due tomorrow
+#: ../src/Utilities.cs:382
+msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+msgstr "^(?<task>.+)\\s+i morgen\\W*$"
+
+#~ msgid "Reloading tasks..."
+#~ msgstr "Genindlæs opgaver..."

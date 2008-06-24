@@ -1,3 +1,8 @@
+2008-06-24  Kenneth Nielsen  <k.nielsen81@gmail.com>
+
+	* da.po: Added Danish translation by Soeren Juul
+	* LINGUAS: Added da
+
 2008-06-23  Daniel Nylander <po@danielnylander.se>
 
 	* sv.po: Added Swedish translation by Kalle Persson.
