@@ -1,5 +1,10 @@
 2008-06-27  Brian Merrell <bgmerrell@gmail.com>
 
+	* src/TaskTreeView.cs:  Fix typo and add some comments.  Also slightly
+	decreased delay for tooltips to appear.
+
+2008-06-27  Brian Merrell <bgmerrell@gmail.com>
+
 	* src/TaskTreeView.cs:  Add tooltips.  Modified the default tooltip
 	behavior to make them unobtrusive.  Some variables could be moved to
 	preferences later on.  Addresses bug #525281 (enhancement).  Large

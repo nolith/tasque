@@ -40,8 +40,8 @@ namespace Tasque
 
 			// set up the timing for the tooltips
 			this.Settings.SetLongProperty("gtk-tooltip-browse-mode-timeout", 0, "Tasque:TaskTreeView");
-			this.Settings.SetLongProperty("gtk-tooltip-browse-timeout", 1000, "Tasque:TaskTreeView");
-			this.Settings.SetLongProperty("gtk-tooltip-timeout", 1000, "Tasque:TaskTreeView");
+			this.Settings.SetLongProperty("gtk-tooltip-browse-timeout", 750, "Tasque:TaskTreeView");
+			this.Settings.SetLongProperty("gtk-tooltip-timeout", 750, "Tasque:TaskTreeView");
 
 			ConnectEvents();
 			
@@ -306,12 +306,14 @@ namespace Tasque
 				ITask task = Model.GetValue (iter, 0) as ITask;							      
 				if (task != null && task.HasNotes && task.Notes != null) {
 					foreach (INote note in task.Notes) {
+						// for the tooltip, truncate any notes longer than 250 characters.
 						if (note.Text.Length > toolTipMaxLength)
 							list.Add(note.Text.Substring(0, toolTipMaxLength - snipText.Length) + 
 											snipText);
 						else
 							list.Add(note.Text);
 						notesAdded++;
+						// stop iterating once we reach maxNumNotes
 						if (notesAdded >= maxNumNotes) {
 							break;
 						}
@@ -320,10 +322,11 @@ namespace Tasque
 		
 				HasTooltip = list.Count > 0;
 				if (HasTooltip) {
+					// if there are more than maxNumNotes, append a notice to the tooltip
 					if (notesAdded < task.Notes.Count) {
 						int nMoreNotes = task.Notes.Count - notesAdded;
 						if (nMoreNotes > 1)
-							list.Add(String.Format("[{0} more note]", nMoreNotes));
+							list.Add(String.Format("[{0} more notes]", nMoreNotes));
 						else
 							list.Add("[1 more note]");
 					}
