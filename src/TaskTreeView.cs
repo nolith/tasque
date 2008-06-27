@@ -19,7 +19,7 @@ namespace Tasque
 		private static Gdk.Pixbuf[] inactiveAnimPixbufs;
 		
 		private Gtk.TreeModelFilter modelFilter;
-		private ICategory filterCategory;
+		private ICategory filterCategory;		
 		
 		static TaskTreeView ()
 		{
@@ -36,7 +36,15 @@ namespace Tasque
 
 		public TaskTreeView (Gtk.TreeModel model)
 			: base ()
-		{
+		{		
+
+			// set up the timing for the tooltips
+			this.Settings.SetLongProperty("gtk-tooltip-browse-mode-timeout", 0, "Tasque:TaskTreeView");
+			this.Settings.SetLongProperty("gtk-tooltip-browse-timeout", 1000, "Tasque:TaskTreeView");
+			this.Settings.SetLongProperty("gtk-tooltip-timeout", 1000, "Tasque:TaskTreeView");
+
+			ConnectEvents();
+			
 			// TODO: Modify the behavior of the TreeView so that it doesn't show
 			// the highlighted row.  Then, also tie in with the mouse hovering
 			// so that as you hover the mouse around, it will automatically
@@ -267,9 +275,9 @@ namespace Tasque
 
 		
 		private void TaskToggleCellDataFunc (Gtk.TreeViewColumn column,
-											 Gtk.CellRenderer cell,
-											 Gtk.TreeModel model,
-											 Gtk.TreeIter iter)
+										Gtk.CellRenderer cell,
+										Gtk.TreeModel model,
+										Gtk.TreeIter iter)
 		{
 			Gtk.CellRendererToggle crt = cell as Gtk.CellRendererToggle;
 			ITask task = model.GetValue (iter, 0) as ITask;
@@ -279,6 +287,51 @@ namespace Tasque
 				crt.Active =
 					task.State == TaskState.Active ? false : true;
 			}
+		}
+
+		private void ConnectEvents()
+		{
+			this.CursorChanged += delegate(object o, EventArgs args) {			
+			int toolTipMaxLength = 250;
+			string snipText = "...";
+			int maxNumNotes = 3;
+			int notesAdded = 0;
+			TooltipText = null;
+			TriggerTooltipQuery();
+			TreeModel m;
+			TreeIter iter;
+			List<String> list = new List<String>();
+	
+			if(Selection.GetSelected(out m, out iter)) {
+				ITask task = Model.GetValue (iter, 0) as ITask;							      
+				if (task != null && task.HasNotes && task.Notes != null) {
+					foreach (INote note in task.Notes) {
+						if (note.Text.Length > toolTipMaxLength)
+							list.Add(note.Text.Substring(0, toolTipMaxLength - snipText.Length) + 
+											snipText);
+						else
+							list.Add(note.Text);
+						notesAdded++;
+						if (notesAdded >= maxNumNotes) {
+							break;
+						}
+					}
+				}			      		
+		
+				HasTooltip = list.Count > 0;
+				if (HasTooltip) {
+					if (notesAdded < task.Notes.Count) {
+						int nMoreNotes = task.Notes.Count - notesAdded;
+						if (nMoreNotes > 1)
+							list.Add(String.Format("[{0} more note]", nMoreNotes));
+						else
+							list.Add("[1 more note]");
+					}
+					TooltipText = String.Join("\n\n", list.ToArray());
+					TriggerTooltipQuery();
+				}
+			}
+			};
 		}
 
 		void TaskPriorityCellDataFunc (Gtk.TreeViewColumn tree_column,

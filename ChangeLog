@@ -1,3 +1,10 @@
+2008-06-27  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/TaskTreeView.cs:  Add tooltips.  Modified the default tooltip
+	behavior to make them unobtrusive.  Some variables could be moved to
+	preferences later on.  Addresses bug #525281 (enhancement).  Large
+	portion of patch courtesy of Sergey Kuleshov.
+
 2008-06-23  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* NEWS: Fix links to bugs and mailing list.
