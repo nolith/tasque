@@ -175,7 +175,7 @@ namespace Tasque
 					} catch {}
 
 					Logger.Debug ("Tasque is already running.  Exiting...");
-					System.Environment.Exit (-1);
+					System.Environment.Exit (0);
 				}
 			} catch (Exception e) {
 				Logger.Debug ("Tasque remote control disabled (DBus exception): {0}",

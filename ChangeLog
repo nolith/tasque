@@ -1,3 +1,10 @@
+2008-07-04  Johnny Jacob  <jjohnny@novell.com>
+
+	Fix for Bug #541190.
+	
+	* src/Application.cs: If tasque finds another instance running, 
+	exit with 0 instead of -1.
+
 2008-06-27  Brian Merrell <bgmerrell@gmail.com>
 
 	* src/TaskTreeView.cs:  Fix typo and add some comments.  Also slightly
