@@ -204,7 +204,7 @@ namespace Tasque
 			bool showCompletedTasks = Application.Preferences.GetBool (
 											Preferences.ShowCompletedTasksKey);
 			showCompletedTasksCheckButton =
-				new CheckButton (Catalog.GetString ("Show _completed tasks"));
+				new CheckButton (Catalog.GetString ("Sh_ow completed tasks"));
 			showCompletedTasksCheckButton.UseUnderline = true;
 			showCompletedTasksCheckButton.Active = showCompletedTasks;
 			showCompletedTasksCheckButton.Show ();

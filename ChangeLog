@@ -1,3 +1,9 @@
+2008-07-06  Johnny Jacob  <jjohnny@novell.com>
+
+	* src/PreferencesDialog.cs: Fixes a mnemonic conflict for completed
+	tasks option. "_Completed" conflicts with "_Close". Changed to 
+	"C_ompleted".
+
 2008-07-04  Johnny Jacob  <jjohnny@novell.com>
 
 	Fix for Bug #541190.
