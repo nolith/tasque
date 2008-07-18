@@ -40,6 +40,8 @@ PKG_CHECK_MODULES([GLIB_SHARP_20], [glib-sharp-2.0])
 PKG_CHECK_MODULES([GNOME_SHARP_20], [gnome-sharp-2.0])
 PKG_CHECK_MODULES([GTK_DOTNET_20], [gtk-dotnet-2.0])
 PKG_CHECK_MODULES([GTK_SHARP_20], [gtk-sharp-2.0 >= 2.10.0])
+PKG_CHECK_MODULES([GTK_SHARP_2_12], gtk-sharp-2.0 >= 2.12.0, GTK_2_12="yes", GTK_2_12="no")
+AM_CONDITIONAL(GTK_2_12, test "$GTK_2_12" = "yes")
 PKG_CHECK_MODULES([NDESK_DBUS_10], [ndesk-dbus-1.0])
 PKG_CHECK_MODULES([NDESK_DBUS_GLIB_10], [ndesk-dbus-glib-1.0])
 
@@ -94,6 +96,14 @@ else
 	DBUS_SERVICE_DIR=${datadir}/dbus-1/services
 fi
 AC_SUBST(DBUS_SERVICE_DIR)
+
+
+#CSC_DEFINES=""
+#if pkg-config --atleast-version=2.12 gtk-sharp-2.0; then
+#	CSC_DEFINES="-d:GTK_2_12"
+#fi
+#AC_SUBST(CSC_DEFINES)
+
 
 #
 # Dummy Backend (for debugging)

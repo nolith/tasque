@@ -1,3 +1,10 @@
+2008-07-17  Brian Merrell <bgmerrell@gmail.com>
+
+	* configure.ac, src/PreferencesDialog.cs, src/Makefile.am: Added
+	check for gtk-2.12+ with #if/#else to conditionally use the GtkTooltip
+	class (which requires >=2.12) without having bump up our gtk version
+	requirement just yet.  Fixes Bug #543245.
+
 2008-07-06  Johnny Jacob  <jjohnny@novell.com>
 
 	* src/PreferencesDialog.cs: Fixes a mnemonic conflict for completed

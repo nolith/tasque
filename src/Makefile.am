@@ -5,11 +5,15 @@ CSC = gmcs
 TARGET = Tasque.exe
 WRAPPER = tasque
 
+if GTK_2_12
+GTK_2_12_CSFLAGS = -define:GTK_2_12
+endif
+
 if ENABLE_DEBUG
-CSFLAGS =  -noconfig -codepage:utf8 -warn:4 -debug -d:DEBUG
+CSFLAGS =  -noconfig -codepage:utf8 -warn:4 -debug -d:DEBUG $(GTK_2_12_CSFLAGS)
 endif
 if ENABLE_RELEASE
-CSFLAGS =  -noconfig -codepage:utf8 -warn:4
+CSFLAGS =  -noconfig -codepage:utf8 -warn:4 $(GTK_2_12_CSFLAGS)
 endif
 
 if ENABLE_NOTIFY_SHARP

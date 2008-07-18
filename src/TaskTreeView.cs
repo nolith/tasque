@@ -38,12 +38,14 @@ namespace Tasque
 			: base ()
 		{		
 
+			#if GTK_2_12
 			// set up the timing for the tooltips
 			this.Settings.SetLongProperty("gtk-tooltip-browse-mode-timeout", 0, "Tasque:TaskTreeView");
 			this.Settings.SetLongProperty("gtk-tooltip-browse-timeout", 750, "Tasque:TaskTreeView");
 			this.Settings.SetLongProperty("gtk-tooltip-timeout", 750, "Tasque:TaskTreeView");
 
 			ConnectEvents();
+			#endif
 			
 			// TODO: Modify the behavior of the TreeView so that it doesn't show
 			// the highlighted row.  Then, also tie in with the mouse hovering
@@ -289,6 +291,7 @@ namespace Tasque
 			}
 		}
 
+		#if GTK_2_12
 		private void ConnectEvents()
 		{
 			this.CursorChanged += delegate(object o, EventArgs args) {			
@@ -336,6 +339,7 @@ namespace Tasque
 			}
 			};
 		}
+		#endif
 
 		void TaskPriorityCellDataFunc (Gtk.TreeViewColumn tree_column,
 									   Gtk.CellRenderer cell,
