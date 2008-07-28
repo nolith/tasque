@@ -12,6 +12,8 @@ namespace Tasque
 		private ITask task;
 		
 		Gtk.VBox targetVBox;
+		Gtk.Button addButton = new Gtk.Button(Gtk.Stock.Add);
+		Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow ();
 		
 		#region Constructors
 		public NoteDialog (Gtk.Window parentWindow, ITask task)
@@ -21,11 +23,11 @@ namespace Tasque
 			this.task = task;
 			this.Title = String.Format(Catalog.GetString("Notes for: {0:s}"), task.Name);
 			this.HasSeparator = false;
-			this.SetSizeRequest(350,320);
+			this.SetSizeRequest(500,320);
 			this.Icon = Utilities.GetIcon ("tasque-16", 16);
 			//this.Flags = Gtk.DialogFlags.DestroyWithParent;
 			
-			Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow ();
+			
 			sw.VscrollbarPolicy = Gtk.PolicyType.Automatic;
 			sw.HscrollbarPolicy = Gtk.PolicyType.Never;
 
@@ -51,6 +53,7 @@ namespace Tasque
 					NoteWidget noteWidget = new NoteWidget (note);
 					noteWidget.TextChanged += OnNoteTextChanged;
 					noteWidget.DeleteButtonClicked += OnDeleteButtonClicked;
+					noteWidget.EditCanceled += OnEditCanceled;
 					noteWidget.Show ();
 					targetVBox.PackStart (noteWidget, false, false, 0);
 				}
@@ -62,10 +65,10 @@ namespace Tasque
 			VBox.PackStart (sw, true, true, 0);
 
 			if(task.SupportsMultipleNotes) {
-				Gtk.Button button = new Gtk.Button(Gtk.Stock.Add);
-				button.Show();
-				this.ActionArea.PackStart(button);
-				button.Clicked += OnAddButtonClicked;
+				addButton = new Gtk.Button(Gtk.Stock.Add);
+				addButton.Show();
+				this.ActionArea.PackStart(addButton);
+				addButton.Clicked += OnAddButtonClicked;
 			}
 			
 			AddButton (Gtk.Stock.Close, Gtk.ResponseType.Close);
@@ -92,8 +95,11 @@ namespace Tasque
 			NoteWidget noteWidget = new NoteWidget (null);
 			noteWidget.TextChanged += OnNoteTextChanged;
 			noteWidget.DeleteButtonClicked += OnDeleteButtonClicked;
-			noteWidget.Show ();
+			noteWidget.EditCanceled += OnEditCanceled;
 			targetVBox.PackStart (noteWidget, false, false, 0);
+			noteWidget.FocusTextArea ();
+			noteWidget.SaveButton.Sensitive = false;
+			noteWidget.Show ();
 		}
 		#endregion // Public Methods
 		
@@ -103,10 +109,12 @@ namespace Tasque
 		#region Event Handlers
 		void OnAddButtonClicked (object sender, EventArgs args)
 		{
-			Logger.Debug("Add button clicked in dialog");
 			this.CreateNewNote();
-		}
 
+			// scrolling to the bottom should work fine to make the
+			// new note visible to the user
+			sw.Vadjustment.Value = sw.Vadjustment.Upper;
+		}
 		
 		void OnDeleteButtonClicked (object sender, EventArgs args)
 		{
@@ -119,7 +127,15 @@ namespace Tasque
 				Logger.Debug(e.ToString());
 			}
 		}
-		
+
+		void OnEditCanceled (object sender, EventArgs args)
+		{
+			NoteWidget nWidget = sender as NoteWidget;
+			// remove the note widget if it's empty
+			if (nWidget.Text == String.Empty) 
+				targetVBox.Remove (nWidget);
+		}
+
 		void OnNoteTextChanged (object sender, EventArgs args)
 		{
 			NoteWidget nWidget = sender as NoteWidget;

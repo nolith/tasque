@@ -3,6 +3,7 @@
 
 using System;
 using Mono.Unix;
+using Gtk;
 
 namespace Tasque
 {
@@ -34,11 +35,12 @@ namespace Tasque
 		#region Constructors
 		public NoteWidget (INote note)
 		{
+			this.KeyPressEvent += OnNoteWidgetKeyPressed;
 			this.note = note;
 			this.text = ( (note == null) || (note.Text == null) ) ? string.Empty : note.Text.Trim ();
 			
 			this.ShowTabs = false;
-			
+
 			viewPage = MakeViewPage ();
 			editPage = MakeEditPage ();
 			
@@ -57,12 +59,16 @@ namespace Tasque
 				// Go to view mode (switch to the view page)
 				ShowPage (viewPageId);
 			}
+			this.textView.Buffer.Changed += OnTextViewChanged;
+
 		}
 		#endregion // Constructors
 		
 		#region Events
 		public event EventHandler TextChanged;
 		public event EventHandler DeleteButtonClicked;
+		public event EventHandler EditCanceled;
+		public event EventHandler EditButtonClicked;
 		#endregion // Events
 		
 		#region Properties
@@ -90,9 +96,18 @@ namespace Tasque
 				}
 			}
 		}
+
+		public Gtk.Button SaveButton 
+		{
+			get { return saveButton; }
+		}
 		#endregion // Properties
 		
 		#region Public Methods
+		public void FocusTextArea()
+		{
+			textView.GrabFocus();
+		}
 		#endregion // Public Methods
 		
 		#region Private Methods
@@ -154,7 +169,7 @@ namespace Tasque
 			hButtonBox.Layout = Gtk.ButtonBoxStyle.End;
 			
 			cancelButton = new Gtk.Button (Gtk.Stock.Cancel);
-			cancelButton.Clicked += OnCancelButtonClicked;
+			cancelButton.Clicked += OnEditCanceled;
 			cancelButton.NoShowAll = true;
 			hButtonBox.PackStart (cancelButton, false, false, 0);
 			
@@ -257,11 +272,22 @@ namespace Tasque
 		private void OnEditButtonClicked (object sender, EventArgs args)
 		{
 			ShowPage (editPageId);
+			FocusTextArea();
 		}
 		
-		private void OnCancelButtonClicked (object sender, EventArgs args)
+		void OnEditCanceled (object sender, EventArgs args)
 		{
+			// go back to the view page
 			ShowPage (viewPageId);
+
+			// Let the event handlers know cancel was pushed
+			if (this.EditCanceled == null)
+				return;
+			try {
+				EditCanceled (this, EventArgs.Empty);
+			} catch (Exception e) {
+				Logger.Warn ("Exception in NoteWidget.DeleteButtonClicked handler: {0}", e.Message);
+			}
 		}
 		
 		private void OnSaveButtonClicked (object sender, EventArgs args)
@@ -281,6 +307,29 @@ namespace Tasque
 				} catch (Exception e) {
 					Logger.Debug ("Exception in NoteWidget.TextChanged handler: {0}", e.Message);
 				}
+			}
+		}
+
+		void OnTextViewChanged (object sender, EventArgs args)
+		{
+			if (this.textView.Buffer.Text == null || this.textView.Buffer.Text.Trim() == String.Empty)
+				this.saveButton.Sensitive = false;
+			else
+				this.saveButton.Sensitive = true;
+                }
+
+		private void OnNoteWidgetKeyPressed(object o, KeyPressEventArgs args)
+		{
+			switch (args.Event.Key) {
+			case Gdk.Key.Escape:
+				// fire the cancel event if the note is 
+				// in edit mode.
+				if (Page == editPageId) {
+					OnEditCanceled(this, EventArgs.Empty);
+				}
+				break;
+			default:
+				break;
 			}
 		}
 		#endregion // Event Handlers
