@@ -1,3 +1,8 @@
+2008-08-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/Application.cs: Make sure to run Catalog.Init first thing when
+	  the app starts.
+
 2008-07-28  Brian Merrell <bgmerrell@gmail.com>
 
 	* src/NoteDialog.cs:  Scroll to bottom of window when a new note is
