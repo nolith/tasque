@@ -4,6 +4,12 @@ Website: http://live.gnome.org/Tasque
 Bugs/Issues: http://bugzilla.gnome.org/browse.cgi?product=Tasque
 Mailing list: http://groups.google.com/group/tasky
 
+Version 0.1.7
+* Make translations actually work.
+* Add tooltips that show notes for a task, Brian Merrell and Sergey Kuleshov.
+* Bug fixes: #525281, #543245, #540588, #539781, #541190
+* Translation updates: da, de, fr, it, sv
+
 Version 0.1.6
 * New task entry widget at top of Tasque window.
 * When entering a new task, parse for due date information.
