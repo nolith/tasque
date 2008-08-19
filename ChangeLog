@@ -1,5 +1,9 @@
 2008-08-18  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* configure.ac: Bump version to 0.1.8.
+
+2008-08-18  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* NEWS: Update for 0.1.7.
 
 2008-08-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
