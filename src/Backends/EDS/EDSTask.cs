@@ -59,10 +59,9 @@ namespace Tasque.Backends.EDS
                        this.taskComp.Commit ();
                }
 
-               public string Id
+               public override string Id
                {
                        get { return id; }
-                       set { id = value; }
                }
 
                public override string Name

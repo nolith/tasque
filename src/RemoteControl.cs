@@ -114,7 +114,7 @@ namespace Tasque
 			
 			// TODO: Add ITask.Id and return the new Id of the task.
 			//return task.Id;
-			return "TaskIdNotImplementedYet";
+			return task.Id;
 		}
 		
 		/// <summary>

@@ -31,10 +31,14 @@ namespace Tasque.Backends.Sqlite
 		
 		#region Public Properties
 		
-		public int Id
+		public override string Id
 		{
-			get { return id; }
-			set { id = value; }
+			get { return id.ToString(); }
+		}
+
+		internal int SqliteId
+		{
+			get { return id; } 
 		}
 		
 		public override string Name

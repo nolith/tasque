@@ -41,6 +41,13 @@ namespace Tasque.Backends.RtmBackend
 		}
 		
 		#region Public Properties
+		/// <value>
+		/// Gets the id of the task
+		/// </value>
+		public override string Id
+		{
+			get { return taskSeries.Task.TaskID; } 
+		}
 
 		/// <value>
 		/// Holds the name of the task

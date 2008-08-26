@@ -10,6 +10,14 @@ namespace Tasque
 	{
 		#region Properties
 		/// <value>
+		/// A unique identifier for the task
+		/// </value>
+		string Id
+		{
+			get; 
+		}
+
+		/// <value>
 		/// A Task's Name will be used to show the task in the main list window.
 		/// </value>
 		string Name

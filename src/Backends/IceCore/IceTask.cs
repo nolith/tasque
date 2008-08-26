@@ -49,7 +49,7 @@ namespace Tasque.Backends.IceCore
 		/// A unique ID in the format of
 		/// <team-id>-<team-folder-id>-<task-entry-id>
 		/// </value>
-		public string Id
+		public override string Id
 		{
 			get { return id; }
 		}

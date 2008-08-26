@@ -106,7 +106,7 @@ namespace Tasque.Backends.Sqlite
 			
 			Gtk.TreeIter iter = taskStore.AppendNode ();
 			taskStore.SetValue (iter, 0, task);
-			taskIters [task.Id] = iter;
+			taskIters [task.SqliteId] = iter;
 			
 			return task;
 		}
@@ -198,13 +198,13 @@ namespace Tasque.Backends.Sqlite
 			// Set the task in the store so the model will update the UI.
 			Gtk.TreeIter iter;
 			
-			if (taskIters.ContainsKey (task.Id) == false)
+			if (taskIters.ContainsKey (task.SqliteId) == false)
 				return;
 				
-			iter = taskIters [task.Id];
+			iter = taskIters [task.SqliteId];
 			
 			if (task.State == TaskState.Deleted) {
-				taskIters.Remove (task.Id);
+				taskIters.Remove (task.SqliteId);
 				if (taskStore.Remove (ref iter) == false) {
 					Logger.Debug ("Successfully deleted from taskStore: {0}",
 						task.Name);
@@ -294,7 +294,7 @@ namespace Tasque.Backends.Sqlite
 				newTask.Priority = TaskPriority.Medium;
 				iter = taskStore.AppendNode ();
 				taskStore.SetValue (iter, 0, newTask);	
-				taskIters [newTask.Id] = iter;
+				taskIters [newTask.SqliteId] = iter;
 			}
 		}
 

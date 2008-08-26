@@ -1,3 +1,17 @@
+2008-08-26  Brian Merrell <bgmerrell@gmail.com>
+
+	* src/AbstractTask.cs: add id property to abstract
+	* src/Backends/Sqlite/SqliteTask.cs: add id property
+	* src/Backends/Sqlite/SqliteBackend.cs: add id property
+	* src/Backends/Rtm/RtmTask.cs: add id property
+	* src/Backends/IceCore/IceTask.cs: add id property
+	* src/Backends/EDS/EDSTask.cs: add id property
+	* src/ITask.cs: add id property
+	* src/RemoteControl.cs: add id property to dbus interface, this (and
+	the above changes) fixes Bug 526492.  Thanks Thomas Van Machelen!
+	* README: update with current info
+	* MAINTAINERS: -boyd -calvin +sandy +brian
+
 2008-08-18  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* configure.ac: Bump version to 0.1.8.

@@ -11,6 +11,11 @@ namespace Tasque
 		private uint timerID = 0;
 		
 		#region Properties
+		public abstract string Id
+		{
+			get; 
+		}
+
 		public abstract string Name
 		{
 			get;
