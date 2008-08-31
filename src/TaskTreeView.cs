@@ -20,6 +20,8 @@ namespace Tasque
 		
 		private Gtk.TreeModelFilter modelFilter;
 		private ICategory filterCategory;		
+
+		private static string status;
 		
 		static TaskTreeView ()
 		{
@@ -265,7 +267,6 @@ namespace Tasque
 		#endregion // Public Methods
 		
 		#region Private Methods
-		
 		protected override void OnRealized ()
 		{
 			base.OnRealized ();
@@ -275,6 +276,11 @@ namespace Tasque
 			Refilter (filterCategory);
 		}
 
+		private static void ShowCompletedTaskStatus ()
+		{
+			status = Catalog.GetString ("Task Completed");
+			TaskWindow.ShowStatus (status);
+		}
 		
 		private void TaskToggleCellDataFunc (Gtk.TreeViewColumn column,
 										Gtk.CellRenderer cell,
@@ -553,6 +559,7 @@ namespace Tasque
 				// before marking the task completed.
 				if (showCompletedTasks == true) {
 					task.Complete ();
+					ShowCompletedTaskStatus ();
 				} else {
 					task.Inactivate ();
 					
@@ -565,6 +572,8 @@ namespace Tasque
 					timer.StartTimer ();
 				}
 			} else {
+				status = Catalog.GetString ("Action Canceled");
+				TaskWindow.ShowStatus (status);
 				task.Activate ();
 			}
 		}
@@ -735,7 +744,9 @@ namespace Tasque
 			private TaskTreeView tree;
 			private ITask task;
 			private uint delay;
+			private uint secondsLeft;
 			protected uint pulseTimeoutId;
+			private uint secondTimerId;
 			private Gtk.TreeIter iter;
 			private Gtk.TreePath path;
 			
@@ -748,6 +759,7 @@ namespace Tasque
 				iter = taskIter;
 				path = treeView.Model.GetPath (iter);
 				task = taskToComplete;
+				secondsLeft = delayInSeconds;
 				delay = delayInSeconds * 1000; // Convert to milliseconds
 				pulseTimeoutId = 0;
 			}
@@ -755,13 +767,14 @@ namespace Tasque
 			public void StartTimer ()
 			{
 				pulseTimeoutId = GLib.Timeout.Add (500, PulseAnimation);
+				StartSecondCountdown ();
 				task.TimerID = GLib.Timeout.Add (delay, CompleteTask);
 				timers [task.TimerID] = this;
 			}
-			
+		
 			public static void CancelTimer(ITask task)
 			{
-				Logger.Debug("Timeout Canceled for task: " + task.Name);
+				Logger.Debug ("Timeout Canceled for task: " + task.Name);
 				InactivateTimer timer = null;
 				uint timerId = task.TimerID;
 				if(timerId != 0) {
@@ -789,6 +802,7 @@ namespace Tasque
 					return false;
 					
 				task.Complete ();
+				ShowCompletedTaskStatus ();
 				tree.Refilter ();
 				return false; // Don't automatically call this handler again
 			}
@@ -809,6 +823,28 @@ namespace Tasque
 					return true;
 				}
 			}
+
+			private void StartSecondCountdown ()
+			{
+				SecondCountdown();
+				secondTimerId = GLib.Timeout.Add (1000, SecondCountdown);
+			}
+
+			private bool SecondCountdown ()
+			{
+				if (tree.Model == null) {
+					// Widget has been closed, no need to call this again
+					return false;
+				}
+				if (secondsLeft > 0 && task.State == TaskState.Inactive) {
+					status = String.Format (Catalog.GetString ("Completing Task In: {0}"), secondsLeft--);
+					TaskWindow.ShowStatus (status);
+					return true;
+				} else {
+					return false;
+				}
+			}
+	
 		}
 		#endregion // Private Classes
 	}

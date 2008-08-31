@@ -66,6 +66,10 @@ namespace Tasque
 		private Gtk.Statusbar statusbar;
 		private uint statusContext;
 		private uint currentStatusMessageId;
+		private static uint ShowOriginalStatusId;
+		private static string status;
+		private static string lastLoadedTime;
+		private const uint DWELL_TIME_MS = 8000;
 		
 		private ITask clickedTask;
 		
@@ -465,24 +469,44 @@ namespace Tasque
 			taskWindow.EnterEditMode (task, true);
 			taskWindow.Present ();
 		}
+
+		public static bool ShowOriginalStatus ()
+		{
+			status = string.Format ("Tasks loaded: {0}", TaskWindow.lastLoadedTime);
+			TaskWindow.ShowStatus (status);
+			return false;
+		}
 		
 		public static void ShowStatus (string statusText)
+		{
+			// By default show the new status for 8 seconds
+			ShowStatus (statusText, DWELL_TIME_MS);
+		}
+
+		public static void ShowStatus (string statusText, uint dwellTime)
 		{
 			if (taskWindow == null) {
 				Logger.Warn ("Cannot set status when taskWindow is null");
 				return;
 			}
+
+			// remove old timer to show original status and then start another one
+			if (ShowOriginalStatusId > 0)
+				GLib.Source.Remove (ShowOriginalStatusId);
+			// any status will dwell for <dwellTime> seconds and then the original
+			//status will be shown
+			ShowOriginalStatusId = GLib.Timeout.Add (dwellTime, ShowOriginalStatus);
 			
 			if (taskWindow.currentStatusMessageId != 0) {
 				// Pop the old message
 				taskWindow.statusbar.Remove (taskWindow.statusContext,
-											 taskWindow.currentStatusMessageId);
+								taskWindow.currentStatusMessageId);
 				taskWindow.currentStatusMessageId = 0;
 			}
 			
 			taskWindow.currentStatusMessageId =
 				taskWindow.statusbar.Push (taskWindow.statusContext,
-										   statusText);
+								statusText);
 		}
 
 		public static bool IsOpen
@@ -771,9 +795,14 @@ namespace Tasque
 			ITask task = backend.CreateTask (taskText, category);
 			
 			if (task == null) {
-				// TODO: Change the status to say there was an error
 				Logger.Debug ("Error creating a new task!");
+				// Show error status
+				status = Catalog.GetString ("Error creating a new task");
+				TaskWindow.ShowStatus (status);
 			} else {
+				// Show successful status
+				status = Catalog.GetString ("Task created successfully");	
+				TaskWindow.ShowStatus (status);
 				// Clear out the entry
 				addTaskEntry.Text = string.Empty;
 				addTaskEntry.GrabFocus ();
@@ -1058,8 +1087,11 @@ namespace Tasque
 		{
 			if (clickedTask == null)
 				return;
-			
+		
 			Application.Backend.DeleteTask(clickedTask);
+			
+			status = Catalog.GetString ("Task deleted");
+			TaskWindow.ShowStatus (status);
 		}
 
 
@@ -1107,8 +1139,9 @@ namespace Tasque
 		{
 			Logger.Debug("Backend sync finished");
 			if (Application.Backend.Configured) {
-				string status =
-					string.Format ("Tasks loaded: {0}",DateTime.Now.ToString ());
+				string now = DateTime.Now.ToString ();
+				status = string.Format ("Tasks loaded: {0}", now);
+				TaskWindow.lastLoadedTime = now;
 				TaskWindow.ShowStatus (status);
 				RebuildAddTaskMenu (Application.Backend.Categories);
 				addTaskEntry.Sensitive = true;

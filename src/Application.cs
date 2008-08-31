@@ -353,6 +353,8 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 			// showing the trayicon
 			trayIcon.Visible = true;
+
+			trayIcon.Tooltip = "Tasque Rocks";
 		}
 
 

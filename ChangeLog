@@ -1,3 +1,14 @@
+2008-08-31  Brian G. Merrell <bgmerrell@gmail.com>
+
+	* src/TaskTreeView.cs: Display relevant information in the status bar,
+	including a cute (according to Sandy) countdown when completing tasks.
+	This is a fix for Bug 533033, with many good ideas from steve
+	evolvedlight co uk
+	* src/TaskWindow.cs: Display relevant information in the status bar.
+	Again, many contributions from steve evolvedlight co uk.
+	* src/Application.cs: Just a silly little tooltip for the tray icon.  
+	In the future we'll want something like Bug 532915 describes.
+
 2008-08-26  Brian Merrell <bgmerrell@gmail.com>
 
 	* src/AbstractTask.cs: add id property to abstract
