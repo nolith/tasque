@@ -1,3 +1,9 @@
+2008-09-04  Brian G. Merrell <bgmerrell@gmail.com>
+	
+	* src/Backends/Dummy/DummyTask.cs: add id proprety to adhere to AbstractTask.
+	* src/Backends/Dummy/DummyBackend.cs: add id property to adhere to the AbstractTask.
+	This fixes a compiler error when trying to compile with the dummy backend.
+
 2008-08-31  Brian G. Merrell <bgmerrell@gmail.com>
 
 	* src/TaskTreeView.cs: Display relevant information in the status bar,
