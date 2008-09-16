@@ -1,3 +1,9 @@
+2008-09-15  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/TaskWindow.cs: Don't paint the background of the status bar white
+	  (it was overriding theme colors).  Partial fix for bug #532766,
+	  patch courtesy of Mark A. Nicolosi.
+
 2008-09-04  Brian G. Merrell <bgmerrell@gmail.com>
 	
 	* src/Backends/Dummy/DummyTask.cs: add id proprety to adhere to AbstractTask.

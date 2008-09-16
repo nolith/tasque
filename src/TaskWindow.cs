@@ -114,19 +114,10 @@ namespace Tasque
 			AddAccelGroup (accelGroup);
 			globalKeys = new GlobalKeybinder (accelGroup);
 
-			// Start with an event box to paint the background white
-			EventBox eb = new EventBox();
-			eb.BorderWidth = 0;
-			eb.ModifyBg(	StateType.Normal, 
-					new Gdk.Color(255,255,255));
-			eb.ModifyBase(	StateType.Normal, 
-					new Gdk.Color(255,255,255));
-			
 			VBox mainVBox = new VBox();
 			mainVBox.BorderWidth = 0;
 			mainVBox.Show ();
-			eb.Add(mainVBox);
-			this.Add (eb);
+			this.Add (mainVBox);
 			
 			HBox topHBox = new HBox (false, 0);
 			topHBox.BorderWidth = 4;
