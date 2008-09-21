@@ -216,13 +216,24 @@ namespace Tasque.Backends.RtmBackend
 					Logger.Debug("RTM Auth Token is valid!");
 					Logger.Debug("Setting configured status to true");
 					configured = true;
-				} catch (Exception e) {
+				} catch (RtmNet.RtmApiException e) {
+					
 					Application.Preferences.Set (Preferences.AuthTokenKey, null);
 					Application.Preferences.Set (Preferences.UserIdKey, null);
 					Application.Preferences.Set (Preferences.UserNameKey, null);
 					rtm = null;
 					rtmAuth = null;
 					Logger.Error("Exception authenticating, reverting" + e.Message);
+				} 			
+				catch (RtmNet.RtmWebException e) {
+					rtm = null;
+					rtmAuth = null;
+					Logger.Error("Not connected to RTM, maybe proxy: #{0}", e.Message);
+ 				}
+				catch (System.Net.WebException e) {
+					rtm = null;
+					rtmAuth = null;
+					Logger.Error("Problem connecting to internet: #{0}", e.Message);
 				}
 			}
 

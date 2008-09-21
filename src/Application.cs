@@ -106,9 +106,6 @@ namespace Tasque
 				
 				Logger.Debug("Configuration status: {0}",
 							 tasque.backend.Configured.ToString());
-				if (tasque.backend.Configured == false) {
-					Application.ShowPreferences();
-				}
 			}
 		}
 		
@@ -321,8 +318,24 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			} else {
 				TaskWindow.ShowWindow();
 			}
-			
+			if(backend.Configured == false){
+				GLib.Timeout.Add(1000, new GLib.TimeoutHandler(RetryBackend));
+			}
 			return false;
+		}
+		private bool RetryBackend(){
+			try{
+				backend.Cleanup();
+				backend.Initialize();
+			} catch (Exception e){
+				Logger.Error("{0}", e.Message);
+			}
+			if(backend.Configured == false)
+			{
+				return true;
+			} else {
+				return false;
+			}
 		}
 		
 		private bool CheckForDaySwitch ()
