@@ -32,7 +32,7 @@ namespace Tasque
 {
 	public class Defines
 	{
-		public const string Version		= "@version@";
+		public const string Version		= "0.1.8";
 		public const string DataDir		= "@datadir@";
 		public const string LocaleDir	= "@datadir@/locale";
 		public const string SoundDir		= "@datadir@/tasque/sounds";

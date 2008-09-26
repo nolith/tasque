@@ -38,7 +38,6 @@ using System.Net.Sockets;
 
 using Gtk;
 using Gdk;
-using Gnome;
 using Mono.Unix;
 using Mono.Unix.Native;
 #if ENABLE_NOTIFY_SHARP
@@ -52,9 +51,10 @@ namespace Tasque
 	{
 		private static Tasque.Application application = null;
 		private static System.Object locker = new System.Object();
-
-		private Gnome.Program program;
+		private INativeApplication nativeApp;
+#if !WIN32
 		private RemoteControl remoteControl;
+#endif
 		private Gdk.Pixbuf normalPixBuf;
 		private Gtk.Image trayImage;
 		private Gtk.StatusIcon trayIcon;	
@@ -131,6 +131,14 @@ namespace Tasque
 			}
 		}
 
+		public INativeApplication NativeApplication
+		{
+			get
+			{
+				return nativeApp;
+			}
+		}
+
 		public static Preferences Preferences
 		{
 			get { return Application.Instance.preferences; }
@@ -148,14 +156,20 @@ namespace Tasque
 
 		private void Init(string[] args)
 		{
-			program = new Gnome.Program (
-							"Tasque",
-							Defines.Version,
-							Gnome.Modules.UI,
-							args);
+#if WIN32
+			nativeApp = new WindowsApplication ();
+#else
+			nativeapp = new GnomeApplication ();
+#endif
+			nativeApp.Initialize (
+				Defines.LocaleDir,
+				"Tasque",
+				"Tasque",
+				args);
 
-			preferences = new Preferences();
+			preferences = new Preferences (nativeApp.ConfDir);
 			
+#if !WIN32
 			// Register Tasque RemoteControl
 			try {
 				remoteControl = RemoteControlProxy.Register ();
@@ -178,6 +192,7 @@ namespace Tasque
 				Logger.Debug ("Tasque remote control disabled (DBus exception): {0}",
 				            e.Message);
 			}
+#endif
 			
 			// Read the args and check to see if a specific backend is specified
 			if (args.Length > 0) {
@@ -448,7 +463,8 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				backend.Cleanup();
 			}
 			TaskWindow.SavePosition();
-			program.Quit (); // Should this be called instead?
+
+			nativeApp.QuitMainLoop ();
 		}
 		
 		private void OnRefreshAction (object sender, EventArgs args)
@@ -518,18 +534,15 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		public static void Main(string[] args)
 		{
-			Catalog.Init ("tasque", Defines.GnomeLocaleDir);
-			
 			try 
 			{
-				Utilities.SetProcessName ("Tasque");
 				application = GetApplicationWithArgs(args);
 				application.StartMainLoop ();
 			} 
 			catch (Exception e)
 			{
 				Tasque.Logger.Debug("Exception is: {0}", e);
-				Exit (-1);
+				Instance.NativeApplication.Exit (-1);
 			}
 		}
 
@@ -548,22 +561,6 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			}
 		}
 
-		public static void OnExitSignal (int signal)
-		{
-			if (ExitingEvent != null)
-				ExitingEvent (null, EventArgs.Empty);
-			if (signal >= 0)
-				System.Environment.Exit (0);
-		}
-
-		public static event EventHandler ExitingEvent = null;
-
-		public static void Exit (int exitcode)
-		{
-			OnExitSignal (-1);
-			System.Environment.Exit (exitcode);
-		}
-
 #if ENABLE_NOTIFY_SHARP
 		public static void ShowAppNotification(Notification notification)
 		{
@@ -577,7 +574,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		public void StartMainLoop ()
 		{
-			program.Run ();
+			nativeApp.StartMainLoop ();
 		}
 
 		public void Quit ()

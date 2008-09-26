@@ -1,5 +1,18 @@
 2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* tasque.sln, tasque.csproj: Visual Studio 2008 solution for building
+	  Tasque with the Dummy and RTM backends.
+	* src/Application.cs, src/NativeApplication.cs, src/GnomeApplication.cs,
+	  src/WindowsApplication.cs: Platform-specific app management code.
+	* src/Logger.cs: Some ugly (temporary) #if WIN32 lines.
+	* src/Defines.cs.in: Rename GnomeLocaleDir to LocaleDir.
+	* src/Defines.cs: Commit a copy for building on Windows.
+	* src/Preferences.cs: Pick conf file in platform-independent way.
+	* src/Utilities.cs: Process-renaming code moved to src/GnomeApplication.cs.
+	* winbin/: Mono assemblies needed on Windows.
+
+2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/Application.cs: Handle null backend the same as unconfigured
 	  backend.  Whitespace fixes.
 	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs: Null

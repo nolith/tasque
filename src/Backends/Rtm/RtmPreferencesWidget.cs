@@ -96,7 +96,7 @@ namespace Tasque.Backends.RtmBackend
 				if (!isAuthorized && !authRequested) {
 					string url = rtmBackend.GetAuthUrl();
 					Logger.Debug("Launching browser to authorize with Remember the Milk");
-					Gnome.Url.Show(url);
+					Application.Instance.NativeApplication.OpenUrl (url);
 					authRequested = true;
 					authButton.Label = "Click Here After Authorizing Tasque";
 				} else if (!isAuthorized && authRequested) {

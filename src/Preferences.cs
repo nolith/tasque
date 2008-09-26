@@ -222,11 +222,10 @@ namespace Tasque
 			NotifyHandlersOfSettingChange (settingKey.Trim ());
 		}
 
-		public Preferences ()
+		public Preferences (string confDir)
 		{
 			document = new XmlDocument();
-			location = Path.Combine(Environment.GetFolderPath(
-			Environment.SpecialFolder.ApplicationData), "tasque/preferences");
+			location = Path.Combine (confDir, "preferences");
 			if(!File.Exists(location)) {
 				CreateDefaultPrefs();
 			} else {
