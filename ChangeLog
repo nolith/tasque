@@ -1,3 +1,7 @@
+2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* tasque.csproj: Remove unused references and build for .NET 2.0, not 3.5.
+
 2008-09-26  Johnny Jacob  <johnnyjacob@gmail.com>
 
 	* src/PreferencesDialog.cs: Let categories in task filtering use all
