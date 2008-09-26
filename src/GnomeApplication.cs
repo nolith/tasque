@@ -36,7 +36,7 @@ namespace Tasque
 
 			Gtk.Application.Init ();
 			program = new Gnome.Program (display_name,
-			                             Defines.VERSION,
+			                             Defines.Version,
 			                             Gnome.Modules.UI,
 			                             args);
 		}

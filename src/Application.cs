@@ -159,7 +159,7 @@ namespace Tasque
 #if WIN32
 			nativeApp = new WindowsApplication ();
 #else
-			nativeapp = new GnomeApplication ();
+			nativeApp = new GnomeApplication ();
 #endif
 			nativeApp.Initialize (
 				Defines.LocaleDir,

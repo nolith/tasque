@@ -57,11 +57,13 @@ CSFILES = \
 	$(srcdir)/CellRendererDate.cs \
 	$(srcdir)/CompletedTaskGroup.cs \
 	$(srcdir)/DateButton.cs \
+	$(srcdir)/GnomeApplication.cs \
 	$(srcdir)/IBackend.cs \
 	$(srcdir)/ICategory.cs \
 	$(srcdir)/ITask.cs \
 	$(srcdir)/INote.cs \
 	$(srcdir)/Logger.cs \
+	$(srcdir)/NativeApplication.cs \
 	$(srcdir)/NoteDialog.cs \
 	$(srcdir)/NoteWidget.cs \
 	$(srcdir)/Preferences.cs \
@@ -75,6 +77,7 @@ CSFILES = \
 	$(srcdir)/TaskWindow.cs \
 	$(srcdir)/TaskTreeView.cs \
 	$(srcdir)/Utilities.cs \
+	$(srcdir)/WindowsApplication.cs \
 	\
 	$(DUMMY_CSFILES) \
 	\
