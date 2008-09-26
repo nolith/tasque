@@ -251,14 +251,14 @@ namespace Tasque
 			categoriesTree.Show ();
 			sw.Add (categoriesTree);
 			sw.Show ();
-			innerSectionVBox.PackStart (sw, false, false, 0);
+			innerSectionVBox.PackStart (sw, true, true, 0);
 			innerSectionVBox.Show ();
 			
 			sectionHBox.PackStart (innerSectionVBox, true, true, 0);
 			sectionHBox.Show ();
 			sectionVBox.PackStart (sectionHBox, true, true, 0);
 			sectionVBox.Show ();
-			vbox.PackStart (sectionVBox, false, false, 0);
+			vbox.PackStart (sectionVBox, true, true, 0);
 			
 			return vbox;
 		}
