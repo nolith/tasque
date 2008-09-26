@@ -33,8 +33,8 @@ namespace Tasque
 	public class Defines
 	{
 		public const string Version		= "0.1.8";
-		public const string DataDir		= "/usr/share";
-		public const string LocaleDir	= "/usr/share/locale";
-		public const string SoundDir		= "/usr/share/tasque/sounds";
+		public const string DataDir		= "@datadir@";
+		public const string LocaleDir	= "@datadir@/locale";
+		public const string SoundDir		= "@datadir@/tasque/sounds";
 	}
 }

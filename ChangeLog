@@ -1,5 +1,9 @@
 2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* tasque.csproj, src/Defines.WIN32.cs: Rename Defines.cs for Windows.
+
+2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* tasque.mdp, src/Makefile.am: Add new files.
 	* src/Defines.cs: Keep Defines.cs in sync.  Should do this better,
 	  though, but I'm tired.

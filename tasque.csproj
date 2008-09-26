@@ -68,7 +68,7 @@
     <None Include="data\images\note-22.svg" />
     <None Include="data\images\tasque-icons-source.svg" />
     <None Include="data\images\tasque.svg" />
-    <Compile Include="src\Defines.cs" />
+    <Compile Include="src\Defines.WIN32.cs" />
     <None Include="src\Defines.cs.in" />
     <None Include="src\Tasque.exe.config.in" />
   </ItemGroup>
