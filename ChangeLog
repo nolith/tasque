@@ -1,5 +1,13 @@
 2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/Application.cs: Handle null backend the same as unconfigured
+	  backend.  Whitespace fixes.
+	* src/Backends/Rtm/RtmTask.cs, src/Backends/Rtm/RtmBackend.cs: Null
+	  reference checks based on some errors I saw while running in
+	  Windows.
+
+2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/Application.cs: Make line endings consistent.
 
 2008-09-21  Sandy Armstrong <sanfordarmstrong@gmail.com> 

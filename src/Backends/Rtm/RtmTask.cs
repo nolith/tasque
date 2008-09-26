@@ -33,10 +33,12 @@ namespace Tasque.Backends.RtmBackend
 			else
 				state = TaskState.Completed;
 			notes = new List<INote>();
-			
-			foreach(Note note in taskSeries.Notes.NoteCollection) {
-				RtmNote rtmNote = new RtmNote(note);
-				notes.Add(rtmNote);
+
+			if (taskSeries.Notes.NoteCollection != null) {
+				foreach(Note note in taskSeries.Notes.NoteCollection) {
+					RtmNote rtmNote = new RtmNote(note);
+					notes.Add(rtmNote);
+				}
 			}
 		}
 		

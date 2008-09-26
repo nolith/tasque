@@ -318,20 +318,19 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			} else {
 				TaskWindow.ShowWindow();
 			}
-			if(backend.Configured == false){
+			if (backend == null || backend.Configured == false){
 				GLib.Timeout.Add(1000, new GLib.TimeoutHandler(RetryBackend));
 			}
 			return false;
 		}
 		private bool RetryBackend(){
-			try{
+			try {
 				backend.Cleanup();
 				backend.Initialize();
-			} catch (Exception e){
+			} catch (Exception e) {
 				Logger.Error("{0}", e.Message);
 			}
-			if(backend.Configured == false)
-			{
+			if (backend == null || backend.Configured == false) {
 				return true;
 			} else {
 				return false;

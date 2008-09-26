@@ -597,6 +597,8 @@ namespace Tasque.Backends.RtmBackend
 					if(tasks != null) {
 						foreach(List tList in tasks.ListCollection)
 						{
+							if (tList.TaskSeriesCollection == null)
+								continue;
 							foreach(TaskSeries ts in tList.TaskSeriesCollection)
 							{
 								RtmTask rtmTask = new RtmTask(ts, this, list.ID);
