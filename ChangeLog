@@ -1,3 +1,11 @@
+2008-09-27  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/tasque.in: Add Mono --debug, --trace, and --profile support to
+	  "tasque" command.
+	* src/Application.cs: Use UIManager to construct/manage tray icon menu.
+	   Add Sandy and Brian to the "Authors" area of the About dialog.
+	* src/Makefile.am: Install .mdb file for debugging purposes.
+
 2008-09-26  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* tasque.csproj: Remove unused references and build for .NET 2.0, not 3.5.

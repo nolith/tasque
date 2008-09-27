@@ -73,6 +73,23 @@ namespace Tasque
 		
 		private IBackend customBackend;
 
+		private UIManager uiManager;
+		private const string menuXml = @"
+<ui>
+	<popup name=""TrayIconMenu"">
+		<menuitem action=""ShowTasksAction""/>
+		<menuitem action=""NewTaskAction""/>
+		<separator/>
+		<menuitem action=""PreferencesAction""/>
+		<menuitem action=""AboutAction""/>
+		<separator/>
+		<menuitem action=""RefreshAction""/>
+		<separator/>
+		<menuitem action=""QuitAction""/>
+	</popup>
+</ui>
+";
+
 		public static IBackend Backend
 		{ 
 			get { return Application.Instance.backend; }
@@ -139,6 +156,11 @@ namespace Tasque
 			}
 		}
 
+		public UIManager UIManager
+		{
+			get { return uiManager; }
+		}
+
 		public static Preferences Preferences
 		{
 			get { return Application.Instance.preferences; }
@@ -166,6 +188,8 @@ namespace Tasque
 				"Tasque",
 				"Tasque",
 				args);
+			
+			RegisterUIManager ();
 
 			preferences = new Preferences (nativeApp.ConfDir);
 			
@@ -365,10 +389,6 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			return true;
 		}
 
-		private void UpdateTrayIcon()
-		{
-		}
-
 		private void SetupTrayIcon ()
 		{
 			trayIcon = new Gtk.StatusIcon();
@@ -411,7 +431,9 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		{
 			string [] authors = new string [] {
 				"Boyd Timothy <btimothy@gmail.com>",
-				"Calvin Gaisford <calvinrg@gmail.com>"
+				"Calvin Gaisford <calvinrg@gmail.com>",
+				"Sandy Armstrong <sanfordarmstrong@gmail.com>",
+				"Brian G. Merrell <bgmerrell@novell.com>"
 			};
 
 			/* string [] documenters = new string [] {
@@ -471,8 +493,6 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		{
 			Application.Backend.Refresh();
 		}
-		
-		
 
 		private void OnTrayIconClick (object sender, EventArgs args) // handler for mouse click
 		{
@@ -481,52 +501,13 @@ Logger.Debug ("args [0]: {0}", args [0]);
 
 		private void OnTrayIconPopupMenu (object sender, EventArgs args)
 		{
-			// FIXME: Eventually get all these into UIManagerLayout.xml file
-			Menu popupMenu = new Menu();
+			Menu popupMenu = (Menu) uiManager.GetWidget ("/TrayIconMenu");
 
-			ImageMenuItem showTasksItem = new ImageMenuItem
-				(Catalog.GetString ("Show Tasks ..."));
-
-			showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
-			showTasksItem.Sensitive = backend != null && backend.Initialized;
-			showTasksItem.Activated += OnShowTaskWindow;
-			popupMenu.Add (showTasksItem);
+			bool backendItemsSensitive = (backend != null && backend.Initialized);
 			
-			ImageMenuItem newTaskItem = new ImageMenuItem
-				(Catalog.GetString ("New Task ..."));
-			newTaskItem.Image = new Gtk.Image (Gtk.Stock.New, IconSize.Menu);
-			newTaskItem.Sensitive = backend != null && backend.Initialized;
-			newTaskItem.Activated += OnNewTask;
-			popupMenu.Add (newTaskItem);
-
-			SeparatorMenuItem separator = new SeparatorMenuItem ();
-			popupMenu.Add (separator);
-
-			ImageMenuItem preferences = new ImageMenuItem (Gtk.Stock.Preferences, null);
-			preferences.Activated += OnPreferences;
-			popupMenu.Add (preferences);
-
-			ImageMenuItem about = new ImageMenuItem (Gtk.Stock.About, null);
-			about.Activated += OnAbout;
-			popupMenu.Add (about);
-
-			separator = new SeparatorMenuItem ();
-			popupMenu.Add (separator);
-
-			ImageMenuItem refreshAction = new ImageMenuItem
-				(Catalog.GetString ("Refresh Tasks"));
-
-			refreshAction.Image = new Gtk.Image(Utilities.GetIcon (Gtk.Stock.Execute, 16));
-			refreshAction.Sensitive = backend != null && backend.Initialized;
-			refreshAction.Activated += OnRefreshAction;
-			popupMenu.Add (refreshAction);
-			
-			separator = new SeparatorMenuItem ();
-			popupMenu.Add (separator);
-			
-			ImageMenuItem quit = new ImageMenuItem ( Gtk.Stock.Quit, null);
-			quit.Activated += OnQuit;
-			popupMenu.Add (quit);
+			uiManager.GetAction ("/TrayIconMenu/NewTaskAction").Sensitive = backendItemsSensitive;
+			uiManager.GetAction ("/TrayIconMenu/RefreshAction").Sensitive = backendItemsSensitive;
+			uiManager.GetAction ("/TrayIconMenu/ShowTasksAction").Sensitive = backendItemsSensitive;
 
 			popupMenu.ShowAll(); // shows everything
 			popupMenu.Popup();
@@ -571,7 +552,6 @@ Logger.Debug ("args [0]: {0}", args [0]);
 		}
 #endif
 
-
 		public void StartMainLoop ()
 		{
 			nativeApp.StartMainLoop ();
@@ -582,5 +562,51 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			OnQuit (null, null);
 		}
 
+		private void RegisterUIManager ()
+		{
+			ActionGroup trayActionGroup = new ActionGroup ("Tray");
+			trayActionGroup.Add (new ActionEntry [] {
+				new ActionEntry ("ShowTasksAction",
+				                 null,
+				                 Catalog.GetString ("Show Tasks ..."),
+				                 null,
+				                 null,
+				                 OnShowTaskWindow),
+				
+				new ActionEntry ("NewTaskAction",
+				                 Stock.New,
+				                 Catalog.GetString ("New Task ..."),
+				                 null,
+				                 null,
+				                 OnNewTask),
+				
+				new ActionEntry ("AboutAction",
+				                 Stock.About,
+				                 OnAbout),
+				
+				new ActionEntry ("PreferencesAction",
+				                 Stock.Preferences,
+				                 OnPreferences),
+				
+				new ActionEntry ("RefreshAction",
+				                 Stock.Execute,
+				                 Catalog.GetString ("Refresh Tasks ..."),
+				                 null,
+				                 null,
+				                 OnRefreshAction),
+				
+				new ActionEntry ("QuitAction",
+				                 Stock.Quit,
+				                 OnQuit)
+			});
+			
+			uiManager = new UIManager ();
+			uiManager.AddUiFromString (menuXml);
+			uiManager.InsertActionGroup (trayActionGroup, 0);
+			
+			ImageMenuItem showTasksItem = (ImageMenuItem)
+					uiManager.GetWidget ("/TrayIconMenu/ShowTasksAction");
+			showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
+		}
 	}
 }

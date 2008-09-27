@@ -129,7 +129,7 @@ $(TARGET): $(CSFILES) Defines.cs
 	$(CSC) -unsafe -out:$@ $(CSFLAGS) $(NOTIFY_SHARP_CSFLAGS) $^ $(ASSEMBLIES) $(RESOURCES)
 
 tasquelibdir = $(prefix)/lib/tasque
-tasquelib_DATA = $(TARGET) $(TARGET).config
+tasquelib_DATA = $(TARGET) $(TARGET).config $(TARGET).mdb
 
 bin_SCRIPTS = $(WRAPPER)
 
@@ -144,6 +144,8 @@ $(WRAPPER): $(srcdir)/$(WRAPPER).in Makefile
 		-e "s|\@srcdir\@|$(PWD)|g"  \
 		< $< > $@
 	chmod +x $(WRAPPER)
+
+$(TARGET).mdb: $(TARGET)
 
 $(TARGET).config: $(srcdir)/$(TARGET).config.in Makefile
 	sed -e "s|\@pkglibdir\@|$(pkglibdir)|" \
