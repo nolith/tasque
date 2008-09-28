@@ -30,6 +30,7 @@ namespace Tasque
 		                        string process_name,
 		                        string [] args)
 		{
+			Mono.Unix.Catalog.Init ("tasque", Defines.LocaleDir);
 			try {
 				SetProcessName (process_name);
 			} catch {} // Ignore exception if fail (not needed to run)

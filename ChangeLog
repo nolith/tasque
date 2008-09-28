@@ -1,5 +1,9 @@
 2008-09-27  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/GnomeApplication.cs: Initialize Catalog on application Init.
+
+2008-09-27  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/tasque.in: Add Mono --debug, --trace, and --profile support to
 	  "tasque" command.
 	* src/Application.cs: Use UIManager to construct/manage tray icon menu.
