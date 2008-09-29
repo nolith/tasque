@@ -66,5 +66,5 @@ using System.Runtime.InteropServices;
 //[assembly: SecurityPermission(SecurityAction.RequestMinimum, Execution = true)]
 #endif
 
-[assembly: CLSCompliantAttribute(true)]
+[assembly: CLSCompliantAttribute(false)]
 [assembly: ComVisible(false)]
