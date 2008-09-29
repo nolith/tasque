@@ -183,7 +183,9 @@ namespace Tasque
 
 		private void Init(string[] args)
 		{
-#if WIN32
+#if OSX
+			nativeApp = new OSXApplication ();
+#elif WIN32
 			nativeApp = new GtkApplication ();
 #else
 			nativeApp = new GnomeApplication ();
