@@ -1,5 +1,15 @@
 2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* macbin/: Added pre-compiled ige-mac-integration-sharp.dll from
+	  Eoin's banshee-osx git repo.  Thanks Eoin!
+	* osx/: Configuration, execution, and icon files for app bundle.
+	* bunde-mac-app.sh: Stupid little script to build the app bundle.
+	* data/images/tasque.ico: Windows icon, for the future.
+	* RtmNet/AssemblyInfo.cs: No need to be CLSCompliant.
+	* src/OSXApplication.cs: Integration code for Mac menu bar.
+
+2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/GtkApplication.cs, src/Makefile.am, src/WindowsApplication.cs:
 	  Complete rename of WindowsApplication->GtkApplication.
 
