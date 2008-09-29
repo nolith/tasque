@@ -1,5 +1,9 @@
 2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/Application.cs: Use OSXApplication if OSX is defined.
+
+2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* macbin/: Added pre-compiled ige-mac-integration-sharp.dll from
 	  Eoin's banshee-osx git repo.  Thanks Eoin!
 	* osx/: Configuration, execution, and icon files for app bundle.
