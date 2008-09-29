@@ -1,3 +1,12 @@
+2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* src/WindowsApplication.cs: Rename to GtkApplication, mark everything
+	  virtual.
+	* src/Application.cs: Expose the StatusIcon as a public property, and
+	  call nativeApp.InitializeIdle at the end of InitializeIdle.
+	* src/GnomeApplication.cs, src/NativeApplication.cs: Add InitializeIdle
+	  method to INativeApplication.
+
 2008-09-27  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* src/GnomeApplication.cs: Initialize Catalog on application Init.

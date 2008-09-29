@@ -14,6 +14,7 @@ namespace Tasque
 		void Exit (int exitcode);
 		void StartMainLoop ();
 		void QuitMainLoop ();
+		void InitializeIdle ();
 
 		string ConfDir { get; }
 

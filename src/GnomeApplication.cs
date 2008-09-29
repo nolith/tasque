@@ -42,6 +42,10 @@ namespace Tasque
 			                             args);
 		}
 
+		public void InitializeIdle ()
+		{
+		}
+
 		public event EventHandler ExitingEvent;
 
 		public void Exit (int exitcode)

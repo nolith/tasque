@@ -161,6 +161,11 @@ namespace Tasque
 			get { return uiManager; }
 		}
 
+		public StatusIcon Tray
+		{
+			get { return trayIcon; }
+		}
+
 		public static Preferences Preferences
 		{
 			get { return Application.Instance.preferences; }
@@ -179,7 +184,7 @@ namespace Tasque
 		private void Init(string[] args)
 		{
 #if WIN32
-			nativeApp = new WindowsApplication ();
+			nativeApp = new GtkApplication ();
 #else
 			nativeApp = new GnomeApplication ();
 #endif
@@ -360,6 +365,9 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			if (backend == null || backend.Configured == false){
 				GLib.Timeout.Add(1000, new GLib.TimeoutHandler(RetryBackend));
 			}
+
+			nativeApp.InitializeIdle ();
+			
 			return false;
 		}
 		private bool RetryBackend(){

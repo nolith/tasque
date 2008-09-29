@@ -29,15 +29,15 @@ using System.IO;
 
 namespace Tasque
 {
-	public class WindowsApplication : INativeApplication
+	public class GtkApplication : INativeApplication
 	{
 		#region INativeApplication implementation 
 
 		private string confDir;
 
-		public event EventHandler ExitingEvent;
+		public virtual event EventHandler ExitingEvent;
 
-		public WindowsApplication ()
+		public GtkApplication ()
 		{
 			confDir = Path.Combine (
 				Environment.GetFolderPath (
@@ -47,29 +47,33 @@ namespace Tasque
 				Directory.CreateDirectory (confDir);
 		}
 		
-		public void Initialize (string locale_dir, string display_name, string process_name, string[] args)
+		public virtual void Initialize (string locale_dir, string display_name, string process_name, string[] args)
 		{
 			Gtk.Application.Init ();
 		}
+
+		public virtual void InitializeIdle ()
+		{
+		}
 		
-		public void Exit (int exitcode)
+		public virtual void Exit (int exitcode)
 		{
 			if (ExitingEvent != null)
 				ExitingEvent (null, new EventArgs ());
 			System.Environment.Exit (exitcode);
 		}
 		
-		public void StartMainLoop ()
+		public virtual void StartMainLoop ()
 		{
 			Gtk.Application.Run ();
 		}
 		
-		public void QuitMainLoop ()
+		public virtual void QuitMainLoop ()
 		{
 			Gtk.Application.Quit ();
 		}
 
-		public string ConfDir
+		public virtual string ConfDir
 		{
 			get
 			{
@@ -77,7 +81,7 @@ namespace Tasque
 			}
 		}
 
-		public void OpenUrl (string url)
+		public virtual void OpenUrl (string url)
 		{
 			try {
 				System.Diagnostics.Process.Start (url);
