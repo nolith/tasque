@@ -57,6 +57,7 @@ CSFILES = \
 	$(srcdir)/CellRendererDate.cs \
 	$(srcdir)/CompletedTaskGroup.cs \
 	$(srcdir)/DateButton.cs \
+	$(srcdir)/GtkApplication.cs \
 	$(srcdir)/GnomeApplication.cs \
 	$(srcdir)/IBackend.cs \
 	$(srcdir)/ICategory.cs \
@@ -77,7 +78,6 @@ CSFILES = \
 	$(srcdir)/TaskWindow.cs \
 	$(srcdir)/TaskTreeView.cs \
 	$(srcdir)/Utilities.cs \
-	$(srcdir)/WindowsApplication.cs \
 	\
 	$(DUMMY_CSFILES) \
 	\

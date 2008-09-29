@@ -1,5 +1,10 @@
 2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
+	* src/GtkApplication.cs, src/Makefile.am, src/WindowsApplication.cs:
+	  Complete rename of WindowsApplication->GtkApplication.
+
+2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
 	* src/WindowsApplication.cs: Rename to GtkApplication, mark everything
 	  virtual.
 	* src/Application.cs: Expose the StatusIcon as a public property, and
