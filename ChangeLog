@@ -1,5 +1,6 @@
 2008-09-29  Jakub Steiner <jimmac@ximian.com>
 
+	* data/images/tasque-256.png: 
 	* data/images/tasque-icons-source.svg: add a high resolution
 	"icon" for the OSX build. Still figuring out how to produce the
 	native icon format.
