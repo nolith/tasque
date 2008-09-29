@@ -1,3 +1,7 @@
+2008-09-29  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+
+	* bundle-mac-app.sh: Use those variables, silly.
+
 2008-09-29  Jakub Steiner <jimmac@ximian.com>
 
 	* data/images/tasque-256.png: 

@@ -15,5 +15,5 @@ cp osx/$CONTENTS/Info.plist $BUNDLE/$CONTENTS
 cp osx/$MACOS/Tasque $BUNDLE/$MACOS
 cp osx/$RESOURCES/tasque.icns $BUNDLE/$RESOURCES
 
-cp bin/Debug/tasque.exe Tasque.app/Contents/MacOS/
-cp macbin/ige-mac-integration-sharp.dll Tasque.app/Contents/MacOS/
+cp bin/Debug/tasque.exe $BUNDLE/$MACOS
+cp macbin/ige-mac-integration-sharp.dll $BUNDLE/$MACOS
