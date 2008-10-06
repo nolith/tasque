@@ -149,6 +149,7 @@
     <Compile Include="src\CompletedTaskGroup.cs" />
     <Compile Include="src\DateButton.cs" />
     <None Include="src\GnomeApplication.cs" />
+    <Compile Include="src\GtkApplication.cs" />
     <Compile Include="src\IBackend.cs" />
     <Compile Include="src\ICategory.cs" />
     <Compile Include="src\INote.cs" />
@@ -166,7 +167,6 @@
     <Compile Include="src\TaskTreeView.cs" />
     <Compile Include="src\TaskWindow.cs" />
     <Compile Include="src\Utilities.cs" />
-    <Compile Include="src\WindowsApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
