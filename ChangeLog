@@ -1,5 +1,7 @@
 2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* tasque.mdp: WindowsApplication -> GtkApplication2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/TaskGroup.cs:
 	* src/Utilities.cs:
 	* src/TaskWindow.cs:
