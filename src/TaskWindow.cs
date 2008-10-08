@@ -534,7 +534,7 @@ namespace Tasque
 				Gtk.Application.RunIteration ();
 
 			foreach (TaskGroup taskGroup in taskGroups) {
-				if (taskGroup.ContainsTask (task, out iter) == true) {
+				if (taskGroup.ContainsTask (task, out iter)) {
 					taskGroup.TreeView.Selection.SelectIter (iter);
 					break;
 				}
@@ -578,7 +578,7 @@ namespace Tasque
 				//Logger.Debug("taskGroupHeights: {0}", taskGroupHeights);
 				TreePath start;
 				TreePath end;
-				if (taskGroup.TreeView.GetVisibleRange (out start, out end) == true) {
+				if (taskGroup.TreeView.GetVisibleRange (out start, out end)) {
 					Logger.Debug ("TaskGroup '{0}' range: {1} - {2}",
 						taskGroup.DisplayName,
 						start.ToString (),
@@ -587,7 +587,7 @@ namespace Tasque
 					Logger.Debug ("TaskGroup range not visible: {0}", taskGroup.DisplayName);
 				}
 				
-				if (taskGroup.ContainsTask (task, out iter) == true) {
+				if (taskGroup.ContainsTask (task, out iter)) {
 					Logger.Debug ("Found new task group: {0}", taskGroup.DisplayName);
 					
 					// Get the header height
@@ -649,7 +649,7 @@ namespace Tasque
 			Gtk.TreeIter iter;
 			Gtk.TreeModel model = Application.Backend.Tasks;
 			
-			if (model.GetIterFirst (out iter) == false)
+			if (!model.GetIterFirst (out iter))
 				return 0;
 			
 			do {
@@ -662,7 +662,7 @@ namespace Tasque
 				
 				if (category.ContainsTask (task))
 					count++;
-			} while (model.IterNext (ref iter) == true);
+			} while (model.IterNext (ref iter));
 			
 			return count;
 		}
@@ -690,13 +690,13 @@ namespace Tasque
 			while (Gtk.Application.EventsPending ())
 				Gtk.Application.RunIteration ();
 			
-			if (adjustScrolledWindow == true)
+			if (adjustScrolledWindow)
 				ScrollToTask (task);
 			
 			
 			Gtk.TreeIter iter;
 			foreach (TaskGroup taskGroup in taskGroups) {
-				if (taskGroup.ContainsTask (task, out iter) == true) {
+				if (taskGroup.ContainsTask (task, out iter)) {
 					Logger.Debug ("Found new task group: {0}", taskGroup.DisplayName);
 					
 					// Get the header height
@@ -711,7 +711,7 @@ namespace Tasque
 			Gtk.Menu menu = new Menu ();
 			
 			Gtk.TreeIter iter;
-			if (categoriesModel.GetIterFirst (out iter) == true) {
+			if (categoriesModel.GetIterFirst (out iter)) {
 				do {
 					ICategory category =
 						categoriesModel.GetValue (iter, 0) as ICategory;
@@ -723,7 +723,7 @@ namespace Tasque
 					item.Activated += OnNewTaskByCategory;
 					item.ShowAll ();
 					menu.Add (item);
-				} while (categoriesModel.IterNext (ref iter) == true);
+				} while (categoriesModel.IterNext (ref iter));
 			}
 			
 			addTaskButton.Menu = menu;
@@ -738,7 +738,7 @@ namespace Tasque
 			if (categoryName != null) {
 				// Iterate through (yeah, I know this is gross!) and find the
 				// matching category
-				if (model.GetIterFirst (out iter) == true) {
+				if (model.GetIterFirst (out iter)) {
 					do {
 						ICategory cat = model.GetValue (iter, 0) as ICategory;
 						if (cat == null)
@@ -748,14 +748,14 @@ namespace Tasque
 							categoryWasSelected = true;
 							break;
 						}
-					} while (model.IterNext (ref iter) == true);
+					} while (model.IterNext (ref iter));
 				}
 			}
 			
-			if (categoryWasSelected == false) {
+			if (!categoryWasSelected) {
 				// Select the first item in the list (which should be the "All"
 				// category.
-				if (model.GetIterFirst (out iter) == true) {
+				if (model.GetIterFirst (out iter)) {
 					// Make sure we can actually get a category
 					ICategory cat = model.GetValue (iter, 0) as ICategory;
 					if (cat != null)
@@ -767,7 +767,7 @@ namespace Tasque
 		private void ShowTaskNotes (ITask task)
 		{
 			NoteDialog dialog = null;
-			if (noteDialogs.ContainsKey (task) == false) {
+			if (!noteDialogs.ContainsKey (task)) {
 				dialog = new NoteDialog (this, task);
 				dialog.Hidden += OnNoteDialogHidden;
 				noteDialogs [task] = dialog;
@@ -896,7 +896,7 @@ namespace Tasque
 				return;
 			
 			Gtk.TreeIter iter;
-			if (categoryComboBox.GetActiveIter (out iter) == false)
+			if (!categoryComboBox.GetActiveIter (out iter))
 				return;
 			
 			ICategory category =
@@ -940,7 +940,7 @@ namespace Tasque
 			// to switch the category first so the user will be able to edit
 			// the title of the task.
 			Gtk.TreeIter iter;
-			if (categoryComboBox.GetActiveIter (out iter) == true) {
+			if (categoryComboBox.GetActiveIter (out iter)) {
 				ICategory selectedCategory =
 					categoryComboBox.Model.GetValue (iter, 0) as ICategory;
 				
@@ -968,7 +968,7 @@ namespace Tasque
 		void OnCategoryChanged (object sender, EventArgs args)
 		{
 			Gtk.TreeIter iter;
-			if (categoryComboBox.GetActiveIter (out iter) == false)
+			if (!categoryComboBox.GetActiveIter (out iter))
 				return;
 			
 			ICategory category =
@@ -999,7 +999,7 @@ namespace Tasque
 			
 			Gtk.TreeIter iter;
 			
-			if (model.GetIter (out iter, args.Path) == false)
+			if (!model.GetIter (out iter, args.Path))
 				return;
 			
 			ITask task = model.GetValue (iter, 0) as ITask;
@@ -1027,11 +1027,11 @@ namespace Tasque
 					Gtk.TreePath path;
 					Gtk.TreeViewColumn column = null;
 
-					if (tv.GetPathAtPos ((int) args.Event.X,
-									(int) args.Event.Y, out path, out column) == false)
+					if (!tv.GetPathAtPos ((int) args.Event.X,
+									(int) args.Event.Y, out path, out column))
 						return;
 
-					if (model.GetIter (out iter, path) == false)
+					if (!model.GetIter (out iter, path))
 						return;
 					
 					clickedTask = model.GetValue (iter, 0) as ITask;
@@ -1103,7 +1103,7 @@ namespace Tasque
 				return;
 			}
 			
-			if (noteDialogs.ContainsKey (dialog.Task) == false) {
+			if (!noteDialogs.ContainsKey (dialog.Task)) {
 				Logger.Warn ("Closed NoteDialog not found in noteDialogs");
 				return;
 			}

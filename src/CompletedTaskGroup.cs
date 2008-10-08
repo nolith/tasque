@@ -91,7 +91,7 @@ namespace Tasque
 		protected override bool FilterTasks (TreeModel model, TreeIter iter)
 		{
 			// Don't show any task here if showCompletedTasks is false
-			if (showCompletedTasks == false)
+			if (!showCompletedTasks)
 				return false;
 			
 			ITask task = model.GetValue (iter, 0) as ITask;
@@ -99,7 +99,7 @@ namespace Tasque
 				return false;
 			
 			if (selectedCategory != null
-					&& selectedCategory.ContainsTask (task) == false)
+					&& !selectedCategory.ContainsTask (task))
 				return false;
 			
 			// Make sure that the task fits into the specified range depending
@@ -143,14 +143,14 @@ namespace Tasque
 				TreeIter iter;
 				TreeModel model = Application.Backend.Categories;
 				
-				if (model.GetIterFirst (out iter) == true) {
+				if (model.GetIterFirst (out iter)) {
 					do {
 						ICategory category = model.GetValue (iter, 0) as ICategory;
 						if (category.Name.CompareTo (cat) == 0) {
 							foundCategory = category;
 							break;
 						}
-					} while (model.IterNext (ref iter) == true);
+					} while (model.IterNext (ref iter));
 				}
 			}
 			

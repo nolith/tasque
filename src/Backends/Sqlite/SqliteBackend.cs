@@ -198,14 +198,14 @@ namespace Tasque.Backends.Sqlite
 			// Set the task in the store so the model will update the UI.
 			Gtk.TreeIter iter;
 			
-			if (taskIters.ContainsKey (task.SqliteId) == false)
+			if (!taskIters.ContainsKey (task.SqliteId))
 				return;
 				
 			iter = taskIters [task.SqliteId];
 			
 			if (task.State == TaskState.Deleted) {
 				taskIters.Remove (task.SqliteId);
-				if (taskStore.Remove (ref iter) == false) {
+				if (!taskStore.Remove (ref iter)) {
 					Logger.Debug ("Successfully deleted from taskStore: {0}",
 						task.Name);
 				} else {

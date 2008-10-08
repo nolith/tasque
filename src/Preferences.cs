@@ -82,7 +82,7 @@ namespace Tasque
 			
 			string xPath = string.Format ("//{0}", settingKey.Trim ());
 			XmlNode node = document.SelectSingleNode (xPath);
-			if (node == null || node is XmlElement == false)
+			if (node == null || !(node is XmlElement))
 				return SetDefault (settingKey);
 			
 			XmlElement element = node as XmlElement;

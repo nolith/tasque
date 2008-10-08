@@ -290,7 +290,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			
 			foreach (IBackend backend in backends) {
 				string typeId = backend.GetType ().ToString ();
-				if (availableBackends.ContainsKey (typeId) == true)
+				if (availableBackends.ContainsKey (typeId))
 					continue;
 				
 				Logger.Debug ("Storing '{0}' = '{1}'", typeId, backend.Name);
@@ -312,7 +312,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				return backends;
 			}
 			foreach (Type type in types) {
-				if (type.IsClass == false) {
+				if (!type.IsClass) {
 					continue; // Skip non-class types
 				}
 				if (type.GetInterface ("Tasque.Backends.IBackend") == null) {
@@ -364,7 +364,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			} else {
 				TaskWindow.ShowWindow();
 			}
-			if (backend == null || backend.Configured == false){
+			if (backend == null || !backend.Configured){
 				GLib.Timeout.Add(1000, new GLib.TimeoutHandler(RetryBackend));
 			}
 
@@ -379,7 +379,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 			} catch (Exception e) {
 				Logger.Error("{0}", e.Message);
 			}
-			if (backend == null || backend.Configured == false) {
+			if (backend == null || !backend.Configured) {
 				return true;
 			} else {
 				return false;

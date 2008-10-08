@@ -228,7 +228,7 @@ namespace Tasque
 			
 			iter = Gtk.TreeIter.Zero;
 			
-			if (model.GetIterFirst (out tempIter) == false)
+			if (!model.GetIterFirst (out tempIter))
 				return false;
 			
 			// Loop through the model looking for a matching task
@@ -238,7 +238,7 @@ namespace Tasque
 					iter = tempIter;
 					return true;
 				}
-			} while (model.IterNext (ref tempIter) == true);
+			} while (model.IterNext (ref tempIter));
 			
 			return false;
 		}
@@ -260,7 +260,7 @@ namespace Tasque
 			Gtk.TreeModel model = treeView.Model;
 			ITask task = model.GetValue (iter, 0) as ITask;
 			
-			if (model.GetIterFirst (out tempIter) == false)
+			if (!model.GetIterFirst (out tempIter))
 				return 0;
 			
 			// This is ugly, but figure out what position the specified iter is
@@ -271,7 +271,7 @@ namespace Tasque
 					break;
 				
 				pos++;
-			} while (model.IterNext (ref tempIter) == true);
+			} while (model.IterNext (ref tempIter));
 			
 			return pos;
 		}
@@ -289,7 +289,7 @@ namespace Tasque
 			Gtk.TreeModel model = treeView.Model;
 			ITask task = model.GetValue (iter, 0) as ITask;
 			
-			if (model.GetIterFirst (out tempIter) == false)
+			if (!model.GetIterFirst (out tempIter))
 				return 0;
 			
 			// This is ugly, but figure out what position the specified iter is
@@ -300,7 +300,7 @@ namespace Tasque
 					break;
 				
 				pos++;
-			} while (model.IterNext (ref tempIter) == true);
+			} while (model.IterNext (ref tempIter));
 
 //Logger.Debug ("pos: {0}", pos);
 //Logger.Debug ("height: {0}", height);			
@@ -333,7 +333,7 @@ namespace Tasque
 			base.OnRealized ();
 			
 			if (treeView.GetNumberOfTasks () == 0
-					&& (showCompletedTasks == false || hideWhenEmpty == true))
+					&& (!showCompletedTasks || hideWhenEmpty))
 				Hide ();
 			else
 				Show ();
@@ -352,7 +352,7 @@ namespace Tasque
 			// these tasks should always be in the very last category.
 			if (task.DueDate == DateTime.MinValue) {
 				if (timeRangeEnd == DateTime.MaxValue) {
-					if (ShowCompletedTask (task) == false)
+					if (!ShowCompletedTask (task))
 						return false;
 					
 					return true;
@@ -364,7 +364,7 @@ namespace Tasque
 			if (task.DueDate < timeRangeStart || task.DueDate > timeRangeEnd)
 				return false;
 			
-			if (ShowCompletedTask (task) == false)
+			if (!ShowCompletedTask (task))
 				return false;
 			
 			return true;
@@ -373,7 +373,7 @@ namespace Tasque
 		private bool ShowCompletedTask (ITask task)
 		{
 			if (task.State == TaskState.Completed) {
-				if (showCompletedTasks == false)
+				if (!showCompletedTasks)
 					return false;
 				
 				// Only show completed tasks that are from "Today".  Once it's
@@ -382,7 +382,7 @@ namespace Tasque
 				if (task.CompletionDate == DateTime.MinValue)
 					return false; // Just in case
 				
-				if (IsToday (task.CompletionDate) == false)
+				if (!IsToday (task.CompletionDate))
 					return false;
 			}
 			
@@ -430,7 +430,7 @@ namespace Tasque
 
 				// Iterate through (yeah, I know this is gross!) and find the
 				// matching category
-				if (model.GetIterFirst (out iter) == true) {
+				if (model.GetIterFirst (out iter)) {
 					do {
 						ICategory cat = model.GetValue (iter, 0) as ICategory;
 						if (cat == null)
@@ -438,7 +438,7 @@ namespace Tasque
 						if (cat.Name.CompareTo (selectedCategoryName) == 0) {
 							return cat;
 						}
-					} while (model.IterNext (ref iter) == true);
+					} while (model.IterNext (ref iter));
 				}
 			}
 			
@@ -452,7 +452,7 @@ namespace Tasque
 			//Logger.Debug ("TaskGroup (\"{0}\").OnNumberOfTasksChanged ()", DisplayName);
 			// Check to see whether this group should be hidden or shown.
 			if (treeView.GetNumberOfTasks () == 0
-					&& (showCompletedTasks == false || hideWhenEmpty == true))
+					&& (!showCompletedTasks || hideWhenEmpty))
 				Hide ();
 			else
 				Show ();

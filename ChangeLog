@@ -1,4 +1,20 @@
-2008-10-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/TaskGroup.cs:
+	* src/Utilities.cs:
+	* src/TaskWindow.cs:
+	* src/Preferences.cs:
+	* src/Application.cs:
+	* src/TaskTreeView.cs:
+	* src/AbstractTask.cs:
+	* src/RemoteControl.cs:
+	* src/PreferencesDialog.cs:
+	* src/CompletedTaskGroup.cs:
+	* src/Backends/EDS/EDSBackends.cs:
+	* src/Backends/IceCore/IceBackend.cs:
+	* src/Backends/Dummy/DummyBackend.cs:
+	* src/Backends/Sqlite/SqliteBackend.cs: Increased readability of boolean
+	  expressions.  Fixes bug #555168, patch courtesy of Alex Launi.2008-10-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* tasque.csproj: WindowsApplication.cs -> GtkApplication.cs.
 

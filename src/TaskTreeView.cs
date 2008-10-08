@@ -539,7 +539,7 @@ namespace Tasque
 			Logger.Debug ("OnTaskToggled");
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new Gtk.TreePath (args.Path);
-			if (Model.GetIter (out iter, path) == false)
+			if (!Model.GetIter (out iter, path))
 				return; // Do nothing
 			
 			ITask task = Model.GetValue (iter, 0) as ITask;
@@ -557,7 +557,7 @@ namespace Tasque
 				// When showCompletedTasks is true, complete the tasks right
 				// away.  Otherwise, set a timer and show the timer animation
 				// before marking the task completed.
-				if (showCompletedTasks == true) {
+				if (showCompletedTasks) {
 					task.Complete ();
 					ShowCompletedTaskStatus ();
 				} else {
@@ -582,7 +582,7 @@ namespace Tasque
 		{
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new TreePath (args.Path);
-			if (Model.GetIter (out iter, path) == false)
+			if (!Model.GetIter (out iter, path))
 				return;
 
 			TaskPriority newPriority;
@@ -605,7 +605,7 @@ namespace Tasque
 		{
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new TreePath (args.Path);
-			if (Model.GetIter (out iter, path) == false)
+			if (!Model.GetIter (out iter, path))
 				return;
 			
 			ITask task = Model.GetValue (iter, 0) as ITask;
@@ -650,7 +650,7 @@ namespace Tasque
 			
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new TreePath (args.Path);
-			if (Model.GetIter (out iter, path) == false)
+			if (!Model.GetIter (out iter, path))
 				return;
 			
 			//  2/11 - Today

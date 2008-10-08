@@ -125,7 +125,7 @@ namespace Tasque
 		/// </summary>
 		public static void CreateDirectoryIfNeeded (string path)
 		{
-			if (System.IO.Directory.Exists (path) == false) {
+			if (!System.IO.Directory.Exists (path)) {
 				try {
 					System.IO.Directory.CreateDirectory (path);
 				} catch {

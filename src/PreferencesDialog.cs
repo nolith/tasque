@@ -307,7 +307,7 @@ namespace Tasque
 				}
 				
 				// if yes (replace backend)
-				if (backendComboMap.ContainsKey (selectedBackend) == true) {
+				if (backendComboMap.ContainsKey (selectedBackend)) {
 					// Cleanup old backend
 					IBackend oldBackend = backendComboMap [selectedBackend];
 					Logger.Info ("Cleaning up '{0}'...", oldBackend.Name);
@@ -325,7 +325,7 @@ namespace Tasque
 			}
 			
 			IBackend newBackend = null;
-			if (backendComboMap.ContainsKey (backendComboBox.Active) == true) {
+			if (backendComboMap.ContainsKey (backendComboBox.Active)) {
 				newBackend = backendComboMap [backendComboBox.Active];
 			}
 			
@@ -350,7 +350,7 @@ namespace Tasque
 				
 				// If the new backend is not configured, automatically switch
 				// to the backend's preferences page
-				if (newBackend.Configured == false)
+				if (!newBackend.Configured)
 					notebook.Page = backendPageId;
 			}
 			
@@ -383,7 +383,7 @@ namespace Tasque
 			}
 			
 			// Check to see if the category is specified in the list
-			if (categoriesToHide.Contains (category.Name) == true) {
+			if (categoriesToHide.Contains (category.Name)) {
 				crt.Active = false;
 				return;
 			}
@@ -411,7 +411,7 @@ namespace Tasque
 			Logger.Debug ("OnCategoryToggled");
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new Gtk.TreePath (args.Path);
-			if (categoriesTree.Model.GetIter (out iter, path) == false)
+			if (!categoriesTree.Model.GetIter (out iter, path))
 				return; // Do nothing
 			
 			ICategory category = categoriesTree.Model.GetValue (iter, 0) as ICategory;
@@ -464,7 +464,7 @@ namespace Tasque
 		
 		void RebuildCategoryTree ()
 		{
-			if (backendComboMap.ContainsKey (selectedBackend) == false) {
+			if (!backendComboMap.ContainsKey (selectedBackend)) {
 				categoriesTree.Model = null;
 				return;
 			}

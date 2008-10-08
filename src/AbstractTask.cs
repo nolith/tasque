@@ -99,7 +99,7 @@ namespace Tasque
 					|| DueDate.DayOfYear != task.DueDate.DayOfYear)
 				isSameDate = false;
 			
-			if (isSameDate == false) {
+			if (!isSameDate) {
 				if (DueDate == DateTime.MinValue) {
 					// No due date set on this task. Since we already tested to see
 					// if the dates were the same above, we know that the passed-in
@@ -128,7 +128,7 @@ namespace Tasque
 					|| CompletionDate.DayOfYear != task.CompletionDate.DayOfYear)
 				isSameDate = false;
 			
-			if (isSameDate == false) {
+			if (!isSameDate) {
 				if (CompletionDate == DateTime.MinValue) {
 					// No completion date set for some reason.  Since we already
 					// tested to see if the dates were the same above, we know

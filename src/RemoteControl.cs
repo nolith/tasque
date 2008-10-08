@@ -68,7 +68,7 @@ namespace Tasque
 			//
 			// Look for the specified category
 			//
-			if (model.GetIterFirst (out iter) == false) {
+			if (!model.GetIterFirst (out iter)) {
 				return string.Empty;
 			}
 			
@@ -79,7 +79,7 @@ namespace Tasque
 					// Found a match
 					category = tempCategory;
 				}
-			} while (model.IterNext (ref iter) == true);
+			} while (model.IterNext (ref iter));
 			
 			if (category == null) {
 				return string.Empty;
@@ -97,7 +97,7 @@ namespace Tasque
 				return string.Empty;
 			}
 			
-			if (enterEditMode == true) {
+			if (enterEditMode) {
 				TaskWindow.SelectAndEdit (task);
 			}
 			
@@ -131,7 +131,7 @@ namespace Tasque
 			Gtk.TreeIter iter;
 			Gtk.TreeModel model = Application.Backend.Categories;
 			
-			if (model.GetIterFirst (out iter) == false)
+			if (!model.GetIterFirst (out iter))
 				return emptyArray;
 			
 			do {
@@ -139,7 +139,7 @@ namespace Tasque
 				if (category is AllCategory)
 					continue; // Prevent the AllCategory from being returned
 				categories.Add (category.Name);
-			} while (model.IterNext (ref iter) == true);
+			} while (model.IterNext (ref iter));
 			
 			return categories.ToArray ();
 		}

@@ -228,7 +228,7 @@ namespace Tasque.Backends.IceCore
 			sessionBus.NameOwnerChanged += OnDBusNameOwnerChanged;
 			
 			// Force the daemon to start up if it's not already running
-			if (Bus.Session.NameHasOwner (DaemonNamespace) == false) {
+			if (!Bus.Session.NameHasOwner (DaemonNamespace)) {
 				Bus.Session.StartServiceByName (DaemonNamespace);
 			}
 			
@@ -276,7 +276,7 @@ namespace Tasque.Backends.IceCore
 			// Set the task in the store so the model will update the UI.
 			Gtk.TreeIter iter;
 			
-			if (taskIters.ContainsKey (task.Id) == false) {
+			if (!taskIters.ContainsKey (task.Id)) {
 				// This must be a new task that should be added in.
 				iter = tasks.Append ();
 				taskIters [task.Id] = iter;
@@ -286,7 +286,7 @@ namespace Tasque.Backends.IceCore
 			
 			if (task.State == TaskState.Deleted) {
 				taskIters.Remove (task.Id);
-				if (tasks.Remove (ref iter) == false) {
+				if (!tasks.Remove (ref iter)) {
 					Logger.Debug ("Successfully deleted from taskStore: {0}",
 						task.Name);
 				} else {

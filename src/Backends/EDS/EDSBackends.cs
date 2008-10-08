@@ -347,14 +347,14 @@ namespace Tasque.Backends.EDS
                        // Set the task in the store so the model will update the UI.
                        Gtk.TreeIter iter;
 
-                       if (taskIters.ContainsKey (task.Id) == false)
+                       if (!taskIters.ContainsKey (task.Id))
                                return;
 
                        iter = taskIters [task.Id];
 
                        if (task.State == TaskState.Deleted) {
                                taskIters.Remove (task.Id);
-                               if (taskStore.Remove (ref iter) == false) {
+                               if (!taskStore.Remove (ref iter)) {
                                        Logger.Debug ("Successfully deleted from taskStore: {0}",
                                                task.Name);
                                } else {

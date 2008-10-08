@@ -301,14 +301,14 @@ namespace Tasque.Backends.Dummy
 			// Set the task in the store so the model will update the UI.
 			Gtk.TreeIter iter;
 			
-			if (taskIters.ContainsKey (task.DummyId) == false)
+			if (!taskIters.ContainsKey (task.DummyId))
 				return;
 				
 			iter = taskIters [task.DummyId];
 			
 			if (task.State == TaskState.Deleted) {
 				taskIters.Remove (task.DummyId);
-				if (taskStore.Remove (ref iter) == false) {
+				if (!taskStore.Remove (ref iter)) {
 					Logger.Debug ("Successfully deleted from taskStore: {0}",
 						task.Name);
 				} else {
