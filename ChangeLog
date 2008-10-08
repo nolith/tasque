@@ -14,7 +14,9 @@
 	* src/Backends/IceCore/IceBackend.cs:
 	* src/Backends/Dummy/DummyBackend.cs:
 	* src/Backends/Sqlite/SqliteBackend.cs: Increased readability of boolean
-	  expressions.  Fixes bug #555168, patch courtesy of Alex Launi.2008-10-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
+	  expressions.  Fixes bug #555168, patch courtesy of Alex Launi.
+
+2008-10-06  Sandy Armstrong <sanfordarmstrong@gmail.com> 
 
 	* tasque.csproj: WindowsApplication.cs -> GtkApplication.cs.
 
