@@ -1,5 +1,12 @@
 2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/RemoteControl.cs: Accidentally committed Alex Launi's patch for
+	  bug #555028, which adds a bunch of really useful dbus methods:
+	  GetTaskIds, GetNameForTaskById, GetCategoryForTaskById,
+	  GetStateForTaskById, and MarkTaskAsCompleteById.  In this commit I'm
+	  commenting-out MarkTaskAsCompleteById because it still needs to be
+	  reviewed.2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* tasque.mdp: WindowsApplication -> GtkApplication
 
 2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>

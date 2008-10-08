@@ -223,25 +223,25 @@ namespace Tasque
 			return task != null ? (int) task.State : -1;
 		}
 		
-		/// <summary>
-		/// Marks a task complete
-		/// </summary>
-		/// <param name="id">
-		/// A <see cref="System.String"/> for the ID of the task
-		/// </param>
-		public void MarkTaskAsCompleteById (string id)
-		{
-			ITask task = GetTaskById (id);
-			if (task == null)
-				return;
-				
-			if (task.State == TaskState.Active) {
-				if (Application.Preferences.GetBool (Preferences.ShowCompletedTasksKey))
-					task.Complete ();
-				else
-					task.Inactivate ();
-			}
-		}
+//		/// <summary>
+//		/// Marks a task complete
+//		/// </summary>
+//		/// <param name="id">
+//		/// A <see cref="System.String"/> for the ID of the task
+//		/// </param>
+//		public void MarkTaskAsCompleteById (string id)
+//		{
+//			ITask task = GetTaskById (id);
+//			if (task == null)
+//				return;
+//				
+//			if (task.State == TaskState.Active) {
+//				if (Application.Preferences.GetBool (Preferences.ShowCompletedTasksKey))
+//					task.Complete ();
+//				else
+//					task.Inactivate ();
+//			}
+//		}
 		
 		/// <summary>
 		/// Looks up a task by ID in the backend
