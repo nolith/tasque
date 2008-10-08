@@ -148,5 +148,128 @@ namespace Tasque
 		{
 			TaskWindow.ShowWindow ();
 		}
+		
+		/// <summary>
+		/// Retreives the IDs of all tasks for the current backend.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> array containing the ID of all tasks
+		/// in the current backend.
+		/// </returns>
+		public string[] GetTaskIds ()
+		{
+			Gtk.TreeIter iter;
+			Gtk.TreeModel model;
+			
+			ITask task;
+			List<string> ids;
+			
+			ids = new List<string> ();
+			model = Application.Backend.Tasks;
+			
+			if (!model.GetIterFirst (out iter))
+				return new string[0];
+				
+			do {
+				task = model.GetValue (iter, 0) as ITask;
+				ids.Add (task.Id);
+			} while (model.IterNext (ref iter));
+			
+			return ids.ToArray ();
+		}
+		
+		/// <summary>
+		/// Gets the name of a task for a given ID
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.String"/> for the ID of the task
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.String"/> the name of the task
+		/// </returns>
+		public string GetNameForTaskById (string id)
+		{
+			ITask task = GetTaskById (id);
+			return task != null ? task.Name : string.Empty;
+		}
+		
+		/// <summary>
+		/// Gets the category of a task for a given ID
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.String"/> for the ID of the task
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.String"/> the category of the task
+		/// </returns>
+		public string GetCategoryForTaskById (string id)
+		{
+			ITask task = GetTaskById (id);
+			return task != null ? task.Category.Name : string.Empty;
+		}
+		
+		/// <summary>
+		/// Gets the state of a task for a given ID
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.String"/> for the ID of the task
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Int32"/> the state of the task
+		/// </returns>
+		public int GetStateForTaskById (string id)
+		{
+			ITask task = GetTaskById (id);
+			return task != null ? (int) task.State : -1;
+		}
+		
+		/// <summary>
+		/// Marks a task complete
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.String"/> for the ID of the task
+		/// </param>
+		public void MarkTaskAsCompleteById (string id)
+		{
+			ITask task = GetTaskById (id);
+			if (task == null)
+				return;
+				
+			if (task.State == TaskState.Active) {
+				if (Application.Preferences.GetBool (Preferences.ShowCompletedTasksKey))
+					task.Complete ();
+				else
+					task.Inactivate ();
+			}
+		}
+		
+		/// <summary>
+		/// Looks up a task by ID in the backend
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.String"/> for the ID of the task
+		/// </param>
+		/// <returns>
+		/// A <see cref="ITask"/> having the given ID
+		/// </returns>
+		private ITask GetTaskById (string id)
+		{
+			Gtk.TreeIter  iter;
+			Gtk.TreeModel model;
+			
+			ITask task = null;
+			model = Application.Backend.Tasks;
+			
+			if (model.GetIterFirst (out iter)) {
+				do {
+					task = model.GetValue (iter, 0) as ITask;
+					if (task.Id.Equals (id)) {
+						return task;
+					}
+				} while (model.IterNext (ref iter));
+			}			
+			
+			return task;
+		}
 	}
 }
