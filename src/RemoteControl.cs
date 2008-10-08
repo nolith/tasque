@@ -222,7 +222,8 @@ namespace Tasque
 			ITask task = GetTaskById (id);
 			return task != null ? (int) task.State : -1;
 		}
-		
+
+		// TODO: Review this, see bug #555028.
 //		/// <summary>
 //		/// Marks a task complete
 //		/// </summary>

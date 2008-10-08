@@ -1,5 +1,9 @@
 2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/RemoteControl.cs: Add comment about need for review.
+
+2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/RemoteControl.cs: Accidentally committed Alex Launi's patch for
 	  bug #555028, which adds a bunch of really useful dbus methods:
 	  GetTaskIds, GetNameForTaskById, GetCategoryForTaskById,
