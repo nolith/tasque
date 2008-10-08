@@ -5,7 +5,9 @@
 	  GetTaskIds, GetNameForTaskById, GetCategoryForTaskById,
 	  GetStateForTaskById, and MarkTaskAsCompleteById.  In this commit I'm
 	  commenting-out MarkTaskAsCompleteById because it still needs to be
-	  reviewed.2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+	  reviewed.
+
+2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* tasque.mdp: WindowsApplication -> GtkApplication
 
