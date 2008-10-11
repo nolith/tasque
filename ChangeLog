@@ -1,3 +1,8 @@
+2008-10-11  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* configure.ac: Correct handling of "--enable" flags.  Fixes bug
+	#555921, patch courtesy of Romain Tartière.
+
 2008-10-08  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/RemoteControl.cs: Add comment about need for review.

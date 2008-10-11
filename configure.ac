@@ -55,7 +55,7 @@ AC_SUBST(NOTIFY_SHARP_LIBS)
 AC_ARG_ENABLE(debug,
 	AC_HELP_STRING([--enable-debug],
 		[Use 'Debug' Configuration [default=yes]]),
-		enable_debug=yes, enable_debug=no)
+		enable_debug=$enableval, enable_debug=no)
 AM_CONDITIONAL(ENABLE_DEBUG, test "x$enable_debug" = "xyes")
 if test "x$enable_debug" = "xyes" ; then
 #	DEBUG_CONFIG_LIBRARIES=' ${pkglibdir}/Db4objects.Db4o.dll'
@@ -67,7 +67,7 @@ fi
 AC_ARG_ENABLE(release,
 	AC_HELP_STRING([--enable-release],
 		[Use 'Release' Configuration [default=no]]),
-		enable_release=yes, enable_release=no)
+		enable_release=$enableval, enable_release=no)
 AM_CONDITIONAL(ENABLE_RELEASE, test "x$enable_release" = "xyes")
 if test "x$enable_release" = "xyes" ; then
 #	RELEASE_CONFIG_LIBRARIES=' ${pkglibdir}/Db4objects.Db4o.dll'
@@ -111,7 +111,7 @@ AC_SUBST(DBUS_SERVICE_DIR)
 AC_ARG_ENABLE(backend_dummy,
 	AC_HELP_STRING([--enable-backend-dummy],
 		[Enable the Dummy (Debug) Backend [default=no]]),
-		enable_backend_dummy=yes, enable_backend_dummy=no)
+		enable_backend_dummy=$enableval, enable_backend_dummy=no)
 AM_CONDITIONAL(ENABLE_BACKEND_DUMMY, test "x$enable_backend_dummy" = "xyes")
 
 #
@@ -120,7 +120,7 @@ AM_CONDITIONAL(ENABLE_BACKEND_DUMMY, test "x$enable_backend_dummy" = "xyes")
 AC_ARG_ENABLE(backend_rtm,
 	AC_HELP_STRING([--enable-backend-rtm],
 		[Enable the RTM Backend [default=yes]]),
-		enable_backend_rtm=yes, enable_backend_rtm=no)
+		enable_backend_rtm=$enableval, enable_backend_rtm=no)
 
 #
 # SQLite Backend
@@ -128,7 +128,7 @@ AC_ARG_ENABLE(backend_rtm,
 AC_ARG_ENABLE(backend_sqlite,
 	AC_HELP_STRING([--enable-backend-sqlite],
 		[Enable the SQLite Backend [default=no]]),
-		enable_backend_sqlite=yes, enable_backend_sqlite=no)
+		enable_backend_sqlite=$enableval, enable_backend_sqlite=no)
 AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$enable_backend_sqlite" = "xyes")
 
 #
@@ -137,7 +137,7 @@ AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$enable_backend_sqlite" = "xyes")
 AC_ARG_ENABLE(backend_icecore,
 	AC_HELP_STRING([--enable-backend-icecore],
 		[Enable the ICEcore Backend [default=no]]),
-		enable_backend_icecore=yes, enable_backend_icecore=no)
+		enable_backend_icecore=$enableval, enable_backend_icecore=no)
 AM_CONDITIONAL(ENABLE_BACKEND_ICECORE, test "x$enable_backend_icecore" = "xyes")
 if test "x$enable_backend_icecore" = "xyes" ; then
        # FIXME : Is this the right way to do this ?
@@ -152,7 +152,7 @@ AC_SUBST(ICE_DESKTOP_LIBS)
 AC_ARG_ENABLE(backend_eds,
        AC_HELP_STRING([--enable-backend-eds],
                [Enable the EDS Backend [default=no]]),
-               enable_backend_eds=yes, enable_backend_eds=no)
+               enable_backend_eds=$enableval, enable_backend_eds=no)
 AM_CONDITIONAL(ENABLE_BACKEND_EDS, test "x$enable_backend_eds" = "xyes")
 if test "x$enable_backend_eds" = "xyes" ; then
        # FIXME : Is this the right way to do this ?
