@@ -3,49 +3,60 @@
 # This file is distributed under the same license as the tasque package.
 # Nacho Hermoso de Mendoza <gnacho@gmail.com>, 2008.
 #
+# Jorge González <jorgegonz@svn.gnome.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-12 18:51+0300\n"
-"PO-Revision-Date: 2008-09-27 23:34+0100\n"
-"Last-Translator: Nacho Hermoso de Mendoza <gnacho@gmail.com>\n"
-"Language-Team: Español <gnacho@gmail>\n"
+"POT-Creation-Date: 2008-10-11 17:25+0200\n"
+"PO-Revision-Date: 2008-10-11 17:27+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Application.cs:392
+#: ../data/tasque.desktop.in.h:1
+msgid "Easy quick task management"
+msgstr "Gestione sus tareas fácil y rápidamente"
+
+#: ../data/tasque.desktop.in.h:2
+msgid "Task Manager"
+msgstr "Gestor de tareas"
+
+#: ../data/tasque.desktop.in.h:3
+msgid "Tasque"
+msgstr "Tasque"
+
+#: ../src/Application.cs:464
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "Copyright © 2008 Novell, Inc."
 
-#: ../src/Application.cs:393
+#: ../src/Application.cs:465
 msgid "A Useful Task List"
 msgstr "Una lista de tareas útil"
 
-#: ../src/Application.cs:395
+#: ../src/Application.cs:467
 msgid "Tasque Project Homepage"
 msgstr "Página web del proyecto Tasque"
 
-#: ../src/Application.cs:445
+#: ../src/Application.cs:581
 msgid "Show Tasks ..."
 msgstr "Mostrar tareas..."
 
-#: ../src/Application.cs:453
+#: ../src/Application.cs:588
 msgid "New Task ..."
 msgstr "Nueva tarea..."
 
-#: ../src/Application.cs:474
-msgid "Refresh Tasks"
-msgstr "Actualizar tareas"
+#: ../src/Application.cs:603
+msgid "Refresh Tasks ..."
+msgstr "Actualizar tareas..."
 
-#: ../src/AllCategory.cs:28
-#: ../src/CompletedTaskGroup.cs:214
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
 msgid "All"
 msgstr "Todas"
 
-#: ../src/CompletedTaskGroup.cs:205
-#: ../src/Utilities.cs:283
+#: ../src/CompletedTaskGroup.cs:205 ../src/Utilities.cs:270
 msgid "Yesterday"
 msgstr "Ayer"
 
@@ -61,28 +72,33 @@ msgstr "Último mes"
 msgid "Last Year"
 msgstr "Último año"
 
+#: ../src/NoteDialog.cs:24
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr "Notas para: {0:s}"
+
 #: ../src/PreferencesDialog.cs:107
 msgid "General"
 msgstr "General"
 
-#: ../src/PreferencesDialog.cs:173
+#: ../src/PreferencesDialog.cs:146
 msgid "Task Management System"
 msgstr "Sistema de gestión de tareas"
 
-#: ../src/PreferencesDialog.cs:215
+#: ../src/PreferencesDialog.cs:188
 msgid "Task Filtering"
 msgstr "Filtro de tareas"
 
-#: ../src/PreferencesDialog.cs:234
-msgid "Show _completed tasks"
+#: ../src/PreferencesDialog.cs:207
+msgid "Sh_ow completed tasks"
 msgstr "Mostrar tareas _completas"
 
 #. Categories TreeView
-#: ../src/PreferencesDialog.cs:243
+#: ../src/PreferencesDialog.cs:216
 msgid "Only _show these categories when \"All\" is selected:"
 msgstr "Mostrar sólo estas categorias cuando \"Todas\" está seleccionada:"
 
-#: ../src/PreferencesDialog.cs:261
+#: ../src/PreferencesDialog.cs:234
 msgid "Category"
 msgstr "Categoría"
 
@@ -91,251 +107,256 @@ msgid "New task created."
 msgstr "Nueva tarea creada."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:72
-#: ../src/TaskWindow.cs:345
+#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:341
 msgid "Completed"
 msgstr "Completada"
 
 #. Title for Priority Column
-#: ../src/TaskTreeView.cs:89
+#: ../src/TaskTreeView.cs:101
 msgid "Priority"
 msgstr "Prioridad"
 
-#: ../src/TaskTreeView.cs:102
-#: ../src/TaskTreeView.cs:300
-#: ../src/TaskTreeView.cs:524
+#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:593
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:103
-#: ../src/TaskTreeView.cs:297
-#: ../src/TaskTreeView.cs:522
+#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:591
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:104
-#: ../src/TaskTreeView.cs:294
-#: ../src/TaskTreeView.cs:520
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:589
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:105
-#: ../src/TaskTreeView.cs:303
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
 #. Title for Task Name Column
-#: ../src/TaskTreeView.cs:119
+#: ../src/TaskTreeView.cs:131
 msgid "Task Name"
 msgstr "Nombre de la tarea"
 
 #. Title for Due Date Column
-#: ../src/TaskTreeView.cs:161
+#: ../src/TaskTreeView.cs:173
 msgid "Due Date"
 msgstr "Fecha de vencimiento"
 
-#: ../src/TaskTreeView.cs:175
-#: ../src/TaskTreeView.cs:177
-#: ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:601
-#: ../src/TaskTreeView.cs:604
-#: ../src/TaskTreeView.cs:609
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:675
+#: ../src/TaskTreeView.cs:678 ../src/TaskTreeView.cs:683
 msgid "M/d - "
 msgstr "d/M - "
 
-#: ../src/TaskTreeView.cs:175
-#: ../src/TaskTreeView.cs:601
-#: ../src/TaskWindow.cs:278
-#: ../src/Utilities.cs:277
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:675
+#: ../src/TaskWindow.cs:274 ../src/Utilities.cs:264
 msgid "Today"
 msgstr "Hoy"
 
-#: ../src/TaskTreeView.cs:177
-#: ../src/TaskTreeView.cs:604
-#: ../src/TaskWindow.cs:296
-#: ../src/Utilities.cs:296
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:678
+#: ../src/TaskWindow.cs:292 ../src/Utilities.cs:283
 msgid "Tomorrow"
 msgstr "Mañana"
 
-#: ../src/TaskTreeView.cs:179
-#: ../src/TaskTreeView.cs:181
-#: ../src/TaskTreeView.cs:183
-#: ../src/TaskTreeView.cs:185
-#: ../src/TaskTreeView.cs:187
-#: ../src/TaskTreeView.cs:354
-#: ../src/TaskTreeView.cs:618
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:420
+#: ../src/TaskTreeView.cs:692
 msgid "M/d - ddd"
 msgstr "d/M - ddd"
 
-#: ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:609
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:683
 msgid "In 1 Week"
 msgstr "En 1 semana"
 
-#: ../src/TaskTreeView.cs:190
-#: ../src/TaskTreeView.cs:606
-#: ../src/Utilities.cs:309
+#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:680
+#: ../src/Utilities.cs:296
 msgid "No Date"
 msgstr "Sin fecha"
 
-#: ../src/TaskTreeView.cs:191
-#: ../src/TaskTreeView.cs:611
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:685
 msgid "Choose Date..."
 msgstr "Elegir una fecha..."
 
 #. Title for Notes Column
-#: ../src/TaskTreeView.cs:207
+#: ../src/TaskTreeView.cs:219
 msgid "Notes"
 msgstr "Notas"
 
 #. Title for Timer Column
-#: ../src/TaskTreeView.cs:224
+#: ../src/TaskTreeView.cs:236
 msgid "Timer"
 msgstr "Temporizador"
 
-#: ../src/TaskTreeView.cs:356
+#: ../src/TaskTreeView.cs:281
+msgid "Task Completed"
+msgstr "Tarea completada"
+
+#: ../src/TaskTreeView.cs:422
 msgid "M/d/yy - ddd"
 msgstr "d/M/yy - ddd"
 
+#: ../src/TaskTreeView.cs:575
+msgid "Action Canceled"
+msgstr "Acción cancelada"
+
+#: ../src/TaskTreeView.cs:840
+#, csharp-format
+msgid "Completing Task In: {0}"
+msgstr "Completando tarea en: {0}"
+
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:151
-#: ../src/TaskWindow.cs:827
-#: ../src/TaskWindow.cs:837
-#: ../src/TaskWindow.cs:848
+#: ../src/TaskWindow.cs:147 ../src/TaskWindow.cs:855 ../src/TaskWindow.cs:865
+#: ../src/TaskWindow.cs:876
 msgid "New task..."
 msgstr "Nueva tarea..."
 
-#: ../src/TaskWindow.cs:166
+#: ../src/TaskWindow.cs:162
 msgid "_Add"
 msgstr "_Añadir"
 
-#: ../src/TaskWindow.cs:171
+#: ../src/TaskWindow.cs:167
 msgid "_Add Task"
 msgstr "_Añadir Tarea"
 
-#: ../src/TaskWindow.cs:216
-msgid "Loading tasks..."
-msgstr "Cargando tareas..."
-
-#: ../src/TaskWindow.cs:260
+#: ../src/TaskWindow.cs:256
 msgid "Overdue"
 msgstr "Atrasadas"
 
-#: ../src/TaskWindow.cs:314
+#: ../src/TaskWindow.cs:310
 msgid "Next 7 Days"
 msgstr "Próximos 7 días"
 
-#: ../src/TaskWindow.cs:330
+#: ../src/TaskWindow.cs:326
 msgid "Future"
 msgstr "Futuro"
 
-#: ../src/TaskWindow.cs:1013
+#. Show error status
+#: ../src/TaskWindow.cs:791
+msgid "Error creating a new task"
+msgstr "Error al crear una tarea nueva"
+
+#. Show successful status
+#: ../src/TaskWindow.cs:795
+msgid "Task created successfully"
+msgstr "Tarea creada satisfactoriamente"
+
+#: ../src/TaskWindow.cs:1044
 msgid "_Notes..."
 msgstr "_Notas"
 
-#: ../src/TaskWindow.cs:1020
+#: ../src/TaskWindow.cs:1051
 msgid "_Delete task"
 msgstr "_Eliminar tarea"
 
-#: ../src/TaskWindow.cs:1025
+#: ../src/TaskWindow.cs:1056
 msgid "_Edit task"
 msgstr "_Editar tarea"
 
-#: ../src/TaskWindow.cs:1092
-msgid "Reloading tasks..."
-msgstr "Actualizando tareas..."
+#: ../src/TaskWindow.cs:1084
+msgid "Task deleted"
+msgstr "Tarea borrada"
 
-#: ../src/Utilities.cs:275
+#: ../src/TaskWindow.cs:1126
+msgid "Loading tasks..."
+msgstr "Cargando tareas..."
+
+#: ../src/Utilities.cs:262
 #, csharp-format
 msgid "Today, {0}"
 msgstr "Hoy, {0}"
 
-#: ../src/Utilities.cs:281
+#: ../src/Utilities.cs:268
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "Ayer, {0}"
 
-#: ../src/Utilities.cs:287
+#: ../src/Utilities.cs:274
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "{0} días atrás, {1}"
 
-#: ../src/Utilities.cs:289
+#: ../src/Utilities.cs:276
 #, csharp-format
 msgid "{0} days ago"
 msgstr "{0} días atrás"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:281
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Mañana, {0}"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:287
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "En {0} días, {1}"
 
-#: ../src/Utilities.cs:302
+#: ../src/Utilities.cs:289
 #, csharp-format
 msgid "In {0} days"
 msgstr "En {0} días"
 
-#: ../src/Utilities.cs:306
+#: ../src/Utilities.cs:293
 msgid "MMMM d, h:mm tt"
 msgstr "MMMM d, h:mm tt"
 
-#: ../src/Utilities.cs:307
+#: ../src/Utilities.cs:294
 msgid "MMMM d"
 msgstr "MMMM d"
 
-#: ../src/Utilities.cs:312
+#: ../src/Utilities.cs:299
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "d MMMM yyyy h:mm tt"
 
-#: ../src/Utilities.cs:313
+#: ../src/Utilities.cs:300
 msgid "MMMM d yyyy"
 msgstr "d MMMM yyyy"
 
-#: ../src/Utilities.cs:322
+#: ../src/Utilities.cs:309
 msgid "Sunday"
 msgstr "Domingo"
 
-#: ../src/Utilities.cs:324
+#: ../src/Utilities.cs:311
 msgid "Monday"
 msgstr "Lunes"
 
-#: ../src/Utilities.cs:326
+#: ../src/Utilities.cs:313
 msgid "Tuesday"
 msgstr "Martes"
 
-#: ../src/Utilities.cs:328
+#: ../src/Utilities.cs:315
 msgid "Wednesday"
 msgstr "Miércoles"
 
-#: ../src/Utilities.cs:330
+#: ../src/Utilities.cs:317
 msgid "Thursday"
 msgstr "Jueves"
 
-#: ../src/Utilities.cs:332
+#: ../src/Utilities.cs:319
 msgid "Friday"
 msgstr "Viernes"
 
-#: ../src/Utilities.cs:334
+#: ../src/Utilities.cs:321
 msgid "Saturday"
 msgstr "Sábado"
 
 #. Then try some more natural language parsing
 #. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:380
+#: ../src/Utilities.cs:367
 msgid "^(?<task>.+)\\s+today\\W*$"
 msgstr "^(?<task>.+)\\s+hoy\\W*$"
 
 #. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:382
+#: ../src/Utilities.cs:369
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
 msgstr "^(?<task>.+)\\s+mañana\\W*$"
 
+#~ msgid "Reloading tasks..."
+#~ msgstr "Actualizando tareas..."
