@@ -1,3 +1,8 @@
+2008-10-12  Takeshi AIHANA <takeshi.aihana@gmail.com>
+
+	* ja.po: Added Japanese translation.
+	* LINGUAS: Added 'ja' to the list.
+
 2008-10-11  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
 	* es.po: Updated Spanish translation
