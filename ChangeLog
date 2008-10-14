@@ -1,3 +1,7 @@
+﻿2008-10-11  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* tasque.csproj: Change output type to WinExe to prevent DOS window.
+
 2008-10-11  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* configure.ac: Correct handling of "--enable" flags.  Fixes bug

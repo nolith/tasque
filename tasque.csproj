@@ -5,12 +5,12 @@
     <ProjectGuid>{B19B9840-669D-4984-9772-E1F55193A67F}</ProjectGuid>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>tasque</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <NoWin32Manifest>True</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
