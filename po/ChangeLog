@@ -1,3 +1,10 @@
+2008-10-14  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* LINGUAS: Add zh_TW.
+
+	* zh_TW.po: Traditional Chinese translation by Yuren Ju
+	<yurenju@gmail.com>.
+
 2008-10-12  Takeshi AIHANA <takeshi.aihana@gmail.com>
 
 	* ja.po: Added Japanese translation.
