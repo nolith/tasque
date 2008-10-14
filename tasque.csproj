@@ -55,7 +55,6 @@
       <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\pango\pango-sharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -109,30 +108,6 @@
     <EmbeddedResource Include="tasque-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RtmNet\ApiKeyRequiredException.cs" />
-    <Compile Include="RtmNet\AssemblyInfo.cs" />
-    <Compile Include="RtmNet\Auth.cs" />
-    <Compile Include="RtmNet\AuthenticationRequiredException.cs" />
-    <Compile Include="RtmNet\Categories.cs" />
-    <Compile Include="RtmNet\Contacts.cs" />
-    <Compile Include="RtmNet\DateGranularity.cs" />
-    <Compile Include="RtmNet\Enums.cs" />
-    <Compile Include="RtmNet\Groups.cs" />
-    <Compile Include="RtmNet\GroupSearchResults.cs" />
-    <Compile Include="RtmNet\List.cs" />
-    <Compile Include="RtmNet\Methods.cs" />
-    <Compile Include="RtmNet\Note.cs" />
-    <Compile Include="RtmNet\Response.cs" />
-    <Compile Include="RtmNet\ResponseXmlException.cs" />
-    <Compile Include="RtmNet\Rtm.cs" />
-    <Compile Include="RtmNet\RtmApiException.cs" />
-    <Compile Include="RtmNet\RtmException.cs" />
-    <Compile Include="RtmNet\RtmWebException.cs" />
-    <Compile Include="RtmNet\SignatureRequiredException.cs" />
-    <Compile Include="RtmNet\Tags.cs" />
-    <Compile Include="RtmNet\Task.cs" />
-    <Compile Include="RtmNet\User.cs" />
-    <Compile Include="RtmNet\Utils.cs" />
     <Compile Include="src\AbstractTask.cs" />
     <Compile Include="src\AllCategory.cs" />
     <Compile Include="src\Application.cs" />
@@ -167,6 +142,12 @@
     <Compile Include="src\TaskTreeView.cs" />
     <Compile Include="src\TaskWindow.cs" />
     <Compile Include="src\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="RtmNet\RtmNet.csproj">
+      <Project>{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}</Project>
+      <Name>RtmNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -1,4 +1,11 @@
-﻿2008-10-11  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+﻿2008-10-12  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* tasque.csproj:
+	* tasque.sln:
+	* RtmNet/RtmNet.csproj: Split RtmNet code into its own project.
+	* RtmNet/AssemblyInfo.cs: Set CLSCompliant to True again.
+
+2008-10-11  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* tasque.csproj: Change output type to WinExe to prevent DOS window.
 

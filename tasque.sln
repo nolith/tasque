@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tasque", "tasque.csproj", "{B19B9840-669D-4984-9772-E1F55193A67F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtmNet", "RtmNet\RtmNet.csproj", "{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B19B9840-669D-4984-9772-E1F55193A67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19B9840-669D-4984-9772-E1F55193A67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19B9840-669D-4984-9772-E1F55193A67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
