@@ -161,6 +161,15 @@ fi
 AC_SUBST(EVOLUTION_SHARP_LIBS)
 
 #
+# SQLite Backend
+#
+AC_ARG_ENABLE(backend_hiveminder,
+	AC_HELP_STRING([--enable-backend-hiveminder],
+		[Enable the Hiveminder Backend [default=no]]),
+		enable_backend_hiveminder=yes, enable_backend_hiveminder=no)
+AM_CONDITIONAL(ENABLE_BACKEND_HIVEMINDER, test "x$enable_backend_hiveminder" = "xyes")
+
+#
 # If no backends were enabled,
 # enable the RTM Backend by default.
 #
@@ -225,5 +234,6 @@ Configuration:
 	ICECore Backend:   ${enable_backend_icecore}
 	RTM Backend:       ${enable_backend_rtm}
 	SQLite Backend:    ${enable_backend_sqlite}
+	Hiveminder Backend: ${enable_backend_hiveminder}
 "
 

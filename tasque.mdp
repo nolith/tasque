@@ -68,6 +68,16 @@
     <File name="src/GnomeApplication.cs" subtype="Code" buildaction="Compile" />
     <File name="src/NativeApplication.cs" subtype="Code" buildaction="Compile" />
     <File name="src/GtkApplication.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/WindowsApplication.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/HmBackend.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/HmCategory.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/HmNote.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/HmTask.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/service/Hiveminder.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/service/Task.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/service/Group.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/HmPreferencesWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="src/Backends/Hiveminder/service/HiveminderException.cs" subtype="Code" buildaction="Compile" />
   </Contents>
   <References>
     <ProjectReference type="Gac" localcopy="True" refto="glib-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />

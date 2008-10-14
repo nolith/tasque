@@ -1,8 +1,13 @@
 2008-10-15  Johnny Jacob  <jjohnny@novell.com>
 
+	* src/Makefile.am, configure.ac, tasque.mdp:  Project & Makefile
+	changes
+
+2008-10-15  Johnny Jacob  <jjohnny@novell.com>
+
 	* src/Backends/Hiveminder/* : Added. Initial commit for Hiveminder
 	Backend.
-
+	
 2008-10-12  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* tasque.csproj:

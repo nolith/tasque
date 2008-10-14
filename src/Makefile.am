@@ -50,6 +50,14 @@ else
 EDS_CSFILES =
 endif
 
+if ENABLE_BACKEND_HIVEMINDER
+HIVEMINDER_CSFILES = \
+       $(srcdir)/Backends/Hiveminder/*.cs \
+       $(srcdir)/Backends/Hiveminder/service/*.cs
+else
+HIVEMINDER_CSFILES =
+endif
+
 CSFILES = \
 	$(srcdir)/AbstractTask.cs \
 	$(srcdir)/AllCategory.cs \
@@ -87,7 +95,9 @@ CSFILES = \
 	\
 	$(SQLITE_CSFILES) \
 	\
-	$(EDS_CSFILES)
+	$(EDS_CSFILES) \
+	\
+	$(HIVEMINDER_CSFILES)
 
 RESOURCES = \
 	-resource:$(top_srcdir)/data/images/tasque-16.png \
@@ -114,6 +124,7 @@ ASSEMBLIES =  \
 	-r:System \
 	-r:Mono.Posix \
 	-r:System.Xml \
+	-r:System.Web \
 	-r:$(top_builddir)/RtmNet/RtmNet \
 	$(GLIB_SHARP_20_LIBS) \
 	$(GNOME_SHARP_20_LIBS) \
@@ -167,7 +178,9 @@ EXTRA_DIST = \
 	$(srcdir)/Backends/EDS/*.cs	\
 	$(srcdir)/Backends/IceCore/*.cs \
 	$(srcdir)/Backends/Rtm/*.cs	\
-	$(srcdir)/Backends/Sqlite/*.cs
+	$(srcdir)/Backends/Sqlite/*.cs  \
+	$(srcdir)/Backends/Hiveminder/*.cs \
+	$(srcdir)/Backends/Hiveminder/service/*.cs
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = tasque.pc
