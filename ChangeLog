@@ -1,3 +1,10 @@
+2008-10-15  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Backends/Hiveminder/HmBackend.cs: Use Path.DirectorySeperatorChar.
+
+	* src/Backends/Hiveminder/HmTask.cs: Remove redundant code. 
+	Use 'Constructor Chaining'
+
 2008-10-15  Johnny Jacob  <jjohnny@novell.com>
 
 	* src/Backends/Hiveminder/HmBackend.cs: Fixed spelling for LoadCredentials

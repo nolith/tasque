@@ -173,27 +173,18 @@ namespace Tasque.Backends.HmBackend
 		
 		#region Constructors
 		
-		public HmTask ()
+		public HmTask () : this (new Task())
 		{
-			this.task = new Task();
-
-			//Add Description as note.
-			this.notes = null;
-			if (!string.IsNullOrEmpty (this.task.Description)) {
-				this.notes = new List<INote>();
-				HmNote hmnote = new HmNote (this.task.Description);
-				notes.Add (new HmNote (this.task.Description));
-			}
 		}
 		
 		public HmTask (Hiveminder.Task task)
 		{
 			this.task = task;
 
+			//Add Description as note.
 			this.notes = null;
 			if (!string.IsNullOrEmpty (this.task.Description)) {
 				this.notes = new List<INote>();
-				HmNote hmnote = new HmNote (this.task.Description);
 				notes.Add (new HmNote (this.task.Description));
 			}
 		}

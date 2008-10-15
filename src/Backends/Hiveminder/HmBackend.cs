@@ -67,7 +67,8 @@ namespace Tasque.Backends.HmBackend
 		public event BackendSyncFinishedHandler BackendSyncFinished;
 
 		private static string credentialFile = System.IO.Path.Combine (
-					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "tasque/hm");
+					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "tasque" + Path.DirectorySeparatorChar + "hm");
+		
 		
 		public HmBackend ()
 		{
