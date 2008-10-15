@@ -68,7 +68,6 @@
     <File name="src/GnomeApplication.cs" subtype="Code" buildaction="Compile" />
     <File name="src/NativeApplication.cs" subtype="Code" buildaction="Compile" />
     <File name="src/GtkApplication.cs" subtype="Code" buildaction="Compile" />
-    <File name="src/WindowsApplication.cs" subtype="Code" buildaction="Compile" />
     <File name="src/Backends/Hiveminder/HmBackend.cs" subtype="Code" buildaction="Compile" />
     <File name="src/Backends/Hiveminder/HmCategory.cs" subtype="Code" buildaction="Compile" />
     <File name="src/Backends/Hiveminder/HmNote.cs" subtype="Code" buildaction="Compile" />
