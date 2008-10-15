@@ -46,8 +46,6 @@ namespace Tasque.Backends.HmBackend
 		
  		public HmPreferencesWidget () : base()
 		{
-			OAuth.OAuthBase a = new OAuth.OAuthBase();
-
 			HmBackend.LoadCredentails (out this.username, out this.password);
 			
 			//Fixme Please ! I look UGLY!

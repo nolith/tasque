@@ -1,5 +1,10 @@
 2008-10-15  Johnny Jacob  <jjohnny@novell.com>
 
+	* src/Backends/Hiveminder/HmPreferencesWidget.cs: Removed references to 
+	OAuth. Fixes build break.
+
+2008-10-15  Johnny Jacob  <jjohnny@novell.com>
+
 	* src/Makefile.am, configure.ac, tasque.mdp:  Project & Makefile
 	changes
 
