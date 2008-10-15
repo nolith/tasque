@@ -157,7 +157,7 @@
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)\winbin $(TargetDir)</PostBuildEvent>
-    <PreBuildEvent>copy $(SolutionDir)\data\images\*.png $(ProjectDir)</PreBuildEvent>
+    <PostBuildEvent>copy "$(SolutionDir)\winbin" "$(TargetDir)"</PostBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)\data\images\*.png" "$(ProjectDir)"</PreBuildEvent>
   </PropertyGroup>
 </Project>

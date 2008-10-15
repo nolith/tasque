@@ -1,3 +1,8 @@
+2008-10-15  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* tasque.csproj: Surround paths in build events with quotes.  Fix from
+	Dmitry Radkovsky.
+
 2008-10-15  Johnny Jacob  <jjohnny@novell.com>
 
 	* src/Backends/Hiveminder/HmPreferencesWidget.cs: Removed references to 
