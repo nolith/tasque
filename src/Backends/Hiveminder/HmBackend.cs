@@ -156,7 +156,7 @@ namespace Tasque.Backends.HmBackend
 			Gtk.TreeIter iter;
 			try {
 				string username, password;
-				LoadCredentails (out username,out password);
+				LoadCredentials (out username,out password);
 				this.hm = new Hiveminder.Hiveminder(username, password);
 				configured = true;
 			} catch (HiveminderAuthException e) {
@@ -226,7 +226,7 @@ namespace Tasque.Backends.HmBackend
 		}
 
 		
-		public static bool LoadCredentails (out string username, out string password)
+		public static bool LoadCredentials (out string username, out string password)
 		{
 			try {
 				TextReader configFile = new StreamReader (new FileStream(credentialFile, FileMode.OpenOrCreate, FileAccess.Read));

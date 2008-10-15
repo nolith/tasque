@@ -1,3 +1,9 @@
+2008-10-15  Johnny Jacob  <jjohnny@novell.com>
+
+	* src/Backends/Hiveminder/HmBackend.cs: Fixed spelling for LoadCredentials
+
+	* src/Backends/Hiveminder/service/Hiveminder.cs: Coding style fixes.
+	
 2008-10-15  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* tasque.mdp: Remove WindowsApplication reference.

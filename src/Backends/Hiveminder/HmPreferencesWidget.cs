@@ -46,7 +46,7 @@ namespace Tasque.Backends.HmBackend
 		
  		public HmPreferencesWidget () : base()
 		{
-			HmBackend.LoadCredentails (out this.username, out this.password);
+			HmBackend.LoadCredentials (out this.username, out this.password);
 			
 			//Fixme Please ! I look UGLY!
 			VBox mainVBox = new VBox(false, 12);

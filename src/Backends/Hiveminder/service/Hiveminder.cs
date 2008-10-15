@@ -41,11 +41,11 @@ namespace Hiveminder
 		public Hiveminder (string username, string password)
 		{
 			string cookieValue;
-			cookieValue = this.login(username, password);
+			cookieValue = this.Login(username, password);
 			this.COOKIE_HIVEMINDER_SID = new Cookie ("JIFTY_SID_HIVEMINDER", cookieValue, "/", "hiveminder.com");
 		}
 
-		public string cookieValue
+		public string CookieValue
 		{
 			get { return COOKIE_HIVEMINDER_SID.Value; }
 		}
@@ -59,7 +59,7 @@ namespace Hiveminder
 		/// <param name="password">
 		/// A <see cref="System.String"/>
 		/// </param>
-		public string login (string username, string password)
+		public string Login (string username, string password)
 		{
 			string postURL = "/__jifty/webservices/xml";
 			//TODO : Fix this.
@@ -80,14 +80,9 @@ namespace Hiveminder
 			Console.WriteLine (resp.StatusCode);
 
 			//Look for JIFTY_SID_HIVEMINDER
-			foreach (Cookie cook in resp.Cookies) 
-			{
-				if (cook.Name == "JIFTY_SID_HIVEMINDER") {
-					this.COOKIE_HIVEMINDER_SID = cook;
-				}
-			}
+			this.COOKIE_HIVEMINDER_SID = resp.Cookies["JIFTY_SID_HIVEMINDER"];
 			
-			checkLoginStatus();
+			CheckLoginStatus();
 			
 			return this.COOKIE_HIVEMINDER_SID.Value;
 		}
@@ -97,10 +92,10 @@ namespace Hiveminder
 		/// <returns>
 		/// A <see cref="System.Boolean"/>
 		/// </returns>
-		private bool checkLoginStatus ()
+		private bool CheckLoginStatus ()
 		{
 			string responseString;
-			responseString = this.command ("/=/version/");
+			responseString = this.Command ("/=/version/");
 			
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.LoadXml (responseString);
@@ -113,7 +108,7 @@ namespace Hiveminder
 			return true;
 		}
 		
-		public string command (string command, string method)
+		public string Command (string command, string method)
 		{
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create (BaseURL + command + ".xml");
 			Console.WriteLine (BaseURL+command);
@@ -130,9 +125,9 @@ namespace Hiveminder
 			return responseString;
 		}
 		
-		public string command (string command)
+		public string Command (string command)
 		{			
-			return this.command (command, "GET");
+			return this.Command (command, "GET");
 		}
 
 		/// <summary>
@@ -143,7 +138,7 @@ namespace Hiveminder
 			string responseString;
 			uint i =0;
 			
-			responseString = this.command ("/=/search/BTDT.Model.Task/");
+			responseString = this.Command ("/=/search/BTDT.Model.Task/");
 		
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.LoadXml (responseString);
@@ -161,7 +156,7 @@ namespace Hiveminder
 			string responseString;
 			uint i =0;
 			
-			responseString = this.command ("/=/action/BTDT.Action.SearchGroup/", "POST");
+			responseString = this.Command ("/=/action/BTDT.Action.SearchGroup/", "POST");
 		
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.LoadXml (responseString);
