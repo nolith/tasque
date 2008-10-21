@@ -29,8 +29,6 @@ namespace Tasque.Backends.RtmBackend
 			
 			// We're using an event box so we can paint the background white
 			BorderWidth = 0;
-			ModifyBg(StateType.Normal, new Gdk.Color(255,255,255));
-			ModifyBase(StateType.Normal, new Gdk.Color(255,255,255));
 
 			VBox mainVBox = new VBox(false, 0);
 			mainVBox.BorderWidth = 10;

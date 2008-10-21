@@ -1,3 +1,18 @@
+2008-10-21  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/NoteDialog.cs:
+	* src/Backends/Rtm/RtmPreferencesWidget.cs: Do not paint the background
+	white.
+
+	* src/Utilities.cs: Add ColorGetHex method, stolen from Banshee, that
+	takes a Gdk.Color and makes a hex string like "#FFFFFF".
+
+	* src/TaskGroup.cs: Green was a pretty header color, but let's use the
+	"selected" state color from the GTK+ theme instead.
+
+	* src/TaskWindow.cs: Get the background color from the GTK+ theme
+	instead of just using white.  Some whitespace fixes.
+
 2008-10-20  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/Backends/Rtm/RtmPreferencesWidget.cs: Don't crash if default

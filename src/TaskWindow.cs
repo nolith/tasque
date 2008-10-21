@@ -30,6 +30,7 @@
 
 using System;
 using System.Collections.Generic;
+using Gdk;
 using Gtk;
 using Mono.Unix;
 
@@ -58,7 +59,8 @@ namespace Tasque
 		private TaskGroup nextSevenDaysGroup;
 		private TaskGroup futureGroup;
 		private CompletedTaskGroup completedTaskGroup;
-		
+		private EventBox innerEb;
+
 		private List<TaskGroup> taskGroups;
 		
 		private Dictionary<ITask, NoteDialog> noteDialogs;
@@ -81,7 +83,7 @@ namespace Tasque
 			noteIcon = Utilities.GetIcon ("note", 16);
 		}
 		
-		public TaskWindow (IBackend aBackend) : base (WindowType.Toplevel)
+		public TaskWindow (IBackend aBackend) : base (Gtk.WindowType.Toplevel)
 		{
 			this.backend = aBackend;
 			taskGroups = new List<TaskGroup> ();
@@ -156,7 +158,7 @@ namespace Tasque
 			
 			// Use a small add icon so the button isn't mammoth-sized
 			HBox buttonHBox = new HBox (false, 6);
-			Image addImage = new Image (Gtk.Stock.Add, IconSize.Menu);
+			Gtk.Image addImage = new Gtk.Image (Gtk.Stock.Add, IconSize.Menu);
 			addImage.Show ();
 			buttonHBox.PackStart (addImage, false, false, 0);
 			Label l = new Label (Catalog.GetString ("_Add"));
@@ -166,7 +168,7 @@ namespace Tasque
 			addTaskButton = 
 				new MenuToolButton (buttonHBox, Catalog.GetString ("_Add Task"));
 			addTaskButton.UseUnderline = true;
-		    	// Disactivate the button until the backend is initialized
+			// Disactivate the button until the backend is initialized
 			addTaskButton.Sensitive = false;
 			Gtk.Menu addTaskMenu = new Gtk.Menu ();
 			addTaskButton.Menu = addTaskMenu;
@@ -175,15 +177,15 @@ namespace Tasque
 			topHBox.PackStart (addTaskButton, false, false, 0);
 			
 			globalKeys.AddAccelerator (OnGrabEntryFocus,
-			                           (uint) Gdk.Key.n,
-			                           Gdk.ModifierType.ControlMask,
-			                           Gtk.AccelFlags.Visible);
+						(uint) Gdk.Key.n,
+						Gdk.ModifierType.ControlMask,
+						Gtk.AccelFlags.Visible);
 			
 			globalKeys.AddAccelerator (delegate (object sender, EventArgs e) {
 				Application.Instance.Quit (); },
-			                           (uint) Gdk.Key.q,
-			                           Gdk.ModifierType.ControlMask,
-			                           Gtk.AccelFlags.Visible);
+						(uint) Gdk.Key.q,
+						Gdk.ModifierType.ControlMask,
+						Gtk.AccelFlags.Visible);
 			
 			topHBox.Show ();
 			mainVBox.PackStart (topHBox, false, false, 0);
@@ -197,17 +199,11 @@ namespace Tasque
 			scrolledWindow.Show ();
 			mainVBox.PackStart (scrolledWindow, true, true, 0);
 
-			EventBox innerEb = new EventBox();
+			innerEb = new EventBox();
 			innerEb.BorderWidth = 0;
-			innerEb.ModifyBg(	StateType.Normal, 
-						new Gdk.Color(255,255,255));
-			innerEb.ModifyBase(	StateType.Normal, 
-						new Gdk.Color(255,255,255));
-
-			targetVBox = new VBox();
-			targetVBox.BorderWidth = 5;
-			targetVBox.Show ();
-			innerEb.Add(targetVBox);
+			Gdk.Color backgroundColor = GetBackgroundColor ();
+			innerEb.ModifyBg (StateType.Normal, backgroundColor);
+			innerEb.ModifyBase (StateType.Normal, backgroundColor);
 
 			scrolledWindow.AddWithViewport(innerEb);
 			
@@ -238,8 +234,13 @@ namespace Tasque
 
 		void PopulateWindow()
 		{
+			if (targetVBox != null)
+				targetVBox.Destroy ();
 			
-
+			targetVBox = new VBox();
+			targetVBox.BorderWidth = 5;
+			targetVBox.Show ();
+			innerEb.Add(targetVBox);
 			// Add in the groups
 			
 			//
@@ -801,9 +802,31 @@ namespace Tasque
 			
 			return task;
 		}
+		
+		/// <summary>
+		/// This returns the current input widget color from the GTK theme
+		/// </summary>
+		/// <returns>
+		/// A Gdk.Color
+		/// </returns>
+		private Gdk.Color GetBackgroundColor ()
+		{
+			using (Gtk.Style style = Gtk.Rc.GetStyle (this)) 
+				return style.Base (StateType.Normal);
+		}
+		
 		#endregion // Private Methods
 
 		#region Event Handlers
+		protected override void OnStyleSet (Gtk.Style previous_style)
+		{
+			base.OnStyleSet (previous_style);
+			Gdk.Color backgroundColor = GetBackgroundColor ();
+			innerEb.ModifyBg (StateType.Normal, backgroundColor);
+			innerEb.ModifyBase (StateType.Normal, backgroundColor);
+			PopulateWindow ();
+		}
+		
 		private void OnRealized (object sender, EventArgs args)
 		{
 			addTaskEntry.GrabFocus ();
@@ -1042,19 +1065,19 @@ namespace Tasque
 					ImageMenuItem item;
 					
 					item = new ImageMenuItem (Catalog.GetString ("_Notes..."));
-					item.Image = new Image (noteIcon);
+					item.Image = new Gtk.Image (noteIcon);
 					item.Activated += OnShowTaskNotes;
 					popupMenu.Add (item);
 					
 					popupMenu.Add (new SeparatorMenuItem ());
 
 					item = new ImageMenuItem (Catalog.GetString ("_Delete task"));
-					item.Image = new Image(Gtk.Stock.Delete, IconSize.Menu);
+					item.Image = new Gtk.Image(Gtk.Stock.Delete, IconSize.Menu);
 					item.Activated += OnDeleteTask;
 					popupMenu.Add (item);
 
 					item = new ImageMenuItem(Catalog.GetString ("_Edit task"));
-					item.Image = new Image(Gtk.Stock.Edit, IconSize.Menu);
+					item.Image = new Gtk.Image(Gtk.Stock.Edit, IconSize.Menu);
 					item.Activated += OnEditTask;
 					popupMenu.Add (item);
 

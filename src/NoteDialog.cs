@@ -37,10 +37,7 @@ namespace Tasque
 			
 			Gtk.EventBox innerEb = new Gtk.EventBox();
 			innerEb.BorderWidth = 0;
-			innerEb.ModifyBg (Gtk.StateType.Normal, 
-						new Gdk.Color(255,255,255));
-			innerEb.ModifyBase (Gtk.StateType.Normal, 
-						new Gdk.Color(255,255,255));
+
 
 			targetVBox = new Gtk.VBox();
 			targetVBox.BorderWidth = 5;

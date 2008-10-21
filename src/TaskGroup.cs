@@ -2,6 +2,8 @@
 // User: boyd at 7:50 PM 2/11/2008
 
 using System;
+using Gdk;
+using Gtk;
 
 namespace Tasque
 {
@@ -69,12 +71,13 @@ namespace Tasque
 			header.UseMarkup = true;
 			header.UseUnderline = false;
 			header.Markup =
-				string.Format ("<span size=\"x-large\" foreground=\"#9eb96e\" weight=\"bold\">{0}</span>",
-							   groupName);
+				string.Format ("<span size=\"x-large\" foreground=\"{0}\" weight=\"bold\">{1}</span>", 
+								GetHighlightColor (),
+								groupName);
 			header.Xalign = 0;
-			
+
 			header.Show ();
-			
+
 //			eb.Add(header);
 //			PackStart (eb, false, false, 0);
 			headerHBox.PackStart (header, false, false, 0);
@@ -444,6 +447,23 @@ namespace Tasque
 			
 			return null;
 		}
+		
+		/// <summary>
+		/// This returns the current highlight color from the GTK theme
+		/// </summary>
+		/// <returns>
+		/// An hexadecimal color string (ex #ffffff)
+		/// </returns>
+		private string GetHighlightColor ()
+		{
+			Gdk.Color fgColor;
+
+			using (Gtk.Style style = Gtk.Rc.GetStyle (this)) 
+				fgColor = style.Backgrounds [(int) StateType.Selected];
+
+			return Utilities.ColorGetHex (fgColor);
+		}
+		
 		#endregion // Private Methods
 		
 		#region Event Handlers

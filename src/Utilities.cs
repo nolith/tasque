@@ -36,7 +36,8 @@ using System.Net;
 using System.IO;
 using System.Security.Cryptography;
 using Mono.Unix;
-
+using Gdk;
+using Gtk;
 
 namespace Tasque
 {
@@ -396,6 +397,20 @@ namespace Tasque
 			parsedTaskText = enteredTaskText;
 			parsedDueDate = DateTime.MinValue;
 			return;
+		}
+
+		/// <summary>
+		/// This returns the hexadecimal value of an GDK color.
+		/// </summary>
+		/// <param name="color">
+		/// The color to convert to a hex string.
+		/// </param>
+		public static string ColorGetHex (Gdk.Color color)
+		{
+			return String.Format ("#{0:x2}{1:x2}{2:x2}",
+			                      (byte)(color.Red >> 8),
+			                      (byte)(color.Green >> 8),
+			                      (byte)(color.Blue >> 8));
 		}
 	}
 }
