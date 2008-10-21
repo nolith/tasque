@@ -3,6 +3,7 @@
 
 using System;
 using Gtk;
+using Mono.Unix;
 
 namespace Tasque.Backends.RtmBackend
 {
@@ -56,7 +57,7 @@ namespace Tasque.Backends.RtmBackend
 			statusLabel.UseMarkup = true;
 			statusLabel.UseUnderline = false;
 
-			authButton = new LinkButton("Click Here to Connect");
+			authButton = new LinkButton (Catalog.GetString ("Click Here to Connect"));
 			
 			authButton.Clicked += OnAuthButtonClicked;
 			
@@ -66,7 +67,7 @@ namespace Tasque.Backends.RtmBackend
 				if (userName != null && userName.Trim () != string.Empty)
 					statusLabel.Text += " as\n" + userName.Trim ();
 			} else {
-				statusLabel.Text = "\n\nYou are not connected";
+				statusLabel.Text = Catalog.GetString ("\n\nYou are not connected");
 				authButton.Show();
 			}
 			mainVBox.PackStart(statusLabel, false, false, 0);
@@ -96,9 +97,14 @@ namespace Tasque.Backends.RtmBackend
 				if (!isAuthorized && !authRequested) {
 					string url = rtmBackend.GetAuthUrl();
 					Logger.Debug("Launching browser to authorize with Remember the Milk");
-					Application.Instance.NativeApplication.OpenUrl (url);
-					authRequested = true;
-					authButton.Label = "Click Here After Authorizing Tasque";
+					try {
+						Application.Instance.NativeApplication.OpenUrl (url);
+						authRequested = true;
+						authButton.Label = Catalog.GetString ("Click Here After Authorizing");
+					} catch (Exception ex) {
+						Logger.Error ("Exception opening URL: {0}",ex.Message);
+						authButton.Label = Catalog.GetString ("Set the default browser and try again");						
+					}			
 				} else if (!isAuthorized && authRequested) {
 					authButton.Label = "Processing...";
 					try {
@@ -114,9 +120,9 @@ namespace Tasque.Backends.RtmBackend
 					}
 				}
 				if (isAuthorized) {
-					authButton.Label = "Thank You";
+					authButton.Label = Catalog.GetString ("Thank You");
 					authButton.Sensitive = false;
-					statusLabel.Text = "\n\nYou are currently connected";
+					statusLabel.Text = Catalog.GetString ("\n\nYou are currently connected");
 					string userName =
 						Application.Preferences.Get(Preferences.UserNameKey);
 					if (userName != null && userName.Trim() != string.Empty)
