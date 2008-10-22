@@ -204,6 +204,11 @@ namespace Tasque
 			Gdk.Color backgroundColor = GetBackgroundColor ();
 			innerEb.ModifyBg (StateType.Normal, backgroundColor);
 			innerEb.ModifyBase (StateType.Normal, backgroundColor);
+			
+			targetVBox = new VBox();
+			targetVBox.BorderWidth = 5;
+			targetVBox.Show ();
+			innerEb.Add(targetVBox);
 
 			scrolledWindow.AddWithViewport(innerEb);
 			
@@ -234,13 +239,6 @@ namespace Tasque
 
 		void PopulateWindow()
 		{
-			if (targetVBox != null)
-				targetVBox.Destroy ();
-			
-			targetVBox = new VBox();
-			targetVBox.BorderWidth = 5;
-			targetVBox.Show ();
-			innerEb.Add(targetVBox);
 			// Add in the groups
 			
 			//
@@ -824,7 +822,13 @@ namespace Tasque
 			Gdk.Color backgroundColor = GetBackgroundColor ();
 			innerEb.ModifyBg (StateType.Normal, backgroundColor);
 			innerEb.ModifyBase (StateType.Normal, backgroundColor);
-			PopulateWindow ();
+			
+			if (addTaskEntry.Text == Catalog.GetString ("New task...")) {
+				Gdk.Color insensitiveColor =
+					addTaskEntry.Style.Text (Gtk.StateType.Insensitive);
+				addTaskEntry.ModifyText (Gtk.StateType.Normal, insensitiveColor);
+			}
+
 		}
 		
 		private void OnRealized (object sender, EventArgs args)

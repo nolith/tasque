@@ -1,3 +1,15 @@
+2008-10-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	Additional fixes (including crash fix) for bug #532766, thanks to Joel Bennett.
+
+	* src/TaskGroup.cs: Override OnStyleSet to manage the Pango markup of
+	the header.
+
+	* src/TaskWindow.cs: Move targetVBox init code back to constructor,
+	don't call PopulateWindow in OnStyleSet (obsoleted by fixes to
+	TaskGroup), and be sure to update the addTaskEntry color based on the
+	new style, if it's showing the default text.
+
 2008-10-21  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/NoteDialog.cs:

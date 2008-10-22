@@ -70,10 +70,7 @@ namespace Tasque
 			header = new Gtk.Label ();
 			header.UseMarkup = true;
 			header.UseUnderline = false;
-			header.Markup =
-				string.Format ("<span size=\"x-large\" foreground=\"{0}\" weight=\"bold\">{1}</span>", 
-								GetHighlightColor (),
-								groupName);
+			header.Markup = GetHeaderMarkup (groupName);
 			header.Xalign = 0;
 
 			header.Show ();
@@ -342,6 +339,13 @@ namespace Tasque
 				Show ();
 		}
 
+		protected override void OnStyleSet(Style previous_style)
+		{
+			base.OnStyleSet (previous_style);
+			header.Markup = GetHeaderMarkup (DisplayName);
+		}
+
+
         /// <summary>
         /// Filter out tasks that don't fit within the group's date range
         /// </summary>
@@ -462,6 +466,13 @@ namespace Tasque
 				fgColor = style.Backgrounds [(int) StateType.Selected];
 
 			return Utilities.ColorGetHex (fgColor);
+		}
+
+		private string GetHeaderMarkup (string groupName)
+		{
+			return string.Format ("<span size=\"x-large\" foreground=\"{0}\" weight=\"bold\">{1}</span>",
+			                      GetHighlightColor (),
+			                      groupName);
 		}
 		
 		#endregion // Private Methods
