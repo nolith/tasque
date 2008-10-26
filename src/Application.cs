@@ -62,6 +62,7 @@ namespace Tasque
 		private EventBox eb;
 		private IBackend backend;
 		private PreferencesDialog preferencesDialog;
+		private bool quietStart = false;
 		
 		private DateTime currentDay = DateTime.Today;
 		
@@ -94,8 +95,10 @@ namespace Tasque
 		{ 
 			get { return Application.Instance.backend; }
 			set {
+				bool changingBackend = false;
 				Application tasque = Application.Instance;
 				if (tasque.backend != null) {
+					changingBackend = true;
 					// Cleanup the old backend
 					try {
 						Logger.Debug ("Cleaning up backend: {0}",
@@ -119,7 +122,11 @@ namespace Tasque
 							 tasque.backend.GetType ().ToString ());
 				tasque.backend.Initialize();
 				
-				TaskWindow.Reinitialize ();
+				if (!changingBackend) {
+					TaskWindow.Reinitialize (!Instance.quietStart);
+				} else {
+					TaskWindow.Reinitialize (true);
+				}
 				
 				Logger.Debug("Configuration status: {0}",
 							 tasque.backend.Configured.ToString());
@@ -225,11 +232,36 @@ namespace Tasque
 			}
 #endif
 			
-			// Read the args and check to see if a specific backend is specified
-			if (args.Length > 0) {
-Logger.Debug ("args [0]: {0}", args [0]);
-				// We're only looking at the first argument
-				string potentialBackendClassName = args [0];
+			string potentialBackendClassName = null;
+			
+			for (int i = 0; i < args.Length; i++) {
+				switch (args [i]) {
+					
+				case "--quiet":
+					quietStart = true;
+					Logger.Debug ("Starting quietly");
+					break;
+					
+				case "--backend":
+					if ( (i + 1 < args.Length) &&
+					    !string.IsNullOrEmpty (args [i + 1]) &&
+					    args [i + 1] [0] != '-') {
+						potentialBackendClassName = args [++i];
+					} // TODO: Else, print usage
+					break;
+					
+				default:
+					// Support old argument behavior
+					if (!string.IsNullOrEmpty (args [i]))
+						potentialBackendClassName = args [i];
+					break;
+				}
+			}
+			
+			// See if a specific backend is specified
+			if (potentialBackendClassName != null) {
+				Logger.Debug ("Backend specified: " +
+				              potentialBackendClassName);
 				
 				customBackend = null;
 				Assembly asm = Assembly.GetCallingAssembly ();
@@ -361,8 +393,8 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				// Pop open the preferences dialog so the user can choose a
 				// backend service to use.
 				Application.ShowPreferences ();
-			} else {
-				TaskWindow.ShowWindow();
+			} else if (!quietStart) {
+				TaskWindow.ShowWindow ();
 			}
 			if (backend == null || !backend.Configured){
 				GLib.Timeout.Add(1000, new GLib.TimeoutHandler(RetryBackend));
@@ -393,7 +425,7 @@ Logger.Debug ("args [0]: {0}", args [0]);
 				currentDay = DateTime.Today;
 				// Reinitialize window according to new date
 				if (TaskWindow.IsOpen)
-					TaskWindow.Reinitialize ();
+					TaskWindow.Reinitialize (true);
 			}
 			
 			return true;

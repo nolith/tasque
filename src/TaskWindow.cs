@@ -509,15 +509,16 @@ namespace Tasque
 		/// <summary>
 		/// This should be called after a new IBackend has been set
 		/// </summary>
-		public static void Reinitialize ()
+		public static void Reinitialize (bool show)
 		{
 			if (TaskWindow.taskWindow != null) {
 				TaskWindow.taskWindow.Hide ();
 				TaskWindow.taskWindow.Destroy ();
 				TaskWindow.taskWindow = null;
 			}
-			
-			TaskWindow.ShowWindow ();
+
+			if (show)
+				TaskWindow.ShowWindow ();
 		}
 		
 		public void HighlightTask (ITask task)

@@ -1,5 +1,14 @@
 2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/TaskWindow.cs:
+	* src/Application.cs: Support "--quiet" command line option to start
+	Tasque with its main window hidden at first.  Also added "--backend
+	My.Backend.Class", though the old behavior of just allowing
+	"My.Backend.Class" is still supported.  Thanks to Charles Schaefer
+	for his help on this patch.
+
+2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/RemoteControl.cs: Add CreateTask override that enables due date
 	parsing (assuming it is also enabled in Tasque preferences).  Fixes
 	bug #542113, patch courtesy of Johannes.
