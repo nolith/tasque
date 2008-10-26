@@ -15,6 +15,7 @@ namespace Tasque.Backends.Sqlite
 		public SqliteTask(SqliteBackend backend, string name)
 		{
 			this.backend = backend;
+			name = backend.SanitizeText (name);
 			string command = String.Format("INSERT INTO Tasks (Name, DueDate, CompletionDate, Priority, State, Category, ExternalID) values ('{0}','{1}', '{2}','{3}', '{4}', '{5}', '{6}')", 
 								name, Database.FromDateTime(DateTime.MinValue), Database.FromDateTime(DateTime.MinValue), 
 								((int)(TaskPriority.None)), ((int)TaskState.Active), 0, string.Empty );
@@ -48,7 +49,8 @@ namespace Tasque.Backends.Sqlite
 				return backend.Database.GetSingleString(command);
 			}
 			set {
-				string command = String.Format("UPDATE Tasks set Name='{0}' where ID='{1}'", value, id);
+				string name = backend.SanitizeText (value);
+				string command = String.Format("UPDATE Tasks set Name='{0}' where ID='{1}'", name, id);
 				backend.Database.ExecuteScalar(command);
 				backend.UpdateTask(this);
 			}

@@ -1,5 +1,15 @@
 2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Backends/Sqlite/SqliteTask.cs: Sanitize task name text before
+	inserting into database.  Fixes crasher bug #537911.  Thanks to Geert
+	van Dijk and Loganathan Subramaniam for their assistance with this
+	patch.
+
+	* src/Backends/Sqlite/SqliteBackend.cs: Add SanitizeText method, which
+	currently just replaces single apostrophes with double-apostrophes.
+
+2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/TaskWindow.cs:
 	* src/Application.cs: Support "--quiet" command line option to start
 	Tasque with its main window hidden at first.  Also added "--backend

@@ -159,6 +159,17 @@ namespace Tasque.Backends.Sqlite
 			// so that the Preferences Dialog doesn't waste space.
 			return new Gtk.Label ("Local file requires no configuration.");
 		}
+
+		/// <summary>
+		/// Given some text to be input into the database, do whatever
+		/// processing is required to make sure special characters are
+		/// escaped, etc.
+		/// </summary>
+		public string SanitizeText (string text)
+		{
+			return text.Replace ("'", "''");
+		}
+		
 		#endregion // Public Methods
 		
 		#region Private Methods
