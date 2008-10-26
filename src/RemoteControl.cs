@@ -30,9 +30,10 @@ namespace Tasque
 		public RemoteControl()
 		{
 		}
-		
+				
 		/// <summary>
 		/// Create a new task in Tasque using the given categoryName and name.
+		/// Will not attempt to parse due date information.
 		/// </summary>
 		/// <param name="categoryName">
 		/// A <see cref="System.String"/>.  The name of an existing category.
@@ -51,7 +52,37 @@ namespace Tasque
 		/// the task later.
 		/// </returns>
 		public string CreateTask (string categoryName, string taskName,
-								  bool enterEditMode)
+						bool enterEditMode)
+		{
+			return CreateTask (categoryName, taskName, enterEditMode, false);
+		}
+
+		/// <summary>
+		/// Create a new task in Tasque using the given categoryName and name.
+		/// </summary>
+		/// <param name="categoryName">
+		/// A <see cref="System.String"/>.  The name of an existing category.
+		/// Matches are not case-sensitive.
+		/// </param>
+		/// <param name="taskName">
+		/// A <see cref="System.String"/>.  The name of the task to be created.
+		/// </param>
+		/// <param name="enterEditMode">
+		/// A <see cref="System.Boolean"/>.  Specify true if the TaskWindow
+		/// should be shown, the new task scrolled to, and have it be put into
+		/// edit mode immediately.
+		/// </param>
+		/// <param name="parseDate">
+		/// A <see cref="System.Boolean"/>.  Specify true if the 
+		/// date should be parsed out of the taskName (in case 
+		/// Preferences.ParseDateEnabledKey is true as well).
+		/// </param>
+		/// <returns>
+		/// A unique <see cref="System.String"/> which can be used to reference
+		/// the task later.
+		/// </returns>
+		public string CreateTask (string categoryName, string taskName,
+						bool enterEditMode, bool parseDate)
 		{
 			Gtk.TreeIter iter;
 			Gtk.TreeModel model = Application.Backend.Categories;
@@ -85,9 +116,19 @@ namespace Tasque
 				return string.Empty;
 			}
 			
+			// If enabled, attempt to parse due date information
+			// out of the taskName.
+			DateTime taskDueDate = DateTime.MinValue;
+			if (parseDate && Application.Preferences.GetBool (Preferences.ParseDateEnabledKey))
+				Utilities.ParseTaskText (
+				                         taskName,
+				                         out taskName,
+				                         out taskDueDate);
 			ITask task = null;
 			try {
 				task = Application.Backend.CreateTask (taskName, category);
+				if (taskDueDate != DateTime.MinValue)
+					task.DueDate = taskDueDate;
 			} catch (Exception e) {
 				Logger.Error ("Exception calling Application.Backend.CreateTask from RemoteControl: {0}", e.Message);
 				return string.Empty;
@@ -112,8 +153,7 @@ namespace Tasque
 			Application.ShowAppNotification (notify);
 			#endif
 			
-			// TODO: Add ITask.Id and return the new Id of the task.
-			//return task.Id;
+			
 			return task.Id;
 		}
 		

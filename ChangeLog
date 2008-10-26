@@ -1,3 +1,9 @@
+2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/RemoteControl.cs: Add CreateTask override that enables due date
+	parsing (assuming it is also enabled in Tasque preferences).  Fixes
+	bug #542113, patch courtesy of Johannes.
+
 2008-10-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	Additional fixes (including crash fix) for bug #532766, thanks to Joel Bennett.
