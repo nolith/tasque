@@ -1,3 +1,9 @@
+2008-10-27  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/tasque.in:
+	* src/Makefile.am: Install to $(libdir) instead of $(prefix)/lib, to
+	properly support 64-bit environments.  Fixes bug #540983.
+
 2008-10-26  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/Backends/Sqlite/SqliteTask.cs: Sanitize task name text before

@@ -11,3 +11,4 @@ src/RemoteControl.cs
 src/TaskTreeView.cs
 src/TaskWindow.cs
 src/Utilities.cs
+src/Backends/Rtm/RtmPreferencesWidget.cs

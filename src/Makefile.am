@@ -139,7 +139,7 @@ ASSEMBLIES =  \
 $(TARGET): $(CSFILES) Defines.cs
 	$(CSC) -unsafe -out:$@ $(CSFLAGS) $(NOTIFY_SHARP_CSFLAGS) $^ $(ASSEMBLIES) $(RESOURCES)
 
-tasquelibdir = $(prefix)/lib/tasque
+tasquelibdir = $(libdir)/tasque
 tasquelib_DATA = $(TARGET) $(TARGET).config $(TARGET).mdb
 
 bin_SCRIPTS = $(WRAPPER)
