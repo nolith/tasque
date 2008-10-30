@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-20 15:21+0800\n"
-"PO-Revision-Date: 2008-08-19 11:43+0800\n"
+"POT-Creation-Date: 2008-10-28 16:32+0800\n"
+"PO-Revision-Date: 2008-10-28 16:35+0800\n"
 "Last-Translator: Ray Wang <wanglei1123@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -28,35 +28,37 @@ msgstr "任务管理"
 msgid "Tasque"
 msgstr "Tasque"
 
-#: ../src/Application.cs:464
+#: ../src/Application.cs:496
 msgid "Copyright © 2008 Novell, Inc."
-msgstr "Copyright © 2008 Novell, Inc."
+msgstr "版权 © 2008 Novell, Inc."
 
-#: ../src/Application.cs:465
+#: ../src/Application.cs:497
 msgid "A Useful Task List"
 msgstr "一个有用的任务列表"
 
-#: ../src/Application.cs:467
+#: ../src/Application.cs:499
 msgid "Tasque Project Homepage"
 msgstr "Tasque 项目主页"
 
-#: ../src/Application.cs:581
+#: ../src/Application.cs:613
 msgid "Show Tasks ..."
 msgstr "显示任务..."
 
-#: ../src/Application.cs:588
+#: ../src/Application.cs:620
 msgid "New Task ..."
 msgstr "新建任务..."
 
-#: ../src/Application.cs:603
+#: ../src/Application.cs:635
 msgid "Refresh Tasks ..."
-msgstr "刷新任务 ..."
+msgstr "刷新任务..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
+#: ../src/AllCategory.cs:28
+#: ../src/CompletedTaskGroup.cs:214
 msgid "All"
 msgstr "全部"
 
-#: ../src/CompletedTaskGroup.cs:205 ../src/Utilities.cs:270
+#: ../src/CompletedTaskGroup.cs:205
+#: ../src/Utilities.cs:271
 msgid "Yesterday"
 msgstr "昨天"
 
@@ -103,12 +105,13 @@ msgstr "选中“全部”时只显示这些类别(_S)："
 msgid "Category"
 msgstr "类别"
 
-#: ../src/RemoteControl.cs:109
+#: ../src/RemoteControl.cs:150
 msgid "New task created."
 msgstr "创建了新任务。"
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:341
+#: ../src/TaskTreeView.cs:84
+#: ../src/TaskWindow.cs:340
 msgid "Completed"
 msgstr "已完成"
 
@@ -117,25 +120,29 @@ msgstr "已完成"
 msgid "Priority"
 msgstr "优先级"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:114
+#: ../src/TaskTreeView.cs:366
 #: ../src/TaskTreeView.cs:593
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:115
+#: ../src/TaskTreeView.cs:363
 #: ../src/TaskTreeView.cs:591
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:116
+#: ../src/TaskTreeView.cs:360
 #: ../src/TaskTreeView.cs:589
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:117
+#: ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
@@ -149,39 +156,52 @@ msgstr "任务名称"
 msgid "Due Date"
 msgstr "截止日期"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:675
-#: ../src/TaskTreeView.cs:678 ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:675
+#: ../src/TaskTreeView.cs:678
+#: ../src/TaskTreeView.cs:683
 msgid "M/d - "
 msgstr "M月d日 - "
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:675
-#: ../src/TaskWindow.cs:274 ../src/Utilities.cs:264
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:675
+#: ../src/TaskWindow.cs:273
+#: ../src/Utilities.cs:265
 msgid "Today"
 msgstr "今天"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:678
-#: ../src/TaskWindow.cs:292 ../src/Utilities.cs:283
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:678
+#: ../src/TaskWindow.cs:291
+#: ../src/Utilities.cs:284
 msgid "Tomorrow"
 msgstr "明天"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:420
+#: ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:420
 #: ../src/TaskTreeView.cs:692
 msgid "M/d - ddd"
 msgstr "M月d日 - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:683
 msgid "In 1 Week"
 msgstr "一周内"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:680
-#: ../src/Utilities.cs:296
+#: ../src/TaskTreeView.cs:202
+#: ../src/TaskTreeView.cs:680
+#: ../src/Utilities.cs:297
 msgid "No Date"
 msgstr "无日期"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:685
+#: ../src/TaskTreeView.cs:203
+#: ../src/TaskTreeView.cs:685
 msgid "Choose Date..."
 msgstr "选择日期..."
 
@@ -214,28 +234,31 @@ msgstr "在 {0} 内完成任务"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:147 ../src/TaskWindow.cs:855 ../src/TaskWindow.cs:865
-#: ../src/TaskWindow.cs:876
+#: ../src/TaskWindow.cs:149
+#: ../src/TaskWindow.cs:827
+#: ../src/TaskWindow.cs:883
+#: ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:904
 msgid "New task..."
 msgstr "新建任务..."
 
-#: ../src/TaskWindow.cs:162
+#: ../src/TaskWindow.cs:164
 msgid "_Add"
 msgstr "添加(_A)"
 
-#: ../src/TaskWindow.cs:167
+#: ../src/TaskWindow.cs:169
 msgid "_Add Task"
 msgstr "添加任务(_A)"
 
-#: ../src/TaskWindow.cs:256
+#: ../src/TaskWindow.cs:255
 msgid "Overdue"
 msgstr "过期"
 
-#: ../src/TaskWindow.cs:310
+#: ../src/TaskWindow.cs:309
 msgid "Next 7 Days"
 msgstr "下周"
 
-#: ../src/TaskWindow.cs:326
+#: ../src/TaskWindow.cs:325
 msgid "Future"
 msgstr "将来"
 
@@ -249,112 +272,149 @@ msgstr "创建新任务时出错"
 msgid "Task created successfully"
 msgstr "任务创建成功"
 
-#: ../src/TaskWindow.cs:1044
+#: ../src/TaskWindow.cs:1072
 msgid "_Notes..."
 msgstr "备忘(_N)..."
 
-#: ../src/TaskWindow.cs:1051
+#: ../src/TaskWindow.cs:1079
 msgid "_Delete task"
 msgstr "删除任务(_D)"
 
-#: ../src/TaskWindow.cs:1056
+#: ../src/TaskWindow.cs:1084
 msgid "_Edit task"
 msgstr "编辑任务(_E)"
 
-#: ../src/TaskWindow.cs:1084
+#: ../src/TaskWindow.cs:1112
 msgid "Task deleted"
 msgstr "任务已删除"
 
-#: ../src/TaskWindow.cs:1126
+#: ../src/TaskWindow.cs:1154
 msgid "Loading tasks..."
 msgstr "正在装入任务..."
 
-#: ../src/Utilities.cs:262
+#: ../src/Utilities.cs:263
 #, csharp-format
 msgid "Today, {0}"
 msgstr "今天 {0}"
 
-#: ../src/Utilities.cs:268
+#: ../src/Utilities.cs:269
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "昨天 {0}"
 
-#: ../src/Utilities.cs:274
+#: ../src/Utilities.cs:275
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "{0} 天以前 {1}"
 
-#: ../src/Utilities.cs:276
+#: ../src/Utilities.cs:277
 #, csharp-format
 msgid "{0} days ago"
 msgstr "{0} 天后"
 
-#: ../src/Utilities.cs:281
+#: ../src/Utilities.cs:282
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "明天 {0}"
 
-#: ../src/Utilities.cs:287
+#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "{0} 天内 {1}"
 
-#: ../src/Utilities.cs:289
+#: ../src/Utilities.cs:290
 #, csharp-format
 msgid "In {0} days"
 msgstr "在 {0} 天内"
 
-#: ../src/Utilities.cs:293
+#: ../src/Utilities.cs:294
 msgid "MMMM d, h:mm tt"
 msgstr "MMMM d, h:mm tt"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:295
 msgid "MMMM d"
 msgstr "MMMM d"
 
-#: ../src/Utilities.cs:299
+#: ../src/Utilities.cs:300
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "MMMM d yyyy, h:mm tt"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:301
 msgid "MMMM d yyyy"
 msgstr "MMMM d yyyy"
 
-#: ../src/Utilities.cs:309
+#: ../src/Utilities.cs:310
 msgid "Sunday"
 msgstr "星期日"
 
-#: ../src/Utilities.cs:311
+#: ../src/Utilities.cs:312
 msgid "Monday"
 msgstr "星期一"
 
-#: ../src/Utilities.cs:313
+#: ../src/Utilities.cs:314
 msgid "Tuesday"
 msgstr "星期二"
 
-#: ../src/Utilities.cs:315
+#: ../src/Utilities.cs:316
 msgid "Wednesday"
 msgstr "星期三"
 
-#: ../src/Utilities.cs:317
+#: ../src/Utilities.cs:318
 msgid "Thursday"
 msgstr "星期四"
 
-#: ../src/Utilities.cs:319
+#: ../src/Utilities.cs:320
 msgid "Friday"
 msgstr "星期五"
 
-#: ../src/Utilities.cs:321
+#: ../src/Utilities.cs:322
 msgid "Saturday"
 msgstr "星期六"
 
 #. Then try some more natural language parsing
 #. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:367
+#: ../src/Utilities.cs:368
 msgid "^(?<task>.+)\\s+today\\W*$"
 msgstr "^(?<task>.+)\\s+today\\W*$"
 
 #. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:369
+#: ../src/Utilities.cs:370
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
 msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:58
+msgid "Click Here to Connect"
+msgstr "点击此处连接"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:68
+msgid ""
+"\n"
+"\n"
+"You are not connected"
+msgstr ""
+"\n"
+"\n"
+"尚未连接"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:101
+msgid "Click Here After Authorizing"
+msgstr "进行身份验证后点击此处"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:104
+msgid "Set the default browser and try again"
+msgstr "设定默认浏览器后再试一次"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:121
+msgid "Thank You"
+msgstr "谢谢"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:123
+msgid ""
+"\n"
+"\n"
+"You are currently connected"
+msgstr ""
+"\n"
+"\n"
+"目前已连接"
+
