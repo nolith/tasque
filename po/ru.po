@@ -1,0 +1,330 @@
+# Russian translation of tasque.
+# Copyright (C) 2008 THE tasque'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the tasque package.
+# Alexander Telenga <telenga@gmail.com>, 2008.
+#  
+#
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-26 17:29+0200\n"
+"PO-Revision-Date: 2008-11-14 13:10+0300\n"
+"Last-Translator: Alexander Telenga <telenga@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
+
+#: src/Application.cs:403
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Copyright © 2008 Novell, Inc."
+
+#: src/Application.cs:404
+msgid "A Useful Task List"
+msgstr "Список полезных задач"
+
+#: src/Application.cs:406
+msgid "Tasque Project Homepage"
+msgstr "Домашняя страница проекта Tasque"
+
+#: src/Application.cs:458
+msgid "Show Tasks ..."
+msgstr "Показать задачи …"
+
+#: src/Application.cs:466
+msgid "New Task ..."
+msgstr "Новая задача …"
+
+#: src/Application.cs:487
+msgid "Refresh Tasks"
+msgstr "Обновить задачи"
+
+#: src/AllCategory.cs:28
+#: src/CompletedTaskGroup.cs:214
+msgid "All"
+msgstr "Все"
+
+#: src/CompletedTaskGroup.cs:205
+#: src/Utilities.cs:283
+msgid "Yesterday"
+msgstr "Вчера"
+
+#: src/CompletedTaskGroup.cs:207
+msgid "Last 7 Days"
+msgstr "Последние 7 дней"
+
+#: src/CompletedTaskGroup.cs:209
+msgid "Last Month"
+msgstr "Последний месяц"
+
+#: src/CompletedTaskGroup.cs:211
+msgid "Last Year"
+msgstr "Последний год"
+
+#: src/NoteDialog.cs:22
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr "Заметки для: {0:s}"
+
+#: src/PreferencesDialog.cs:107
+msgid "General"
+msgstr "Общее"
+
+#: src/PreferencesDialog.cs:146
+msgid "Task Management System"
+msgstr "Система управления задачами"
+
+#: src/PreferencesDialog.cs:188
+msgid "Task Filtering"
+msgstr "Фильтрация задач"
+
+#: src/PreferencesDialog.cs:207
+msgid "Show _completed tasks"
+msgstr "Показать _завершенные задачи"
+
+#: src/PreferencesDialog.cs:216
+msgid "Only _show these categories when \"All\" is selected:"
+msgstr "_Показывать эти категории, только когда выбрано \"Все\":"
+
+#: src/PreferencesDialog.cs:234
+msgid "Category"
+msgstr "Категория"
+
+#: src/RemoteControl.cs:109
+msgid "New task created."
+msgstr "Создана новая задача."
+
+#: src/TaskTreeView.cs:72
+#: src/TaskWindow.cs:346
+msgid "Completed"
+msgstr "Завершено"
+
+#: src/TaskTreeView.cs:89
+msgid "Priority"
+msgstr "Приоритет"
+
+#: src/TaskTreeView.cs:102
+#: src/TaskTreeView.cs:300
+#: src/TaskTreeView.cs:524
+msgid "1"
+msgstr "1"
+
+#: src/TaskTreeView.cs:103
+#: src/TaskTreeView.cs:297
+#: src/TaskTreeView.cs:522
+msgid "2"
+msgstr "2"
+
+#: src/TaskTreeView.cs:104
+#: src/TaskTreeView.cs:294
+#: src/TaskTreeView.cs:520
+msgid "3"
+msgstr "3"
+
+#: src/TaskTreeView.cs:105
+#: src/TaskTreeView.cs:303
+msgid "-"
+msgstr "-"
+
+#: src/TaskTreeView.cs:119
+msgid "Task Name"
+msgstr "Имя задачи"
+
+#: src/TaskTreeView.cs:161
+msgid "Due Date"
+msgstr "Срок выполнения"
+
+#: src/TaskTreeView.cs:175
+#: src/TaskTreeView.cs:177
+#: src/TaskTreeView.cs:189
+#: src/TaskTreeView.cs:606
+#: src/TaskTreeView.cs:609
+#: src/TaskTreeView.cs:614
+msgid "M/d - "
+msgstr "d.M - "
+
+#: src/TaskTreeView.cs:175
+#: src/TaskTreeView.cs:606
+#: src/TaskWindow.cs:279
+#: src/Utilities.cs:277
+msgid "Today"
+msgstr "Сегодня"
+
+#: src/TaskTreeView.cs:177
+#: src/TaskTreeView.cs:609
+#: src/TaskWindow.cs:297
+#: src/Utilities.cs:296
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#: src/TaskTreeView.cs:179
+#: src/TaskTreeView.cs:181
+#: src/TaskTreeView.cs:183
+#: src/TaskTreeView.cs:185
+#: src/TaskTreeView.cs:187
+#: src/TaskTreeView.cs:354
+#: src/TaskTreeView.cs:623
+msgid "M/d - ddd"
+msgstr "d.M - ddd"
+
+#: src/TaskTreeView.cs:189
+#: src/TaskTreeView.cs:614
+msgid "In 1 Week"
+msgstr "Через 1 неделю"
+
+#: src/TaskTreeView.cs:190
+#: src/TaskTreeView.cs:611
+#: src/Utilities.cs:309
+msgid "No Date"
+msgstr "Без даты"
+
+#: src/TaskTreeView.cs:191
+#: src/TaskTreeView.cs:616
+msgid "Choose Date..."
+msgstr "Выберите дату …"
+
+#: src/TaskTreeView.cs:207
+msgid "Notes"
+msgstr "Заметки"
+
+#: src/TaskTreeView.cs:224
+msgid "Timer"
+msgstr "Таймер"
+
+#: src/TaskTreeView.cs:356
+msgid "M/d/yy - ddd"
+msgstr "d.M.yy - ddd"
+
+#: src/TaskWindow.cs:152
+#: src/TaskWindow.cs:835
+#: src/TaskWindow.cs:845
+#: src/TaskWindow.cs:856
+msgid "New task..."
+msgstr "Новая задача …"
+
+#: src/TaskWindow.cs:167
+msgid "_Add"
+msgstr "_Добавить"
+
+#: src/TaskWindow.cs:172
+msgid "_Add Task"
+msgstr "_Добавить задачу"
+
+#: src/TaskWindow.cs:261
+msgid "Overdue"
+msgstr "Просроченные"
+
+#: src/TaskWindow.cs:315
+msgid "Next 7 Days"
+msgstr "Следующие 7 дней"
+
+#: src/TaskWindow.cs:331
+msgid "Future"
+msgstr "Будущее"
+
+#: src/TaskWindow.cs:1024
+msgid "_Notes..."
+msgstr "_Заметки …"
+
+#: src/TaskWindow.cs:1031
+msgid "_Delete task"
+msgstr "_Удалить задачу"
+
+#: src/TaskWindow.cs:1036
+msgid "_Edit task"
+msgstr "_Редактировать задачу"
+
+#: src/TaskWindow.cs:1103
+msgid "Loading tasks..."
+msgstr "Загрузка задач…"
+
+#: src/Utilities.cs:275
+#, csharp-format
+msgid "Today, {0}"
+msgstr "Сегодня, {0}"
+
+#: src/Utilities.cs:281
+#, csharp-format
+msgid "Yesterday, {0}"
+msgstr "Вчера, {0}"
+
+#: src/Utilities.cs:287
+#, csharp-format
+msgid "{0} days ago, {1}"
+msgstr "{0} дней назад, {1}"
+
+#: src/Utilities.cs:289
+#, csharp-format
+msgid "{0} days ago"
+msgstr "{0} дней назад"
+
+#: src/Utilities.cs:294
+#, csharp-format
+msgid "Tomorrow, {0}"
+msgstr "Завтра, {0}"
+
+#: src/Utilities.cs:300
+#, csharp-format
+msgid "In {0} days, {1}"
+msgstr "Через {0} дней, {1}"
+
+#: src/Utilities.cs:302
+#, csharp-format
+msgid "In {0} days"
+msgstr "Через {0} дней"
+
+#: src/Utilities.cs:306
+msgid "MMMM d, h:mm tt"
+msgstr "d. MMMM, h:mm tt"
+
+#: src/Utilities.cs:307
+msgid "MMMM d"
+msgstr "d. MMMM"
+
+#: src/Utilities.cs:312
+msgid "MMMM d yyyy, h:mm tt"
+msgstr "d. MMMM yyyy, h:mm tt"
+
+#: src/Utilities.cs:313
+msgid "MMMM d yyyy"
+msgstr "d. MMMM yyyy"
+
+#: src/Utilities.cs:322
+msgid "Sunday"
+msgstr "Воскресение"
+
+#: src/Utilities.cs:324
+msgid "Monday"
+msgstr "Понедельник"
+
+#: src/Utilities.cs:326
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: src/Utilities.cs:328
+msgid "Wednesday"
+msgstr "Среда"
+
+#: src/Utilities.cs:330
+msgid "Thursday"
+msgstr "Четверг"
+
+#: src/Utilities.cs:332
+msgid "Friday"
+msgstr "Пятница"
+
+#: src/Utilities.cs:334
+msgid "Saturday"
+msgstr "Суббота"
+
+#: src/Utilities.cs:380
+msgid "^(?<task>.+)\\s+today\\W*$"
+msgstr "^(?<task>.+)\\s+today\\W*$"
+
+#: src/Utilities.cs:382
+msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
+

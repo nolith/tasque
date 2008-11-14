@@ -1,3 +1,9 @@
+2008-11-14  Brian G. Merrell <bgmerrell@gmail.com>
+
+	* ru.po:  Added Russian translation by Alexander Telenga.  Thanks
+	Alexander!
+	* LINGUAS: Added 'ru' to the list.
+
 2008-11-13  Wadim Dziedzic  <wdziedzic@aviary.pl>
 
 	* pl.po: Added Polish translation by Piotr "Zaryk" Makowski
