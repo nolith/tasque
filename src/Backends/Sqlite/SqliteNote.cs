@@ -11,18 +11,24 @@ namespace Tasque.Backends.Sqlite
 {
 	public class SqliteNote : INote
 	{
-		public string Name
+		private int id;
+		private string text;
+
+		public SqliteNote(int id, string text)
 		{
-			get { return ""; }
-			set { // TODO: Implement something 
-			}
+			this.id = id;
+			this.text = text;
 		}
-   
+
 		public string Text
 		{
-			get { return ""; }
-			set { // TODO: Implement something 
-			}
+			get { return this.text; }
+			set { this.text = value; }
+		}
+
+		public int ID
+		{
+			get { return this.id; }
 		}
 
 	}

@@ -1,3 +1,9 @@
+2008-11-18  Steve Frécinaux  <code@istique.net>
+
+	* src/Backends/Sqlite/SqliteTask.cs:
+	* src/Backends/Sqlite/SqliteNote.cs: Implement Notes support for the
+	SQLite backend (Bug 561430)
+
 2008-10-27  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/tasque.in:

@@ -4,6 +4,7 @@
 using System;
 using Tasque;
 using System.Collections.Generic;
+using Mono.Data.Sqlite;
 
 namespace Tasque.Backends.Sqlite
 {
@@ -11,17 +12,17 @@ namespace Tasque.Backends.Sqlite
 	{
 		private SqliteBackend backend;
 		private int id;
-		
+
 		public SqliteTask(SqliteBackend backend, string name)
 		{
 			this.backend = backend;
+			Logger.Debug("Creating New Task Object : {0} (id={1})", name, id);
 			name = backend.SanitizeText (name);
 			string command = String.Format("INSERT INTO Tasks (Name, DueDate, CompletionDate, Priority, State, Category, ExternalID) values ('{0}','{1}', '{2}','{3}', '{4}', '{5}', '{6}')", 
 								name, Database.FromDateTime(DateTime.MinValue), Database.FromDateTime(DateTime.MinValue), 
 								((int)(TaskPriority.None)), ((int)TaskState.Active), 0, string.Empty );
 			backend.Database.ExecuteScalar(command);
 			this.id = backend.Database.Connection.LastInsertRowId;
-			//Logger.Debug("Inserted task named: {0} with id {1}", name, id);			
 		}
 		
 		public SqliteTask (SqliteBackend backend, int id)
@@ -109,12 +110,15 @@ namespace Tasque.Backends.Sqlite
 
 		public override bool HasNotes
 		{
-			get { return false; }
+			get {
+				string command = String.Format("SELECT COUNT(*) FROM Notes WHERE Task='{0}'", id);
+				return backend.Database.GetSingleInt(command) > 0;
+			}
 		}
 		
 		public override bool SupportsMultipleNotes
 		{
-			get { return false; }
+			get { return true; }
 		}
 		
 		public override TaskState State
@@ -144,7 +148,7 @@ namespace Tasque.Backends.Sqlite
 				return sqCat;
 			}
 			set {
-				string command = String.Format("UPDATE Tasks set Category='{0}' where ID='{1}'", ((int)(value as SqliteCategory).ID), id);
+ 				string command = String.Format("UPDATE Tasks set Category='{0}' where ID='{1}'", ((int)(value as SqliteCategory).ID), id);
 				backend.Database.ExecuteScalar(command);
 				backend.UpdateTask(this);
 			}
@@ -152,7 +156,21 @@ namespace Tasque.Backends.Sqlite
 		
 		public override List<INote> Notes
 		{
-			get { return null; }
+			get {
+				List<INote> notes = new List<INote>();
+
+				string command = String.Format("SELECT ID, Text FROM Notes WHERE Task='{0}'", id);
+				SqliteCommand cmd = backend.Database.Connection.CreateCommand();
+				cmd.CommandText = command;
+				SqliteDataReader dataReader = cmd.ExecuteReader();
+				while(dataReader.Read()) {
+					int taskId = dataReader.GetInt32(0);
+					string text = dataReader.GetString(1);
+					notes.Add (new SqliteNote (taskId, text));
+        			}
+
+				return notes;
+			}
 		}		
 		
 		#endregion // Public Properties
@@ -191,15 +209,30 @@ namespace Tasque.Backends.Sqlite
 		
 		public override INote CreateNote(string text)
 		{
-			return null;
+			Logger.Debug("Creating New Note Object : {0} (id={1})", text, id);
+			text = backend.SanitizeText (text);
+			string command = String.Format("INSERT INTO Notes (Task, Text) VALUES ('{0}','{1}')", id, text);
+			backend.Database.ExecuteScalar(command);
+			int taskId = backend.Database.Connection.LastInsertRowId;
+
+			return new SqliteNote (taskId, text);
 		}
 		
 		public override void DeleteNote(INote note)
 		{
+			SqliteNote sqNote = (note as SqliteNote);
+
+ 			string command = String.Format("DELETE FROM Notes WHERE ID='{0}'", sqNote.ID);
+			backend.Database.ExecuteScalar(command);
 		}
 
 		public override void SaveNote(INote note)
 		{
+			SqliteNote sqNote = (note as SqliteNote);
+
+			string text = backend.SanitizeText (sqNote.Text);
+			string command = String.Format("UPDATE Notes SET Text='{0}' WHERE ID='{1}'", text, sqNote.ID);
+			backend.Database.ExecuteScalar(command);
 		}
 
 		#endregion // Public Methods
