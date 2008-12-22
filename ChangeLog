@@ -1,5 +1,10 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/TaskWindow.cs: Don't try to create a new TaskWindow if the backend
+	is not yet set. Fixes bug #564344.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Preferences.cs: If the prefrences file is invalid, recreate it.
 	Fixes bug #562729.
 

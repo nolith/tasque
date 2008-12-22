@@ -423,11 +423,7 @@ namespace Tasque
 					}
 					taskWindow.Present();
 				}
-			} else {
-				// TODO: Eventually move the creation of the IBackend into
-				// something that will parse the command line to read which
-				// backend should be used.  If no specific backend is specified,
-				// use RtmTaskBackend by default.
+			} else if (Application.Backend != null) {
 				TaskWindow.taskWindow = new TaskWindow(Application.Backend);
 				if(lastXPos == 0 || lastYPos == 0)
 				{
