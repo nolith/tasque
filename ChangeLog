@@ -1,5 +1,10 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Backends/Rtm/RtmPreferencesWidget.cs: Handle exceptions when
+	trying to get an authorization URL for RTM. Fixes bug #563932.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Backends/Sqlite/SqliteBackend.cs: Implement task deletion. Fixes
 	bug #551717, patch courtesy of Andreia Gaita and Stefan Schlott.
 

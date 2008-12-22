@@ -93,7 +93,14 @@ namespace Tasque.Backends.RtmBackend
 			RtmBackend rtmBackend = Application.Backend as RtmBackend;
 			if (rtmBackend != null) {
 				if (!isAuthorized && !authRequested) {
-					string url = rtmBackend.GetAuthUrl();
+					string url = string.Empty;
+					try {
+						url = rtmBackend.GetAuthUrl();
+					} catch (Exception) {
+						Logger.Debug ("Failed to get auth URL from Remember the Milk. Try again later.");
+						authButton.Label = Catalog.GetString ("Remember the Milk not responding. Try again later.");
+						return;
+					}
 					Logger.Debug("Launching browser to authorize with Remember the Milk");
 					try {
 						Application.Instance.NativeApplication.OpenUrl (url);
