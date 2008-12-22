@@ -229,7 +229,12 @@ namespace Tasque
 			if(!File.Exists(location)) {
 				CreateDefaultPrefs();
 			} else {
-				document.Load(location);
+				try {
+					document.Load(location);
+				} catch {
+					CreateDefaultPrefs ();
+					document.Load (location);
+				}
 			}
 			
 			ValidatePrefs ();

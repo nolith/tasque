@@ -1,3 +1,8 @@
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/Preferences.cs: If the prefrences file is invalid, recreate it.
+	Fixes bug #562729.
+
 2008-11-18  Steve Frécinaux  <code@istique.net>
 
 	* src/Backends/Sqlite/SqliteTask.cs:
