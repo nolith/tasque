@@ -112,7 +112,9 @@ namespace Tasque.Backends.Sqlite
 		}
 		
 		public void DeleteTask(ITask task)
-		{}
+		{
+			task.Delete ();
+		}
 		
 		public void Refresh()
 		{}
@@ -291,7 +293,8 @@ namespace Tasque.Backends.Sqlite
 				
 				newTask = new SqliteTask(this, id);
 				iter = taskStore.AppendNode();
-				taskStore.SetValue (iter, 0, newTask);				
+				taskStore.SetValue (iter, 0, newTask);
+				taskIters [newTask.SqliteId] = iter;
         	}
 
         	dataReader.Close();
