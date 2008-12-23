@@ -1,5 +1,13 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/TaskTreeView.cs: Have FilterFunc return false when the given task
+	is null. Fixes crash reported in bug #526662.
+
+	* src/Backends/Sqlite/SqliteBackend.cs: Don't try to close a null
+	database.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Backends/Rtm/RtmPreferencesWidget.cs: Handle exceptions when
 	trying to get an authorization URL for RTM. Fixes bug #563932.
 

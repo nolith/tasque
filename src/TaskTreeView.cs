@@ -520,6 +520,11 @@ namespace Tasque
 		{
 			// Filter out deleted tasks
 			ITask task = model.GetValue (iter, 0) as ITask;
+
+			if (task == null) {
+				Logger.Error ("FilterFunc: task at iter was null");
+				return false;
+			}
 			
 			if (task.State == TaskState.Deleted) {
 				//Logger.Debug ("TaskTreeView.FilterFunc:\n\t{0}\n\t{1}\n\tReturning false", task.Name, task.State);  

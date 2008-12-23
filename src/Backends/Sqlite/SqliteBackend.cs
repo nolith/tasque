@@ -113,7 +113,10 @@ namespace Tasque.Backends.Sqlite
 		
 		public void DeleteTask(ITask task)
 		{
+			//string id = task.Id;
 			task.Delete ();
+			//string command = "delete from Tasks where id=" + id;
+			//db.ExecuteNonQuery (command);
 		}
 		
 		public void Refresh()
@@ -150,7 +153,8 @@ namespace Tasque.Backends.Sqlite
 			this.taskStore.Clear();
 			this.taskIters.Clear();
 
-			db.Close();
+			if (db != null)
+				db.Close();
 			db = null;
 			initialized = false;		
 		}
