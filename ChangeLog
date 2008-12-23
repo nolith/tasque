@@ -1,5 +1,10 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* tasque-mac.csproj:
+	* tasque-mac.sln: Add solution/project for building OS X version of Tasque.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* tasque.csproj: Add Hiveminder and SQLite backends, and requisite
 	references, as well as OSXApplication.cs.
 	
