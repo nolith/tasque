@@ -1,5 +1,13 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* tasque.csproj: Add Hiveminder and SQLite backends, and requisite
+	references, as well as OSXApplication.cs.
+	
+	* winbin/Mono.Data.Sqlite.dll:
+	* winbin/sqlite3.dll: Add dependencies for SQLite backend.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* RtmNet/Rtm.cs: Limit API requests to no more than one per second. Last
 	fix for bug #562026. Adds some noticeable slowdown to certain actions
 	(like refreshing tasks and creating tasks), but it is necessary. A
