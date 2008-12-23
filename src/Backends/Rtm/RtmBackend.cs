@@ -541,12 +541,11 @@ namespace Tasque.Backends.RtmBackend
 		/// Update the model to match what is in RTM
 		/// FIXME: This is a lame implementation and needs to be optimized
 		/// </summary>		
-		private void UpdateCategories()
+		private void UpdateCategories(Lists lists)
 		{
 			Logger.Debug("RtmBackend.UpdateCategories was called");
 			
 			try {
-				Lists lists = rtm.ListsGetList();
 				foreach(List list in lists.listCollection)
 				{
 					RtmCategory rtmCategory = new RtmCategory(list);
@@ -579,12 +578,11 @@ namespace Tasque.Backends.RtmBackend
 		/// Update the model to match what is in RTM
 		/// FIXME: This is a lame implementation and needs to be optimized
 		/// </summary>		
-		private void UpdateTasks()
+		private void UpdateTasks(Lists lists)
 		{
 			Logger.Debug("RtmBackend.UpdateTasks was called");
 			
 			try {
-				Lists lists = rtm.ListsGetList();
 				foreach(List list in lists.listCollection)
 				{
 					Tasks tasks = null;
@@ -649,8 +647,9 @@ namespace Tasque.Backends.RtmBackend
 				runRefreshEvent.Reset();
 
 				if(rtmAuth != null) {
-					UpdateCategories();			
-					UpdateTasks();
+					Lists lists = rtm.ListsGetList();
+					UpdateCategories(lists);
+					UpdateTasks(lists);
 				}
 				if(!initialized) {
 					initialized = true;

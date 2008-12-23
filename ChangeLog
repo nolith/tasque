@@ -1,3 +1,8 @@
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/Backends/Rtm/RtmBackend.cs: Only make one call to ListsGetList
+	during RefreshThreadLoop.
+
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* RtmNet/Rtm.cs: Update REST URL base. Beginning of fix for bug #562026.
