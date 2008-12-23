@@ -1,5 +1,12 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/RemoteControl.cs: Simplify and uncomment MarkTaskAsCompleteById. 
+	Complete task immediately, without timeout or other fancy GUI stuff. 
+	Fixes bug #555028.  Many thanks to Alex Launi for expanding our DBus
+	interface.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* osx/Contents/Info.plist: Bump version to 0.1.8.  Fixes bug #556549.
 
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
