@@ -1,5 +1,9 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* osx/Contents/Info.plist: Bump version to 0.1.8.  Fixes bug #556549.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Backends/Rtm/RtmBackend.cs: Only make one call to ListsGetList
 	during RefreshThreadLoop.
 
