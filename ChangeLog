@@ -1,5 +1,13 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* RtmNet/Rtm.cs: Limit API requests to no more than one per second. Last
+	fix for bug #562026. Adds some noticeable slowdown to certain actions
+	(like refreshing tasks and creating tasks), but it is necessary. A
+	better fix will be to store all tasks in a sqlite db that
+	periodically syncs with the backend without interrupting the user.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/RemoteControl.cs: Simplify and uncomment MarkTaskAsCompleteById. 
 	Complete task immediately, without timeout or other fancy GUI stuff. 
 	Fixes bug #555028.  Many thanks to Alex Launi for expanding our DBus

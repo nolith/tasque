@@ -35,6 +35,7 @@ namespace RtmNet
 		private const string UserAgent = "Mozilla/4.0 RtmNet API (compatible; MSIE 6.0; Windows NT 5.1)";
 		private string lastRequest;
 		private string lastResponse;
+		private DateTime lastRequestTime;
 
 		private WebProxy proxy;// = WebProxy.GetDefaultProxy();
 
@@ -208,6 +209,11 @@ namespace RtmNet
 		/// then they are sent as part of the body instead.</remarks>
 		private string DoGetResponse(string url, string variables)
 		{
+			// Enforce no more than one request per second
+			TimeSpan timeDiff = DateTime.Now - lastRequestTime;
+			if (timeDiff.TotalMilliseconds < 1000 && timeDiff.TotalMilliseconds > 0)
+				System.Threading.Thread.Sleep (1000 - (int)timeDiff.TotalMilliseconds);
+			
 			HttpWebRequest req = null;
 			HttpWebResponse res = null;
 
@@ -257,6 +263,7 @@ namespace RtmNet
 			try
 			{
 				// Get response from the internet
+				lastRequestTime = DateTime.Now;
 				res = (HttpWebResponse)req.GetResponse();
 			}
 			catch(WebException ex)
