@@ -26,7 +26,7 @@ namespace RtmNet
 	{
 #region [ Private Variables ]
 		private const string AuthUrl = "http://api.rememberthemilk.com/services/auth/";
-		private const string BaseUrl = "http://api.rememberthemilk.com/services/rest";
+		private const string BaseUrl = "http://api.rememberthemilk.com/services/rest/";
 
 		private string apiKey;
 		private string apiToken;
