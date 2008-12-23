@@ -27,9 +27,15 @@ namespace Tasque.Backends.RtmBackend
 		{
 			LoadPreferences ();
 			
-			// We're using an event box so we can paint the background white
 			BorderWidth = 0;
-
+			
+			// We're using an event box so we can paint the background white
+			EventBox imageEb = new EventBox ();
+			imageEb.BorderWidth = 0;
+			imageEb.ModifyBg(StateType.Normal, new Gdk.Color(255,255,255));
+			imageEb.ModifyBase(StateType.Normal, new Gdk.Color(255,255,255)); 
+			imageEb.Show ();
+			
 			VBox mainVBox = new VBox(false, 0);
 			mainVBox.BorderWidth = 10;
 			mainVBox.Show();
@@ -44,7 +50,8 @@ namespace Tasque.Backends.RtmBackend
 			spacer.SetPadding(0, 0, 125, 125);
 			spacer.Add(image);
 			spacer.Show();
-			mainVBox.PackStart(spacer, true, true, 0);
+			imageEb.Add (spacer);
+			mainVBox.PackStart(imageEb, true, true, 0);
 
 			// Status message label
 			statusLabel = new Label();

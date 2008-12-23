@@ -1,5 +1,11 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Backends/Rtm/RtmPreferencesWidget.cs: Add a white EventBox to
+	contain the RTM logo. Kind of ugly, but I'm willing to say we've
+	fixed bug #532766.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Application.cs: Enable translator-credits string for About dialog.
 
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
