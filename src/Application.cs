@@ -107,7 +107,7 @@ namespace Tasque
 					} catch (Exception e) {
 						Logger.Warn ("Exception cleaning up '{0}': {1}",
 									 tasque.backend.Name,
-									 e.Message);
+									 e);
 					}
 				}
 					
@@ -481,13 +481,12 @@ namespace Tasque
 			/* string [] documenters = new string [] {
 			   "Calvin Gaisford <calvinrg@gmail.com>"
 			   };
+			   */
 
-			   string translators = Catalog.GetString ("translator-credits");
-			   if (translators == "translator-credits")
-			   translators = null;
-			 */
-
-
+			string translators = Catalog.GetString ("translator-credits");
+			if (translators == "translator-credits")
+				translators = null;
+			
 			Gtk.AboutDialog about = new Gtk.AboutDialog ();
 			about.Name = "Tasque";
 			about.Version = Defines.Version;
@@ -499,7 +498,7 @@ namespace Tasque
 			about.WebsiteLabel = Catalog.GetString("Tasque Project Homepage");
 			about.Authors = authors;
 			//about.Documenters = documenters;
-			//about.TranslatorCredits = translators;
+			about.TranslatorCredits = translators;
 			about.IconName = "tasque";
 			about.SetSizeRequest(300, 300);
 			about.Run ();

@@ -1,5 +1,9 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Application.cs: Enable translator-credits string for About dialog.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Makefile.am:
 	* Makefile.include:
 	* RtmNet/Makefile.am: Don't hardcode gmcs; use $(GMCS) instead. Fixes
