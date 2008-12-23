@@ -1,6 +1,6 @@
 SUBDIRS = . Backends
 
-CSC = gmcs
+CSC = $(GMCS)
 
 TARGET = Tasque.exe
 WRAPPER = tasque

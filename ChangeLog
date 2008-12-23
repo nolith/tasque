@@ -1,5 +1,12 @@
 2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Makefile.am:
+	* Makefile.include:
+	* RtmNet/Makefile.am: Don't hardcode gmcs; use $(GMCS) instead. Fixes
+	bug #562845, patch courtesy of James Westby.
+
+2008-12-22  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/TaskTreeView.cs: Have FilterFunc return false when the given task
 	is null. Fixes crash reported in bug #526662.
 
