@@ -1,5 +1,11 @@
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* configure.ac:
+	* src/Defines.WIN32.cs:
+	* osx/Contents/Info.plist: Bump version to 0.1.9.
+
+2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* NEWS: Updated for 0.1.8.
 
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
