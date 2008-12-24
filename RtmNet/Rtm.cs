@@ -35,7 +35,7 @@ namespace RtmNet
 		private const string UserAgent = "Mozilla/4.0 RtmNet API (compatible; MSIE 6.0; Windows NT 5.1)";
 		private string lastRequest;
 		private string lastResponse;
-		private DateTime lastRequestTime;
+		private static DateTime lastRequestTime;
 
 		private WebProxy proxy;// = WebProxy.GetDefaultProxy();
 

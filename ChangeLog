@@ -1,5 +1,11 @@
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* RtmNet/Rtm.cs: Make lastRequestTime static, so that new Rtm instances
+	obey it. Fixes problem where after authenticating RTM for the first
+	time, task list came back truncated like in bug #562026.
+
+2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Makefile.am: Add OSXApplication.cs to EXTRA_DIST and POTFILES.in.
 
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
