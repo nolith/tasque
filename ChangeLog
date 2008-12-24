@@ -1,5 +1,13 @@
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Application.cs: In RetryBackend, only Cleanup+Initialize if the
+	backend isn't configured. Fixes problem with backends beining
+	initialized twice (reproduce by clearing prefs, launching Tasque,
+	choosing Local File backend, and noticing that no category is
+	selected).
+
+2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* RtmNet/Rtm.cs: Make lastRequestTime static, so that new Rtm instances
 	obey it. Fixes problem where after authenticating RTM for the first
 	time, task list came back truncated like in bug #562026.

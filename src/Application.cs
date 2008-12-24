@@ -406,8 +406,10 @@ namespace Tasque
 		}
 		private bool RetryBackend(){
 			try {
-				backend.Cleanup();
-				backend.Initialize();
+				if (backend != null && !backend.Configured) {
+					backend.Cleanup();
+					backend.Initialize();
+				}
 			} catch (Exception e) {
 				Logger.Error("{0}", e.Message);
 			}
