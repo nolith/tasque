@@ -1,5 +1,20 @@
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* mac-prebuild.sh:
+	* mac-postbuild.sh:
+	* tasque-mac.csproj: Update project to actually work on a Mac.
+
+	* bundle-mac-app.sh: Copy RtmNet.dll and all .mdb files into bundle.
+	* osx/Contents/MacOS/Tasque: Run with --debug.
+
+	* src/TaskWindow.cs: ShowWindow only shows; use new ToggleWindowVisible
+	method for toggle support.
+	* src/Application.cs: Use ToggleWindowVisible when tray icon is activated.
+	Fix #if directives to have proper Mac support.
+	* src/OSXApplications.cs: Add Window menu with ShowTasksAction.
+
+2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* tasque-mac.csproj:
 	* tasque-mac.sln: Add solution/project for building OS X version of Tasque.
 

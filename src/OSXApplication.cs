@@ -22,6 +22,9 @@ namespace Tasque
       <menuitem action=""RefreshAction""/>
 
     </menu>
+    <menu name=""WindowMenu"" action=""WindowMenuAction"">
+      <menuitem action=""ShowTasksAction""/>
+    </menu>
   </menubar>
 </ui>
 ";
@@ -34,6 +37,12 @@ namespace Tasque
 				                 Catalog.GetString ("_File"),
 				                 null,
 				                 null,
+				                 null),
+				new ActionEntry ("WindowMenuAction",
+				                 null,
+				                 Catalog.GetString ("_Window"),
+				                 null,
+				                 null,
 				                 null)
 			});
 			
@@ -44,7 +53,7 @@ namespace Tasque
 			
 			// This totally doesn't work...is my lib too old?
 			IgeMacDock dock = new IgeMacDock();
-			dock.Clicked += delegate (object sender, EventArgs args) { Logger.Debug ("doc clicked");};
+			dock.Clicked += delegate (object sender, EventArgs args) {TaskWindow.ShowWindow ();};
 			dock.QuitActivate += delegate (object sender, EventArgs args) { Application.Instance.Quit (); };
 			
 			MenuShell mainMenu = uiManager.GetWidget ("/MainMenu") as MenuShell;
@@ -59,9 +68,6 @@ namespace Tasque
 
 			IgeMacMenuGroup about_group = IgeMacMenu.AddAppMenuGroup ();
 			IgeMacMenuGroup prefs_group = IgeMacMenu.AddAppMenuGroup ();
-
-
-			
 
 			about_group.AddMenuItem (about_item, null);
 			prefs_group.AddMenuItem (prefs_item, null);

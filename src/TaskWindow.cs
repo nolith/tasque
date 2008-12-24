@@ -400,10 +400,20 @@ namespace Tasque
 
 		}
 		
-		public static void ShowWindow()
+		public static void ShowWindow ()
+		{
+			ShowWindow (false);
+		}
+		
+		public static void ToggleWindowVisible ()
+		{
+			ShowWindow (true);
+		}
+		
+		private static void ShowWindow(bool supportToggle)
 		{
 			if(taskWindow != null) {
-				if(taskWindow.IsActive) {
+				if(taskWindow.IsActive && supportToggle) {
 					int x;
 					int y;
 

@@ -52,7 +52,7 @@ namespace Tasque
 		private static Tasque.Application application = null;
 		private static System.Object locker = new System.Object();
 		private INativeApplication nativeApp;
-#if !WIN32
+#if !WIN32 && !OSX
 		private RemoteControl remoteControl;
 #endif
 		private Gdk.Pixbuf normalPixBuf;
@@ -207,7 +207,7 @@ namespace Tasque
 
 			preferences = new Preferences (nativeApp.ConfDir);
 			
-#if !WIN32
+#if !WIN32 && !OSX
 			// Register Tasque RemoteControl
 			try {
 				remoteControl = RemoteControlProxy.Register ();
@@ -537,7 +537,7 @@ namespace Tasque
 
 		private void OnTrayIconClick (object sender, EventArgs args) // handler for mouse click
 		{
-			TaskWindow.ShowWindow();
+			TaskWindow.ToggleWindowVisible ();
 		}
 
 		private void OnTrayIconPopupMenu (object sender, EventArgs args)

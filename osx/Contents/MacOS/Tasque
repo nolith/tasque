@@ -10,4 +10,4 @@ MONO_FRAMEWORK_PATH=/Library/Frameworks/Mono.framework/Versions/Current
 export DYLD_FALLBACK_LIBRARY_PATH=$APP_PATH/Contents/MacOS:$MONO_FRAMEWORK_PATH/lib:/lib:/usr/lib
 
 cd "$APP_PATH/Contents/MacOS"
-exec -a "Tasque" "$MONO" $ASSEMBLY $@
+exec -a "Tasque" "$MONO" --debug $ASSEMBLY $@
