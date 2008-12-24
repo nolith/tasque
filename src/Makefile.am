@@ -174,6 +174,7 @@ EXTRA_DIST = \
 	$(TARGET).config.in		\
 	$(srcdir)/Defines.cs.in		\
 	$(srcdir)/tasque.pc.in		\
+	$(srcdir)/OSXApplication.cs	\
 	$(srcdir)/Backends/Dummy/*.cs	\
 	$(srcdir)/Backends/EDS/*.cs	\
 	$(srcdir)/Backends/IceCore/*.cs \

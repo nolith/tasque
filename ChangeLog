@@ -1,3 +1,7 @@
+2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
+	* src/Makefile.am: Add OSXApplication.cs to EXTRA_DIST and POTFILES.in.
+
 2008-12-23  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* mac-prebuild.sh:

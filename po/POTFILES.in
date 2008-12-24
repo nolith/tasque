@@ -6,6 +6,7 @@ src/Application.cs
 src/AllCategory.cs
 src/CompletedTaskGroup.cs
 src/NoteDialog.cs
+src/OSXApplication.cs
 src/PreferencesDialog.cs
 src/RemoteControl.cs
 src/TaskTreeView.cs
