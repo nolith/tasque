@@ -1,5 +1,11 @@
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
+	* src/Application.cs: DllImport system function from libc to open
+	URLs, since the Process class is broken in OS X 10.4 and earlier
+	(should be fixed when Mono 2.2 comes out).
+
+2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
+
 	* src/Application.cs: In RetryBackend, only Cleanup+Initialize if the
 	backend isn't configured. Fixes problem with backends beining
 	initialized twice (reproduce by clearing prefs, launching Tasque,

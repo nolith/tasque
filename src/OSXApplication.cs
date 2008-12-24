@@ -1,6 +1,7 @@
 
 
 using System;
+using System.Runtime.InteropServices;
 using Gtk;
 using IgeMacIntegration;
 using Mono.Unix;
@@ -77,5 +78,14 @@ namespace Tasque
 			// Hide StatusIcon
 			Application.Instance.Tray.Visible = false;
 		}
+			
+			[DllImport ("libc", EntryPoint="system")]
+			public static extern int system (string command);
+			
+			public override void OpenUrl (string url)
+			{
+				system ("open \"" + url + "\"");
+			}
+
 	}
 }
