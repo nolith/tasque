@@ -1,3 +1,9 @@
+2008-12-26  Brian G. Merrell <bgmerrell@gmail.com>
+
+        * configure.ac: The comment for the Hiveminder section was mislabeled
+        as SQLite, which propagates into the comments of the 'configure' file.
+        No biggie.
+
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* configure.ac:

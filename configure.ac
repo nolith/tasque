@@ -161,7 +161,7 @@ fi
 AC_SUBST(EVOLUTION_SHARP_LIBS)
 
 #
-# SQLite Backend
+# Hiveminder Backend
 #
 AC_ARG_ENABLE(backend_hiveminder,
 	AC_HELP_STRING([--enable-backend-hiveminder],
