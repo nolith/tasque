@@ -1,3 +1,12 @@
+2008-12-28  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Backends/Hiveminder/HmBackend.cs: Add the created task to our store.
+	
+	* src/Backends/Hiveminder/service/Hiveminder.cs: Added 'CreateTask'.
+	Added support for sending data in POST.
+
+	* src/Backends/Hiveminder/service/Task.cs: Added 'urlEncoded' property.
+	
 2008-12-26  Brian G. Merrell <bgmerrell@gmail.com>
 
         * configure.ac: The comment for the Hiveminder section was mislabeled

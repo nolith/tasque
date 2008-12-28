@@ -85,6 +85,17 @@ namespace Hiveminder
 			Console.WriteLine ("Description : " + this.Description);
 		}
 		
+		public string ToUrlEncodedString
+		{
+			get {
+				//TODO : Add all the required properties here.
+				string url = "summary=" + this.Summary + "&" +
+					"description=" + this.Description + "&" +
+ 					"priority=" + this.Priority ;
+
+				return url;
+			}
+		}
 		#endregion 
 	}
 }

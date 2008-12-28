@@ -47,10 +47,11 @@ namespace Tasque.Backends.HmBackend
 		/// Key   = Task ID
 		/// Value = Gtk.TreeIter in taskStore
 		/// </summary>
-		private Dictionary<int, Gtk.TreeIter> taskIters;
+		private Dictionary<string, Gtk.TreeIter> taskIters;
 		private int newTaskId;
 		private Gtk.TreeStore taskStore;
 		private Gtk.TreeModelSort sortedTasksModel;
+		private object taskLock;
 		
 		private bool initialized;
 		private bool configured;
@@ -76,8 +77,9 @@ namespace Tasque.Backends.HmBackend
 			configured = false;
 			
 			newTaskId = 0;
-			taskIters = new Dictionary<int, Gtk.TreeIter> (); 
+			taskIters = new Dictionary<string, Gtk.TreeIter> (); 
 			taskStore = new Gtk.TreeStore (typeof (ITask));
+			taskLock = new object ();
 			
 			sortedTasksModel = new Gtk.TreeModelSort (taskStore);
 			sortedTasksModel.SetSortFunc (0, new Gtk.TreeIterCompareFunc (CompareTasksSortFunc));
@@ -136,7 +138,23 @@ namespace Tasque.Backends.HmBackend
 		#region Public Methods
 		public ITask CreateTask (string taskName, ICategory category)		
 		{
-			return null;
+			Hiveminder.Task task = new Task ();
+			Hiveminder.Task createdTask;
+			Gtk.TreeIter taskIter;
+
+			task.Summary = taskName;
+
+			createdTask = this.hm.CreateTask (task);
+			HmTask hmTask = new HmTask (createdTask);
+
+			//Add the newly created task into our store.
+			lock (taskLock) {
+				taskIter = taskStore.AppendNode ();
+				taskStore.SetValue (taskIter, 0, hmTask);
+				taskIters [hmTask.Id] = taskIter;
+			}
+
+			return hmTask;
 		}
 		
 		public void DeleteTask(ITask task)

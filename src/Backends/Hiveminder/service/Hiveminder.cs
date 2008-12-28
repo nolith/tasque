@@ -62,8 +62,11 @@ namespace Hiveminder
 		public string Login (string username, string password)
 		{
 			string postURL = "/__jifty/webservices/xml";
+
 			//TODO : Fix this.
-			string postData = "J%3AA-fnord=Login&J%3AA%3AF-address-fnord="+username+"&J%3AA%3AF-password-fnord="+password;
+			string postData = "J%3AA-fnord=Login&J%3AA%3AF-address-fnord="
+				+username+"&J%3AA%3AF-password-fnord="+password;
+
 			ASCIIEncoding encoding = new ASCIIEncoding ();
 			byte[] encodedPostData = encoding.GetBytes (postData);	
 
@@ -108,13 +111,32 @@ namespace Hiveminder
 			return true;
 		}
 		
-		public string Command (string command, string method)
+		public string Command (string command, string method, string data)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create (BaseURL + command + ".xml");
+
+			Console.WriteLine ("Command : " + command + "Method : "
+					   + method + "Data : " + data );
+
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create (BaseURL + 
+										command + ".xml");
 			Console.WriteLine (BaseURL+command);
+			
 			req.CookieContainer = new CookieContainer();
 			req.CookieContainer.Add (this.COOKIE_HIVEMINDER_SID);
 			req.Method = method;
+
+			//Data for POST
+			if (method.Equals ("POST") && data.Length > 0) {
+				// We can handle only XML responses.
+				req.Accept = "text/xml";
+				req.ContentType = "application/x-www-form-urlencoded";
+
+				req.ContentLength = data.Length;
+				Stream dataStream = req.GetRequestStream ();
+				dataStream.Write(Encoding.UTF8.GetBytes(data), 
+						 0, Encoding.UTF8.GetByteCount (data));
+				dataStream.Close ();
+			}
 
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 			
@@ -124,10 +146,15 @@ namespace Hiveminder
 
 			return responseString;
 		}
-		
+
+		public string Command (string command, string method)
+		{
+			return this.Command (command, method, string.Empty);
+		}
+
 		public string Command (string command)
 		{			
-			return this.Command (command, "GET");
+			return this.Command (command, "GET", string.Empty);
 		}
 
 		/// <summary>
@@ -138,6 +165,7 @@ namespace Hiveminder
 			string responseString;
 			uint i =0;
 			
+			/*FIXME : Fetches only 15 items.*/
 			responseString = this.Command ("/=/search/BTDT.Model.Task/");
 		
 			XmlDocument xmlDoc = new XmlDocument();
@@ -149,7 +177,7 @@ namespace Hiveminder
 
 
 		/// <summary>
-		/// Get all the Tasks
+		/// Get all the Groups (Categories)
 		/// </summary>
 		public XmlNodeList DownloadGroups ()
 		{
@@ -164,20 +192,56 @@ namespace Hiveminder
 			Console.WriteLine (responseString);
 			return list;
 		}
-		
+
+		/// <summary>
+		/// Utility function to rename a node.
+		/// </summary>
+		private XmlNode RenameNode (XmlNode node, string namespaceURI, string qualifiedName)
+		{
+			if (node.NodeType == XmlNodeType.Element) {
+				XmlElement oldElement = (XmlElement) node;
+				XmlElement newElement =
+					node.OwnerDocument.CreateElement(qualifiedName, namespaceURI);
+
+				while (oldElement.HasAttributes)
+					newElement.SetAttributeNode(oldElement.RemoveAttributeNode(oldElement.Attributes[0]));
+				
+				while (oldElement.HasChildNodes)
+					newElement.AppendChild(oldElement.FirstChild);
+
+				if (oldElement.ParentNode != null)
+					oldElement.ParentNode.ReplaceChild(newElement, oldElement);
+
+				return newElement;
+			}
+			return null;
+		}
+
 		/// <summary>
 		/// Create a new Task
 		/// </summary>
-		/// <param name="task">
-		/// A <see cref="Task"/>
-		/// </param>
-		/// <returns>
-		/// A <see cref="System.String"/>
-		/// </returns>
-		public string CreateTask (Task task)
+		public Task CreateTask (Task task)
 		{
-			//Return TaskID on success or null
-			return null;
+			string responseString;
+			Task createdTask;
+
+			XmlSerializer serializer = new XmlSerializer(typeof(Task));
+			
+			// Can use /=/model/Task also.
+			responseString = this.Command ("/=/action/BTDT.Action.CreateTask/", "POST", 
+						       task.ToUrlEncodedString);
+
+ 			XmlDocument xmlDoc = new XmlDocument();
+ 			xmlDoc.LoadXml (responseString);
+
+			// Created Task is contained inside 'data'
+ 			XmlNode node = xmlDoc.SelectSingleNode ("//data");
+
+			// Task's root node is 'value'. 
+			node = RenameNode (node, string.Empty, "value");
+
+			createdTask = (Task) serializer.Deserialize(new StringReader(node.OuterXml));
+			return createdTask;
 		}
 	}
 }
