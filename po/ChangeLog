@@ -1,3 +1,7 @@
+2008-12-28  Takeshi AIHANA <takeshi.aihana@gmail.com>
+
+	* ja.po: Updated Japanese translation.
+
 2008-12-24  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* POTFILES.in: Add OSXApplication.cs to EXTRA_DIST and POTFILES.in.
