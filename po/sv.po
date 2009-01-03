@@ -1,15 +1,15 @@
 # Swedish translation of tasque
-# Copyright (C) 2008 Free Software Foundation, Inc.
+# Copyright (C) 2008, 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the tasque package.
 # Kalle Persson <kalle@kallepersson.se>, 2008.
-# Daniel Nylander <po@danielnylander.se>, 2008.
+# Daniel Nylander <po@danielnylander.se>, 2008, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-21 23:24+0200\n"
-"PO-Revision-Date: 2008-10-21 23:25+0100\n"
+"POT-Creation-Date: 2009-01-03 09:37+0100\n"
+"PO-Revision-Date: 2009-01-03 09:40+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -28,27 +28,40 @@ msgstr "Uppgiftshanterare"
 msgid "Tasque"
 msgstr "Tasque"
 
-#: ../src/Application.cs:464
+#. string [] documenters = new string [] {
+#. "Calvin Gaisford <calvinrg@gmail.com>"
+#. };
+#.
+#: ../src/Application.cs:488
+msgid "translator-credits"
+msgstr ""
+"Daniel Nylander\n"
+"Kalle Persson\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"tp-sv@listor.tp-sv.se"
+
+#: ../src/Application.cs:497
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "Copyright © 2008 Novell, Inc."
 
-#: ../src/Application.cs:465
+#: ../src/Application.cs:498
 msgid "A Useful Task List"
 msgstr "En användbar uppgiftslista"
 
-#: ../src/Application.cs:467
+#: ../src/Application.cs:500
 msgid "Tasque Project Homepage"
 msgstr "Tasque-projektets webbplats"
 
-#: ../src/Application.cs:581
+#: ../src/Application.cs:614
 msgid "Show Tasks ..."
 msgstr "Visa uppgifter ..."
 
-#: ../src/Application.cs:588
+#: ../src/Application.cs:621
 msgid "New Task ..."
 msgstr "Ny uppgift..."
 
-#: ../src/Application.cs:603
+#: ../src/Application.cs:636
 msgid "Refresh Tasks ..."
 msgstr "Uppdatera uppgifter ..."
 
@@ -79,6 +92,14 @@ msgstr "Förra året"
 msgid "Notes for: {0:s}"
 msgstr "Anteckningar för: {0:s}"
 
+#: ../src/OSXApplication.cs:38
+msgid "_File"
+msgstr "_Arkiv"
+
+#: ../src/OSXApplication.cs:44
+msgid "_Window"
+msgstr "_Fönster"
+
 #: ../src/PreferencesDialog.cs:107
 msgid "General"
 msgstr "Allmänt"
@@ -104,13 +125,13 @@ msgstr "_Visa endast dessa kategorier när \"Alla\" är valda:"
 msgid "Category"
 msgstr "Kategori"
 
-#: ../src/RemoteControl.cs:109
+#: ../src/RemoteControl.cs:150
 msgid "New task created."
 msgstr "Ny uppgift skapad."
 
 #. Title for Completed/Checkbox Column
 #: ../src/TaskTreeView.cs:84
-#: ../src/TaskWindow.cs:342
+#: ../src/TaskWindow.cs:340
 msgid "Completed"
 msgstr "Avklarad"
 
@@ -121,21 +142,21 @@ msgstr "Prioritet"
 
 #: ../src/TaskTreeView.cs:114
 #: ../src/TaskTreeView.cs:366
-#: ../src/TaskTreeView.cs:593
+#: ../src/TaskTreeView.cs:598
 msgid "1"
 msgstr "1"
 
 #. High
 #: ../src/TaskTreeView.cs:115
 #: ../src/TaskTreeView.cs:363
-#: ../src/TaskTreeView.cs:591
+#: ../src/TaskTreeView.cs:596
 msgid "2"
 msgstr "2"
 
 #. Medium
 #: ../src/TaskTreeView.cs:116
 #: ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:589
+#: ../src/TaskTreeView.cs:594
 msgid "3"
 msgstr "3"
 
@@ -158,22 +179,22 @@ msgstr "Förfallodag"
 #: ../src/TaskTreeView.cs:187
 #: ../src/TaskTreeView.cs:189
 #: ../src/TaskTreeView.cs:201
-#: ../src/TaskTreeView.cs:675
-#: ../src/TaskTreeView.cs:678
+#: ../src/TaskTreeView.cs:680
 #: ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:688
 msgid "M/d - "
 msgstr "d/M - "
 
 #: ../src/TaskTreeView.cs:187
-#: ../src/TaskTreeView.cs:675
-#: ../src/TaskWindow.cs:275
+#: ../src/TaskTreeView.cs:680
+#: ../src/TaskWindow.cs:273
 #: ../src/Utilities.cs:265
 msgid "Today"
 msgstr "Idag"
 
 #: ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:678
-#: ../src/TaskWindow.cs:293
+#: ../src/TaskTreeView.cs:683
+#: ../src/TaskWindow.cs:291
 #: ../src/Utilities.cs:284
 msgid "Tomorrow"
 msgstr "Imorgon"
@@ -184,23 +205,23 @@ msgstr "Imorgon"
 #: ../src/TaskTreeView.cs:197
 #: ../src/TaskTreeView.cs:199
 #: ../src/TaskTreeView.cs:420
-#: ../src/TaskTreeView.cs:692
+#: ../src/TaskTreeView.cs:697
 msgid "M/d - ddd"
 msgstr "d/M - ddd"
 
 #: ../src/TaskTreeView.cs:201
-#: ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:688
 msgid "In 1 Week"
 msgstr "Inom en vecka"
 
 #: ../src/TaskTreeView.cs:202
-#: ../src/TaskTreeView.cs:680
+#: ../src/TaskTreeView.cs:685
 #: ../src/Utilities.cs:297
 msgid "No Date"
 msgstr "Inget datum"
 
 #: ../src/TaskTreeView.cs:203
-#: ../src/TaskTreeView.cs:685
+#: ../src/TaskTreeView.cs:690
 msgid "Choose Date..."
 msgstr "Välj datum..."
 
@@ -222,11 +243,11 @@ msgstr "Uppgiften färdig"
 msgid "M/d/yy - ddd"
 msgstr "d/M/yy - ddd"
 
-#: ../src/TaskTreeView.cs:575
+#: ../src/TaskTreeView.cs:580
 msgid "Action Canceled"
 msgstr "Åtgärden avbruten"
 
-#: ../src/TaskTreeView.cs:840
+#: ../src/TaskTreeView.cs:845
 #, csharp-format
 msgid "Completing Task In: {0}"
 msgstr "Färdigställer uppgift om: {0}"
@@ -234,9 +255,10 @@ msgstr "Färdigställer uppgift om: {0}"
 #. The new task entry widget
 #. Clear the entry if it contains the default text
 #: ../src/TaskWindow.cs:149
-#: ../src/TaskWindow.cs:878
-#: ../src/TaskWindow.cs:888
+#: ../src/TaskWindow.cs:833
+#: ../src/TaskWindow.cs:889
 #: ../src/TaskWindow.cs:899
+#: ../src/TaskWindow.cs:910
 msgid "New task..."
 msgstr "Ny uppgift..."
 
@@ -248,45 +270,45 @@ msgstr "_Lägg till"
 msgid "_Add Task"
 msgstr "_Lägg till uppgift"
 
-#: ../src/TaskWindow.cs:257
+#: ../src/TaskWindow.cs:255
 msgid "Overdue"
 msgstr "Förfallna"
 
-#: ../src/TaskWindow.cs:311
+#: ../src/TaskWindow.cs:309
 msgid "Next 7 Days"
 msgstr "Kommande 7 dagar"
 
-#: ../src/TaskWindow.cs:327
+#: ../src/TaskWindow.cs:325
 msgid "Future"
 msgstr "Framtiden"
 
 #. Show error status
-#: ../src/TaskWindow.cs:792
+#: ../src/TaskWindow.cs:797
 msgid "Error creating a new task"
 msgstr "Fel vid skapande av ny uppgift"
 
 #. Show successful status
-#: ../src/TaskWindow.cs:796
+#: ../src/TaskWindow.cs:801
 msgid "Task created successfully"
 msgstr "Uppgiften skapades"
 
-#: ../src/TaskWindow.cs:1067
+#: ../src/TaskWindow.cs:1078
 msgid "_Notes..."
 msgstr "_Anteckningar"
 
-#: ../src/TaskWindow.cs:1074
+#: ../src/TaskWindow.cs:1085
 msgid "_Delete task"
 msgstr "_Ta bort uppgift"
 
-#: ../src/TaskWindow.cs:1079
+#: ../src/TaskWindow.cs:1090
 msgid "_Edit task"
 msgstr "_Redigera uppgift"
 
-#: ../src/TaskWindow.cs:1107
+#: ../src/TaskWindow.cs:1118
 msgid "Task deleted"
 msgstr "Uppgiften borttagen"
 
-#: ../src/TaskWindow.cs:1149
+#: ../src/TaskWindow.cs:1160
 msgid "Loading tasks..."
 msgstr "Läser in uppgifter..."
 
@@ -379,6 +401,46 @@ msgstr "^(?<task>.+)\\s+idag\\W*$"
 #: ../src/Utilities.cs:370
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
 msgstr "^(?<task>.+)\\s+imorgon\\W*$"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
+msgid "Click Here to Connect"
+msgstr "Klicka här för att ansluta"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+msgid ""
+"\n"
+"\n"
+"You are not connected"
+msgstr ""
+"\n"
+"\n"
+"Du är inte ansluten"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:108
+msgid "Remember the Milk not responding. Try again later."
+msgstr "Remember the Milk svarar inte. Försök igen senare."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:115
+msgid "Click Here After Authorizing"
+msgstr "Klicka här efter behörighetskontroll"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:118
+msgid "Set the default browser and try again"
+msgstr "Ställ in standardwebbläsaren och försök igen"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Thank You"
+msgstr "Tack"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:137
+msgid ""
+"\n"
+"\n"
+"You are currently connected"
+msgstr ""
+"\n"
+"\n"
+"Du är ansluten"
 
 #~ msgid "Reloading tasks..."
 #~ msgstr "Läser om uppgifter..."
