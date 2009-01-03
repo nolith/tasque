@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: tasque\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-03 09:37+0100\n"
-"PO-Revision-Date: 2009-01-03 09:40+0100\n"
+"PO-Revision-Date: 2009-01-03 09:55+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
-msgstr "Snabb och enkel uppgiftshantering"
+msgstr "Snabb och enkel aktivitetshantering"
 
 #: ../data/tasque.desktop.in.h:2
 msgid "Task Manager"
-msgstr "Uppgiftshanterare"
+msgstr "Aktivitetshanterare"
 
 #: ../data/tasque.desktop.in.h:3
 msgid "Tasque"
@@ -47,7 +47,7 @@ msgstr "Copyright © 2008 Novell, Inc."
 
 #: ../src/Application.cs:498
 msgid "A Useful Task List"
-msgstr "En användbar uppgiftslista"
+msgstr "En användbar aktivitetslista"
 
 #: ../src/Application.cs:500
 msgid "Tasque Project Homepage"
@@ -55,15 +55,15 @@ msgstr "Tasque-projektets webbplats"
 
 #: ../src/Application.cs:614
 msgid "Show Tasks ..."
-msgstr "Visa uppgifter ..."
+msgstr "Visa aktiviteter ..."
 
 #: ../src/Application.cs:621
 msgid "New Task ..."
-msgstr "Ny uppgift..."
+msgstr "Ny aktivitet..."
 
 #: ../src/Application.cs:636
 msgid "Refresh Tasks ..."
-msgstr "Uppdatera uppgifter ..."
+msgstr "Uppdatera aktiviteter ..."
 
 #: ../src/AllCategory.cs:28
 #: ../src/CompletedTaskGroup.cs:214
@@ -106,15 +106,15 @@ msgstr "Allmänt"
 
 #: ../src/PreferencesDialog.cs:146
 msgid "Task Management System"
-msgstr "Uppgiftshanteringssystem"
+msgstr "Aktivitetshanteringssystem"
 
 #: ../src/PreferencesDialog.cs:188
 msgid "Task Filtering"
-msgstr "Uppgiftsfiltrering"
+msgstr "Aktivitetsfiltrering"
 
 #: ../src/PreferencesDialog.cs:207
 msgid "Sh_ow completed tasks"
-msgstr "Visa a_vklarade uppgifter"
+msgstr "Visa a_vklarade aktiviteter"
 
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:216
@@ -127,7 +127,7 @@ msgstr "Kategori"
 
 #: ../src/RemoteControl.cs:150
 msgid "New task created."
-msgstr "Ny uppgift skapad."
+msgstr "Ny aktivitet skapad."
 
 #. Title for Completed/Checkbox Column
 #: ../src/TaskTreeView.cs:84
@@ -169,7 +169,7 @@ msgstr "-"
 #. Title for Task Name Column
 #: ../src/TaskTreeView.cs:131
 msgid "Task Name"
-msgstr "Namn på uppgift:"
+msgstr "Aktivitetsnamn"
 
 #. Title for Due Date Column
 #: ../src/TaskTreeView.cs:173
@@ -237,7 +237,7 @@ msgstr "Timer"
 
 #: ../src/TaskTreeView.cs:281
 msgid "Task Completed"
-msgstr "Uppgiften färdig"
+msgstr "Aktivitet färdig"
 
 #: ../src/TaskTreeView.cs:422
 msgid "M/d/yy - ddd"
@@ -250,7 +250,7 @@ msgstr "Åtgärden avbruten"
 #: ../src/TaskTreeView.cs:845
 #, csharp-format
 msgid "Completing Task In: {0}"
-msgstr "Färdigställer uppgift om: {0}"
+msgstr "Färdigställer aktivitet om: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
@@ -260,7 +260,7 @@ msgstr "Färdigställer uppgift om: {0}"
 #: ../src/TaskWindow.cs:899
 #: ../src/TaskWindow.cs:910
 msgid "New task..."
-msgstr "Ny uppgift..."
+msgstr "Ny aktivitet..."
 
 #: ../src/TaskWindow.cs:164
 msgid "_Add"
@@ -268,7 +268,7 @@ msgstr "_Lägg till"
 
 #: ../src/TaskWindow.cs:169
 msgid "_Add Task"
-msgstr "_Lägg till uppgift"
+msgstr "_Lägg till aktivitet"
 
 #: ../src/TaskWindow.cs:255
 msgid "Overdue"
@@ -285,12 +285,12 @@ msgstr "Framtiden"
 #. Show error status
 #: ../src/TaskWindow.cs:797
 msgid "Error creating a new task"
-msgstr "Fel vid skapande av ny uppgift"
+msgstr "Fel vid skapande av ny aktivitet"
 
 #. Show successful status
 #: ../src/TaskWindow.cs:801
 msgid "Task created successfully"
-msgstr "Uppgiften skapades"
+msgstr "Aktiviteten skapades"
 
 #: ../src/TaskWindow.cs:1078
 msgid "_Notes..."
@@ -298,19 +298,19 @@ msgstr "_Anteckningar"
 
 #: ../src/TaskWindow.cs:1085
 msgid "_Delete task"
-msgstr "_Ta bort uppgift"
+msgstr "_Ta bort aktivitet"
 
 #: ../src/TaskWindow.cs:1090
 msgid "_Edit task"
-msgstr "_Redigera uppgift"
+msgstr "_Redigera aktivitet"
 
 #: ../src/TaskWindow.cs:1118
 msgid "Task deleted"
-msgstr "Uppgiften borttagen"
+msgstr "Aktiviteten borttagen"
 
 #: ../src/TaskWindow.cs:1160
 msgid "Loading tasks..."
-msgstr "Läser in uppgifter..."
+msgstr "Läser in aktiviteter..."
 
 #: ../src/Utilities.cs:263
 #, csharp-format
