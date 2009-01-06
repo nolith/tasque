@@ -46,7 +46,7 @@ ASSEMBLIES =  \
 $(TARGET): $(CSFILES)
 	$(CSC) -unsafe -out:$@ $(CSFLAGS) $^ $(ASSEMBLIES) $(RESOURCES)
 
-tasquelibdir = $(prefix)/lib/tasque
+tasquelibdir = $(libdir)/tasque
 tasquelib_DATA = $(TARGET)	
 
 bin_SCRIPTS = $(WRAPPER)
