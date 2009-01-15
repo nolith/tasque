@@ -79,8 +79,9 @@ namespace Tasque.Backends.HmBackend
 			newTaskId = 0;
 			taskIters = new Dictionary<string, Gtk.TreeIter> (); 
 			taskStore = new Gtk.TreeStore (typeof (ITask));
+
 			taskLock = new object ();
-			
+
 			sortedTasksModel = new Gtk.TreeModelSort (taskStore);
 			sortedTasksModel.SetSortFunc (0, new Gtk.TreeIterCompareFunc (CompareTasksSortFunc));
 			sortedTasksModel.SetSortColumnId (0, Gtk.SortType.Ascending);
@@ -94,6 +95,14 @@ namespace Tasque.Backends.HmBackend
 			runRefreshEvent = new AutoResetEvent(false);
 			runningRefreshThread = false;
 			refreshThread  = new Thread(RefreshThreadLoop);
+		}
+
+		void HandleRowChanged(object o, Gtk.RowChangedArgs args)
+		{
+			Logger.Debug ("Handle Row Changed : Task Modified.");
+			HmTask task = (HmTask) taskStore.GetValue (args.Iter, 0);
+			Logger.Debug (task.Name);
+			
 		}
 		
 		#region Public Properties
@@ -145,7 +154,7 @@ namespace Tasque.Backends.HmBackend
 			task.Summary = taskName;
 
 			createdTask = this.hm.CreateTask (task);
-			HmTask hmTask = new HmTask (createdTask);
+			HmTask hmTask = new HmTask (createdTask, this);
 
 			//Add the newly created task into our store.
 			lock (taskLock) {
@@ -159,6 +168,7 @@ namespace Tasque.Backends.HmBackend
 		
 		public void DeleteTask(ITask task)
 		{
+
 		}		
 		
 		public void Refresh()
@@ -211,7 +221,7 @@ namespace Tasque.Backends.HmBackend
 
 			Logger.Debug ("Fetching tasks");
 
-			HmTask[] tasks = HmTask.GetTasks (this.hm.DownloadTasks());
+			HmTask[] tasks = HmTask.GetTasks (this.hm.DownloadTasks(), this);
 
 			foreach (HmTask task in tasks) {
 				task.Dump();
@@ -362,11 +372,13 @@ namespace Tasque.Backends.HmBackend
 				});
 			}
 		}
-		
+
 		public void UpdateTask (HmTask task)
 		{
-			
+			Logger.Debug ("Updating task : " + task.Id);
+			this.hm.UpdateTask (task.RemoteTask);
 		}
+
 		#endregion // Private Methods
 		
 		#region Event Handlers

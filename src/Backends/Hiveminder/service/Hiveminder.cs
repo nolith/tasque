@@ -42,7 +42,8 @@ namespace Hiveminder
 		{
 			string cookieValue;
 			cookieValue = this.Login(username, password);
-			this.COOKIE_HIVEMINDER_SID = new Cookie ("JIFTY_SID_HIVEMINDER", cookieValue, "/", "hiveminder.com");
+			this.COOKIE_HIVEMINDER_SID = new Cookie ("JIFTY_SID_HIVEMINDER", cookieValue, 
+								 "/", "hiveminder.com");
 		}
 
 		public string CookieValue
@@ -126,7 +127,7 @@ namespace Hiveminder
 			req.Method = method;
 
 			//Data for POST
-			if (method.Equals ("POST") && data.Length > 0) {
+			if ((method.Equals ("POST") || method.Equals ("PUT"))  && data.Length > 0) {
 				// We can handle only XML responses.
 				req.Accept = "text/xml";
 				req.ContentType = "application/x-www-form-urlencoded";
@@ -242,6 +243,33 @@ namespace Hiveminder
 
 			createdTask = (Task) serializer.Deserialize(new StringReader(node.OuterXml));
 			return createdTask;
+		}
+
+		/// <summary>
+		/// Update Task on the server.
+		/// </summary>
+		public Task UpdateTask (Task task)
+		{
+			string responseString;
+			Task updatedTask;
+
+			XmlSerializer serializer = new XmlSerializer(typeof(Task));
+			
+			// Can use /=/model/Task/id/<fields> with PUT.
+			responseString = this.Command ("/=/action/BTDT.Action.UpdateTask/", "POST", 
+						       task.ToUrlEncodedString);
+
+ 			XmlDocument xmlDoc = new XmlDocument();
+ 			xmlDoc.LoadXml (responseString);
+
+			// Updated Task is contained inside 'data' root node
+ 			XmlNode node = xmlDoc.SelectSingleNode ("//data");
+
+			// Task's root node is 'value'. 
+			node = RenameNode (node, string.Empty, "value");
+
+			updatedTask = (Task) serializer.Deserialize(new StringReader(node.OuterXml));
+			return updatedTask;
 		}
 	}
 }

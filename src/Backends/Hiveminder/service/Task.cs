@@ -34,7 +34,8 @@ namespace Hiveminder
 	[Serializable]
 	public class Task
 	{
-	
+		private string description;
+		
 		#region PublicProperties
 		
 		[XmlElement("id", Form=XmlSchemaForm.Unqualified)]
@@ -84,18 +85,24 @@ namespace Hiveminder
 			Console.WriteLine ("complete : " + this.IsComplete);
 			Console.WriteLine ("Description : " + this.Description);
 		}
-		
+
+		#endregion 
+
 		public string ToUrlEncodedString
 		{
 			get {
-				//TODO : Add all the required properties here.
 				string url = "summary=" + this.Summary + "&" +
 					"description=" + this.Description + "&" +
- 					"priority=" + this.Priority ;
+ 					"priority=" + this.Priority + "&" +
+					"complete=" + (this.IsComplete ? "1" : "0") + "&" +
+					"id=" + this.Id + "&" +
+					"due" + this.Due + "&" +
+					"started" + this.Started + "&" +
+					"created" + this.Created + "&" +
+					"group_id" + this.GroupId + "&";
 
 				return url;
 			}
 		}
-		#endregion 
 	}
 }

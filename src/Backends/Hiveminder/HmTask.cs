@@ -38,6 +38,7 @@ namespace Tasque.Backends.HmBackend
 	{
 		Task task;
 
+		private HmBackend backend;
 		private List <INote> notes;
 		
 		#region Properties
@@ -50,7 +51,10 @@ namespace Tasque.Backends.HmBackend
 		public override string Name
 		{
 			get { return this.task.Summary; }
-			set { this.task.Summary = value; }
+			set { 
+				this.task.Summary = value; 
+				this.backend.UpdateTask (this);
+			}
 		}
 
 		public override DateTime DueDate
@@ -61,7 +65,9 @@ namespace Tasque.Backends.HmBackend
 				}
 				return DateTime.MinValue;
 			}
-			set {this.task.Due = value.ToString();}
+			set {this.task.Due = value.ToString();
+				Logger.Debug ("");
+			}
 		}
 
 		public override DateTime CompletionDate
@@ -142,6 +148,11 @@ namespace Tasque.Backends.HmBackend
 			}
 		}
 
+		public Hiveminder.Task RemoteTask
+		{
+			get { return this.task; }
+		}
+
 		/// <value>
 		/// The ID of the timer used to complete a task after being marked
 		/// inactive.
@@ -159,28 +170,30 @@ namespace Tasque.Backends.HmBackend
 		
 		#endregion Properties
 
-		public static HmTask[] GetTasks (XmlNodeList list)
+		public static HmTask[] GetTasks (XmlNodeList list, HmBackend backend)
 		{
 			uint i = 0;
 			XmlSerializer serializer = new XmlSerializer(typeof(Task));
 			HmTask[] tasks = new HmTask[list.Count];
 			
 			foreach (XmlNode node in list ) 
-				tasks[i++] = new HmTask ((Task)serializer.Deserialize(new StringReader(node.OuterXml)));
+				tasks[i++] = new HmTask ((Task)serializer.
+							 Deserialize(new StringReader(node.OuterXml)), 
+							 backend);
 			
 			return tasks;
 		}
 		
 		#region Constructors
 		
-		public HmTask () : this (new Task())
+		public HmTask () : this (new Task(), null)
 		{
 		}
 		
-		public HmTask (Hiveminder.Task task)
+		public HmTask (Hiveminder.Task task, HmBackend hmBackend)
 		{
 			this.task = task;
-
+			this.backend = hmBackend;
 			//Add Description as note.
 			this.notes = null;
 			if (!string.IsNullOrEmpty (this.task.Description)) {

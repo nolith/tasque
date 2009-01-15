@@ -1,8 +1,21 @@
+2009-01-15  Johnny Jacob  <jjohnny@novell.com>
+
+	** Basic code for updating task on remote server.
+	
+	* src/Backends/Hiveminder/service/Task.cs: Added ToString function.
+
+	* src/Backends/Hiveminder/service/Hiveminder.cs: Added support for PUT commands.
+	Added support for updating tasks.
+
+	* src/Backends/Hiveminder/HmTask.cs: Update server when a field changes.
+	* src/Backends/Hiveminder/HmBackend.cs: UpdateTask : Updates task on the
+	remote server.
+
 2009-01-06  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* RtmNet/Makefile.am: Use libdir instead of prefix/lib for RtmNet DLL. 
 	Fixes bug #540983, patch courtesy of David Kaylor.
-
+	
 2008-12-28  Johnny Jacob  <johnnyjacob@gmail.com>
 
 	* src/Backends/Hiveminder/HmBackend.cs: Add the created task to our store.
