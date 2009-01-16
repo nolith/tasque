@@ -16,12 +16,17 @@ namespace Tasque.Backends.EDS
                private string name;
                private string uid;
                private Evolution.Cal taskList;
+	       private bool isSystem;
 
                public EDSCategory (Evolution.Source source, Evolution.Cal taskList)
                {
                        this.name = source.Name;
                        this.uid = source.Uid;
                        this.taskList = taskList;
+
+		       //Based on evolution/calendar/gui/e-cal-popup.c : 
+		       //e_cal_popup_target_new_source
+		       this.isSystem = (string.Compare (source.RelativeUri, "system") == 0);       
                }
 
                public EDSCategory (Evolution.Source source)
@@ -29,8 +34,14 @@ namespace Tasque.Backends.EDS
                        this.name = source.Name;
                        this.uid = source.Uid;
                        this.taskList = new Cal (source, CalSourceType.Todo);
+		       this.isSystem = (string.Compare (source.RelativeUri, "system") == 0);
                }
 
+	       public bool IsSystem
+	       {
+		       get { return isSystem; }
+	       }
+		
                public string Name
                {
                        get { return name; }

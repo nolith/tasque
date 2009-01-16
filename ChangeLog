@@ -1,3 +1,14 @@
+2009-01-16  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	** Fixes #567730.
+	
+	* src/Backends/EDS/EDSBackends.cs: In CreateTask, if it is a 'AllCategory'
+	use the defaultCategory for adding.
+	In AddCategory, Watch for IsSystem categories and cache it as 
+	defaultCategory.
+
+	* src/Backends/EDS/EDSCategory.cs: New property 'IsSytem' added.
+
 2009-01-15  Johnny Jacob  <jjohnny@novell.com>
 
 	** Basic code for updating task on remote server.

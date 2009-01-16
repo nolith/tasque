@@ -30,6 +30,8 @@ namespace Tasque.Backends.EDS
                private Gtk.ListStore categoryListStore;
                private Gtk.TreeModelSort sortedCategoriesModel;
 
+	       private EDSCategory defaultCategory;
+		
                public event BackendInitializedHandler BackendInitialized;
                public event BackendSyncStartedHandler BackendSyncStarted;
                public event BackendSyncFinishedHandler BackendSyncFinished;
@@ -51,6 +53,8 @@ namespace Tasque.Backends.EDS
                        sortedCategoriesModel = new Gtk.TreeModelSort (categoryListStore);
                        sortedCategoriesModel.SetSortFunc (0, new Gtk.TreeIterCompareFunc (CompareCategorySortFunc));
                        sortedCategoriesModel.SetSortColumnId (0, Gtk.SortType.Ascending);
+
+		       defaultCategory = null;
                }
 
                #region Public Properties
@@ -91,9 +95,13 @@ namespace Tasque.Backends.EDS
 		       Gtk.TreeIter taskIter;
 		       EDSTask edsTask;
 
-		       //FIXME : AllCategory
-                       if (category == null || category is Tasque.AllCategory)
+                       if (category == null )
                                return null;
+
+		       if (category is Tasque.AllCategory && defaultCategory != null)
+			       category = this.defaultCategory;
+		       else
+			       return null;
 
                        EDSCategory edsCategory = category as EDSCategory;
                        CalComponent task = new CalComponent (edsCategory.TaskList);
@@ -324,6 +332,10 @@ namespace Tasque.Backends.EDS
 			       iter = categoryListStore.Append ();
 			       categoryListStore.SetValue (iter, 0, edsCategory);
 
+			       //Assumption : EDS Creates atleast one System category.
+			       if (edsCategory.IsSystem)
+				       this.defaultCategory = edsCategory;
+				
 			       if (!taskList.Open (true)) {
 				       Logger.Debug ("laskList Open failed");
 				       return;
