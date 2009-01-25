@@ -1,3 +1,8 @@
+2009-01-25  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Backends/Hiveminder/HmTask.cs: Update remote server for Priority &
+	Due date.
+
 2009-01-16  Johnny Jacob  <johnnyjacob@gmail.com>
 
 	** Fixes #567730.

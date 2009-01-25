@@ -65,8 +65,9 @@ namespace Tasque.Backends.HmBackend
 				}
 				return DateTime.MinValue;
 			}
-			set {this.task.Due = value.ToString();
-				Logger.Debug ("");
+			set {
+				this.task.Due = value.ToString();
+				this.backend.UpdateTask (this);
 			}
 		}
 
@@ -112,6 +113,7 @@ namespace Tasque.Backends.HmBackend
 						this.task.Priority = 0;
 						break;
 					}
+					this.backend.UpdateTask (this);
 				}
 		}
 		

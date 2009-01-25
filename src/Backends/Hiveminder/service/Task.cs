@@ -96,7 +96,7 @@ namespace Hiveminder
  					"priority=" + this.Priority + "&" +
 					"complete=" + (this.IsComplete ? "1" : "0") + "&" +
 					"id=" + this.Id + "&" +
-					"due" + this.Due + "&" +
+					"due=" + this.Due + "&" +
 					"started" + this.Started + "&" +
 					"created" + this.Created + "&" +
 					"group_id" + this.GroupId + "&";
