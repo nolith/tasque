@@ -100,8 +100,6 @@ namespace Tasque.Backends.EDS
 
 		       if (category is Tasque.AllCategory && defaultCategory != null)
 			       category = this.defaultCategory;
-		       else
-			       return null;
 
                        EDSCategory edsCategory = category as EDSCategory;
                        CalComponent task = new CalComponent (edsCategory.TaskList);
