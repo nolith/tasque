@@ -156,7 +156,7 @@ AC_ARG_ENABLE(backend_eds,
 AM_CONDITIONAL(ENABLE_BACKEND_EDS, test "x$enable_backend_eds" = "xyes")
 if test "x$enable_backend_eds" = "xyes" ; then
        # FIXME : Is this the right way to do this ?
-       PKG_CHECK_MODULES(EVOLUTION_SHARP, evolution-sharp)
+       PKG_CHECK_MODULES(EVOLUTION_SHARP, evolution-sharp >= 0.18.1)
 fi
 AC_SUBST(EVOLUTION_SHARP_LIBS)
 
