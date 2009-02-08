@@ -209,7 +209,7 @@ namespace Tasque.Backends.HmBackend
 		#region Methods	
 		public override void Activate ()
 		{
-			Logger.Info ("Not implemented");
+			Logger.Info ("Activate : Not implemented");
 		}
 		
 		/// <summary>
@@ -217,7 +217,9 @@ namespace Tasque.Backends.HmBackend
 		/// </summary>
 		public override void Inactivate ()
 		{
-			Logger.Info ("Not implemented");
+			Logger.Info ("Inactivate " + Name);
+			this.task.IsComplete = true;
+			this.backend.UpdateTask (this);
 		}
 		
 		/// <summary>
@@ -225,7 +227,9 @@ namespace Tasque.Backends.HmBackend
 		/// </summary>
 		public override void Complete ()
 		{
-			Logger.Info ("Not implemented");
+                       Logger.Debug ("Complete : " + Name);
+                       this.task.IsComplete = true;
+		       this.backend.UpdateTask (this);
 		}
 		
 		/// <summary>
@@ -233,7 +237,7 @@ namespace Tasque.Backends.HmBackend
 		/// </summary>
 		public override void Delete ()
 		{
-			Logger.Info ("Not implemented");
+			Logger.Info ("Delete : Not implemented");
 		}
 		
 		/// <summary>
@@ -244,7 +248,7 @@ namespace Tasque.Backends.HmBackend
 		/// </param>
 		public override INote CreateNote(string text)
 		{
-			Logger.Info ("Not implemented");
+			Logger.Info ("CreateNote : Not implemented");
 			return null;
 		}
 		

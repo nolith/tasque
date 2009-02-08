@@ -1,3 +1,7 @@
+2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Backends/Hiveminder/HmTask.cs: Support for Complete Task.
+
 2009-01-27  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* configure.ac: Require evolution-sharp >= 0.18.1, according to bug
