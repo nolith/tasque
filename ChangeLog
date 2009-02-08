@@ -1,5 +1,9 @@
 2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
 
+	* src/Application.cs: Removed ShowTask menu entry.
+
+2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
+
 	* src/Backends/Hiveminder/HmTask.cs: Add CreateNote, DeleteNote &
 	SaveNote.
 

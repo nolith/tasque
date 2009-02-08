@@ -550,7 +550,6 @@ namespace Tasque
 			
 			uiManager.GetAction ("/TrayIconMenu/NewTaskAction").Sensitive = backendItemsSensitive;
 			uiManager.GetAction ("/TrayIconMenu/RefreshAction").Sensitive = backendItemsSensitive;
-			uiManager.GetAction ("/TrayIconMenu/ShowTasksAction").Sensitive = backendItemsSensitive;
 
 			popupMenu.ShowAll(); // shows everything
 			popupMenu.Popup();
@@ -609,13 +608,6 @@ namespace Tasque
 		{
 			ActionGroup trayActionGroup = new ActionGroup ("Tray");
 			trayActionGroup.Add (new ActionEntry [] {
-				new ActionEntry ("ShowTasksAction",
-				                 null,
-				                 Catalog.GetString ("Show Tasks ..."),
-				                 null,
-				                 null,
-				                 OnShowTaskWindow),
-				
 				new ActionEntry ("NewTaskAction",
 				                 Stock.New,
 				                 Catalog.GetString ("New Task ..."),
@@ -646,10 +638,6 @@ namespace Tasque
 			uiManager = new UIManager ();
 			uiManager.AddUiFromString (menuXml);
 			uiManager.InsertActionGroup (trayActionGroup, 0);
-			
-			ImageMenuItem showTasksItem = (ImageMenuItem)
-					uiManager.GetWidget ("/TrayIconMenu/ShowTasksAction");
-			showTasksItem.Image = new Gtk.Image(Utilities.GetIcon ("tasque-16", 16));
 		}
 	}
 }
