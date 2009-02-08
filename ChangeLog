@@ -1,5 +1,12 @@
 2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
 
+	* src/Backends/Hiveminder/HmTask.cs: Add CreateNote, DeleteNote &
+	SaveNote.
+
+	* src/Backends/Hiveminder/HmNote.cs: Use task's description.
+
+2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
+
 	* src/Backends/Hiveminder/HmTask.cs: Support for Complete Task.
 
 2009-01-27  Sandy Armstrong  <sanfordarmstrong@gmail.com>

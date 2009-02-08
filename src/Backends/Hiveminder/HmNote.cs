@@ -29,21 +29,18 @@ namespace Tasque.Backends.HmBackend
 {
        public class HmNote : INote
        {
-	       private string text;
+	       private Hiveminder.Task task;
 
-	       public HmNote (string text)
+	       public HmNote (Hiveminder.Task task)
 	       {
-		       this.text = text;
+		       this.task = task;
 	       }
 
-			public string Text
-			{
-				get { return this.text; }
+	       public string Text
+	       {
+		       get { return this.task.Description; }
                 
-				set {
-					this.text = value;
-				}
-			}
-
+		       set { this.task.Description = value; }
+	       }
        }
 }

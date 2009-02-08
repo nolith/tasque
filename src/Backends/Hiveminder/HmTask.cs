@@ -196,12 +196,12 @@ namespace Tasque.Backends.HmBackend
 		{
 			this.task = task;
 			this.backend = hmBackend;
+
 			//Add Description as note.
-			this.notes = null;
-			if (!string.IsNullOrEmpty (this.task.Description)) {
-				this.notes = new List<INote>();
-				notes.Add (new HmNote (this.task.Description));
-			}
+			this.notes = new List<INote>();
+
+			if (!string.IsNullOrEmpty (this.task.Description)) 
+				notes.Add (new HmNote (this.task));
 		}
 		
 		#endregion
@@ -248,8 +248,17 @@ namespace Tasque.Backends.HmBackend
 		/// </param>
 		public override INote CreateNote(string text)
 		{
-			Logger.Info ("CreateNote : Not implemented");
-			return null;
+			Logger.Debug ("CreateNote : " + text);
+
+			HmNote hmNote = new HmNote (this.task);
+			hmNote.Text = text;
+
+			notes.Clear ();
+			notes.Add (hmNote);
+
+			this.backend.UpdateTask (this);
+
+			return hmNote;
 		}
 		
 		/// <summary>
@@ -260,19 +269,38 @@ namespace Tasque.Backends.HmBackend
 		/// </param>
 		public override void DeleteNote(INote note)
 		{
-			Logger.Info ("Not implemented");
+		       Logger.Debug ("DeleteNote : " + note.Text);
+
+		       foreach(HmNote hmNote in notes) {
+			       if(string.Equals (hmNote.Text, note.Text)) {
+				       hmNote.Text = null;
+				       notes.Remove(hmNote);
+				       break;
+			       }
+		       }
+
+		       this.backend.UpdateTask (this);
 		}		
 
 		/// <summary>
-		/// Deletes a note from a task
+		/// Saves a note in a task
 		/// </summary>
 		/// <param name="note">
 		/// A <see cref="INote"/>
 		/// </param>
 		public override void SaveNote(INote note)
 		{		
-			Logger.Info ("Not implemented");
+			Logger.Debug ("SaveNote : " + note.Text);
+
+			HmNote hmNote = new HmNote (this.task);
+			hmNote.Text = note.Text;
+
+			notes.Clear ();
+			notes.Add (hmNote);
+
+			this.backend.UpdateTask (this);
 		}		
+
 		public int CompareTo (ITask task)
 		{
 			bool isSameDate = true;
