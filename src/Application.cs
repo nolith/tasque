@@ -78,7 +78,6 @@ namespace Tasque
 		private const string menuXml = @"
 <ui>
 	<popup name=""TrayIconMenu"">
-		<menuitem action=""ShowTasksAction""/>
 		<menuitem action=""NewTaskAction""/>
 		<separator/>
 		<menuitem action=""PreferencesAction""/>
@@ -615,6 +614,13 @@ namespace Tasque
 				                 null,
 				                 OnNewTask),
 				
+				new ActionEntry ("ShowTasksAction",
+				                 null,
+				                 Catalog.GetString ("Show Tasks ..."),
+				                 null,
+				                 null,
+				                 OnShowTaskWindow),
+
 				new ActionEntry ("AboutAction",
 				                 Stock.About,
 				                 OnAbout),

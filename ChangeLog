@@ -1,3 +1,8 @@
+2009-02-09  Johnny Jacob  <johnnyjacob@gmail.com>
+
+	* src/Application.cs: Reverting part of previous commit. Needed for
+	OSX. 533182#c9.
+
 2009-02-08  Johnny Jacob  <johnnyjacob@gmail.com>
 
 	* src/Application.cs: Removed ShowTask menu entry.
