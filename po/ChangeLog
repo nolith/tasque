@@ -1,3 +1,9 @@
+2009-03-08  Petr Kovar  <pknbe@volny.cz>
+
+	* cs.po: Added Czech translation by Petr Pulc,
+	reviewed by Lucas Lommer.
+	* LINGUAS: Added "cs" to the list.
+
 2009-03-07  Milo Casagrande  <milo@ubuntu.com>
 
 	* it.po: Updated Italian translation.
