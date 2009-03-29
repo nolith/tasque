@@ -2,13 +2,12 @@
 # Copyright © 2009 tasque.
 # This file is distributed under the same license as the tasque package.
 # António Lima <amrlima@gmail.com>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-23 00:51+0000\n"
-"PO-Revision-Date: 2009-01-31 20:59-0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
+"POT-Creation-Date: 2009-01-25 05:06+0000\n"
+"PO-Revision-Date: 2009-03-25 20:26-0100\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -31,39 +30,41 @@ msgstr "Tasque"
 #. "Calvin Gaisford <calvinrg@gmail.com>"
 #. };
 #.
-#: ../src/Application.cs:487
+#: ../src/Application.cs:488
 msgid "translator-credits"
 msgstr "António Lima <amrlima@gmail.com>"
 
-#: ../src/Application.cs:496
+#: ../src/Application.cs:497
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "Copyright © 2008 Novell, Inc."
 
-#: ../src/Application.cs:497
+#: ../src/Application.cs:498
 msgid "A Useful Task List"
 msgstr "Uma Lista de Tarefas Últil"
 
-#: ../src/Application.cs:499
+#: ../src/Application.cs:500
 msgid "Tasque Project Homepage"
 msgstr "Página Web do Projecto Tasque"
 
-#: ../src/Application.cs:612
-msgid "New Task ..."
-msgstr "Nova Tarefa..."
-
-#: ../src/Application.cs:619
+#: ../src/Application.cs:614
 msgid "Show Tasks ..."
 msgstr "Mostrar Tarefas..."
 
-#: ../src/Application.cs:634
+#: ../src/Application.cs:621
+msgid "New Task ..."
+msgstr "Nova Tarefa..."
+
+#: ../src/Application.cs:636
 msgid "Refresh Tasks ..."
 msgstr "Actualizar Tarefas..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
+#: ../src/AllCategory.cs:28
+#: ../src/CompletedTaskGroup.cs:214
 msgid "All"
 msgstr "Todas"
 
-#: ../src/CompletedTaskGroup.cs:205 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:205
+#: ../src/Utilities.cs:271
 msgid "Yesterday"
 msgstr "Ontem"
 
@@ -111,8 +112,7 @@ msgstr "M_ostrar tarefas termindas"
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:216
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr ""
-"Apenas mo_strar estas categorias quando \"Todas\" estiver seleccionado:"
+msgstr "Apenas mo_strar estas categorias quando \"Todas\" estiver seleccionado:"
 
 #: ../src/PreferencesDialog.cs:234
 msgid "Category"
@@ -123,34 +123,39 @@ msgid "New task created."
 msgstr "Nova tarefa criada."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:340
+#: ../src/TaskTreeView.cs:84
+#: ../src/TaskWindow.cs:340
 msgid "Completed"
-msgstr "Terminada"
+msgstr "Terminadas"
 
 #. Title for Priority Column
 #: ../src/TaskTreeView.cs:101
 msgid "Priority"
 msgstr "Prioridade"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:114
+#: ../src/TaskTreeView.cs:366
 #: ../src/TaskTreeView.cs:598
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:115
+#: ../src/TaskTreeView.cs:363
 #: ../src/TaskTreeView.cs:596
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:116
+#: ../src/TaskTreeView.cs:360
 #: ../src/TaskTreeView.cs:594
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:117
+#: ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
@@ -164,39 +169,52 @@ msgstr "Nome da Tarefa"
 msgid "Due Date"
 msgstr "Date de Expiração"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:680
-#: ../src/TaskTreeView.cs:683 ../src/TaskTreeView.cs:688
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:680
+#: ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:688
 msgid "M/d - "
 msgstr "M/d - "
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:680
-#: ../src/TaskWindow.cs:273 ../src/Utilities.cs:265
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:680
+#: ../src/TaskWindow.cs:273
+#: ../src/Utilities.cs:265
 msgid "Today"
 msgstr "Hoje"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:683
-#: ../src/TaskWindow.cs:291 ../src/Utilities.cs:284
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:683
+#: ../src/TaskWindow.cs:291
+#: ../src/Utilities.cs:284
 msgid "Tomorrow"
 msgstr "Amanhã"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:420
+#: ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:420
 #: ../src/TaskTreeView.cs:697
 msgid "M/d - ddd"
 msgstr "M/d - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:688
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:688
 msgid "In 1 Week"
 msgstr "Daqui a 1 Semana"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:685
+#: ../src/TaskTreeView.cs:202
+#: ../src/TaskTreeView.cs:685
 #: ../src/Utilities.cs:297
 msgid "No Date"
 msgstr "Sem Data"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:690
+#: ../src/TaskTreeView.cs:203
+#: ../src/TaskTreeView.cs:690
 msgid "Choose Date..."
 msgstr "Escolher Data..."
 
@@ -229,8 +247,11 @@ msgstr "Tarefa Termina em: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:833 ../src/TaskWindow.cs:889
-#: ../src/TaskWindow.cs:899 ../src/TaskWindow.cs:910
+#: ../src/TaskWindow.cs:149
+#: ../src/TaskWindow.cs:833
+#: ../src/TaskWindow.cs:889
+#: ../src/TaskWindow.cs:899
+#: ../src/TaskWindow.cs:910
 msgid "New task..."
 msgstr "Nova tarefa..."
 
@@ -413,3 +434,4 @@ msgstr ""
 "\n"
 "\n"
 "Está agora ligado"
+
