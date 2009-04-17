@@ -1,0 +1,84 @@
+# Global ignores
+*~
+*.pyc
+Makefile
+Makefile.in
+
+# /
+/*.userprefs
+/*.usertasks
+/*.diff
+/*.patch
+/*.userprefs
+/*.usertasks
+/configure
+/config.*
+/config.status
+/depcomp
+/autom4te.cache
+/missing
+/aclocal.m4
+/install-sh
+/intltool-update
+/intltool-update.in
+/intltool-merge
+/intltool-merge.in
+/intltool-extract
+/intltool-extract.in
+/gnome-doc-utils.make
+/INSTALL
+/libtool
+/ltmain.sh
+/mkinstalldirs
+/pot-update
+/stamp-h1
+/tomboy.spec
+/*.tar.gz
+/*.suo
+/*.csproj.user
+/bin
+/obj
+/Properties
+/*.mdb
+/*.dll
+/*.pidb
+/*.userprefs
+/*.usertasks
+
+# /data
+/data/org.gnome.Tasque.service
+/data/tomboy-addins.pc
+/data/*.desktop
+/data/*.schemas
+
+# /help
+/help/*.omf
+/help/*/*.xml
+/help/*/*.mo
+
+# /po
+/po/*.gmo
+/po/POTFILES
+/po/stamp-it
+/po/Makefile.in.in
+/po/cat-id-tbl.c
+/po/.intltool-merge-cache
+/po/messages
+/po/missing
+/po/*.mo
+/po/notexist
+/po/po2tbl.sed.*
+/po/*.pot
+/po/stamp-cat-id
+
+# /src
+/src/*.exe
+/src/*.exe.config
+/src/*.mdb
+/src/*.pc
+/src/Defines.cs
+/src/tasque
+
+# /RtmNet
+/RtmNet/*.dll
+/RtmNet/*.mdb
