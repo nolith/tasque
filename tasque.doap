@@ -19,14 +19,14 @@
   <maintainer>
     <foaf:Person>
       <foaf:name>Brian G. Merrell</foaf:name>
-      <foaf:mbox rdf:resource="bgmerrell@gmail.com" />
+      <foaf:mbox rdf:resource="mailto:bgmerrell@gmail.com" />
       <gnome:userid>bgmerrell</gnome:userid>
     </foaf:Person>
   </maintainer>
   <maintainer>
     <foaf:Person>
       <foaf:name>Sandy Armstrong</foaf:name>
-      <foaf:mbox rdf:resource="sanfordarmstrong@gmail.com" />
+      <foaf:mbox rdf:resource="mailto:sanfordarmstrong@gmail.com" />
       <gnome:userid>sharm</gnome:userid>
     </foaf:Person>
   </maintainer>
