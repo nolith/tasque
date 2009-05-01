@@ -186,6 +186,8 @@ namespace Tasque
 						(uint) Gdk.Key.q,
 						Gdk.ModifierType.ControlMask,
 						Gtk.AccelFlags.Visible);
+
+			this.KeyPressEvent += KeyPressed;
 			
 			topHBox.Show ();
 			mainVBox.PackStart (topHBox, false, false, 0);
@@ -1180,6 +1182,18 @@ namespace Tasque
 					string.Format ("Not connected.");
 				TaskWindow.ShowStatus (status);
 			}
+		}
+
+		void KeyPressed (object sender, Gtk.KeyPressEventArgs args)
+		{
+			args.RetVal = true;
+			if (args.Event.Key == Gdk.Key.Escape) {
+				if ((GdkWindow.State & Gdk.WindowState.Maximized) > 0)
+					Unmaximize ();
+				Hide ();
+				return;
+			}
+			args.RetVal = false;
 		}
 		#endregion // Event Handlers
 		
