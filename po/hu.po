@@ -2,28 +2,30 @@
 # Copyright (C) 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the tasque package.
 #
-# Gergely Szarka <gszarka at invitel dot hu>, 2009.
 #
+# Gergely Szarka <gszarka at invitel dot hu>, 2009.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=tasque&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
 "POT-Creation-Date: 2009-05-26 18:38+0000\n"
-"PO-Revision-Date: 2009-08-06 16:22+0100\n"
-"Last-Translator: Gergely Szarka <gszarka at invitel dot hu>\n"
-"Language-Team: Hungarian <gnome@fsf.hu>\n"
+"PO-Revision-Date: 2009-08-12 02:05+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at gnome dot hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
-msgstr "Egyszerű, gyors feladat kezelés"
+msgstr "Egyszerű, gyors feladatkezelés"
 
 #: ../data/tasque.desktop.in.h:2
 msgid "Task Manager"
-msgstr "Feladat kezelő"
+msgstr "Feladatkezelő"
 
 #: ../data/tasque.desktop.in.h:3
 msgid "Tasque"
@@ -43,7 +45,7 @@ msgstr "Copyright © 2008 Novell, Inc."
 
 #: ../src/Application.cs:497
 msgid "A Useful Task List"
-msgstr "Hasznos feladat lista"
+msgstr "Hasznos feladatlista"
 
 #: ../src/Application.cs:499
 msgid "Tasque Project Homepage"
@@ -51,15 +53,15 @@ msgstr "A Tasque projekt honlapja"
 
 #: ../src/Application.cs:612
 msgid "New Task ..."
-msgstr "Új feladat"
+msgstr "Új feladat…"
 
 #: ../src/Application.cs:619
 msgid "Show Tasks ..."
-msgstr "Feladatok megjelenítése"
+msgstr "Feladatok megjelenítése…"
 
 #: ../src/Application.cs:634
 msgid "Refresh Tasks ..."
-msgstr "Feladatok frissítése"
+msgstr "Feladatok frissítése…"
 
 #: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
 msgid "All"
@@ -71,15 +73,15 @@ msgstr "Tegnap"
 
 #: ../src/CompletedTaskGroup.cs:207
 msgid "Last 7 Days"
-msgstr "Előző hét nap"
+msgstr "Múlt hét"
 
 #: ../src/CompletedTaskGroup.cs:209
 msgid "Last Month"
-msgstr "Előző hónap"
+msgstr "Múlt hónap"
 
 #: ../src/CompletedTaskGroup.cs:211
 msgid "Last Year"
-msgstr "Előző év"
+msgstr "Múlt év"
 
 #: ../src/NoteDialog.cs:24
 #, csharp-format
@@ -88,7 +90,7 @@ msgstr "Jegyzetek ehhez: {0:s}"
 
 #: ../src/OSXApplication.cs:38
 msgid "_File"
-msgstr "_File"
+msgstr "_Fájl"
 
 #: ../src/OSXApplication.cs:44
 msgid "_Window"
@@ -100,21 +102,20 @@ msgstr "Általános"
 
 #: ../src/PreferencesDialog.cs:146
 msgid "Task Management System"
-msgstr "Feladat kezelő rendszer"
+msgstr "Feladatkezelő rendszer"
 
 #: ../src/PreferencesDialog.cs:188
 msgid "Task Filtering"
-msgstr "Feladat szűrés"
+msgstr "Feladatszűrés"
 
 #: ../src/PreferencesDialog.cs:207
 msgid "Sh_ow completed tasks"
-msgstr "_Mutassa a befejezett feladatokat"
+msgstr "Befejezett feladatok _megjelenítése"
 
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:216
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr ""
-"_Csak akkor mutassa ezeket a kategóriákat, ha az \"Összes\" van kiválasztva"
+msgstr "_Csak az „Összes” kiválasztásakor jelenjenek meg ezek a kategóriák:"
 
 #: ../src/PreferencesDialog.cs:234
 msgid "Category"
@@ -122,17 +123,17 @@ msgstr "Kategória"
 
 #: ../src/RemoteControl.cs:150
 msgid "New task created."
-msgstr "Feladat létrehozva"
+msgstr "Feladat létrehozva."
 
 #. Title for Completed/Checkbox Column
 #: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
 msgid "Completed"
-msgstr "Befejezett"
+msgstr "Kész"
 
 #. Title for Priority Column
 #: ../src/TaskTreeView.cs:101
 msgid "Priority"
-msgstr "Elsőbbség"
+msgstr "Prioritás"
 
 #: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
 #: ../src/TaskTreeView.cs:598
@@ -154,7 +155,7 @@ msgstr "3"
 #. Low
 #: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
 msgid "-"
-msgstr "-"
+msgstr "–"
 
 #. Title for Task Name Column
 #: ../src/TaskTreeView.cs:131
@@ -170,7 +171,7 @@ msgstr "Határidő"
 #: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:680
 #: ../src/TaskTreeView.cs:683 ../src/TaskTreeView.cs:688
 msgid "M/d - "
-msgstr "M/d - "
+msgstr "M d. – "
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:680
 #: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
@@ -187,7 +188,7 @@ msgstr "Holnap"
 #: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:420
 #: ../src/TaskTreeView.cs:697
 msgid "M/d - ddd"
-msgstr "M/d - ddd"
+msgstr "M d. – ddd"
 
 #: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:688
 msgid "In 1 Week"
@@ -200,7 +201,7 @@ msgstr "Nincs dátum"
 
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:690
 msgid "Choose Date..."
-msgstr "Dátum kiválasztása"
+msgstr "Válasszon dátumot…"
 
 #. Title for Notes Column
 #: ../src/TaskTreeView.cs:219
@@ -218,7 +219,7 @@ msgstr "Feladat befejezve"
 
 #: ../src/TaskTreeView.cs:422
 msgid "M/d/yy - ddd"
-msgstr "M/d/yy - ddd"
+msgstr "yy. M d. – ddd"
 
 #: ../src/TaskTreeView.cs:580
 msgid "Action Canceled"
@@ -234,7 +235,7 @@ msgstr "Feladat befejezése: {0}"
 #: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:835 ../src/TaskWindow.cs:891
 #: ../src/TaskWindow.cs:901 ../src/TaskWindow.cs:912
 msgid "New task..."
-msgstr "Új feladat"
+msgstr "Új feladat…"
 
 #: ../src/TaskWindow.cs:164
 msgid "_Add"
@@ -246,7 +247,7 @@ msgstr "_Feladat hozzáadása"
 
 #: ../src/TaskWindow.cs:257
 msgid "Overdue"
-msgstr "Lejárt határidő"
+msgstr "Késik"
 
 #: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
@@ -268,7 +269,7 @@ msgstr "Feladat sikeresen létrehozva"
 
 #: ../src/TaskWindow.cs:1080
 msgid "_Notes..."
-msgstr "_Jegyzetek"
+msgstr "_Jegyzetek…"
 
 #: ../src/TaskWindow.cs:1087
 msgid "_Delete task"
@@ -284,7 +285,7 @@ msgstr "Feladat törölve"
 
 #: ../src/TaskWindow.cs:1162
 msgid "Loading tasks..."
-msgstr "Feladat betöltése"
+msgstr "Feladat betöltése…"
 
 #: ../src/Utilities.cs:263
 #, csharp-format
@@ -331,11 +332,11 @@ msgstr "MMMM d"
 
 #: ../src/Utilities.cs:300
 msgid "MMMM d yyyy, h:mm tt"
-msgstr "MMMM d yyyy, h:mm tt"
+msgstr "yyyy MMMM d, h:mm tt"
 
 #: ../src/Utilities.cs:301
 msgid "MMMM d yyyy"
-msgstr "MMMM d yyyy"
+msgstr "yyyy MMMM d"
 
 #: ../src/Utilities.cs:310
 msgid "Sunday"
@@ -369,16 +370,16 @@ msgstr "Szombat"
 #. A regular expression to capture a task that is due today
 #: ../src/Utilities.cs:368
 msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr "^(?<task>.+)\\s+today\\W*$"
+msgstr "^(?<task>.+)\\s+ma\\W*$"
 
 #. A regular expression to capture a task that is due tomorrow
 #: ../src/Utilities.cs:370
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
+msgstr "^(?<task>.+)\\s+holnap\\W*$"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
-msgstr "Csatlakozás"
+msgstr "Kattintson a csatlakozáshoz"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 msgid ""
@@ -388,7 +389,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Nincs bejelentkezve"
+"Nincs csatlakozva"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:108
 msgid "Remember the Milk not responding. Try again later."
@@ -400,7 +401,7 @@ msgstr "Bejelentkezés után kattintson ide"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:118
 msgid "Set the default browser and try again"
-msgstr "Állítsa be az alapértelmezett böngészőt és próbálja újra"
+msgstr "Állítsa be az alapértelmezett böngészőt, és próbálja újra"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Thank You"
@@ -414,4 +415,5 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Jelenleg nincs csatlakozva"
+"Jelenleg csatlakozva van"
+
