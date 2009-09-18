@@ -80,6 +80,9 @@ CSFILES = \
 	$(srcdir)/RemoteControl.cs \
 	$(srcdir)/RemoteControlProxy.cs \
 	$(srcdir)/TaskCalendar.cs \
+	$(srcdir)/TaskGroupModel.cs \
+	$(srcdir)/CompletedTaskGroupModel.cs \
+	$(srcdir)/TaskGroupModelFactory.cs \
 	$(srcdir)/TaskGroup.cs \
 	$(srcdir)/TaskPriority.cs \
 	$(srcdir)/TaskState.cs \

@@ -61,6 +61,7 @@ namespace Tasque
 		private Preferences preferences;
 		private EventBox eb;
 		private IBackend backend;
+		private TaskGroupModel overdue_tasks, today_tasks, tomorrow_tasks;
 		private PreferencesDialog preferencesDialog;
 		private bool quietStart = false;
 		
@@ -93,43 +94,7 @@ namespace Tasque
 		public static IBackend Backend
 		{ 
 			get { return Application.Instance.backend; }
-			set {
-				bool changingBackend = false;
-				Application tasque = Application.Instance;
-				if (tasque.backend != null) {
-					changingBackend = true;
-					// Cleanup the old backend
-					try {
-						Logger.Debug ("Cleaning up backend: {0}",
-									  tasque.backend.Name);
-						tasque.backend.Cleanup ();
-					} catch (Exception e) {
-						Logger.Warn ("Exception cleaning up '{0}': {1}",
-									 tasque.backend.Name,
-									 e);
-					}
-				}
-					
-				// Initialize the new backend
-				tasque.backend = value;
-				if (tasque.backend == null) {
-					return;
-				}
-					
-				Logger.Info ("Using backend: {0} ({1})",
-							 tasque.backend.Name,
-							 tasque.backend.GetType ().ToString ());
-				tasque.backend.Initialize();
-				
-				if (!changingBackend) {
-					TaskWindow.Reinitialize (!Instance.quietStart);
-				} else {
-					TaskWindow.Reinitialize (true);
-				}
-				
-				Logger.Debug("Configuration status: {0}",
-							 tasque.backend.Configured.ToString());
-			}
+			set { Application.Instance.SetBackend (value); }
 		}
 		
 		public static List<IBackend> AvailableBackends
@@ -370,6 +335,49 @@ namespace Tasque
 			return backends;
 		}
 
+		private void SetBackend (IBackend value)
+		{
+			bool changingBackend = false;
+			if (this.backend != null) {
+				UnhookFromTooltipTaskGroupModels ();
+				changingBackend = true;
+				// Cleanup the old backend
+				try {
+					Logger.Debug ("Cleaning up backend: {0}",
+					              this.backend.Name);
+					this.backend.Cleanup ();
+				} catch (Exception e) {
+					Logger.Warn ("Exception cleaning up '{0}': {1}",
+					             this.backend.Name,
+					             e);
+				}
+			}
+				
+			// Initialize the new backend
+			this.backend = value;
+			if (this.backend == null) {
+				RefreshTrayIconTooltip ();
+				return;
+			}
+				
+			Logger.Info ("Using backend: {0} ({1})",
+			             this.backend.Name,
+			             this.backend.GetType ().ToString ());
+			this.backend.Initialize();
+			
+			if (!changingBackend) {
+				TaskWindow.Reinitialize (!this.quietStart);
+			} else {
+				TaskWindow.Reinitialize (true);
+			}
+
+			RebuildTooltipTaskGroupModels ();
+			RefreshTrayIconTooltip ();
+			
+			Logger.Debug("Configuration status: {0}",
+			             this.backend.Configured.ToString());
+		}
+
 		private bool InitializeIdle()
 		{
 			if (customBackend != null) {
@@ -427,6 +435,10 @@ namespace Tasque
 				// Reinitialize window according to new date
 				if (TaskWindow.IsOpen)
 					TaskWindow.Reinitialize (true);
+				
+				UnhookFromTooltipTaskGroupModels ();
+				RebuildTooltipTaskGroupModels ();
+				RefreshTrayIconTooltip ();
 			}
 			
 			return true;
@@ -444,7 +456,91 @@ namespace Tasque
 			// showing the trayicon
 			trayIcon.Visible = true;
 
-			trayIcon.Tooltip = "Tasque Rocks";
+			RefreshTrayIconTooltip ();
+		}
+
+		private void UnhookFromTooltipTaskGroupModels ()
+		{
+			foreach (TaskGroupModel model in new TaskGroupModel[] { overdue_tasks, today_tasks, tomorrow_tasks })
+			{
+				if (model == null) {
+					continue;
+				}
+				
+				model.RowInserted -= OnTooltipModelChanged;
+				model.RowChanged -= OnTooltipModelChanged;
+				model.RowDeleted -= OnTooltipModelChanged;
+			}
+		}
+
+		private void OnTooltipModelChanged (object o, EventArgs args)
+		{
+			RefreshTrayIconTooltip ();
+		}
+
+		private void RebuildTooltipTaskGroupModels ()
+		{
+			if (backend == null || backend.Tasks == null) {
+				overdue_tasks = null;
+				today_tasks = null;
+				tomorrow_tasks = null;
+				
+				return;
+			}
+
+			overdue_tasks = TaskGroupModelFactory.CreateOverdueModel (backend.Tasks);
+			today_tasks = TaskGroupModelFactory.CreateTodayModel (backend.Tasks);
+			tomorrow_tasks = TaskGroupModelFactory.CreateTomorrowModel (backend.Tasks);
+
+			foreach (TaskGroupModel model in new TaskGroupModel[] { overdue_tasks, today_tasks, tomorrow_tasks })
+			{
+				if (model == null) {
+					continue;
+				}
+				
+				model.RowInserted += OnTooltipModelChanged;
+				model.RowChanged += OnTooltipModelChanged;
+				model.RowDeleted += OnTooltipModelChanged;
+			}
+		}
+		
+		private void RefreshTrayIconTooltip ()
+		{
+			if (trayIcon == null) {
+				return;
+			}
+
+			StringBuilder sb = new StringBuilder ();
+			if (overdue_tasks != null) {
+				int count =  overdue_tasks.IterNChildren ();
+
+				if (count > 0) {
+					sb.Append (String.Format (Catalog.GetPluralString ("{0} task is Overdue\n", "{0} tasks are Overdue\n", count), count));
+				}
+			}
+			
+			if (today_tasks != null) {
+				int count =  today_tasks.IterNChildren ();
+
+				if (count > 0) {
+					sb.Append (String.Format (Catalog.GetPluralString ("{0} task for Today\n", "{0} tasks for Today\n", count), count));
+				}
+			}
+
+			if (tomorrow_tasks != null) {
+				int count =  tomorrow_tasks.IterNChildren ();
+
+				if (count > 0) {
+					sb.Append (String.Format (Catalog.GetPluralString ("{0} task for Tomorrow\n", "{0} tasks for Tomorrow\n", count), count));
+				}
+			}
+
+			if (sb.Length == 0) {
+				trayIcon.Tooltip = "Tasque Rocks";
+				return;
+			}
+
+			trayIcon.Tooltip = sb.ToString ().TrimEnd ('\n');
 		}
 
 
@@ -524,6 +620,7 @@ namespace Tasque
 		{
 			Logger.Info ("OnQuit called - terminating application");
 			if (backend != null) {
+				UnhookFromTooltipTaskGroupModels ();
 				backend.Cleanup();
 			}
 			TaskWindow.SavePosition();

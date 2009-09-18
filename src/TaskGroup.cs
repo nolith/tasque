@@ -14,41 +14,32 @@ namespace Tasque
 	/// </summary>
 	public class TaskGroup : Gtk.VBox
 	{
-		DateTime timeRangeStart;
-		DateTime timeRangeEnd;
-		
 		Gtk.Label header;
 		TaskTreeView treeView;
-		Gtk.TreeModelFilter filteredTasks;
+		TaskGroupModel filteredTasks;
 		Gtk.HBox extraWidgetHBox;
 		Gtk.Widget extraWidget;
 		
 		bool hideWhenEmpty;
 		
-		protected bool showCompletedTasks;
-		
 		#region Constructor
 		public TaskGroup (string groupName, DateTime rangeStart,
 						  DateTime rangeEnd, Gtk.TreeModel tasks)
 		{
-			this.timeRangeStart = rangeStart;
-			this.timeRangeEnd = rangeEnd;
-			
 			hideWhenEmpty = true;
 						
-			showCompletedTasks = 
-				Application.Preferences.GetBool (
-					Preferences.ShowCompletedTasksKey);
-			Application.Preferences.SettingChanged += OnSettingChanged;
-			
 			// TODO: Add a date time event watcher so that when we rollover to
 			// a new day, we can update the rangeStart and rangeEnd times.  The
 			// ranges will be used to determine whether tasks fit into certain
 			// groups in the main TaskWindow.  Reference Tomboy's NoteOfTheDay
 			// add-in for code that reacts on day changes.
-			
-			filteredTasks = new Gtk.TreeModelFilter (tasks, null);
-			filteredTasks.VisibleFunc = FilterTasks;
+
+			filteredTasks = CreateModel (rangeStart, rangeEnd, tasks);
+
+			filteredTasks.ShowCompletedTasks = 
+				Application.Preferences.GetBool (
+					Preferences.ShowCompletedTasksKey);
+			Application.Preferences.SettingChanged += OnSettingChanged;
 			
 			// TODO: Add something to watch events so that the group will
 			// automatically refilter and display/hide itself accordingly.
@@ -167,12 +158,12 @@ namespace Tasque
 		/// </value>
 		public DateTime TimeRangeStart
 		{
-			get { return timeRangeStart; }
+			get { return filteredTasks.TimeRangeStart; }
 			set {
-				if (value == timeRangeStart)
+				if (value == filteredTasks.TimeRangeStart)
 					return;
 				
-				timeRangeStart = value;
+				filteredTasks.SetRange (value, filteredTasks.TimeRangeEnd);
 				Refilter ();
 			}
 		}
@@ -182,12 +173,12 @@ namespace Tasque
 		/// </value>
 		public DateTime TimeRangeEnd
 		{
-			get { return timeRangeEnd; }
+			get { return filteredTasks.TimeRangeEnd; }
 			set {
-				if (value == timeRangeEnd)
+				if (value == filteredTasks.TimeRangeEnd)
 					return;
 				
-				timeRangeEnd = value;
+				filteredTasks.SetRange (filteredTasks.TimeRangeStart, value);
 				Refilter ();
 			}
 		}
@@ -333,7 +324,7 @@ namespace Tasque
 			base.OnRealized ();
 			
 			if (treeView.GetNumberOfTasks () == 0
-					&& (!showCompletedTasks || hideWhenEmpty))
+					&& (!filteredTasks.ShowCompletedTasks || hideWhenEmpty))
 				Hide ();
 			else
 				Show ();
@@ -345,65 +336,11 @@ namespace Tasque
 			header.Markup = GetHeaderMarkup (DisplayName);
 		}
 
-
-        /// <summary>
-        /// Filter out tasks that don't fit within the group's date range
-        /// </summary>
-		protected virtual bool FilterTasks (Gtk.TreeModel model, Gtk.TreeIter iter)
+		protected virtual  TaskGroupModel CreateModel (DateTime rangeStart,
+		                                               DateTime rangeEnd,
+		                                               TreeModel tasks)
 		{
-			ITask task = model.GetValue (iter, 0) as ITask;
-			if (task == null)
-				return false;
-			
-			// Do something special when task.DueDate == DateTime.MinValue since
-			// these tasks should always be in the very last category.
-			if (task.DueDate == DateTime.MinValue) {
-				if (timeRangeEnd == DateTime.MaxValue) {
-					if (!ShowCompletedTask (task))
-						return false;
-					
-					return true;
-				} else {
-					return false;
-				}
-			}
-			
-			if (task.DueDate < timeRangeStart || task.DueDate > timeRangeEnd)
-				return false;
-			
-			if (!ShowCompletedTask (task))
-				return false;
-			
-			return true;
-		}
-		
-		private bool ShowCompletedTask (ITask task)
-		{
-			if (task.State == TaskState.Completed) {
-				if (!showCompletedTasks)
-					return false;
-				
-				// Only show completed tasks that are from "Today".  Once it's
-				// tomorrow, don't show completed tasks in this group and
-				// instead, show them in the Completed Tasks Group.
-				if (task.CompletionDate == DateTime.MinValue)
-					return false; // Just in case
-				
-				if (!IsToday (task.CompletionDate))
-					return false;
-			}
-			
-			return true;
-		}
-		
-		private bool IsToday (DateTime testDate)
-		{
-			DateTime today = DateTime.Now;
-			if (today.Year != testDate.Year
-					|| today.DayOfYear != testDate.DayOfYear)
-				return false;
-			
-			return true;
+			return new TaskGroupModel (rangeStart, rangeEnd, tasks);
 		}
 		
 		/// <summary>
@@ -483,7 +420,7 @@ namespace Tasque
 			//Logger.Debug ("TaskGroup (\"{0}\").OnNumberOfTasksChanged ()", DisplayName);
 			// Check to see whether this group should be hidden or shown.
 			if (treeView.GetNumberOfTasks () == 0
-					&& (!showCompletedTasks || hideWhenEmpty))
+					&& (!filteredTasks.ShowCompletedTasks || hideWhenEmpty))
 				Hide ();
 			else
 				Show ();
@@ -512,10 +449,10 @@ namespace Tasque
 			
 			bool newValue =
 				preferences.GetBool (Preferences.ShowCompletedTasksKey);
-			if (showCompletedTasks == newValue)
+			if (filteredTasks.ShowCompletedTasks == newValue)
 				return; // don't do anything if nothing has changed
 			
-			showCompletedTasks = newValue;
+			filteredTasks.ShowCompletedTasks = newValue;
 			
 			ICategory cat = GetSelectedCategory ();
 			if (cat != null)
