@@ -1094,6 +1094,39 @@ namespace Tasque
 					item.Activated += OnEditTask;
 					popupMenu.Add (item);
 
+					/*
+					 * Depending on the currently selected task's category, we create a context popup
+					 * here in order to enable changing categories. The list of available categories
+					 * is pre-filtered as to not contain the current category and the AllCategory.
+					 */
+					TreeModelFilter filteredCategories = new TreeModelFilter(Application.Backend.Categories, null);
+					filteredCategories.VisibleFunc = delegate(TreeModel t, TreeIter i) {
+						ICategory category = t.GetValue (i, 0) as ICategory;
+						if (category == null || category is AllCategory || category.Equals(clickedTask.Category))
+							return false;
+						return true;
+					};
+
+					// The categories submenu is only created in case we actually provide at least one category.
+					if (filteredCategories.GetIterFirst(out iter))
+					{
+						Menu categoryMenu = new Menu();
+						CategoryMenuItem categoryItem;
+
+						filteredCategories.Foreach(delegate(TreeModel t, TreePath p, TreeIter i) {
+							categoryItem = new CategoryMenuItem((ICategory)t.GetValue(i, 0));
+							categoryItem.Activated += OnChangeCategory;
+							categoryMenu.Add(categoryItem);
+							return false;
+						});
+					
+						// TODO Needs translation.
+						item = new ImageMenuItem(Catalog.GetString("_Change category"));
+						item.Image = new Gtk.Image(Gtk.Stock.Convert, IconSize.Menu);
+						item.Submenu = categoryMenu;
+						popupMenu.Add(item);
+					}
+				
 					popupMenu.ShowAll();
 					popupMenu.Popup ();
 				
@@ -1194,6 +1227,14 @@ namespace Tasque
 				return;
 			}
 			args.RetVal = false;
+		}
+
+		private void OnChangeCategory(object sender, EventArgs args)
+		{
+			if (clickedTask == null)
+				return;
+
+			clickedTask.Category = ((CategoryMenuItem)sender).Category;
 		}
 		#endregion // Event Handlers
 		
