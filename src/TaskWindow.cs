@@ -153,6 +153,7 @@ namespace Tasque
 			addTaskEntry.Activated += OnAddTaskEntryActivated;
 			addTaskEntry.FocusInEvent += OnAddTaskEntryFocused;
 			addTaskEntry.FocusOutEvent += OnAddTaskEntryUnfocused;
+			addTaskEntry.DragDataReceived += OnAddTaskEntryDragDataReceived;
 			addTaskEntry.Show ();
 			topHBox.PackStart (addTaskEntry, true, true, 0);
 			
@@ -237,7 +238,6 @@ namespace Tasque
 			
 			Application.Preferences.SettingChanged += OnSettingChanged;
 		}
-
 
 		void PopulateWindow()
 		{
@@ -923,6 +923,13 @@ namespace Tasque
 				return;
 			
 			OnAddTask (sender, args);
+		}
+
+		void OnAddTaskEntryDragDataReceived(object sender, DragDataReceivedArgs args)
+		{
+			// Change the text directly to the dropped text
+			addTaskEntry.Text = args.SelectionData.Text;
+			addTaskEntry.ModifyText (Gtk.StateType.Normal);
 		}
 
 		void OnAddTask (object sender, EventArgs args)
