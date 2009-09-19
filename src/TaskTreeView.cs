@@ -384,6 +384,19 @@ namespace Tasque
 			}
 			
 			string formatString = "{0}";
+
+			Preferences prefs = Application.Preferences;
+			string todayTasksColor = prefs.Get (Preferences.TodayTaskTextColor);
+			string overdueTaskColor = prefs.Get (Preferences.OverdueTaskTextColor);
+
+			if (task.IsComplete)
+				; // Completed tasks colored below
+			else if (task.DueDate.Date == DateTime.Today.Date)
+				crt.Foreground = todayTasksColor;
+			// Overdue and the task has a date assigned to it.
+			else if (task.DueDate < DateTime.Today && task.DueDate != DateTime.MinValue)
+				crt.Foreground = overdueTaskColor;
+
 			switch (task.State) {
 			case TaskState.Inactive:
 				// Strikeout the text
@@ -394,7 +407,8 @@ namespace Tasque
 				// Gray out the text and add strikeout
 				// TODO: Determine the grayed-out text color appropriate for the current theme
 				formatString =
-					"<span foreground=\"#AAAAAA\" strikethrough=\"true\">{0}</span>";
+					"<span strikethrough=\"true\">{0}</span>";
+				crt.Foreground = "#AAAAAA";
 				break;
 			}
 			

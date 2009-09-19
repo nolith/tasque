@@ -48,7 +48,9 @@ namespace Tasque
 		public const string InactivateTimeoutKey = "InactivateTimeout";
 		public const string SelectedCategoryKey = "SelectedCategory";
 		public const string ParseDateEnabledKey = "ParseDateEnabled";
-		
+		public const string TodayTaskTextColor = "TodayTaskTextColor";
+		public const string OverdueTaskTextColor = "OverdueTaskTextColor";
+
 		/// <summary>
 		/// A list of category names to show in the TaskWindow when the "All"
 		/// category is selected.
@@ -105,6 +107,10 @@ namespace Tasque
 			switch (settingKey) {
 			case ParseDateEnabledKey:
 				return true.ToString ();
+			case TodayTaskTextColor:
+				return "#181AB7";
+			case OverdueTaskTextColor:
+				return "#EB3320";
 			default:
 				return null;
 			}

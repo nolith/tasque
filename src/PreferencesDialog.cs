@@ -53,6 +53,15 @@ namespace Tasque
 		Gtk.TreeModelFilter		filteredCategories;
 		List<string>			categoriesToHide;
 		Gtk.TreeView			categoriesTree;
+
+		//
+		// Appearance Page Widgets
+		//
+		Gtk.Widget appearancePage;
+		Gtk.Entry txtTodaysTaskColor;
+		Gtk.ColorButton btnChangeTodaysTaskColor;
+		Gtk.Entry txtOverdueTaskColor;
+		Gtk.ColorButton btnChangeOverdueTaskColor;
 		
 		//
 		// Backend Page Widgets
@@ -105,7 +114,15 @@ namespace Tasque
 			generalPageId =
 				notebook.AppendPage (generalPage,
 									 new Label (Catalog.GetString ("General")));
-			
+
+			//
+			// Appearance Page
+			//
+			appearancePage = MakeAppearancePage ();
+			appearancePage.Show ();
+			notebook.AppendPage (appearancePage,
+			                     new Label (Catalog.GetString ("Appearance")));
+
 			//
 			// Backend Page
 			//
@@ -131,7 +148,87 @@ namespace Tasque
 
 			DeleteEvent += WindowDeleted;
 		}
-		
+
+		private Gtk.Widget MakeAppearancePage ()
+		{
+			VBox vbox = new VBox (false, 6);
+			vbox.BorderWidth = 10;
+
+			VBox sectionVBox = new VBox (false, 4);
+			Label l = new Label ();
+			l.Markup = string.Format ("<span size=\"large\" weight=\"bold\">{0}</span>",
+			                          Catalog.GetString ("Color Management"));
+			l.UseUnderline = false;
+			l.UseMarkup = true;
+			l.Wrap = false;
+			l.Xalign = 0;
+
+			l.Show ();
+			sectionVBox.PackStart (l, false, false, 0);
+
+			HBox hbox = new HBox (false, 6);
+			Label lblTodaysTaskColor = new Label ();
+			lblTodaysTaskColor.Text = Catalog.GetString ("Today:");
+			lblTodaysTaskColor.Xalign = 0;
+			lblTodaysTaskColor.WidthRequest = 75;
+			lblTodaysTaskColor.Show ();
+
+			Preferences prefs = Application.Preferences;
+			txtTodaysTaskColor = new Entry();
+			txtTodaysTaskColor.Text = prefs.Get (Preferences.TodayTaskTextColor);
+			txtTodaysTaskColor.Changed += OnTxtTodaysTaskColorChanged;
+			txtTodaysTaskColor.Show ();
+
+			btnChangeTodaysTaskColor = new ColorButton();
+			string todayTasksColor = prefs.Get (Preferences.TodayTaskTextColor);
+			Gdk.Color currentColor = new Gdk.Color();
+			Gdk.Color.Parse (todayTasksColor, ref currentColor);
+			btnChangeTodaysTaskColor.Color = currentColor;
+
+			btnChangeTodaysTaskColor.ColorSet += OnBtnChangeTodaysTaskColorColorSet;
+			btnChangeTodaysTaskColor.Show ();
+
+			hbox.PackStart (lblTodaysTaskColor, false, false, 0);
+			hbox.PackStart (txtTodaysTaskColor, false, false, 0);
+			hbox.PackStart (btnChangeTodaysTaskColor, false, false, 0);
+			hbox.Show ();
+
+			HBox hbox2 = new HBox (false, 6);
+
+			Label lblOverdueTaskColor = new Label ();
+			lblOverdueTaskColor.Text = Catalog.GetString ("Overdue:");
+			lblOverdueTaskColor.WidthRequest = 75;
+			lblOverdueTaskColor.Xalign = 0;
+			lblOverdueTaskColor.Show ();
+
+			txtOverdueTaskColor = new Entry();
+			txtOverdueTaskColor.Text = prefs.Get (Preferences.OverdueTaskTextColor);
+			txtOverdueTaskColor.Changed += OnTxtOverdueTaskColorChanged;
+			txtOverdueTaskColor.Show ();
+
+			btnChangeOverdueTaskColor = new ColorButton();
+			string overdueTasksColor = prefs.Get (Preferences.OverdueTaskTextColor);
+			Gdk.Color overdueColor = new Gdk.Color();
+			Gdk.Color.Parse (overdueTasksColor, ref overdueColor);
+			btnChangeOverdueTaskColor.Color = overdueColor;
+
+			btnChangeOverdueTaskColor.ColorSet += OnBtnChangeOverdueTaskColorColorSet;
+			btnChangeOverdueTaskColor.Show();
+
+			hbox2.PackStart (lblOverdueTaskColor, false, false, 0);
+			hbox2.PackStart (txtOverdueTaskColor, false, false, 0);
+			hbox2.PackStart (btnChangeOverdueTaskColor, false, false, 0);
+			hbox2.Show ();
+
+			sectionVBox.PackStart (hbox, false, false, 0);
+			sectionVBox.PackStart (hbox2, false, false, 0);
+			sectionVBox.Show();
+
+			vbox.PackStart (sectionVBox, false, false, 0);
+
+			return vbox;
+		}
+
 		private Gtk.Widget MakeGeneralPage ()
 		{
 			VBox vbox = new VBox (false, 6);
@@ -292,7 +389,33 @@ namespace Tasque
 					showCompletedTasksCheckButton.Active);
 			};
 		}
-		
+
+		private void OnBtnChangeTodaysTaskColorColorSet (object sender, EventArgs args)
+		{
+			txtTodaysTaskColor.Text =
+				Utilities.ColorGetHex (btnChangeTodaysTaskColor.Color).ToUpper ();
+		}
+
+		private void OnTxtTodaysTaskColorChanged (object sender, EventArgs args)
+		{
+			// Save the user preference
+			Application.Preferences.Set (Preferences.TodayTaskTextColor,
+			                             ((Entry) sender).Text);
+		}
+
+		private void OnBtnChangeOverdueTaskColorColorSet(object sender, EventArgs args)
+		{
+			txtOverdueTaskColor.Text =
+				Utilities.ColorGetHex (btnChangeOverdueTaskColor.Color).ToUpper ();
+		}
+
+		private void OnTxtOverdueTaskColorChanged (object sender, EventArgs args)
+		{
+			// Save the user preference
+			Application.Preferences.Set (Preferences.OverdueTaskTextColor,
+			                             ((Entry) sender).Text);
+		}
+
 		private void OnBackendComboBoxChanged (object sender, EventArgs args)
 		{
 			if (selectedBackend >= 0) {
