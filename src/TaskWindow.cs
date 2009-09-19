@@ -470,7 +470,9 @@ namespace Tasque
 
 		public static bool ShowOriginalStatus ()
 		{
-			status = string.Format ("Tasks loaded: {0}", TaskWindow.lastLoadedTime);
+			// Translators: This status shows the date and time when the task list was last refreshed
+			status = string.Format (Catalog.GetString ("Tasks loaded: {0}"),
+			                        TaskWindow.lastLoadedTime);
 			TaskWindow.ShowStatus (status);
 			return false;
 		}
@@ -1207,7 +1209,8 @@ namespace Tasque
 			Logger.Debug("Backend sync finished");
 			if (Application.Backend.Configured) {
 				string now = DateTime.Now.ToString ();
-				status = string.Format ("Tasks loaded: {0}", now);
+				// Translators: This status shows the date and time when the task list was last refreshed
+				status = string.Format (Catalog.GetString ("Tasks loaded: {0}"), now);
 				TaskWindow.lastLoadedTime = now;
 				TaskWindow.ShowStatus (status);
 				RebuildAddTaskMenu (Application.Backend.Categories);
@@ -1219,7 +1222,7 @@ namespace Tasque
 				addTaskEntry.ModifyText (Gtk.StateType.Normal, insensitiveColor);
 			} else {
 				string status =
-					string.Format ("Not connected.");
+					string.Format (Catalog.GetString ("Not connected."));
 				TaskWindow.ShowStatus (status);
 			}
 		}

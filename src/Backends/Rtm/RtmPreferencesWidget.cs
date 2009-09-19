@@ -67,12 +67,16 @@ namespace Tasque.Backends.RtmBackend
 			authButton.Clicked += OnAuthButtonClicked;
 			
 			if ( isAuthorized ) {
-				statusLabel.Text = "\n\nYou are currently connected";
+				statusLabel.Text = "\n\n" +
+					Catalog.GetString ("You are currently connected");
 				string userName = Application.Preferences.Get (Preferences.UserNameKey);
 				if (userName != null && userName.Trim () != string.Empty)
-					statusLabel.Text += " as\n" + userName.Trim ();
+					statusLabel.Text = "\n\n" +
+						Catalog.GetString ("You are currently connected as") +
+						"\n" + userName.Trim();
 			} else {
-				statusLabel.Text = Catalog.GetString ("\n\nYou are not connected");
+				statusLabel.Text = "\n\n" +
+					Catalog.GetString ("You are not connected");
 				authButton.Show();
 			}
 			mainVBox.PackStart(statusLabel, false, false, 0);
@@ -118,7 +122,7 @@ namespace Tasque.Backends.RtmBackend
 						authButton.Label = Catalog.GetString ("Set the default browser and try again");						
 					}			
 				} else if (!isAuthorized && authRequested) {
-					authButton.Label = "Processing...";
+					authButton.Label = Catalog.GetString ("Processing...");
 					try {
 						rtmBackend.FinishedAuth();
 						Logger.Debug("Successfully authorized with Remember the Milk");
@@ -128,17 +132,20 @@ namespace Tasque.Backends.RtmBackend
 						Logger.Debug("Failed to authorize with Remember the Milk");
 						isAuthorized = false;
 						authRequested = true;
-						authButton.Label = "Failed, Try Again";
+						authButton.Label = Catalog.GetString ("Failed, Try Again");
 					}
 				}
 				if (isAuthorized) {
 					authButton.Label = Catalog.GetString ("Thank You");
 					authButton.Sensitive = false;
-					statusLabel.Text = Catalog.GetString ("\n\nYou are currently connected");
+					statusLabel.Text = "\n\n" +
+						Catalog.GetString ("You are currently connected");
 					string userName =
 						Application.Preferences.Get(Preferences.UserNameKey);
 					if (userName != null && userName.Trim() != string.Empty)
-						statusLabel.Text += " as\n" + userName.Trim();
+						statusLabel.Text = "\n\n" +
+							Catalog.GetString ("You are currently connected as") +
+							"\n" + userName.Trim();
 				}
 			}
 		}

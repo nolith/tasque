@@ -536,7 +536,8 @@ namespace Tasque
 			}
 
 			if (sb.Length == 0) {
-				trayIcon.Tooltip = "Tasque Rocks";
+				// Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+				trayIcon.Tooltip = Catalog.GetString ("Tasque Rocks");
 				return;
 			}
 

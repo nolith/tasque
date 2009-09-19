@@ -94,7 +94,7 @@ namespace Tasque
 			Logger.Debug("Called Preferences Init");
 			this.Icon = Utilities.GetIcon ("tasque-16", 16);
 			// Update the window title
-			this.Title = string.Format ("Tasque Preferences");	
+			this.Title = string.Format (Catalog.GetString ("Tasque Preferences"));
 			
 			this.VBox.Spacing = 0;
 			this.VBox.BorderWidth = 0;
