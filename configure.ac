@@ -49,15 +49,15 @@ PKG_CHECK_MODULES([NDESK_DBUS_GLIB_10], [ndesk-dbus-glib-1.0])
 # Allow the project to build without notify-sharp
 #
 PKG_CHECK_MODULES(NOTIFY_SHARP, notify-sharp, enable_notify_sharp="yes", enable_notify_sharp="no")
-AM_CONDITIONAL(ENABLE_NOTIFY_SHARP, test "x$enable_notify_sharp" = "xyes")
+AM_CONDITIONAL(ENABLE_NOTIFY_SHARP, test "x$enable_notify_sharp" != "xno")
 AC_SUBST(NOTIFY_SHARP_LIBS)
 
 AC_ARG_ENABLE(debug,
 	AC_HELP_STRING([--enable-debug],
 		[Use 'Debug' Configuration [default=yes]]),
 		enable_debug=$enableval, enable_debug=no)
-AM_CONDITIONAL(ENABLE_DEBUG, test "x$enable_debug" = "xyes")
-if test "x$enable_debug" = "xyes" ; then
+AM_CONDITIONAL(ENABLE_DEBUG, test "x$enable_debug" != "xno")
+if test "x$enable_debug" != "xno" ; then
 #	DEBUG_CONFIG_LIBRARIES=' ${pkglibdir}/Db4objects.Db4o.dll'
 #	DEBUG_CONFIG_LIBS=' -r:${pkglibdir}/Db4objects.Db4o.dll'
 #	AC_SUBST(DEBUG_CONFIG_LIBRARIES)
@@ -68,8 +68,8 @@ AC_ARG_ENABLE(release,
 	AC_HELP_STRING([--enable-release],
 		[Use 'Release' Configuration [default=no]]),
 		enable_release=$enableval, enable_release=no)
-AM_CONDITIONAL(ENABLE_RELEASE, test "x$enable_release" = "xyes")
-if test "x$enable_release" = "xyes" ; then
+AM_CONDITIONAL(ENABLE_RELEASE, test "x$enable_release" != "xno")
+if test "x$enable_release" != "xno" ; then
 #	RELEASE_CONFIG_LIBRARIES=' ${pkglibdir}/Db4objects.Db4o.dll'
 #	RELEASE_CONFIG_LIBS=' -r:${pkglibdir}/Db4objects.Db4o.dll'
 #	AC_SUBST(RELEASE_CONFIG_LIBRARIES)
@@ -104,6 +104,60 @@ AC_SUBST(DBUS_SERVICE_DIR)
 #fi
 #AC_SUBST(CSC_DEFINES)
 
+# Set default values for final_*
+# This doesn't affect anything, as final_* values
+# are always overridden. Just helps when printing the
+# values at the end
+final_backend_dummy=no
+final_backend_eds=no
+final_backend_icecore=no
+final_backend_rtm=no
+final_backend_sqlite=no
+final_backend_hiveminder=no
+final_experimental_backends=no
+
+#
+# All Backends = standard + experimental.
+#
+AC_ARG_ENABLE(all_backends,
+	AC_HELP_STRING([--enable-all-backends],
+		[Enable all backends, including standard and experimental [default=no]]),
+		final_all_backends=$enableval, final_all_backends=no)
+AM_CONDITIONAL(ENABLE_ALL_BACKENDS, test "x$final_all_backends" != "xno")
+
+if test "x$final_all_backends" != "xno" ; then
+   final_standard_backends=yes
+   final_experimental_backends=yes
+fi
+
+#
+# Standard Backends
+#
+AC_ARG_ENABLE(standard_backends,
+	AC_HELP_STRING([--enable-standard-backends],
+		[Enable standard (RTM, SQLite, Evolution) backends. [default=yes]]),
+		final_standard_backends=$enableval, final_standard_backend=yes)
+AM_CONDITIONAL(ENABLE_STANDARD_BACKENDS, test "x$final_standard_backends" != "xno")
+
+if test "x$final_standard_backends" != "xno" ; then
+   final_backend_rtm=yes
+   final_backend_sqlite=yes
+   final_backend_eds=yes
+fi
+
+#
+# Experimental Backends
+#
+AC_ARG_ENABLE(experimental_backends,
+	AC_HELP_STRING([--enable-experimental-backends],
+		[Enable experimental (Hiveminder, ICECore) backends. [default=no]]),
+		final_experimental_backends=$enableval, )
+AM_CONDITIONAL(ENABLE_EXPERIMENTAL_BACKENDS, test "x$final_experimental_backends" != "xno")
+
+if test "x$final_experimental_backends" != "xno" ; then
+   final_backend_hiveminder=yes
+   final_backend_icecore=yes
+fi
 
 #
 # Dummy Backend (for debugging)
@@ -111,8 +165,8 @@ AC_SUBST(DBUS_SERVICE_DIR)
 AC_ARG_ENABLE(backend_dummy,
 	AC_HELP_STRING([--enable-backend-dummy],
 		[Enable the Dummy (Debug) Backend [default=no]]),
-		enable_backend_dummy=$enableval, enable_backend_dummy=no)
-AM_CONDITIONAL(ENABLE_BACKEND_DUMMY, test "x$enable_backend_dummy" = "xyes")
+		final_backend_dummy=$enableval, final_backend_dummy=no)
+AM_CONDITIONAL(ENABLE_BACKEND_DUMMY, test "x$final_backend_dummy" != "xno")
 
 #
 # Remember the Milk Backend
@@ -120,7 +174,7 @@ AM_CONDITIONAL(ENABLE_BACKEND_DUMMY, test "x$enable_backend_dummy" = "xyes")
 AC_ARG_ENABLE(backend_rtm,
 	AC_HELP_STRING([--enable-backend-rtm],
 		[Enable the RTM Backend [default=yes]]),
-		enable_backend_rtm=$enableval, enable_backend_rtm=no)
+		final_backend_rtm=$enableval, )
 
 #
 # SQLite Backend
@@ -128,8 +182,8 @@ AC_ARG_ENABLE(backend_rtm,
 AC_ARG_ENABLE(backend_sqlite,
 	AC_HELP_STRING([--enable-backend-sqlite],
 		[Enable the SQLite Backend [default=no]]),
-		enable_backend_sqlite=$enableval, enable_backend_sqlite=no)
-AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$enable_backend_sqlite" = "xyes")
+		final_backend_sqlite=$enableval, )
+AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$final_backend_sqlite" != "xno")
 
 #
 # ICEcore for IceBackend Support
@@ -137,9 +191,9 @@ AM_CONDITIONAL(ENABLE_BACKEND_SQLITE, test "x$enable_backend_sqlite" = "xyes")
 AC_ARG_ENABLE(backend_icecore,
 	AC_HELP_STRING([--enable-backend-icecore],
 		[Enable the ICEcore Backend [default=no]]),
-		enable_backend_icecore=$enableval, enable_backend_icecore=no)
-AM_CONDITIONAL(ENABLE_BACKEND_ICECORE, test "x$enable_backend_icecore" = "xyes")
-if test "x$enable_backend_icecore" = "xyes" ; then
+		final_backend_icecore=$enableval, )
+AM_CONDITIONAL(ENABLE_BACKEND_ICECORE, test "x$final_backend_icecore" != "xno")
+if test "x$final_backend_icecore" != "xno" ; then
        # FIXME : Is this the right way to do this ?
        PKG_CHECK_MODULES(ICE_DESKTOP, Novell.IceDesktop)
 fi
@@ -152,9 +206,9 @@ AC_SUBST(ICE_DESKTOP_LIBS)
 AC_ARG_ENABLE(backend_eds,
        AC_HELP_STRING([--enable-backend-eds],
                [Enable the EDS Backend [default=no]]),
-               enable_backend_eds=$enableval, enable_backend_eds=no)
-AM_CONDITIONAL(ENABLE_BACKEND_EDS, test "x$enable_backend_eds" = "xyes")
-if test "x$enable_backend_eds" = "xyes" ; then
+               final_backend_eds=$enableval, )
+AM_CONDITIONAL(ENABLE_BACKEND_EDS, test "x$final_backend_eds" != "xno")
+if test "x$final_backend_eds" != "xno" ; then
        # FIXME : Is this the right way to do this ?
        PKG_CHECK_MODULES(EVOLUTION_SHARP, evolution-sharp >= 0.18.1)
 fi
@@ -166,28 +220,22 @@ AC_SUBST(EVOLUTION_SHARP_LIBS)
 AC_ARG_ENABLE(backend_hiveminder,
 	AC_HELP_STRING([--enable-backend-hiveminder],
 		[Enable the Hiveminder Backend [default=no]]),
-		enable_backend_hiveminder=yes, enable_backend_hiveminder=no)
-AM_CONDITIONAL(ENABLE_BACKEND_HIVEMINDER, test "x$enable_backend_hiveminder" = "xyes")
+		final_backend_hiveminder=$enableval, )
+AM_CONDITIONAL(ENABLE_BACKEND_HIVEMINDER, test "x$final_backend_hiveminder" != "xno")
 
 #
 # If no backends were enabled,
 # enable the RTM Backend by default.
 #
-if test "x$enable_backend_dummy" = "xno" ; then
-	if test "x$enable_backend_rtm" = "xno" ; then
-		if test "x$enable_backend_sqlite" = "xno" ; then
-			if test "x$enable_backend_icecore" = "xno" ; then
-				if test "x$enable_backend_eds" = "xno" ; then
-					# No other backend was enabled, so enable
-					# the RTM Backend by default
-					enable_backend_rtm=yes
-				fi
-			fi
-		fi
-	fi
+if test "x$final_backend_dummy" = "xno" -a "x$final_backend_rtm" = "xno" \
+	-a "x$final_backend_sqlite" = "xno" -a "x$final_backend_icecore" = "xno" \
+	-a "x$final_backend_eds" = "xno" -a "x$final_backend_hiveminder" = "xno"; then
+	# No other backend was enabled, so enable
+	# the RTM Backend by default
+	final_backend_rtm=yes
 fi
 # Define ENABLE_BACKEND_RTM here so it only gets defined once
-AM_CONDITIONAL(ENABLE_BACKEND_RTM, test "x$enable_backend_rtm" = "xyes")
+AM_CONDITIONAL(ENABLE_BACKEND_RTM, test "x$final_backend_rtm" != "xno")
 
 ### Begin GAC tool ###
 
@@ -229,11 +277,11 @@ Configuration:
 	Debug build:       ${enable_debug}
 	Release build:     ${enable_release}
 	Notification:      ${enable_notify_sharp}
-	Dummy Backend:     ${enable_backend_dummy}
-	Evolution Backend: ${enable_backend_eds}
-	ICECore Backend:   ${enable_backend_icecore}
-	RTM Backend:       ${enable_backend_rtm}
-	SQLite Backend:    ${enable_backend_sqlite}
-	Hiveminder Backend: ${enable_backend_hiveminder}
+	Dummy Backend:     ${final_backend_dummy}
+	Evolution Backend: ${final_backend_eds}
+	ICECore Backend:   ${final_backend_icecore}
+	RTM Backend:       ${final_backend_rtm}
+	SQLite Backend:    ${final_backend_sqlite}
+	Hiveminder Backend: ${final_backend_hiveminder}
 "
 
