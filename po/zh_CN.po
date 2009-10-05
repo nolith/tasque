@@ -1,22 +1,21 @@
 # Chinese(Simplified) translation of tasque.
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the "tasque" package.
-# Ray Wang <wanglei1123@gmail.com>, 2009.
+# Ray Wang <raywang@gnome.org>, 2009.
 # QAed by Funda Wang <fundawang@gmail.com>, 2008.
-#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=tasque&component=general\n"
-"POT-Creation-Date: 2009-03-08 03:00+0000\n"
-"PO-Revision-Date: 2009-03-17 14:49+0800\n"
-"Last-Translator: Ray Wang <wanglei1123@gmail.com>\n"
-"Language-Team: Chinese/Simplified <i18n-translation@lists.linux.net.cn>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-05 14:44+0800\n"
+"PO-Revision-Date: 2009-10-04 20:21+0800\n"
+"Last-Translator: Ray Wang <raywang@gnome.org>\n"
+"Language-Team: Chinese (Simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: utf-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
@@ -30,94 +29,137 @@ msgstr "任务管理"
 msgid "Tasque"
 msgstr "Tasque"
 
+#: ../src/Application.cs:518
+#, csharp-format
+msgid "{0} task is Overdue\n"
+msgid_plural "{0} tasks are Overdue\n"
+msgstr[0] "{0} 个任务过期\n"
+
+#: ../src/Application.cs:526
+#, csharp-format
+msgid "{0} task for Today\n"
+msgid_plural "{0} tasks for Today\n"
+msgstr[0] "今天有 {0} 个任务\n"
+
+#: ../src/Application.cs:534
+#, csharp-format
+msgid "{0} task for Tomorrow\n"
+msgid_plural "{0} tasks for Tomorrow\n"
+msgstr[0] "明天有 {0} 个任务\n"
+
+#. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+#: ../src/Application.cs:540
+msgid "Tasque Rocks"
+msgstr "Tasque 牛！"
+
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
 #. };
 #.
-#: ../src/Application.cs:487
+#: ../src/Application.cs:584
 msgid "translator-credits"
 msgstr "Ray Wang <wanglei1123@gmail.com>, 2009"
 
-#: ../src/Application.cs:496
+#: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "版权 © 2008 Novell, Inc."
 
-#: ../src/Application.cs:497
+#: ../src/Application.cs:594
 msgid "A Useful Task List"
 msgstr "一个有用的任务列表"
 
-#: ../src/Application.cs:499
+#: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
 msgstr "Tasque 项目主页"
 
-#: ../src/Application.cs:612
+#: ../src/Application.cs:710
 msgid "New Task ..."
 msgstr "新建任务..."
 
-#: ../src/Application.cs:619
+#: ../src/Application.cs:717
 msgid "Show Tasks ..."
 msgstr "显示任务..."
 
-#: ../src/Application.cs:634
+#: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
 msgstr "刷新任务..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:214
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
 msgid "All"
 msgstr "全部"
 
-#: ../src/CompletedTaskGroup.cs:205 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/CompletedTaskGroup.cs:207
+#: ../src/CompletedTaskGroup.cs:167
 msgid "Last 7 Days"
 msgstr "上周"
 
-#: ../src/CompletedTaskGroup.cs:209
+#: ../src/CompletedTaskGroup.cs:169
 msgid "Last Month"
 msgstr "上个月"
 
-#: ../src/CompletedTaskGroup.cs:211
+#: ../src/CompletedTaskGroup.cs:171
 msgid "Last Year"
 msgstr "去年"
 
-# fuzzy
 #: ../src/NoteDialog.cs:24
 #, csharp-format
 msgid "Notes for: {0:s}"
-msgstr "Notes for: {0:s}"
+msgstr "备注：{0:s}"
 
 #: ../src/OSXApplication.cs:38
 msgid "_File"
-msgstr "文件(&F)"
+msgstr "文件(_F)"
 
 #: ../src/OSXApplication.cs:44
 msgid "_Window"
-msgstr "窗口(&W)"
+msgstr "窗口(_W)"
 
-#: ../src/PreferencesDialog.cs:107
+#. Update the window title
+#: ../src/PreferencesDialog.cs:97
+msgid "Tasque Preferences"
+msgstr "Tasque 首选项"
+
+#: ../src/PreferencesDialog.cs:116
 msgid "General"
 msgstr "常规"
 
-#: ../src/PreferencesDialog.cs:146
+#: ../src/PreferencesDialog.cs:124
+msgid "Appearance"
+msgstr "外观"
+
+#: ../src/PreferencesDialog.cs:160
+msgid "Color Management"
+msgstr "颜色管理"
+
+#: ../src/PreferencesDialog.cs:171
+msgid "Today:"
+msgstr "今天："
+
+#: ../src/PreferencesDialog.cs:199
+msgid "Overdue:"
+msgstr "过期："
+
+#: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
 msgstr "任务管理系统"
 
-#: ../src/PreferencesDialog.cs:188
+#: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
 msgstr "任务过滤"
 
-#: ../src/PreferencesDialog.cs:207
+#: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
 msgstr "显示已完成的任务(_O)"
 
 #. Categories TreeView
-#: ../src/PreferencesDialog.cs:216
+#: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
 msgstr "选中“全部”时只显示这些类别(_S)："
 
-#: ../src/PreferencesDialog.cs:234
+#: ../src/PreferencesDialog.cs:331
 msgid "Category"
 msgstr "类别"
 
@@ -126,7 +168,7 @@ msgid "New task created."
 msgstr "创建了新任务。"
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:340
+#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "已完成"
 
@@ -136,19 +178,19 @@ msgid "Priority"
 msgstr "优先级"
 
 #: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
-#: ../src/TaskTreeView.cs:598
+#: ../src/TaskTreeView.cs:612
 msgid "1"
 msgstr "1"
 
 #. High
 #: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
-#: ../src/TaskTreeView.cs:596
+#: ../src/TaskTreeView.cs:610
 msgid "2"
 msgstr "2"
 
 #. Medium
 #: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:594
+#: ../src/TaskTreeView.cs:608
 msgid "3"
 msgstr "3"
 
@@ -168,38 +210,38 @@ msgid "Due Date"
 msgstr "截止日期"
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:680
-#: ../src/TaskTreeView.cs:683 ../src/TaskTreeView.cs:688
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
 msgid "M/d - "
 msgstr "M月d日 - "
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:680
-#: ../src/TaskWindow.cs:273 ../src/Utilities.cs:265
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
 msgid "Today"
 msgstr "今天"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:683
-#: ../src/TaskWindow.cs:291 ../src/Utilities.cs:284
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
 msgid "Tomorrow"
 msgstr "明天"
 
 #: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
 #: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:420
-#: ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:711
 msgid "M/d - ddd"
 msgstr "M月d日 - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:688
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
 msgstr "一周内"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:685
+#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
 #: ../src/Utilities.cs:297
 msgid "No Date"
 msgstr "无日期"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:690
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
 msgstr "选择日期..."
 
@@ -217,75 +259,90 @@ msgstr "计时器"
 msgid "Task Completed"
 msgstr "完成的任务"
 
-#: ../src/TaskTreeView.cs:422
+#: ../src/TaskTreeView.cs:436
 msgid "M/d/yy - ddd"
 msgstr "yy-MM-dd - ddd"
 
-#: ../src/TaskTreeView.cs:580
+#: ../src/TaskTreeView.cs:594
 msgid "Action Canceled"
 msgstr "动作已取消"
 
-#: ../src/TaskTreeView.cs:845
+#: ../src/TaskTreeView.cs:859
 #, csharp-format
 msgid "Completing Task In: {0}"
 msgstr "在 {0} 内完成任务"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:833 ../src/TaskWindow.cs:889
-#: ../src/TaskWindow.cs:899 ../src/TaskWindow.cs:910
+#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
 msgid "New task..."
 msgstr "新建任务..."
 
-#: ../src/TaskWindow.cs:164
+#: ../src/TaskWindow.cs:165
 msgid "_Add"
 msgstr "添加(_A)"
 
-#: ../src/TaskWindow.cs:169
+#: ../src/TaskWindow.cs:170
 msgid "_Add Task"
 msgstr "添加任务(_A)"
 
-#: ../src/TaskWindow.cs:255
+#: ../src/TaskWindow.cs:257
 msgid "Overdue"
 msgstr "过期"
 
-#: ../src/TaskWindow.cs:309
+#: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
 msgstr "下周"
 
-#: ../src/TaskWindow.cs:325
+#: ../src/TaskWindow.cs:327
 msgid "Future"
 msgstr "将来"
 
+#. Translators: This status shows the date and time when the task list was last refreshed
+#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#, csharp-format
+msgid "Tasks loaded: {0}"
+msgstr "任务载入：{0}"
+
 #. Show error status
-#: ../src/TaskWindow.cs:797
+#: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
 msgstr "创建新任务时出错"
 
 #. Show successful status
-#: ../src/TaskWindow.cs:801
+#: ../src/TaskWindow.cs:805
 msgid "Task created successfully"
 msgstr "任务创建成功"
 
-#: ../src/TaskWindow.cs:1078
+#: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
 msgstr "备忘(_N)..."
 
-#: ../src/TaskWindow.cs:1085
+#: ../src/TaskWindow.cs:1096
 msgid "_Delete task"
 msgstr "删除任务(_D)"
 
-#: ../src/TaskWindow.cs:1090
+#: ../src/TaskWindow.cs:1101
 msgid "_Edit task"
 msgstr "编辑任务(_E)"
 
-#: ../src/TaskWindow.cs:1118
+#. TODO Needs translation.
+#: ../src/TaskWindow.cs:1133
+msgid "_Change category"
+msgstr "更改类别 (_C)"
+
+#: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
 msgstr "任务已删除"
 
-#: ../src/TaskWindow.cs:1160
+#: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
 msgstr "正在装入任务..."
+
+#: ../src/TaskWindow.cs:1225
+msgid "Not connected."
+msgstr "尚未连接。"
 
 #: ../src/Utilities.cs:263
 #, csharp-format
@@ -381,38 +438,40 @@ msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
 msgid "Click Here to Connect"
 msgstr "点击此处连接"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
-msgid ""
-"\n"
-"\n"
-"You are not connected"
-msgstr ""
-"\n"
-"\n"
-"尚未连接"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
+msgid "You are currently connected"
+msgstr "您目前已连接"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:108
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
+msgid "You are currently connected as"
+msgstr "您目前已连接为"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
+msgid "You are not connected"
+msgstr "您尚未连接"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
 msgid "Remember the Milk not responding. Try again later."
 msgstr "Remember·the·Milk 没有回应。稍候再试。"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:115
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
 msgid "Click Here After Authorizing"
 msgstr "进行身份验证后点击此处"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:118
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
 msgstr "设定默认浏览器后再试一次"
 
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
+msgid "Processing..."
+msgstr "处理中..."
+
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Failed, Try Again"
+msgstr "失败，再试一次"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
 msgstr "谢谢"
-
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:137
-msgid ""
-"\n"
-"\n"
-"You are currently connected"
-msgstr ""
-"\n"
-"\n"
-"目前已连接"
