@@ -5,6 +5,7 @@
 # This file is distributed under the same license as the tasque package.
 #
 # Ivar Smolin <okul linux.ee>, 2009.
+# Mattias Põldaru <mahfiaz gmail com>, 2009.
 #
 msgid ""
 msgstr ""
@@ -12,472 +13,357 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=tasque&component=general\n"
 "POT-Creation-Date: 2009-10-05 15:28+0000\n"
-"PO-Revision-Date: 2009-10-07 17:15+0300\n"
-"Last-Translator: Ivar Smolin <okul@linux.ee>\n"
+"PO-Revision-Date: 2009-10-08 13:03+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
-msgstr ""
+msgstr "Lihtne ja kiire ülesandehaldus"
 
-#: ../data/tasque.desktop.in.h:2
 msgid "Task Manager"
-msgstr ""
+msgstr "Ülesandehaldur"
 
-#: ../data/tasque.desktop.in.h:3
 msgid "Tasque"
 msgstr "Tasku"
 
-#: ../src/Application.cs:518
 #, csharp-format
 msgid "{0} task is Overdue\n"
 msgid_plural "{0} tasks are Overdue\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} ülesanne on üle tähtaja\n"
+msgstr[1] "{0} ülesannet on üle tähtaja\n"
 
-#: ../src/Application.cs:526
 #, csharp-format
 msgid "{0} task for Today\n"
 msgid_plural "{0} tasks for Today\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tänaseks on {0} ülesanne\n"
+msgstr[1] "Tänaseks on {0} ülesannet\n"
 
-#: ../src/Application.cs:534
 #, csharp-format
 msgid "{0} task for Tomorrow\n"
 msgid_plural "{0} tasks for Tomorrow\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Homseks on {0} ülesanne\n"
+msgstr[1] "Homseks on {0} ülesannet\n"
 
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
-#: ../src/Application.cs:540
 msgid "Tasque Rocks"
-msgstr ""
+msgstr "Tasku rokib"
 
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
 #. };
 #.
-#: ../src/Application.cs:584
 msgid "translator-credits"
 msgstr "Ivar Smolin <okul linux ee>"
 
-#: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "Autoriõigus © 2008 Novell, Inc."
 
-#: ../src/Application.cs:594
 msgid "A Useful Task List"
 msgstr "Ülesannete nimekiri"
 
-#: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
 msgstr "Tasku projekti koduleht"
 
-#: ../src/Application.cs:710
 msgid "New Task ..."
 msgstr "Uus ülesanne..."
 
-#: ../src/Application.cs:717
 msgid "Show Tasks ..."
-msgstr ""
+msgstr "Näita ülesandeid..."
 
-#: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
-msgstr ""
+msgstr "Värskenda ülesandeid..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
 msgid "All"
 msgstr "Kõik"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
 msgid "Yesterday"
-msgstr ""
+msgstr "Eile"
 
-#: ../src/CompletedTaskGroup.cs:167
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Viimased 7 päeva"
 
-#: ../src/CompletedTaskGroup.cs:169
 msgid "Last Month"
-msgstr ""
+msgstr "Viimane kuu"
 
-#: ../src/CompletedTaskGroup.cs:171
 msgid "Last Year"
-msgstr ""
+msgstr "Viimane aasta"
 
-#: ../src/NoteDialog.cs:24
 #, csharp-format
 msgid "Notes for: {0:s}"
 msgstr "Ülesande märkmed: {0:s}"
 
-#: ../src/OSXApplication.cs:38
 msgid "_File"
-msgstr ""
+msgstr "_Fail"
 
-#: ../src/OSXApplication.cs:44
 msgid "_Window"
-msgstr ""
+msgstr "_Aken"
 
 #. Update the window title
-#: ../src/PreferencesDialog.cs:97
 msgid "Tasque Preferences"
 msgstr "Tasku eelistused"
 
-#: ../src/PreferencesDialog.cs:116
 msgid "General"
 msgstr "Üldine"
 
-#: ../src/PreferencesDialog.cs:124
 msgid "Appearance"
-msgstr ""
+msgstr "Välimus"
 
-#: ../src/PreferencesDialog.cs:160
 msgid "Color Management"
-msgstr ""
+msgstr "Värvihaldus"
 
-#: ../src/PreferencesDialog.cs:171
 msgid "Today:"
 msgstr "Täna:"
 
-#: ../src/PreferencesDialog.cs:199
 msgid "Overdue:"
-msgstr ""
+msgstr "Üle aja:"
 
-#: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
 msgstr "Ülesannete haldamise süsteem"
 
-#: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
 msgstr "Ülesannete filter"
 
-#: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
-msgstr ""
+msgstr "_Lõpetatud ülesandeid näidatakse"
 
 #. Categories TreeView
-#: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr ""
+msgstr "Neid kategooriaid _kuvatakse ainult siis, kui valitud on \"Kõik\":"
 
-#: ../src/PreferencesDialog.cs:331
 msgid "Category"
-msgstr ""
+msgstr "Kategooria"
 
-#: ../src/RemoteControl.cs:150
 msgid "New task created."
-msgstr ""
+msgstr "Loodi uus ülesanne."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
 msgid "Completed"
-msgstr ""
+msgstr "Lõpetatud"
 
 #. Title for Priority Column
-#: ../src/TaskTreeView.cs:101
 msgid "Priority"
 msgstr "Tähtsus"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
-#: ../src/TaskTreeView.cs:612
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
-#: ../src/TaskTreeView.cs:610
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:608
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
 #. Title for Task Name Column
-#: ../src/TaskTreeView.cs:131
 msgid "Task Name"
-msgstr ""
+msgstr "Ülesande nimi"
 
 #. Title for Due Date Column
-#: ../src/TaskTreeView.cs:173
 msgid "Due Date"
-msgstr ""
+msgstr "Tähtaeg"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
-#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
 msgid "M/d - "
-msgstr ""
+msgstr "d-M - "
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
 msgid "Today"
 msgstr "Täna"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
 msgid "Tomorrow"
 msgstr "Homme"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
-#: ../src/TaskTreeView.cs:711
 msgid "M/d - ddd"
-msgstr ""
+msgstr "d-M - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
-msgstr ""
+msgstr "Nädala jooksul"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
-#: ../src/Utilities.cs:297
 msgid "No Date"
 msgstr "Kuupäev puudub"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
 msgstr "Vali kuupäev..."
 
 #. Title for Notes Column
-#: ../src/TaskTreeView.cs:219
 msgid "Notes"
-msgstr ""
+msgstr "Märkmed"
 
 #. Title for Timer Column
-#: ../src/TaskTreeView.cs:236
 msgid "Timer"
-msgstr ""
+msgstr "Taimer"
 
-#: ../src/TaskTreeView.cs:281
 msgid "Task Completed"
-msgstr ""
+msgstr "Ülesanne lõpetatud"
 
-#: ../src/TaskTreeView.cs:436
 msgid "M/d/yy - ddd"
-msgstr ""
+msgstr "d-M-yy - ddd"
 
-#: ../src/TaskTreeView.cs:594
 msgid "Action Canceled"
-msgstr ""
+msgstr "Tegevus katkestatud"
 
-#: ../src/TaskTreeView.cs:859
 #, csharp-format
 msgid "Completing Task In: {0}"
-msgstr ""
+msgstr "Ülesanne lõpetatakse: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
-#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
 msgid "New task..."
-msgstr ""
+msgstr "Uus ülesanne..."
 
-#: ../src/TaskWindow.cs:165
 msgid "_Add"
 msgstr "_Lisa"
 
-#: ../src/TaskWindow.cs:170
 msgid "_Add Task"
-msgstr ""
+msgstr "_Lisa ülesanne"
 
-#: ../src/TaskWindow.cs:257
 msgid "Overdue"
-msgstr ""
+msgstr "Hilinemine"
 
-#: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
-msgstr ""
+msgstr "Järgmised 7 päeva"
 
-#: ../src/TaskWindow.cs:327
 msgid "Future"
 msgstr "Tulevikus"
 
 #. Translators: This status shows the date and time when the task list was last refreshed
-#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
 msgstr "Laaditud ülesandeid: {0}"
 
 #. Show error status
-#: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
 msgstr "Viga uue ülesande loomisel"
 
 #. Show successful status
-#: ../src/TaskWindow.cs:805
 msgid "Task created successfully"
 msgstr "Ülesanne edukalt loodud"
 
-#: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
 msgstr "_Märkmed..."
 
-#: ../src/TaskWindow.cs:1096
 msgid "_Delete task"
 msgstr "_Kustuta ülesanne"
 
-#: ../src/TaskWindow.cs:1101
 msgid "_Edit task"
 msgstr "_Redigeeri ülesannet"
 
 #. TODO Needs translation.
-#: ../src/TaskWindow.cs:1133
 msgid "_Change category"
-msgstr ""
+msgstr "_Muuda kataloogi"
 
-#: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
-msgstr ""
+msgstr "Ülesanne kustutatud"
 
-#: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
-msgstr ""
+msgstr "Ülesannete laadimine..."
 
-#: ../src/TaskWindow.cs:1225
 msgid "Not connected."
-msgstr ""
+msgstr "Pole ühendatud."
 
-#: ../src/Utilities.cs:263
 #, csharp-format
 msgid "Today, {0}"
-msgstr ""
+msgstr "Täna, {0}"
 
-#: ../src/Utilities.cs:269
 #, csharp-format
 msgid "Yesterday, {0}"
-msgstr ""
+msgstr "Eile, {0}"
 
-#: ../src/Utilities.cs:275
 #, csharp-format
 msgid "{0} days ago, {1}"
-msgstr ""
+msgstr "{0} päeva tagasi, {1}"
 
-#: ../src/Utilities.cs:277
 #, csharp-format
 msgid "{0} days ago"
-msgstr ""
+msgstr "{0} päeva tagasi"
 
-#: ../src/Utilities.cs:282
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Homme, {0}"
 
-#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "In {0} days, {1}"
-msgstr ""
+msgstr "{0} päeva pärast, {1}"
 
-#: ../src/Utilities.cs:290
 #, csharp-format
 msgid "In {0} days"
-msgstr ""
+msgstr "{0} päeva pärast"
 
-#: ../src/Utilities.cs:294
 msgid "MMMM d, h:mm tt"
-msgstr ""
+msgstr "d. MMMM, h:mm tt"
 
-#: ../src/Utilities.cs:295
 msgid "MMMM d"
-msgstr ""
+msgstr "d. MMMM"
 
-#: ../src/Utilities.cs:300
 msgid "MMMM d yyyy, h:mm tt"
-msgstr ""
+msgstr "d. MMMM yyyy, h:mm tt"
 
-#: ../src/Utilities.cs:301
 msgid "MMMM d yyyy"
-msgstr ""
+msgstr "d. MMMM yyyy"
 
-#: ../src/Utilities.cs:310
 msgid "Sunday"
-msgstr ""
+msgstr "Pühapäeval"
 
-#: ../src/Utilities.cs:312
 msgid "Monday"
-msgstr ""
+msgstr "Esmaspäeval"
 
-#: ../src/Utilities.cs:314
 msgid "Tuesday"
-msgstr ""
+msgstr "Teisipäeval"
 
-#: ../src/Utilities.cs:316
 msgid "Wednesday"
-msgstr ""
+msgstr "Kolmapäeval"
 
-#: ../src/Utilities.cs:318
 msgid "Thursday"
-msgstr ""
+msgstr "Neljapäeval"
 
-#: ../src/Utilities.cs:320
 msgid "Friday"
-msgstr ""
+msgstr "Reedel"
 
-#: ../src/Utilities.cs:322
 msgid "Saturday"
-msgstr ""
+msgstr "Laupäeval"
 
 #. Then try some more natural language parsing
 #. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:368
 msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr ""
+msgstr "^(?<task>.+)\\s+täna\\W*$"
 
 #. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:370
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr ""
+msgstr "^(?<task>.+)\\s+homme\\W*$"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
-msgstr ""
+msgstr "Ühendumiseks klõpsa siia"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
 msgid "You are currently connected"
-msgstr ""
+msgstr "Sa oled praegu ühendatud"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
 msgid "You are currently connected as"
-msgstr ""
+msgstr "Oled praegu ühendatud kasutajana"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
 msgid "You are not connected"
-msgstr ""
+msgstr "Sa pole ühendatud"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
 msgid "Remember the Milk not responding. Try again later."
-msgstr ""
+msgstr "Remember the Milk server ei vasta. Proovi hiljem uuesti."
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
 msgid "Click Here After Authorizing"
-msgstr ""
+msgstr "Pärast autoriseerimist klõpsa siia"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
-msgstr ""
+msgstr "Määra vaikimisi veebilehitseja ja proovi uuesti"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
-msgstr ""
+msgstr "Töötlemine..."
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Failed, Try Again"
-msgstr ""
+msgstr "Nurjus, proovi uuesti"
 
-#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
-msgstr ""
+msgstr "Suur tänu"
