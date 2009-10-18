@@ -50,7 +50,10 @@ namespace Tasque
 		public void Log (LogLevel lvl, string msg, params object[] args)
 		{
 			msg = string.Format ("[{0}]: {1}", Enum.GetName (typeof (LogLevel), lvl), msg);
-			Console.WriteLine (msg, args);
+			if (args.Length > 0)
+				Console.WriteLine (msg, args);
+			else
+				Console.WriteLine (msg);
 		}
 	}
 
@@ -98,7 +101,10 @@ namespace Tasque
 						     DateTime.Now.ToString(), 
 						     Enum.GetName (typeof (LogLevel), lvl), 
 						     msg);
-				log.WriteLine (msg, args);
+				if (args.Length > 0)
+					log.WriteLine (msg, args);
+				else
+					log.WriteLine (msg);
 				log.Flush();
 			}
 		}
