@@ -1,0 +1,504 @@
+# Low German translation for tasque.
+# Copyright (C) 2009 tasque's COPYRIGHT HOLDER
+# This file is distributed under the same license as the tasque package.
+# Nils-Christoph Fiedler <fiedler@medienkompanie.de>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
+"POT-Creation-Date: 2009-11-02 10:30+0000\n"
+"PO-Revision-Date: 2009-11-27 00:49+0100\n"
+"Last-Translator: Nils-Christoph Fiedler <fiedler@medienkompanie.de>\n"
+"Language-Team: Low German <nds-lowgerman@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: ../data/tasque.desktop.in.h:1
+msgid "Easy quick task management"
+msgstr "Eenfaches un fixes Opgavoppassen"
+
+#: ../data/tasque.desktop.in.h:2
+msgid "Task Manager"
+msgstr "Opgavoppassens"
+
+#: ../data/tasque.desktop.in.h:3
+msgid "Tasque"
+msgstr "Tasque"
+
+#: ../src/Application.cs:518
+#, csharp-format
+msgid "{0} task is Overdue\n"
+msgid_plural "{0} tasks are Overdue\n"
+msgstr[0] "{0} Opgav is överfällig\n"
+msgstr[1] "{0} Opgaven sünd överfällig\n"
+
+#: ../src/Application.cs:526
+#, csharp-format
+msgid "{0} task for Today\n"
+msgid_plural "{0} tasks for Today\n"
+msgstr[0] "{0} Opgav för Vandag\n"
+msgstr[1] "{0} Opgaven för Vandag\n"
+
+#: ../src/Application.cs:534
+#, csharp-format
+msgid "{0} task for Tomorrow\n"
+msgid_plural "{0} tasks for Tomorrow\n"
+msgstr[0] "{0} Opgav för Moorn\n"
+msgstr[1] "{0} Opgaven för Moorn\n"
+
+#. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+#: ../src/Application.cs:540
+msgid "Tasque Rocks"
+msgstr "Tasque rockt"
+
+#. string [] documenters = new string [] {
+#. "Calvin Gaisford <calvinrg@gmail.com>"
+#. };
+#.
+#: ../src/Application.cs:584
+msgid "translator-credits"
+msgstr "Nils-Christoph Fiedler <fiedler@medienkompanie.de>"
+
+#: ../src/Application.cs:593
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Copyright © 2008 Novell, Inc."
+
+#: ../src/Application.cs:594
+msgid "A Useful Task List"
+msgstr "Eene Opgavenlist för elken Gebruk"
+
+#: ../src/Application.cs:596
+msgid "Tasque Project Homepage"
+msgstr "Tasque Projektnetsiet"
+
+#: ../src/Application.cs:710
+msgid "New Task ..."
+msgstr "Neje Opgav ..."
+
+#: ../src/Application.cs:717
+msgid "Show Tasks ..."
+msgstr "Opgaven opwiesen ..."
+
+#: ../src/Application.cs:732
+msgid "Refresh Tasks ..."
+msgstr "Opgaven opfrischen ..."
+
+#: ../src/AllCategory.cs:28
+#: ../src/CompletedTaskGroup.cs:174
+msgid "All"
+msgstr "Allens"
+
+#: ../src/CompletedTaskGroup.cs:165
+#: ../src/Utilities.cs:271
+msgid "Yesterday"
+msgstr "Güstern"
+
+#: ../src/CompletedTaskGroup.cs:167
+msgid "Last 7 Days"
+msgstr "De lesten 7 Dage"
+
+#: ../src/CompletedTaskGroup.cs:169
+msgid "Last Month"
+msgstr "Lesten Monat"
+
+#: ../src/CompletedTaskGroup.cs:171
+msgid "Last Year"
+msgstr "Lestes Johr"
+
+#: ../src/NoteDialog.cs:24
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr "Notizen för: {0:s}"
+
+#: ../src/OSXApplication.cs:38
+msgid "_File"
+msgstr "_Datei"
+
+#: ../src/OSXApplication.cs:44
+msgid "_Window"
+msgstr "_Finster"
+
+#. Update the window title
+#: ../src/PreferencesDialog.cs:97
+msgid "Tasque Preferences"
+msgstr "Tasque Instellens"
+
+#: ../src/PreferencesDialog.cs:116
+msgid "General"
+msgstr "Allgemeen"
+
+#: ../src/PreferencesDialog.cs:124
+msgid "Appearance"
+msgstr "Utsehn"
+
+#: ../src/PreferencesDialog.cs:160
+msgid "Color Management"
+msgstr "Klööroppassens"
+
+#: ../src/PreferencesDialog.cs:171
+msgid "Today:"
+msgstr "Vandag:"
+
+#: ../src/PreferencesDialog.cs:199
+msgid "Overdue:"
+msgstr "Överfällig:"
+
+#: ../src/PreferencesDialog.cs:243
+msgid "Task Management System"
+msgstr "Opgavoppassensystem"
+
+#: ../src/PreferencesDialog.cs:285
+msgid "Task Filtering"
+msgstr "Opgavfilter"
+
+#: ../src/PreferencesDialog.cs:304
+msgid "Sh_ow completed tasks"
+msgstr "Doon opgaven _opwiesen"
+
+#. Categories TreeView
+#: ../src/PreferencesDialog.cs:313
+msgid "Only _show these categories when \"All\" is selected:"
+msgstr "Düsse Rebeete just _opwiesen, wenn \"All\" is utwählt:"
+
+#: ../src/PreferencesDialog.cs:331
+msgid "Category"
+msgstr "Rebeet"
+
+#: ../src/RemoteControl.cs:150
+msgid "New task created."
+msgstr "Neje Opgav erstellt"
+
+#. Title for Completed/Checkbox Column
+#: ../src/TaskTreeView.cs:84
+#: ../src/TaskWindow.cs:342
+msgid "Completed"
+msgstr "Fertig"
+
+#. Title for Priority Column
+#: ../src/TaskTreeView.cs:101
+msgid "Priority"
+msgstr "Priorität"
+
+#: ../src/TaskTreeView.cs:114
+#: ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:612
+msgid "1"
+msgstr "1"
+
+#. High
+#: ../src/TaskTreeView.cs:115
+#: ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:610
+msgid "2"
+msgstr "2"
+
+#. Medium
+#: ../src/TaskTreeView.cs:116
+#: ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:608
+msgid "3"
+msgstr "3"
+
+#. Low
+#: ../src/TaskTreeView.cs:117
+#: ../src/TaskTreeView.cs:369
+msgid "-"
+msgstr "-"
+
+#. Title for Task Name Column
+#: ../src/TaskTreeView.cs:131
+msgid "Task Name"
+msgstr "Opgavnaam"
+
+#. Title for Due Date Column
+#: ../src/TaskTreeView.cs:173
+msgid "Due Date"
+msgstr "bit Dag"
+
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:702
+msgid "M/d - "
+msgstr "M/d -"
+
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275
+#: ../src/Utilities.cs:265
+msgid "Today"
+msgstr "Vandag"
+
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293
+#: ../src/Utilities.cs:284
+msgid "Tomorrow"
+msgstr "Morn"
+
+#: ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:711
+msgid "M/d - ddd"
+msgstr "M/d - ddd"
+
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:702
+msgid "In 1 Week"
+msgstr "In 1 Week"
+
+#: ../src/TaskTreeView.cs:202
+#: ../src/TaskTreeView.cs:699
+#: ../src/Utilities.cs:297
+msgid "No Date"
+msgstr "Keen Dag"
+
+#: ../src/TaskTreeView.cs:203
+#: ../src/TaskTreeView.cs:704
+msgid "Choose Date..."
+msgstr "Dag wählen..."
+
+#. Title for Notes Column
+#: ../src/TaskTreeView.cs:219
+msgid "Notes"
+msgstr "Notizen"
+
+#. Title for Timer Column
+#: ../src/TaskTreeView.cs:236
+msgid "Timer"
+msgstr "Tiede"
+
+#: ../src/TaskTreeView.cs:281
+msgid "Task Completed"
+msgstr "Opgav doon"
+
+#: ../src/TaskTreeView.cs:436
+msgid "M/d/yy - ddd"
+msgstr "M/d/yy - ddd"
+
+#: ../src/TaskTreeView.cs:594
+msgid "Action Canceled"
+msgstr "Aktschoon avbroken"
+
+#: ../src/TaskTreeView.cs:859
+#, csharp-format
+msgid "Completing Task In: {0}"
+msgstr "Düsse Opgav avsluten in: {0}"
+
+#. The new task entry widget
+#. Clear the entry if it contains the default text
+#: ../src/TaskWindow.cs:149
+#: ../src/TaskWindow.cs:837
+#: ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903
+#: ../src/TaskWindow.cs:914
+msgid "New task..."
+msgstr "Neje Opgav..."
+
+#: ../src/TaskWindow.cs:165
+msgid "_Add"
+msgstr "H_entofögen"
+
+#: ../src/TaskWindow.cs:170
+msgid "_Add Task"
+msgstr "Opgav _hentofögen"
+
+#: ../src/TaskWindow.cs:257
+msgid "Overdue"
+msgstr "Överfällig"
+
+#: ../src/TaskWindow.cs:311
+msgid "Next 7 Days"
+msgstr "Nähste 7 Dage"
+
+#: ../src/TaskWindow.cs:327
+msgid "Future"
+msgstr "Tokunft"
+
+#. Translators: This status shows the date and time when the task list was last refreshed
+#: ../src/TaskWindow.cs:474
+#: ../src/TaskWindow.cs:1213
+#, csharp-format
+msgid "Tasks loaded: {0}"
+msgstr "Opgaven geladen: {0}"
+
+#. Show error status
+#: ../src/TaskWindow.cs:801
+msgid "Error creating a new task"
+msgstr "Ji künnst grad keene neje Opgav erstellen"
+
+#. Show successful status
+#: ../src/TaskWindow.cs:805
+msgid "Task created successfully"
+msgstr "Opgav erstellt"
+
+#: ../src/TaskWindow.cs:1089
+msgid "_Notes..."
+msgstr "_Notizen..."
+
+#: ../src/TaskWindow.cs:1096
+msgid "_Delete task"
+msgstr "Opgav _löschen"
+
+#: ../src/TaskWindow.cs:1101
+msgid "_Edit task"
+msgstr "Opgav _bewarken"
+
+#. TODO Needs translation.
+#: ../src/TaskWindow.cs:1133
+msgid "_Change category"
+msgstr "_Rebeet ännern"
+
+#: ../src/TaskWindow.cs:1162
+msgid "Task deleted"
+msgstr "Opgav löscht"
+
+#: ../src/TaskWindow.cs:1204
+msgid "Loading tasks..."
+msgstr "Lade Opgaven..."
+
+#: ../src/TaskWindow.cs:1225
+msgid "Not connected."
+msgstr "Nich verbunnen."
+
+#: ../src/Utilities.cs:263
+#, csharp-format
+msgid "Today, {0}"
+msgstr "Vandag, {0}"
+
+#: ../src/Utilities.cs:269
+#, csharp-format
+msgid "Yesterday, {0}"
+msgstr "Güstern, {0}"
+
+#: ../src/Utilities.cs:275
+#, csharp-format
+msgid "{0} days ago, {1}"
+msgstr "{0} Dage her, {1}"
+
+#: ../src/Utilities.cs:277
+#, csharp-format
+msgid "{0} days ago"
+msgstr "{0} Dage her"
+
+#: ../src/Utilities.cs:282
+#, csharp-format
+msgid "Tomorrow, {0}"
+msgstr "Moorn, {0}"
+
+#: ../src/Utilities.cs:288
+#, csharp-format
+msgid "In {0} days, {1}"
+msgstr "In {0} Dagen, {1}"
+
+#: ../src/Utilities.cs:290
+#, csharp-format
+msgid "In {0} days"
+msgstr "In {0} Dagen"
+
+#: ../src/Utilities.cs:294
+msgid "MMMM d, h:mm tt"
+msgstr "MMMM d, h:mm tt"
+
+#: ../src/Utilities.cs:295
+msgid "MMMM d"
+msgstr "MMMM d"
+
+#: ../src/Utilities.cs:300
+msgid "MMMM d yyyy, h:mm tt"
+msgstr "MMMM d yyyy, h:mm tt"
+
+#: ../src/Utilities.cs:301
+msgid "MMMM d yyyy"
+msgstr "MMMM d yyyy"
+
+#: ../src/Utilities.cs:310
+msgid "Sunday"
+msgstr "Sünndag"
+
+#: ../src/Utilities.cs:312
+msgid "Monday"
+msgstr "Maandag"
+
+#: ../src/Utilities.cs:314
+msgid "Tuesday"
+msgstr "Diensdag"
+
+#: ../src/Utilities.cs:316
+msgid "Wednesday"
+msgstr "Middeweeken"
+
+#: ../src/Utilities.cs:318
+msgid "Thursday"
+msgstr "Donnersdag"
+
+#: ../src/Utilities.cs:320
+msgid "Friday"
+msgstr "Friedag"
+
+#: ../src/Utilities.cs:322
+msgid "Saturday"
+msgstr "Sünnavend"
+
+#. Then try some more natural language parsing
+#. A regular expression to capture a task that is due today
+#: ../src/Utilities.cs:368
+msgid "^(?<task>.+)\\s+today\\W*$"
+msgstr "^(?<task>.+)\\s+today\\W*$"
+
+#. A regular expression to capture a task that is due tomorrow
+#: ../src/Utilities.cs:370
+msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
+msgid "Click Here to Connect"
+msgstr "Klick hier, um dik to verbinnen"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
+msgid "You are currently connected"
+msgstr "In düssem Moment büst je verbunnen"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
+msgid "You are currently connected as"
+msgstr "In düssem Moment büst je verbunnen as"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
+msgid "You are not connected"
+msgstr "Je büst nich verbunnen"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
+msgid "Remember the Milk not responding. Try again later."
+msgstr "Denk an de Milk antert nich. Versöök dat later nohmol."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
+msgid "Click Here After Authorizing"
+msgstr "Klick hier, achter dien Authorisatschoon"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
+msgid "Set the default browser and try again"
+msgstr "Set dien Standardnetkieker un versöök dat een twejtes Mol"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
+msgid "Processing..."
+msgstr "Bewarke..."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Failed, Try Again"
+msgstr "So güng dat nich. Versöök dat nohmol!"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
+msgid "Thank You"
+msgstr "Danke"
+
