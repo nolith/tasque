@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NoWin32Manifest>True</NoWin32Manifest>
+    <RootNamespace>tasquemac</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -125,6 +126,9 @@
     <None Include="src\Defines.cs.in" />
     <None Include="src\Tasque.exe.config.in" />
     <None Include="src\GnomeApplication.cs" />
+    <Compile Include="src\CompletedTaskGroupModel.cs" />
+    <Compile Include="src\TaskGroupModel.cs" />
+    <Compile Include="src\TaskGroupModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="clock-16-1.png" />
@@ -168,14 +172,14 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="RtmNet\RtmNet.csproj">
-      <Project>{B19B9840-669D-4984-9772-E1F55193A67F}</Project>
+      <Project>{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}</Project>
       <Name>RtmNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
