@@ -94,6 +94,14 @@ namespace Tasque
 				return ret.ScaleSimple (size, size, Gdk.InterpType.Bilinear);
 			} catch (ArgumentException) {}
 
+			// TODO: This is a temporary fix to allow installing all icons as assembly
+			//       resources. The proper thing to do is to ship the actual icons,
+			//       and append to the default gtk+ icon theme path. See Tomboy.
+			try {
+				Gdk.Pixbuf ret = new Gdk.Pixbuf (null, String.Format ("{0}-{1}.png", iconName, size));
+				return ret.ScaleSimple (size, size, Gdk.InterpType.Bilinear);
+			} catch (ArgumentException) { }
+
 			Logger.Debug ("Unable to load icon '{0}'.", iconName);
 			return null;
 		}
