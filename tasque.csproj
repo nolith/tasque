@@ -141,6 +141,7 @@
     <Compile Include="src\Backends\Sqlite\SqliteTask.cs" />
     <Compile Include="src\CellRendererDate.cs" />
     <Compile Include="src\CompletedTaskGroup.cs" />
+    <Compile Include="src\CompletedTaskGroupModel.cs" />
     <Compile Include="src\DateButton.cs" />
     <None Include="src\GnomeApplication.cs" />
     <Compile Include="src\GtkApplication.cs" />
@@ -157,6 +158,8 @@
     <Compile Include="src\PreferencesDialog.cs" />
     <Compile Include="src\TaskCalendar.cs" />
     <Compile Include="src\TaskGroup.cs" />
+    <Compile Include="src\TaskGroupModel.cs" />
+    <Compile Include="src\TaskGroupModelFactory.cs" />
     <Compile Include="src\TaskPriority.cs" />
     <Compile Include="src\TaskState.cs" />
     <Compile Include="src\TaskTreeView.cs" />
