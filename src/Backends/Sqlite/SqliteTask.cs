@@ -18,11 +18,10 @@ namespace Tasque.Backends.Sqlite
 			this.backend = backend;
 			Logger.Debug("Creating New Task Object : {0} (id={1})", name, id);
 			name = backend.SanitizeText (name);
-			string command = String.Format("INSERT INTO Tasks (Name, DueDate, CompletionDate, Priority, State, Category, ExternalID) values ('{0}','{1}', '{2}','{3}', '{4}', '{5}', '{6}')", 
+			string command = String.Format("INSERT INTO Tasks (Name, DueDate, CompletionDate, Priority, State, Category, ExternalID) values ('{0}','{1}', '{2}','{3}', '{4}', '{5}', '{6}'); SELECT last_insert_rowid();", 
 								name, Database.FromDateTime(DateTime.MinValue), Database.FromDateTime(DateTime.MinValue), 
 								((int)(TaskPriority.None)), ((int)TaskState.Active), 0, string.Empty );
-			backend.Database.ExecuteScalar(command);
-			this.id = backend.Database.Connection.LastInsertRowId;
+			this.id = Convert.ToInt32 (backend.Database.ExecuteScalar (command));
 		}
 		
 		public SqliteTask (SqliteBackend backend, int id)
@@ -211,9 +210,8 @@ namespace Tasque.Backends.Sqlite
 		{
 			Logger.Debug("Creating New Note Object : {0} (id={1})", text, id);
 			text = backend.SanitizeText (text);
-			string command = String.Format("INSERT INTO Notes (Task, Text) VALUES ('{0}','{1}')", id, text);
-			backend.Database.ExecuteScalar(command);
-			int taskId = backend.Database.Connection.LastInsertRowId;
+			string command = String.Format("INSERT INTO Notes (Task, Text) VALUES ('{0}','{1}'); SELECT last_insert_rowid();", id, text);
+			int taskId = Convert.ToInt32 (backend.Database.ExecuteScalar(command));
 
 			return new SqliteNote (taskId, text);
 		}
