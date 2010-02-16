@@ -4,6 +4,24 @@ Website: http://live.gnome.org/Tasque
 Bugs/Issues: http://bugzilla.gnome.org/browse.cgi?product=Tasque
 Mailing list: http://groups.google.com/group/tasky
 
+Version 0.1.9
+* Support for Mono >= 2.6
+* Support for enabling groups of backends when building:
+  --enable-standard-backends, --enable-experimental-backends and
+  --enable-all-backends.
+* Customizable color highlighting in tasks.
+* Clear "New Task..." text in inputfield on drag and drop, Anirudh Sanjeev
+* Option to change category via context menu, Karsten Stöckmann.
+* Hiveminder improvements, Johnny Jacob.
+* Close task window on ESC keypress, Matt Enright
+* Initial implementation of tooltip for the tray icon, Peter Johanson.
+* Other contributors to this release: Gabor Kelemen, Steve George,
+  Ankit Jain
+* Bugs fixes: #540983, #567730, #555242, #533182 #532915, #534749, #566052,
+  #563748, #563748, #572074, #567947, #609712, #574521
+* Translation updates: cs, da, de, en_GB, eo, es, et, gl, gr, hu, id, it, ja,
+  nds, pl, pt, pt_BR, sl, sv, th, zh_CN.
+
 Version 0.1.8
 * Initial support for Windows and Mac OS X.  Please try, and file bugs!
 * Update Remember The Milk backend to work with latest rememberthemilk.com.
