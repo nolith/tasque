@@ -25,6 +25,13 @@
   </maintainer>
   <maintainer>
     <foaf:Person>
+      <foaf:name>Mario Carrion</foaf:name>
+      <foaf:mbox rdf:resource="mailto:mario@carrion.mx" />
+      <gnome:userid>mcarrion</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
       <foaf:name>Sandy Armstrong</foaf:name>
       <foaf:mbox rdf:resource="mailto:sanfordarmstrong@gmail.com" />
       <gnome:userid>sharm</gnome:userid>
