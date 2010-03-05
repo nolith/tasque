@@ -4,13 +4,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Fran Diéguez <fran.dieguez@mabishu.com>, 2009.
-# Antón Méixome <meixome@mancomun.org>, 2009.
+# Antón Méixome <meixome@mancomun.org>, 20, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque-master-po-gl-103238\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-28 17:09+0100\n"
-"PO-Revision-Date: 2009-12-28 08:15+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=tasque&component=general\n"
+"POT-Creation-Date: 2010-02-16 19:58+0000\n"
+"PO-Revision-Date: 2010-02-09 14:43+0100\n"
 "Last-Translator: Antón Méixome <meixome@mancomun.org>\n"
 "Language-Team: Galician <gnome@mancomun.org>\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +86,7 @@ msgstr "Nova tarefa..."
 
 #: ../src/Application.cs:717
 msgid "Show Tasks ..."
-msgstr "Amosar tarefas..."
+msgstr "Mostrar as tarefas..."
 
 #: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
@@ -95,7 +96,7 @@ msgstr "Actualizar tarefas..."
 msgid "All"
 msgstr "Todas"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:279
 msgid "Yesterday"
 msgstr "Onte"
 
@@ -159,12 +160,12 @@ msgstr "Filtro de tarefas"
 
 #: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
-msgstr "Am_osar tarefas completadas"
+msgstr "M_ostrar as tarefas completadas"
 
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr "Amo_sar só estas categorías cando se seleccione \"Todas\":"
+msgstr "Mo_strar só estas categorías cando se seleccione \"Todas\":"
 
 #: ../src/PreferencesDialog.cs:331
 msgid "Category"
@@ -223,12 +224,12 @@ msgid "M/d - "
 msgstr "M/d -"
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:273
 msgid "Today"
 msgstr "Hoxe"
 
 #: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:292
 msgid "Tomorrow"
 msgstr "Mañán"
 
@@ -244,7 +245,7 @@ msgid "In 1 Week"
 msgstr "En 1 semana"
 
 #: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
-#: ../src/Utilities.cs:297
+#: ../src/Utilities.cs:305
 msgid "No Date"
 msgstr "Sen data"
 
@@ -272,12 +273,12 @@ msgstr "d/M/yy - ddd"
 
 #: ../src/TaskTreeView.cs:594
 msgid "Action Canceled"
-msgstr "Acción anulada"
+msgstr "Acción cancelada"
 
 #: ../src/TaskTreeView.cs:859
 #, csharp-format
 msgid "Completing Task In: {0}"
-msgstr "Completando tarefa en: {0}"
+msgstr "Completando a tarefa en: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
@@ -315,7 +316,7 @@ msgstr "Tarefas cargadas: {0}"
 #. Show error status
 #: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
-msgstr "Houbo un erro ao crear a nova tarefa"
+msgstr "Produciuse un erro ao crear a nova tarefa"
 
 #. Show successful status
 #: ../src/TaskWindow.cs:805
@@ -341,103 +342,103 @@ msgstr "_Cambiar categoría"
 
 #: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
-msgstr "Tarefa completada"
+msgstr "Tarefa eliminada"
 
 #: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
-msgstr "Cargando tarefas..."
+msgstr "Cargando as tarefas..."
 
 #: ../src/TaskWindow.cs:1225
 msgid "Not connected."
 msgstr "Non está conectado."
 
-#: ../src/Utilities.cs:263
+#: ../src/Utilities.cs:271
 #, csharp-format
 msgid "Today, {0}"
 msgstr "Hoxe, {0}"
 
-#: ../src/Utilities.cs:269
+#: ../src/Utilities.cs:277
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "Onte, {0}"
 
-#: ../src/Utilities.cs:275
+#: ../src/Utilities.cs:283
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "hai {0} días, {1}"
 
-#: ../src/Utilities.cs:277
+#: ../src/Utilities.cs:285
 #, csharp-format
 msgid "{0} days ago"
 msgstr "hai {0} días"
 
-#: ../src/Utilities.cs:282
+#: ../src/Utilities.cs:290
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Mañá, {0}"
 
-#: ../src/Utilities.cs:288
+#: ../src/Utilities.cs:296
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "En {0} días, {1}"
 
-#: ../src/Utilities.cs:290
+#: ../src/Utilities.cs:298
 #, csharp-format
 msgid "In {0} days"
 msgstr "En {0} días"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:302
 msgid "MMMM d, h:mm tt"
 msgstr "d MMMM, h:mm tt"
 
-#: ../src/Utilities.cs:295
+#: ../src/Utilities.cs:303
 msgid "MMMM d"
 msgstr "d MMMM"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:308
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "d MMMM yyy, h:mm tt"
 
-#: ../src/Utilities.cs:301
+#: ../src/Utilities.cs:309
 msgid "MMMM d yyyy"
 msgstr "d MMMM yyyy"
 
-#: ../src/Utilities.cs:310
+#: ../src/Utilities.cs:318
 msgid "Sunday"
 msgstr "Domingo"
 
-#: ../src/Utilities.cs:312
+#: ../src/Utilities.cs:320
 msgid "Monday"
 msgstr "Luns"
 
-#: ../src/Utilities.cs:314
+#: ../src/Utilities.cs:322
 msgid "Tuesday"
 msgstr "Martes"
 
-#: ../src/Utilities.cs:316
+#: ../src/Utilities.cs:324
 msgid "Wednesday"
 msgstr "Mércores"
 
-#: ../src/Utilities.cs:318
+#: ../src/Utilities.cs:326
 msgid "Thursday"
 msgstr "Xoves"
 
-#: ../src/Utilities.cs:320
+#: ../src/Utilities.cs:328
 msgid "Friday"
 msgstr "Venres"
 
-#: ../src/Utilities.cs:322
+#: ../src/Utilities.cs:330
 msgid "Saturday"
 msgstr "Sábado"
 
 #. Then try some more natural language parsing
 #. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:368
+#: ../src/Utilities.cs:376
 msgid "^(?<task>.+)\\s+today\\W*$"
 msgstr "^(?<task>.+)\\s+hoxe\\W*$"
 
 #. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:370
+#: ../src/Utilities.cs:378
 msgid "^(?<task>.+)\\s+tomorrow\\W*$"
 msgstr "^(?<task>.+)\\s+mañán\\W*$"
 
@@ -469,7 +470,7 @@ msgstr "Prema aquí logo da autorización"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
-msgstr "Configure o seu navegador web por omisión e ténteo de novo"
+msgstr "Configure o seu navegador web predefinido e ténteo de novo"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
