@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,6 +12,7 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NoWin32Manifest>True</NoWin32Manifest>
+    <RootNamespace>tasque</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,10 +48,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\gtk\gtk-sharp.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>winbin\Mono.Data.Sqlite.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Posix, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>winbin\Mono.Posix.dll</HintPath>
@@ -61,6 +59,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>winbin\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="ChangeLog" />
@@ -73,17 +75,6 @@
     <None Include="src\Tasque.exe.config.in" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="clock-16-1.png" />
-    <EmbeddedResource Include="clock-16-10.png" />
-    <EmbeddedResource Include="clock-16-11.png" />
-    <EmbeddedResource Include="clock-16-2.png" />
-    <EmbeddedResource Include="clock-16-3.png" />
-    <EmbeddedResource Include="clock-16-4.png" />
-    <EmbeddedResource Include="clock-16-5.png" />
-    <EmbeddedResource Include="clock-16-6.png" />
-    <EmbeddedResource Include="clock-16-7.png" />
-    <EmbeddedResource Include="clock-16-8.png" />
-    <EmbeddedResource Include="clock-16-9.png" />
     <Content Include="data\images\clock-16-0.png" />
     <Content Include="data\images\clock-16-1.png" />
     <Content Include="data\images\clock-16-10.png" />
@@ -104,13 +95,6 @@
     <Content Include="data\images\tasque-32.png" />
     <Content Include="data\images\tasque-48.png" />
     <Content Include="data\sounds\notify.wav" />
-    <EmbeddedResource Include="note-16.png" />
-    <EmbeddedResource Include="rtmLogo.png" />
-    <EmbeddedResource Include="tasque-16.png" />
-    <EmbeddedResource Include="tasque-22.png" />
-    <EmbeddedResource Include="tasque-24.png" />
-    <EmbeddedResource Include="tasque-32.png" />
-    <EmbeddedResource Include="tasque-48.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\AbstractTask.cs" />
@@ -172,10 +156,7 @@
       <Name>RtmNet</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>

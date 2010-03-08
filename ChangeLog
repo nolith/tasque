@@ -1,3 +1,7 @@
+2010-03-07  Mario Carrion  <mario@carrion.mx>
+
+	* tasque.csproj: Project updated.
+
 2009-02-09  Johnny Jacob  <johnnyjacob@gmail.com>
 
 	* src/Application.cs: Reverting part of previous commit. Needed for
