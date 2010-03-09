@@ -1,6 +1,7 @@
 # Global ignores
 *~
 *.pyc
+*.swp
 Makefile
 Makefile.in
 

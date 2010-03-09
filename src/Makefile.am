@@ -67,10 +67,6 @@ CSFILES = \
 	$(srcdir)/DateButton.cs \
 	$(srcdir)/GtkApplication.cs \
 	$(srcdir)/GnomeApplication.cs \
-	$(srcdir)/IBackend.cs \
-	$(srcdir)/ICategory.cs \
-	$(srcdir)/ITask.cs \
-	$(srcdir)/INote.cs \
 	$(srcdir)/Logger.cs \
 	$(srcdir)/NativeApplication.cs \
 	$(srcdir)/NoteDialog.cs \
@@ -84,11 +80,15 @@ CSFILES = \
 	$(srcdir)/CompletedTaskGroupModel.cs \
 	$(srcdir)/TaskGroupModelFactory.cs \
 	$(srcdir)/TaskGroup.cs \
-	$(srcdir)/TaskPriority.cs \
-	$(srcdir)/TaskState.cs \
 	$(srcdir)/TaskWindow.cs \
 	$(srcdir)/TaskTreeView.cs \
 	$(srcdir)/Utilities.cs \
+	$(srcdir)/libtasque/IBackend.cs \
+	$(srcdir)/libtasque/ICategory.cs \
+	$(srcdir)/libtasque/ITask.cs \
+	$(srcdir)/libtasque/INote.cs \
+	$(srcdir)/libtasque/TaskPriority.cs \
+	$(srcdir)/libtasque/TaskState.cs \
 	\
 	$(DUMMY_CSFILES) \
 	\
@@ -184,7 +184,9 @@ EXTRA_DIST = \
 	$(srcdir)/Backends/Rtm/*.cs	\
 	$(srcdir)/Backends/Sqlite/*.cs  \
 	$(srcdir)/Backends/Hiveminder/*.cs \
-	$(srcdir)/Backends/Hiveminder/service/*.cs
+	$(srcdir)/Backends/Hiveminder/service/*.cs \
+	$(srcdir)/libtasque/*.cs \
+	$(srcdir)/libtasque/libtasque.csproj
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = tasque.pc

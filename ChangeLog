@@ -1,3 +1,19 @@
+2010-03-08  Mario Carrion  <mario@carrion.mx>
+	
+	* tasque.csproj:
+	* src/libtasque/IBackend.cs: 
+	* src/libtasque/ICategory.cs:
+	* src/libtasque/INote.cs:
+	* src/libtasque/ITask.cs:
+	* src/libtasque/TaskPriority.cs:
+	* src/libtasque/TaskState.cs: Files moved from src/.
+	* src/libtasque/libtasque.csproj: New project.
+	* .gitignore: *.swp added.
+	* RtmNet/RtmNet.csproj: MD flush.
+	* src/Makefile.am: Updated to include moved files.
+	* tasque.sln: New project added: libtasque, it will be used for
+	testing.
+
 2010-03-07  Mario Carrion  <mario@carrion.mx>
 
 	* tasque.csproj: Project updated.

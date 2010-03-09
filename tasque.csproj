@@ -32,29 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="atk-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\atk\atk-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="gdk-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\gdk\gdk-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="glib-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\glib\glib-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="gtk-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\gtk\gtk-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Posix, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>winbin\Mono.Posix.dll</HintPath>
-    </Reference>
-    <Reference Include="pango-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\Medsphere\Gtk# SDK\lib\gtk-sharp-2.0\pango\pango-sharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -63,6 +43,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>winbin\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChangeLog" />
@@ -70,9 +55,8 @@
     <None Include="data\images\note-22.svg" />
     <None Include="data\images\tasque-icons-source.svg" />
     <None Include="data\images\tasque.svg" />
-    <Compile Include="src\Defines.WIN32.cs" />
-    <None Include="src\Defines.cs.in" />
     <None Include="src\Tasque.exe.config.in" />
+    <Compile Include="src\Defines.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\images\clock-16-0.png" />
@@ -129,10 +113,6 @@
     <Compile Include="src\DateButton.cs" />
     <None Include="src\GnomeApplication.cs" />
     <Compile Include="src\GtkApplication.cs" />
-    <Compile Include="src\IBackend.cs" />
-    <Compile Include="src\ICategory.cs" />
-    <Compile Include="src\INote.cs" />
-    <Compile Include="src\ITask.cs" />
     <Compile Include="src\Logger.cs" />
     <Compile Include="src\NativeApplication.cs" />
     <Compile Include="src\NoteDialog.cs" />
@@ -144,8 +124,6 @@
     <Compile Include="src\TaskGroup.cs" />
     <Compile Include="src\TaskGroupModel.cs" />
     <Compile Include="src\TaskGroupModelFactory.cs" />
-    <Compile Include="src\TaskPriority.cs" />
-    <Compile Include="src\TaskState.cs" />
     <Compile Include="src\TaskTreeView.cs" />
     <Compile Include="src\TaskWindow.cs" />
     <Compile Include="src\Utilities.cs" />
@@ -154,6 +132,10 @@
     <ProjectReference Include="RtmNet\RtmNet.csproj">
       <Project>{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}</Project>
       <Name>RtmNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="src\libtasque\libtasque.csproj">
+      <Project>{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}</Project>
+      <Name>libtasque</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
