@@ -1,0 +1,481 @@
+# Norwegian (bokmaal) messages for tasque.
+# Copyright © 2007 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tasks package.
+# Espen Stefansen <espenas@gmail.com>, 2007.
+# Kjartan Maraas <kmaraas@broadpark.no>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque 0.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-14 11:37+0100\n"
+"PO-Revision-Date: 2010-03-14 11:43+0100\n"
+"Last-Translator: Espen Stefansen <espens@svn.gnome.org>\n"
+"Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/tasque.desktop.in.h:1
+msgid "Easy quick task management"
+msgstr "Enkel oppgavehåndtering"
+
+#: ../data/tasque.desktop.in.h:2
+msgid "Task Manager"
+msgstr "Oppgavehåndterer"
+
+#: ../data/tasque.desktop.in.h:3
+msgid "Tasque"
+msgstr "Tasque"
+
+#: ../src/Application.cs:518
+#, csharp-format
+msgid "{0} task is Overdue\n"
+msgid_plural "{0} tasks are Overdue\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Application.cs:526
+#, csharp-format
+msgid "{0} task for Today\n"
+msgid_plural "{0} tasks for Today\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Application.cs:534
+#, csharp-format
+msgid "{0} task for Tomorrow\n"
+msgid_plural "{0} tasks for Tomorrow\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+#: ../src/Application.cs:540
+msgid "Tasque Rocks"
+msgstr ""
+
+#. string [] documenters = new string [] {
+#. "Calvin Gaisford <calvinrg@gmail.com>"
+#. };
+#.
+#: ../src/Application.cs:584
+msgid "translator-credits"
+msgstr "Espen Stefansen <espenas@gmail.com>"
+
+#: ../src/Application.cs:593
+msgid "Copyright © 2008 Novell, Inc."
+msgstr ""
+
+#: ../src/Application.cs:594
+msgid "A Useful Task List"
+msgstr ""
+
+#: ../src/Application.cs:596
+msgid "Tasque Project Homepage"
+msgstr ""
+
+#: ../src/Application.cs:710
+msgid "New Task ..."
+msgstr "Ny oppgave..."
+
+#: ../src/Application.cs:717
+msgid "Show Tasks ..."
+msgstr "Vis oppgaver..."
+
+#: ../src/Application.cs:732
+msgid "Refresh Tasks ..."
+msgstr "Oppdater oppgaver..."
+
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
+msgid "All"
+msgstr "Alle"
+
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:279
+msgid "Yesterday"
+msgstr "I går"
+
+#: ../src/CompletedTaskGroup.cs:167
+msgid "Last 7 Days"
+msgstr "Siste 7 dager"
+
+#: ../src/CompletedTaskGroup.cs:169
+msgid "Last Month"
+msgstr "Siste måned"
+
+#: ../src/CompletedTaskGroup.cs:171
+msgid "Last Year"
+msgstr "Siste år"
+
+#: ../src/NoteDialog.cs:24
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr ""
+
+#: ../src/OSXApplication.cs:38
+msgid "_File"
+msgstr "_Fil"
+
+#: ../src/OSXApplication.cs:44
+msgid "_Window"
+msgstr "_Vindu"
+
+#. Update the window title
+#: ../src/PreferencesDialog.cs:97
+msgid "Tasque Preferences"
+msgstr "Brukervalg for Tasque"
+
+#: ../src/PreferencesDialog.cs:116
+msgid "General"
+msgstr "Generelt"
+
+#: ../src/PreferencesDialog.cs:124
+msgid "Appearance"
+msgstr "Utseende"
+
+#: ../src/PreferencesDialog.cs:160
+msgid "Color Management"
+msgstr "Fargehåndtering"
+
+#: ../src/PreferencesDialog.cs:171
+msgid "Today:"
+msgstr "I dag:"
+
+#: ../src/PreferencesDialog.cs:199
+msgid "Overdue:"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:243
+msgid "Task Management System"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:285
+msgid "Task Filtering"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:304
+msgid "Sh_ow completed tasks"
+msgstr "Vi_s fullførte oppgaver"
+
+#. Categories TreeView
+#: ../src/PreferencesDialog.cs:313
+msgid "Only _show these categories when \"All\" is selected:"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:331
+msgid "Category"
+msgstr "Kategori"
+
+#: ../src/RemoteControl.cs:150
+msgid "New task created."
+msgstr "Ny oppgave laget."
+
+#. Title for Completed/Checkbox Column
+#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
+msgid "Completed"
+msgstr "Fullført"
+
+#. Title for Priority Column
+#: ../src/TaskTreeView.cs:101
+msgid "Priority"
+msgstr "Prioritet"
+
+#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:612
+msgid "1"
+msgstr "1"
+
+#. High
+#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:610
+msgid "2"
+msgstr "2"
+
+#. Medium
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:608
+msgid "3"
+msgstr "3"
+
+#. Low
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+msgid "-"
+msgstr "-"
+
+#. Title for Task Name Column
+#: ../src/TaskTreeView.cs:131
+msgid "Task Name"
+msgstr "Oppgavenavn"
+
+#. Title for Due Date Column
+#: ../src/TaskTreeView.cs:173
+msgid "Due Date"
+msgstr "Ferdigdato"
+
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
+msgid "M/d - "
+msgstr ""
+
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:273
+msgid "Today"
+msgstr "I dag"
+
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:292
+msgid "Tomorrow"
+msgstr "I morgen"
+
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:711
+msgid "M/d - ddd"
+msgstr ""
+
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
+msgid "In 1 Week"
+msgstr ""
+
+#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/Utilities.cs:305
+msgid "No Date"
+msgstr "Ingen dato"
+
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
+msgid "Choose Date..."
+msgstr "Velg dato..."
+
+#. Title for Notes Column
+#: ../src/TaskTreeView.cs:219
+msgid "Notes"
+msgstr "Notater"
+
+#. Title for Timer Column
+#: ../src/TaskTreeView.cs:236
+msgid "Timer"
+msgstr ""
+
+#: ../src/TaskTreeView.cs:281
+msgid "Task Completed"
+msgstr "Oppgave fullført"
+
+#: ../src/TaskTreeView.cs:436
+msgid "M/d/yy - ddd"
+msgstr ""
+
+#: ../src/TaskTreeView.cs:594
+msgid "Action Canceled"
+msgstr "Handling avbrutt"
+
+#: ../src/TaskTreeView.cs:859
+#, fuzzy, csharp-format
+msgid "Completing Task In: {0}"
+msgstr "Fullfør oppgave"
+
+#. The new task entry widget
+#. Clear the entry if it contains the default text
+#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
+msgid "New task..."
+msgstr "Ny oppgave ..."
+
+#: ../src/TaskWindow.cs:165
+msgid "_Add"
+msgstr "_Legg til"
+
+#: ../src/TaskWindow.cs:170
+msgid "_Add Task"
+msgstr "_Legg til oppgave"
+
+#: ../src/TaskWindow.cs:257
+msgid "Overdue"
+msgstr ""
+
+#: ../src/TaskWindow.cs:311
+msgid "Next 7 Days"
+msgstr ""
+
+#: ../src/TaskWindow.cs:327
+msgid "Future"
+msgstr ""
+
+#. Translators: This status shows the date and time when the task list was last refreshed
+#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#, csharp-format
+msgid "Tasks loaded: {0}"
+msgstr ""
+
+#. Show error status
+#: ../src/TaskWindow.cs:801
+msgid "Error creating a new task"
+msgstr ""
+
+#. Show successful status
+#: ../src/TaskWindow.cs:805
+msgid "Task created successfully"
+msgstr ""
+
+#: ../src/TaskWindow.cs:1089
+msgid "_Notes..."
+msgstr "_Notater..."
+
+#: ../src/TaskWindow.cs:1096
+msgid "_Delete task"
+msgstr "_Slett oppgave"
+
+#: ../src/TaskWindow.cs:1101
+msgid "_Edit task"
+msgstr "R_ediger oppgave"
+
+#. TODO Needs translation.
+#: ../src/TaskWindow.cs:1133
+msgid "_Change category"
+msgstr "_Bytt kategori"
+
+#: ../src/TaskWindow.cs:1162
+msgid "Task deleted"
+msgstr "Oppgave slettet"
+
+#: ../src/TaskWindow.cs:1204
+msgid "Loading tasks..."
+msgstr "Laster oppgaver..."
+
+#: ../src/TaskWindow.cs:1225
+msgid "Not connected."
+msgstr "Ikke tilkoblet."
+
+#: ../src/Utilities.cs:271
+#, csharp-format
+msgid "Today, {0}"
+msgstr "I dag, {0}"
+
+#: ../src/Utilities.cs:277
+#, csharp-format
+msgid "Yesterday, {0}"
+msgstr ""
+
+#: ../src/Utilities.cs:283
+#, csharp-format
+msgid "{0} days ago, {1}"
+msgstr ""
+
+#: ../src/Utilities.cs:285
+#, csharp-format
+msgid "{0} days ago"
+msgstr ""
+
+#: ../src/Utilities.cs:290
+#, csharp-format
+msgid "Tomorrow, {0}"
+msgstr ""
+
+#: ../src/Utilities.cs:296
+#, csharp-format
+msgid "In {0} days, {1}"
+msgstr ""
+
+#: ../src/Utilities.cs:298
+#, csharp-format
+msgid "In {0} days"
+msgstr ""
+
+#: ../src/Utilities.cs:302
+msgid "MMMM d, h:mm tt"
+msgstr ""
+
+#: ../src/Utilities.cs:303
+msgid "MMMM d"
+msgstr ""
+
+#: ../src/Utilities.cs:308
+msgid "MMMM d yyyy, h:mm tt"
+msgstr ""
+
+#: ../src/Utilities.cs:309
+msgid "MMMM d yyyy"
+msgstr ""
+
+#: ../src/Utilities.cs:318
+msgid "Sunday"
+msgstr "Søndag"
+
+#: ../src/Utilities.cs:320
+msgid "Monday"
+msgstr "Mandag"
+
+#: ../src/Utilities.cs:322
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+#: ../src/Utilities.cs:324
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: ../src/Utilities.cs:326
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: ../src/Utilities.cs:328
+msgid "Friday"
+msgstr "Fredag"
+
+#: ../src/Utilities.cs:330
+msgid "Saturday"
+msgstr "Lørdag"
+
+#. Then try some more natural language parsing
+#. A regular expression to capture a task that is due today
+#: ../src/Utilities.cs:376
+#, fuzzy
+msgid "^(?<task>.+)\\s+today\\W*$"
+msgstr "^(?<task>.+) i dag$"
+
+#. A regular expression to capture a task that is due tomorrow
+#: ../src/Utilities.cs:378
+#, fuzzy
+msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+msgstr "^(?<task>.+) i morgen$"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
+msgid "Click Here to Connect"
+msgstr "Klikk her for å koble til"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
+msgid "You are currently connected"
+msgstr ""
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
+msgid "You are currently connected as"
+msgstr ""
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
+msgid "You are not connected"
+msgstr "Du er ikke koblet til"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
+msgid "Remember the Milk not responding. Try again later."
+msgstr ""
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
+msgid "Click Here After Authorizing"
+msgstr ""
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
+msgid "Set the default browser and try again"
+msgstr ""
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
+msgid "Processing..."
+msgstr "Prosesserer..."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Failed, Try Again"
+msgstr "Feilet. Prøv igjen"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
+msgid "Thank You"
+msgstr "Takk"
