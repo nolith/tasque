@@ -127,7 +127,6 @@ ASSEMBLIES =  \
 	-r:System \
 	-r:Mono.Posix \
 	-r:System.Xml \
-	-r:System.Web \
 	-r:$(top_builddir)/RtmNet/RtmNet \
 	$(GLIB_SHARP_20_LIBS) \
 	$(GNOME_SHARP_20_LIBS) \

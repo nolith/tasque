@@ -20,6 +20,7 @@ CSFILES = \
 	$(srcdir)/Enums.cs				\
 	$(srcdir)/Groups.cs				\
 	$(srcdir)/GroupSearchResults.cs			\
+	$(srcdir)/HttpUtility.cs			\
 	$(srcdir)/List.cs				\
 	$(srcdir)/Methods.cs				\
 	$(srcdir)/Note.cs				\
@@ -40,7 +41,6 @@ RESOURCES =
 
 ASSEMBLIES =  \
 	-r:System \
-	-r:System.Web \
 	-r:System.Xml
 
 $(TARGET): $(CSFILES)
