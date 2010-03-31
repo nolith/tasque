@@ -1,3 +1,11 @@
+2010-03-31  Mario Carrion  <mario@carrion.mx>
+
+	* src/Backends/Sqlite/SqliteBackend.cs:
+	* src/Backends/Sqlite/SqliteTask.cs: Caches task fields to accelerate
+	backend.
+
+	Patch by Didier Vidal. Fixes BGO #607816
+
 2010-03-30  Mario Carrion  <mario@carrion.mx>
 
 	* TRANSLATORS: Added file.

@@ -243,10 +243,10 @@ namespace Tasque.Backends.Sqlite
 			bool hasValues = false;
 			
 			string command = "SELECT id FROM Categories";
-        	SqliteCommand cmd = db.Connection.CreateCommand();
-        	cmd.CommandText = command;
-        	SqliteDataReader dataReader = cmd.ExecuteReader();
-        	while(dataReader.Read()) {
+			SqliteCommand cmd = db.Connection.CreateCommand();
+			cmd.CommandText = command;
+			SqliteDataReader dataReader = cmd.ExecuteReader();
+			while(dataReader.Read()) {
 			    int id = dataReader.GetInt32(0);
 				hasValues = true;
 				
@@ -255,10 +255,10 @@ namespace Tasque.Backends.Sqlite
 					defaultCategory = newCategory;
 				iter = categoryListStore.Append ();
 				categoryListStore.SetValue (iter, 0, newCategory);				
-        	}
-
-        	dataReader.Close();
-        	cmd.Dispose();
+			}
+			
+			dataReader.Close();
+			cmd.Dispose();
 
 			if(!hasValues)
 			{
@@ -286,23 +286,32 @@ namespace Tasque.Backends.Sqlite
 			Gtk.TreeIter iter;
 			SqliteTask newTask;
 			bool hasValues = false;
-			
-			string command = "SELECT id FROM Tasks";
-        	SqliteCommand cmd = db.Connection.CreateCommand();
-        	cmd.CommandText = command;
-        	SqliteDataReader dataReader = cmd.ExecuteReader();
-        	while(dataReader.Read()) {
-			    int id = dataReader.GetInt32(0);
+
+			string command = "SELECT id,Category,Name,DueDate,CompletionDate,Priority, State FROM Tasks";
+			SqliteCommand cmd = db.Connection.CreateCommand();
+			cmd.CommandText = command;
+			SqliteDataReader dataReader = cmd.ExecuteReader();
+			while(dataReader.Read()) {
+				int id = dataReader.GetInt32(0);
+				int category = dataReader.GetInt32(1);
+				string name = dataReader.GetString(2);
+				int dueDate = dataReader.GetInt32(3);
+				int completionDate = dataReader.GetInt32(4);
+				int priority = dataReader.GetInt32(5);
+				int state = dataReader.GetInt32(6);
+
 				hasValues = true;
-				
-				newTask = new SqliteTask(this, id);
+
+				newTask = new SqliteTask(this, id, category,
+				                         name, dueDate, completionDate,
+				                         priority, state);
 				iter = taskStore.AppendNode();
 				taskStore.SetValue (iter, 0, newTask);
 				taskIters [newTask.SqliteId] = iter;
-        	}
+			}
 
-        	dataReader.Close();
-        	cmd.Dispose();
+			dataReader.Close();
+			cmd.Dispose();
 
 			if(!hasValues)
 			{
