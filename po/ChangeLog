@@ -1,3 +1,8 @@
+2010-03-30  Mario Carrion  <mario@carrion.mx>
+
+	* POTFILES.in: Added new files.
+	* *.po: Updated to latest changes.
+
 2009-10-05  Ray Wang  <raywang@gnome.org>
 
 	* zh_CN.po: Updated zh_CN translation.

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tasque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-05 16:36+0100\n"
+"POT-Creation-Date: 2010-03-30 22:36-0400\n"
 "PO-Revision-Date: 2009-10-03 21:17+0000\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
@@ -89,7 +89,7 @@ msgstr "Actualizar Tarefas..."
 msgid "All"
 msgstr "Todas"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "Ontem"
 
@@ -218,12 +218,12 @@ msgid "M/d - "
 msgstr "M/d - "
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Hoje"
 
 #: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Amanhã"
 
@@ -239,7 +239,7 @@ msgid "In 1 Week"
 msgstr "Daqui a 1 Semana"
 
 #: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
-#: ../src/Utilities.cs:297
+#: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Sem Data"
 
@@ -346,95 +346,56 @@ msgstr "A carregar tarefas..."
 msgid "Not connected."
 msgstr "Não está ligado."
 
-#: ../src/Utilities.cs:263
+#: ../src/Utilities.cs:274
 #, csharp-format
 msgid "Today, {0}"
 msgstr "Hoje, {0}"
 
-#: ../src/Utilities.cs:269
+#: ../src/Utilities.cs:280
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "Ontem, {0}"
 
-#: ../src/Utilities.cs:275
+#: ../src/Utilities.cs:286
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "{0} dias atrás, {1}"
 
-#: ../src/Utilities.cs:277
+#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
 msgstr "{0} dias atrás"
 
-#: ../src/Utilities.cs:282
+#: ../src/Utilities.cs:293
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Amanhã, {0}"
 
-#: ../src/Utilities.cs:288
+#: ../src/Utilities.cs:299
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "Em {0} dias, {1}"
 
-#: ../src/Utilities.cs:290
+#: ../src/Utilities.cs:301
 #, csharp-format
 msgid "In {0} days"
 msgstr "Em {0} dias"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:305
 msgid "MMMM d, h:mm tt"
 msgstr "MMMM d, h:mm tt"
 
-#: ../src/Utilities.cs:295
+#: ../src/Utilities.cs:306
 msgid "MMMM d"
 msgstr "MMMM d"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:311
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "MMMM d aaaa, h:mm tt"
 
-#: ../src/Utilities.cs:301
+#: ../src/Utilities.cs:312
 msgid "MMMM d yyyy"
 msgstr "MMMM d aaaa"
-
-#: ../src/Utilities.cs:310
-msgid "Sunday"
-msgstr "Domingo"
-
-#: ../src/Utilities.cs:312
-msgid "Monday"
-msgstr "Segunda-Feira"
-
-#: ../src/Utilities.cs:314
-msgid "Tuesday"
-msgstr "Terça-Feira"
-
-#: ../src/Utilities.cs:316
-msgid "Wednesday"
-msgstr "Quarta-Feira"
-
-#: ../src/Utilities.cs:318
-msgid "Thursday"
-msgstr "Quinta-Feira"
-
-#: ../src/Utilities.cs:320
-msgid "Friday"
-msgstr "Sexta-Feira"
-
-#: ../src/Utilities.cs:322
-msgid "Saturday"
-msgstr "Sábado"
-
-#. Then try some more natural language parsing
-#. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:368
-msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr "^(?<task>.+)\\s+hoje\\W*$"
-
-#. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:370
-msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr "^(?<task>.+)\\s+amanhã\\W*$"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
@@ -477,3 +438,117 @@ msgstr "Falhou, tente novamente"
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
 msgstr "Obrigado"
+
+#: ../src/libtasque/TaskParser.cs:47
+msgid "th,st,nd,rd"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:49
+#, fuzzy
+msgid "today"
+msgstr "Hoje"
+
+#: ../src/libtasque/TaskParser.cs:51
+#, fuzzy
+msgid "tomorrow"
+msgstr "Amanhã"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:54
+msgid "month|months"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:57
+msgid "week|weeks"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:60
+msgid "year|years"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:63
+msgid "day|days"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:199
+msgid "due before|due by|due"
+msgstr ""
+
+#. L10N: Examples could be: "Next Month", "Next Monday"
+#: ../src/libtasque/TaskParser.cs:224
+msgid "next"
+msgstr ""
+
+#. L10N: Examples could be: "On April 1st", "On Wednesday"
+#: ../src/libtasque/TaskParser.cs:229
+msgid "on"
+msgstr ""
+
+#. L10N: Examples could be: "In 2 weeks", "In 3 months"
+#: ../src/libtasque/TaskParser.cs:234
+msgid "in"
+msgstr ""
+
+#. "Today and Tomorrow" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:248
+msgid "u T"
+msgstr ""
+
+#. Represents: "Next" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:250
+msgid "n w|n m|n y|n D"
+msgstr ""
+
+#. Represents "Due" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:252
+msgid "u o D|u M O|u M N|u O|u M"
+msgstr ""
+
+#. Represents "On" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:254
+msgid "o D|o O"
+msgstr ""
+
+#. Represents "In" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:256
+msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+msgstr ""
+
+#. Represents all other expressions not using tokens. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:258
+msgid "T|D|M O|M N|O|A"
+msgstr ""
+
+#, fuzzy
+#~ msgid "New task1..."
+#~ msgstr "Nova tarefa..."
+
+#~ msgid "Sunday"
+#~ msgstr "Domingo"
+
+#~ msgid "Monday"
+#~ msgstr "Segunda-Feira"
+
+#~ msgid "Tuesday"
+#~ msgstr "Terça-Feira"
+
+#~ msgid "Wednesday"
+#~ msgstr "Quarta-Feira"
+
+#~ msgid "Thursday"
+#~ msgstr "Quinta-Feira"
+
+#~ msgid "Friday"
+#~ msgstr "Sexta-Feira"
+
+#~ msgid "Saturday"
+#~ msgstr "Sábado"
+
+#~ msgid "^(?<task>.+)\\s+today\\W*$"
+#~ msgstr "^(?<task>.+)\\s+hoje\\W*$"
+
+#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+#~ msgstr "^(?<task>.+)\\s+amanhã\\W*$"

@@ -6,9 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=tasque&component=general\n"
-"POT-Creation-Date: 2009-09-19 15:24+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-30 22:36-0400\n"
 "PO-Revision-Date: 2009-04-02 13:54+0700\n"
 "Last-Translator: Imam Musthaqim <userindesign@gmail.com>\n"
 "Language-Team: INDONESIA <userindesign@gmail.com>\n"
@@ -54,7 +53,6 @@ msgstr[1] ""
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
 #, fuzzy
-#| msgid "Tasque"
 msgid "Tasque Rocks"
 msgstr "Tasque"
 
@@ -94,7 +92,7 @@ msgstr "Perbarui Tugas ..."
 msgid "All"
 msgstr "Semua"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "Kemarin"
 
@@ -142,13 +140,11 @@ msgstr ""
 
 #: ../src/PreferencesDialog.cs:171
 #, fuzzy
-#| msgid "Today"
 msgid "Today:"
 msgstr "Hari Ini"
 
 #: ../src/PreferencesDialog.cs:199
 #, fuzzy
-#| msgid "Overdue"
 msgid "Overdue:"
 msgstr "Terlambat"
 
@@ -226,12 +222,12 @@ msgid "M/d - "
 msgstr "B/t -"
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Hari Ini"
 
 #: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Besok"
 
@@ -247,7 +243,7 @@ msgid "In 1 Week"
 msgstr "Dalam 1 Minggu"
 
 #: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
-#: ../src/Utilities.cs:297
+#: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Tanpa Tanggal"
 
@@ -340,7 +336,6 @@ msgstr "_Edit tugas"
 #. TODO Needs translation.
 #: ../src/TaskWindow.cs:1133
 #, fuzzy
-#| msgid "Category"
 msgid "_Change category"
 msgstr "Kategori"
 
@@ -354,105 +349,62 @@ msgstr "Memuat tugas..."
 
 #: ../src/TaskWindow.cs:1225
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are not connected"
 msgid "Not connected."
 msgstr ""
 "\n"
 "\n"
 "Anda tidak terhubung"
 
-#: ../src/Utilities.cs:263
+#: ../src/Utilities.cs:274
 #, csharp-format
 msgid "Today, {0}"
 msgstr "Hari ini, {0}"
 
-#: ../src/Utilities.cs:269
+#: ../src/Utilities.cs:280
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "Kemarin, {0}"
 
-#: ../src/Utilities.cs:275
+#: ../src/Utilities.cs:286
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "{0} hari yang lalu, {1}"
 
-#: ../src/Utilities.cs:277
+#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
 msgstr "{0} hari yang lau"
 
-#: ../src/Utilities.cs:282
+#: ../src/Utilities.cs:293
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Besok, {0}"
 
-#: ../src/Utilities.cs:288
+#: ../src/Utilities.cs:299
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "Dalam {0} hari, {1}"
 
-#: ../src/Utilities.cs:290
+#: ../src/Utilities.cs:301
 #, csharp-format
 msgid "In {0} days"
 msgstr "Dalam {0} hari"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:305
 msgid "MMMM d, h:mm tt"
 msgstr "BBBB t, j:mm tt"
 
-#: ../src/Utilities.cs:295
+#: ../src/Utilities.cs:306
 msgid "MMMM d"
 msgstr "BBBB t"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:311
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "BBBB t tttt, j:mm tt"
 
-#: ../src/Utilities.cs:301
+#: ../src/Utilities.cs:312
 msgid "MMMM d yyyy"
 msgstr "BBB t tttt"
-
-#: ../src/Utilities.cs:310
-msgid "Sunday"
-msgstr "Minggu"
-
-#: ../src/Utilities.cs:312
-msgid "Monday"
-msgstr "Senin"
-
-#: ../src/Utilities.cs:314
-msgid "Tuesday"
-msgstr "Selasa"
-
-#: ../src/Utilities.cs:316
-msgid "Wednesday"
-msgstr "Rabu"
-
-#: ../src/Utilities.cs:318
-msgid "Thursday"
-msgstr "Kamis"
-
-#: ../src/Utilities.cs:320
-msgid "Friday"
-msgstr "Jumat"
-
-#: ../src/Utilities.cs:322
-msgid "Saturday"
-msgstr "Sabtu"
-
-#. Then try some more natural language parsing
-#. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:368
-msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr "^(?<task>.+)\\s+today\\W*$"
-
-#. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:370
-msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
@@ -461,10 +413,6 @@ msgstr "Klik Di Sini untuk Menghubungkan"
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are currently connected"
 msgid "You are currently connected"
 msgstr ""
 "\n"
@@ -474,10 +422,6 @@ msgstr ""
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are currently connected"
 msgid "You are currently connected as"
 msgstr ""
 "\n"
@@ -486,10 +430,6 @@ msgstr ""
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are not connected"
 msgid "You are not connected"
 msgstr ""
 "\n"
@@ -519,3 +459,117 @@ msgstr ""
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
 msgstr "Terima Kasih"
+
+#: ../src/libtasque/TaskParser.cs:47
+msgid "th,st,nd,rd"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:49
+#, fuzzy
+msgid "today"
+msgstr "Hari Ini"
+
+#: ../src/libtasque/TaskParser.cs:51
+#, fuzzy
+msgid "tomorrow"
+msgstr "Besok"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:54
+msgid "month|months"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:57
+msgid "week|weeks"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:60
+msgid "year|years"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:63
+msgid "day|days"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:199
+msgid "due before|due by|due"
+msgstr ""
+
+#. L10N: Examples could be: "Next Month", "Next Monday"
+#: ../src/libtasque/TaskParser.cs:224
+msgid "next"
+msgstr ""
+
+#. L10N: Examples could be: "On April 1st", "On Wednesday"
+#: ../src/libtasque/TaskParser.cs:229
+msgid "on"
+msgstr ""
+
+#. L10N: Examples could be: "In 2 weeks", "In 3 months"
+#: ../src/libtasque/TaskParser.cs:234
+msgid "in"
+msgstr ""
+
+#. "Today and Tomorrow" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:248
+msgid "u T"
+msgstr ""
+
+#. Represents: "Next" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:250
+msgid "n w|n m|n y|n D"
+msgstr ""
+
+#. Represents "Due" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:252
+msgid "u o D|u M O|u M N|u O|u M"
+msgstr ""
+
+#. Represents "On" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:254
+msgid "o D|o O"
+msgstr ""
+
+#. Represents "In" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:256
+msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+msgstr ""
+
+#. Represents all other expressions not using tokens. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:258
+msgid "T|D|M O|M N|O|A"
+msgstr ""
+
+#, fuzzy
+#~ msgid "New task1..."
+#~ msgstr "Tugas baru..."
+
+#~ msgid "Sunday"
+#~ msgstr "Minggu"
+
+#~ msgid "Monday"
+#~ msgstr "Senin"
+
+#~ msgid "Tuesday"
+#~ msgstr "Selasa"
+
+#~ msgid "Wednesday"
+#~ msgstr "Rabu"
+
+#~ msgid "Thursday"
+#~ msgstr "Kamis"
+
+#~ msgid "Friday"
+#~ msgstr "Jumat"
+
+#~ msgid "Saturday"
+#~ msgstr "Sabtu"
+
+#~ msgid "^(?<task>.+)\\s+today\\W*$"
+#~ msgstr "^(?<task>.+)\\s+today\\W*$"
+
+#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+#~ msgstr "^(?<task>.+)\\s+tomorrow\\W*$"

@@ -120,7 +120,7 @@ namespace Tasque
 			// out of the taskName.
 			DateTime taskDueDate = DateTime.MinValue;
 			if (parseDate && Application.Preferences.GetBool (Preferences.ParseDateEnabledKey))
-				Utilities.ParseTaskText (
+				TaskParser.Instance.TryParse (
 				                         taskName,
 				                         out taskName,
 				                         out taskDueDate);

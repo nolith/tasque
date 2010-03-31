@@ -7,9 +7,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>libtasque</RootNamespace>
+    <RootNamespace>Tasque</RootNamespace>
     <AssemblyName>libtasque</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,9 +35,44 @@
     <Compile Include="ITask.cs" />
     <Compile Include="TaskPriority.cs" />
     <Compile Include="TaskState.cs" />
+    <Compile Include="TaskParser.cs" />
+    <Compile Include="DateFormatterFactory.cs" />
+    <Compile Include="DateFormatters\IDateFormatter.cs" />
+    <Compile Include="DateFormatters\WeekdayFormatter.cs" />
+    <Compile Include="DateFormatters\OrdinalFormatter.cs" />
+    <Compile Include="DateFormatters\WeekFormatter.cs" />
+    <Compile Include="DateFormatters\StringInsensitiveComparer.cs" />
+    <Compile Include="DateFormatters\QuantityFormatter.cs" />
+    <Compile Include="DateFormatters\YearFormatter.cs" />
+    <Compile Include="DateFormatters\DateFormatter.cs" />
+    <Compile Include="DateFormatters\MonthFormatter.cs" />
+    <Compile Include="DateFormatters\TodayTomorrowFormatter.cs" />
+    <Compile Include="RegularExpressionFormatter.cs" />
+    <Compile Include="TranslatableToken.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="DateFormatters\DayFormatter.cs" />
+    <Compile Include="DateFormatters\DateSeparatedFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Posix, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\winbin\Mono.Posix.dll</HintPath>
+    </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DateFormatters\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="MSBuild" />
+          <StandardHeader Text="Author:&#xA;      ${AuthorName} &lt;${AuthorEmail}&gt;&#xA;&#xA;Copyright (c) ${Year} ${CopyrightHolder}&#xA;&#xA;Permission is hereby granted, free of charge, to any person obtaining a copy&#xA;of this software and associated documentation files (the &quot;Software&quot;), to deal&#xA;in the Software without restriction, including without limitation the rights&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xA;copies of the Software, and to permit persons to whom the Software is&#xA;furnished to do so, subject to the following conditions:&#xA;&#xA;The above copyright notice and this permission notice shall be included in&#xA;all copies or substantial portions of the Software.&#xA;&#xA;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR&#xA;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,&#xA;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE&#xA;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER&#xA;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,&#xA;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN&#xA;THE SOFTWARE." inheritsSet="MITX11License" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

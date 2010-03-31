@@ -83,12 +83,7 @@ CSFILES = \
 	$(srcdir)/TaskWindow.cs \
 	$(srcdir)/TaskTreeView.cs \
 	$(srcdir)/Utilities.cs \
-	$(srcdir)/libtasque/IBackend.cs \
-	$(srcdir)/libtasque/ICategory.cs \
-	$(srcdir)/libtasque/ITask.cs \
-	$(srcdir)/libtasque/INote.cs \
-	$(srcdir)/libtasque/TaskPriority.cs \
-	$(srcdir)/libtasque/TaskState.cs \
+	$(TASQUEDLL_CSFILES) \
 	\
 	$(DUMMY_CSFILES) \
 	\
@@ -101,6 +96,34 @@ CSFILES = \
 	$(EDS_CSFILES) \
 	\
 	$(HIVEMINDER_CSFILES)
+
+TASQUEDLL_CSFILES = \
+	$(srcdir)/libtasque/DateFormatterFactory.cs \
+	$(srcdir)/libtasque/Extensions.cs \
+	$(srcdir)/libtasque/IBackend.cs \
+	$(srcdir)/libtasque/ICategory.cs \
+	$(srcdir)/libtasque/INote.cs \
+	$(srcdir)/libtasque/ITask.cs \
+	$(srcdir)/libtasque/RegularExpressionFormatter.cs \
+	$(srcdir)/libtasque/TaskParser.cs \
+	$(srcdir)/libtasque/TaskPriority.cs \
+	$(srcdir)/libtasque/TaskState.cs \
+	$(srcdir)/libtasque/TranslatableToken.cs \
+	$(foreach file,$(TASQUEDLL_FORMATTERS_CSFILES), $(addprefix $(srcdir)/libtasque/DateFormatters/, $(file)))
+
+TASQUEDLL_FORMATTERS_CSFILES = \
+	DateSeparatedFormatter.cs \
+	DayFormatter.cs \
+	DateFormatter.cs \
+	IDateFormatter.cs \
+	MonthFormatter.cs \
+	OrdinalFormatter.cs \
+	QuantityFormatter.cs \
+	StringInsensitiveComparer.cs \
+	TodayTomorrowFormatter.cs \
+	WeekdayFormatter.cs \
+	WeekFormatter.cs \
+	YearFormatter.cs
 
 RESOURCES = \
 	-resource:$(top_srcdir)/data/images/tasque-16.png \
@@ -125,6 +148,7 @@ RESOURCES = \
 
 ASSEMBLIES =  \
 	-r:System \
+	-r:System.Core \
 	-r:Mono.Posix \
 	-r:System.Xml \
 	-r:$(top_builddir)/RtmNet/RtmNet \
@@ -185,6 +209,7 @@ EXTRA_DIST = \
 	$(srcdir)/Backends/Hiveminder/*.cs \
 	$(srcdir)/Backends/Hiveminder/service/*.cs \
 	$(srcdir)/libtasque/*.cs \
+	$(srcdir)/libtasque/DateFormatters/* \
 	$(srcdir)/libtasque/libtasque.csproj
 
 pkgconfigdir = $(libdir)/pkgconfig

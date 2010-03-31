@@ -4,14 +4,14 @@
 # Nacho Hermoso de Mendoza <gnacho@gmail.com>, 2008.
 #
 # Jorge González <jorgegonz@svn.gnome.org>, 2008, 2009.
+# Mario Carrion <mario@carrion.mx>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=tasque&component=general\n"
-"POT-Creation-Date: 2009-09-19 15:24+0000\n"
-"PO-Revision-Date: 2009-11-02 11:28+0100\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-30 22:36-0400\n"
+"PO-Revision-Date: 2010-03-30 11:28+0100\n"
+"Last-Translator: Mario Carrion <mario@carrion.mx>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,6 @@ msgstr[1] "{0} tareas para mañana\n"
 
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
-#| msgid "Tasque"
 msgid "Tasque Rocks"
 msgstr "Tasque mola"
 
@@ -93,7 +92,7 @@ msgstr "Actualizar tareas..."
 msgid "All"
 msgstr "Todas"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:271
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "Ayer"
 
@@ -140,12 +139,10 @@ msgid "Color Management"
 msgstr "Gestión de color"
 
 #: ../src/PreferencesDialog.cs:171
-#| msgid "Today"
 msgid "Today:"
 msgstr "Hoy:"
 
 #: ../src/PreferencesDialog.cs:199
-#| msgid "Overdue"
 msgid "Overdue:"
 msgstr "Atrasadas:"
 
@@ -223,12 +220,12 @@ msgid "M/d - "
 msgstr "d/M - "
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:265
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Hoy"
 
 #: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:284
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Mañana"
 
@@ -244,7 +241,7 @@ msgid "In 1 Week"
 msgstr "En 1 semana"
 
 #: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
-#: ../src/Utilities.cs:297
+#: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Sin fecha"
 
@@ -336,7 +333,6 @@ msgstr "_Editar tarea"
 
 #. TODO Needs translation.
 #: ../src/TaskWindow.cs:1133
-#| msgid "Category"
 msgid "_Change category"
 msgstr "_Cambiar categoría"
 
@@ -349,102 +345,59 @@ msgid "Loading tasks..."
 msgstr "Cargando tareas..."
 
 #: ../src/TaskWindow.cs:1225
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are not connected"
 msgid "Not connected."
 msgstr "Sin conexión."
 
-#: ../src/Utilities.cs:263
+#: ../src/Utilities.cs:274
 #, csharp-format
 msgid "Today, {0}"
 msgstr "Hoy, {0}"
 
-#: ../src/Utilities.cs:269
+#: ../src/Utilities.cs:280
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "Ayer, {0}"
 
-#: ../src/Utilities.cs:275
+#: ../src/Utilities.cs:286
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "{0} días atrás, {1}"
 
-#: ../src/Utilities.cs:277
+#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
 msgstr "{0} días atrás"
 
-#: ../src/Utilities.cs:282
+#: ../src/Utilities.cs:293
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "Mañana, {0}"
 
-#: ../src/Utilities.cs:288
+#: ../src/Utilities.cs:299
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "En {0} días, {1}"
 
-#: ../src/Utilities.cs:290
+#: ../src/Utilities.cs:301
 #, csharp-format
 msgid "In {0} days"
 msgstr "En {0} días"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:305
 msgid "MMMM d, h:mm tt"
 msgstr "MMMM d, h:mm tt"
 
-#: ../src/Utilities.cs:295
+#: ../src/Utilities.cs:306
 msgid "MMMM d"
 msgstr "MMMM d"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:311
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "d MMMM yyyy h:mm tt"
 
-#: ../src/Utilities.cs:301
+#: ../src/Utilities.cs:312
 msgid "MMMM d yyyy"
 msgstr "d MMMM yyyy"
-
-#: ../src/Utilities.cs:310
-msgid "Sunday"
-msgstr "Domingo"
-
-#: ../src/Utilities.cs:312
-msgid "Monday"
-msgstr "Lunes"
-
-#: ../src/Utilities.cs:314
-msgid "Tuesday"
-msgstr "Martes"
-
-#: ../src/Utilities.cs:316
-msgid "Wednesday"
-msgstr "Miércoles"
-
-#: ../src/Utilities.cs:318
-msgid "Thursday"
-msgstr "Jueves"
-
-#: ../src/Utilities.cs:320
-msgid "Friday"
-msgstr "Viernes"
-
-#: ../src/Utilities.cs:322
-msgid "Saturday"
-msgstr "Sábado"
-
-#. Then try some more natural language parsing
-#. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:368
-msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr "^(?<task>.+)\\s+hoy\\W*$"
-
-#. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:370
-msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr "^(?<task>.+)\\s+mañana\\W*$"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
@@ -452,27 +405,15 @@ msgstr "Pulse aquí para conectar"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are currently connected"
 msgid "You are currently connected"
 msgstr "Ahora está conectado"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are currently connected"
 msgid "You are currently connected as"
 msgstr "Ahora está conectado como"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
-#| msgid ""
-#| "\n"
-#| "\n"
-#| "You are not connected"
 msgid "You are not connected"
 msgstr "No está conectado"
 
@@ -500,5 +441,83 @@ msgstr "Falló, inténtelo de nuevo"
 msgid "Thank You"
 msgstr "Gracias"
 
-#~ msgid "Reloading tasks..."
-#~ msgstr "Actualizando tareas..."
+#: ../src/libtasque/TaskParser.cs:47
+msgid "th,st,nd,rd"
+msgstr "o"
+
+#: ../src/libtasque/TaskParser.cs:49
+msgid "today"
+msgstr "hoy"
+
+#: ../src/libtasque/TaskParser.cs:51
+msgid "tomorrow"
+msgstr "mañana"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:54
+msgid "month|months"
+msgstr "mes|meses"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:57
+msgid "week|weeks"
+msgstr "semana|semanas"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:60
+msgid "year|years"
+msgstr "año|años"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:63
+msgid "day|days"
+msgstr "día|dia|días|dias"
+
+#: ../src/libtasque/TaskParser.cs:199
+msgid "due before|due by|due"
+msgstr "para|antes de|antes|antes del"
+
+#. L10N: Examples could be: "Next Month", "Next Monday"
+#: ../src/libtasque/TaskParser.cs:224
+msgid "next"
+msgstr "la siguiente|la proxima|la próxima|el siguiente|el próximo|el proximo"
+
+#. L10N: Examples could be: "On April 1st", "On Wednesday"
+#: ../src/libtasque/TaskParser.cs:229
+msgid "on"
+msgstr "el"
+
+#. L10N: Examples could be: "In 2 weeks", "In 3 months"
+#: ../src/libtasque/TaskParser.cs:234
+msgid "in"
+msgstr "en"
+
+#. "Today and Tomorrow" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:248
+msgid "u T"
+msgstr "u T"
+
+#. Represents: "Next" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:250
+msgid "n w|n m|n y|n D"
+msgstr "n w|n m|n y|n D"
+
+#. Represents "Due" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:252
+msgid "u o D|u M O|u M N|u O|u M"
+msgstr "u 'del' D|u 'del' O 'de' M|u 'del' O|u 'de' M O|u 'de' M"
+
+#. Represents "On" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:254
+msgid "o D|o O"
+msgstr "o D|o O"
+
+#. Represents "In" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:256
+msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+
+#. Represents all other expressions not using tokens. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:258
+msgid "T|D|M O|M N|O|A"
+msgstr "T|D|O 'de' M|M N|O|A"

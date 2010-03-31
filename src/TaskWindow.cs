@@ -952,7 +952,7 @@ namespace Tasque
 			DateTime taskDueDate = DateTime.MinValue;
 			string taskName;
 			if (Application.Preferences.GetBool (Preferences.ParseDateEnabledKey))
-				Utilities.ParseTaskText (
+				TaskParser.Instance.TryParse (
 				                         enteredTaskText,
 				                         out taskName,
 				                         out taskDueDate);

@@ -640,7 +640,7 @@ namespace Tasque
 				
 				string parsedTaskText;
 				DateTime parsedDueDate;
-				Utilities.ParseTaskText (newText, out parsedTaskText, out parsedDueDate);
+				TaskParser.Instance.TryParse (newText, out parsedTaskText, out parsedDueDate);
 				
 				if (parsedDueDate != DateTime.MinValue)
 					task.DueDate = parsedDueDate;

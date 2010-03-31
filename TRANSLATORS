@@ -1,0 +1,54 @@
+TRANSLATORS
+
+This file explains the rules to follow for translating regular expressions.
+The most important one is:
+
+- Do not remove the the vertical separator or pipe ('|') in strings containing
+  it. Only the elements separated by this character are translated.
+- Do not add extra spaces. 
+- MAKE SURE 'fuzzy' translations are reviewed, and if the translation is valid,
+  remove the fuzzy line.
+
+For example:
+
+    "next" would be translated to spanish "siguiente|proxima|próxima"
+
+Notice that "proxima" is also used, the idea here is to be not too strict
+and support spelling errors (that make sense). In this case we are ignoring
+the 'ó' to allow the spelling error.
+
+TRANSLATABLE EXPRESSIONS
+
+The following table shows the tokens and the meaning of them.
+
+-------------------------------------------------------------
+| Token | English words           | Description
+-------------------------------------------------------------
+| M     | "Jan|January|Feb|..."   | Short and long months.
+| D     | "Sun|Sunday|Mon|..."    | Short and long weekdays.
+| A     | "d/m/y|d-m-y"           | Date separated, locale specific
+| T     | "today", "tomorrow"     | Same.
+| O     | "1st,2nd,3rd,11th,.."   | Ordinal number
+| N     | "1,2,3,11,.."           | Cardinal number, beginning in 1.
+
+| u     | "due|due by|due before" | Same
+| d     | "day|days"              | Same
+| w     | "week|weeks"            | Same
+| m     | "month|months"          | Same
+| y     | "year|years"            | Same
+| n     | "next"                  | Same
+| o     | "on"                    | Same
+| i     | "in"                    | Same
+
+For example, the following expression:
+"u M O" in English will match: "due by April 2nd"
+
+but in Spanish this expression would need to be changed to:
+"u O 'de' M" to match "antes del 1o de Abril"
+
+also notice here that the all tokens are shortcuts to the translation
+and only extra words needed are required to be included in the 
+translated regular expression.
+
+If you have any question, send an email to the mailing list. We will
+answer all of your questions.

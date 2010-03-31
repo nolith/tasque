@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtmNet", "RtmNet\RtmNet.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libtasque", "src\libtasque\libtasque.csproj", "{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{6DC908EC-E7C2-46CD-A21D-832C0D81D946}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC908EC-E7C2-46CD-A21D-832C0D81D946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC908EC-E7C2-46CD-A21D-832C0D81D946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC908EC-E7C2-46CD-A21D-832C0D81D946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC908EC-E7C2-46CD-A21D-832C0D81D946}.Release|Any CPU.Build.0 = Release|Any CPU
 		{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,3 +1,40 @@
+2010-03-30  Mario Carrion  <mario@carrion.mx>
+
+	* TRANSLATORS: Added file.
+	* RtmNet/RtmNet.csproj:
+	* src/libtasque/libtasque.csproj:
+	* tasque.csproj: Using 3.5 framework.
+	* tasque.sln: Updated to include tests project.
+	* src/libtasque/DateFormatterFactory.cs:
+	* src/libtasque/DateFormatters/DateFormatter.cs:
+	* src/libtasque/DateFormatters/DateSeparatedFormatter.cs:
+	* src/libtasque/DateFormatters/DayFormatter.cs:
+	* src/libtasque/DateFormatters/IDateFormatter.cs:
+	* src/libtasque/DateFormatters/MonthFormatter.cs:
+	* src/libtasque/DateFormatters/OrdinalFormatter.cs:
+	* src/libtasque/DateFormatters/QuantityFormatter.cs:
+	* src/libtasque/DateFormatters/StringInsensitiveComparer.cs:
+	* src/libtasque/DateFormatters/TodayTomorrowFormatter.cs:
+	* src/libtasque/DateFormatters/WeekFormatter.cs:
+	* src/libtasque/DateFormatters/WeekdayFormatter.cs:
+	* src/libtasque/DateFormatters/YearFormatter.cs:
+	* src/libtasque/Extensions.cs:
+	* src/libtasque/RegularExpressionFormatter.cs:
+	* src/libtasque/TaskParser.cs:
+	* src/libtasque/TranslatableToken.cs:
+	* tests/DateGuesserTest.cs:
+	* tests/TaskParserFixture.cs:
+	* src/Makefile.am:
+	* tests/tests.csproj: Files added. Implements Natural Language 
+	support.
+	* src/RemoteControl.cs:
+	* src/TaskTreeView.cs:
+	* src/TaskWindow.cs:
+	* src/Utilities.cs: Updated to use newest NLI.
+	Fixes BGO #555680
+
+	Inspired by the work done by Anirudh Sanjeev and Steve George.
+
 2010-03-08  Mario Carrion  <mario@carrion.mx>
 	
 	* tasque.csproj:

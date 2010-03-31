@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-06 10:40+0200\n"
+"POT-Creation-Date: 2010-03-30 22:36-0400\n"
 "PO-Revision-Date: 2008-10-11 20:45+0800\n"
 "Last-Translator: Yuren Ju <yurenju@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -28,49 +28,83 @@ msgstr "工作管理"
 msgid "Tasque"
 msgstr "Tasque"
 
-#: ../src/Application.cs:403
+#: ../src/Application.cs:518
+#, csharp-format
+msgid "{0} task is Overdue\n"
+msgid_plural "{0} tasks are Overdue\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Application.cs:526
+#, csharp-format
+msgid "{0} task for Today\n"
+msgid_plural "{0} tasks for Today\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Application.cs:534
+#, csharp-format
+msgid "{0} task for Tomorrow\n"
+msgid_plural "{0} tasks for Tomorrow\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+#: ../src/Application.cs:540
+#, fuzzy
+msgid "Tasque Rocks"
+msgstr "Tasque"
+
+#. string [] documenters = new string [] {
+#. "Calvin Gaisford <calvinrg@gmail.com>"
+#. };
+#.
+#: ../src/Application.cs:584
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
 msgstr "Copyright © 2008 Novell, Inc."
 
-#: ../src/Application.cs:404
+#: ../src/Application.cs:594
 msgid "A Useful Task List"
 msgstr "一個好用的工作清單"
 
-#: ../src/Application.cs:406
+#: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
 msgstr "Tasque 專案首頁"
 
-#: ../src/Application.cs:458
-msgid "Show Tasks ..."
-msgstr "檢視工作…"
-
-#: ../src/Application.cs:466
+#: ../src/Application.cs:710
 msgid "New Task ..."
 msgstr "新增工作…"
 
-#: ../src/Application.cs:487
-msgid "Refresh Tasks"
+#: ../src/Application.cs:717
+msgid "Show Tasks ..."
+msgstr "檢視工作…"
+
+#: ../src/Application.cs:732
+#, fuzzy
+msgid "Refresh Tasks ..."
 msgstr "更新工作"
 
-#: ../src/AllCategory.cs:28
-#: ../src/CompletedTaskGroup.cs:214
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
 msgid "All"
 msgstr "全部"
 
-#: ../src/CompletedTaskGroup.cs:205
-#: ../src/Utilities.cs:283
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/CompletedTaskGroup.cs:207
+#: ../src/CompletedTaskGroup.cs:167
 msgid "Last 7 Days"
 msgstr "最近七天"
 
-#: ../src/CompletedTaskGroup.cs:209
+#: ../src/CompletedTaskGroup.cs:169
 msgid "Last Month"
 msgstr "最近一個月"
 
-#: ../src/CompletedTaskGroup.cs:211
+#: ../src/CompletedTaskGroup.cs:171
 msgid "Last Year"
 msgstr "最近一年"
 
@@ -79,277 +113,449 @@ msgstr "最近一年"
 msgid "Notes for: {0:s}"
 msgstr "{0:s} 的備註"
 
-#: ../src/PreferencesDialog.cs:107
+#: ../src/OSXApplication.cs:38
+msgid "_File"
+msgstr ""
+
+#: ../src/OSXApplication.cs:44
+msgid "_Window"
+msgstr ""
+
+#. Update the window title
+#: ../src/PreferencesDialog.cs:97
+msgid "Tasque Preferences"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:116
 msgid "General"
 msgstr "一般"
 
-#: ../src/PreferencesDialog.cs:146
+#: ../src/PreferencesDialog.cs:124
+msgid "Appearance"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:160
+msgid "Color Management"
+msgstr ""
+
+#: ../src/PreferencesDialog.cs:171
+#, fuzzy
+msgid "Today:"
+msgstr "今天"
+
+#: ../src/PreferencesDialog.cs:199
+#, fuzzy
+msgid "Overdue:"
+msgstr "過期"
+
+#: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
 msgstr "工作管理系統"
 
-#: ../src/PreferencesDialog.cs:188
+#: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
 msgstr "工作過濾器"
 
-#: ../src/PreferencesDialog.cs:207
+#: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
 msgstr "顯示已完成的工作 (_o)"
 
 #. Categories TreeView
-#: ../src/PreferencesDialog.cs:216
+#: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
 msgstr "當選擇『全部』時，僅顯示以下分類： (_s)"
 
-#: ../src/PreferencesDialog.cs:234
+#: ../src/PreferencesDialog.cs:331
 msgid "Category"
 msgstr "分類"
 
-#: ../src/RemoteControl.cs:109
+#: ../src/RemoteControl.cs:150
 msgid "New task created."
 msgstr "已建立新工作"
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:82
-#: ../src/TaskWindow.cs:346
+#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "已完成"
 
 #. Title for Priority Column
-#: ../src/TaskTreeView.cs:99
+#: ../src/TaskTreeView.cs:101
 msgid "Priority"
 msgstr "優先度"
 
-#: ../src/TaskTreeView.cs:112
-#: ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:584
+#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:612
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:113
-#: ../src/TaskTreeView.cs:357
-#: ../src/TaskTreeView.cs:582
+#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:610
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:114
-#: ../src/TaskTreeView.cs:354
-#: ../src/TaskTreeView.cs:580
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:608
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:115
-#: ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
 #. Title for Task Name Column
-#: ../src/TaskTreeView.cs:129
+#: ../src/TaskTreeView.cs:131
 msgid "Task Name"
 msgstr "工作名稱"
 
 #. Title for Due Date Column
-#: ../src/TaskTreeView.cs:171
+#: ../src/TaskTreeView.cs:173
 msgid "Due Date"
 msgstr "到期日"
 
-#: ../src/TaskTreeView.cs:185
-#: ../src/TaskTreeView.cs:187
-#: ../src/TaskTreeView.cs:199
-#: ../src/TaskTreeView.cs:666
-#: ../src/TaskTreeView.cs:669
-#: ../src/TaskTreeView.cs:674
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
 msgid "M/d - "
 msgstr "d/M - "
 
-#: ../src/TaskTreeView.cs:185
-#: ../src/TaskTreeView.cs:666
-#: ../src/TaskWindow.cs:279
-#: ../src/Utilities.cs:277
+#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "今天"
 
-#: ../src/TaskTreeView.cs:187
-#: ../src/TaskTreeView.cs:669
-#: ../src/TaskWindow.cs:297
-#: ../src/Utilities.cs:296
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "明天"
 
-#: ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:191
-#: ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195
-#: ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:414
-#: ../src/TaskTreeView.cs:683
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:711
 msgid "M/d - ddd"
 msgstr "d/M - ddd"
 
-#: ../src/TaskTreeView.cs:199
-#: ../src/TaskTreeView.cs:674
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
 msgstr "一個禮拜內"
 
-#: ../src/TaskTreeView.cs:200
-#: ../src/TaskTreeView.cs:671
-#: ../src/Utilities.cs:309
+#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "沒有日期"
 
-#: ../src/TaskTreeView.cs:201
-#: ../src/TaskTreeView.cs:676
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
 msgstr "選擇日期…"
 
 #. Title for Notes Column
-#: ../src/TaskTreeView.cs:217
+#: ../src/TaskTreeView.cs:219
 msgid "Notes"
 msgstr "備註"
 
 #. Title for Timer Column
-#: ../src/TaskTreeView.cs:234
+#: ../src/TaskTreeView.cs:236
 msgid "Timer"
 msgstr "計時器"
 
-#: ../src/TaskTreeView.cs:416
+#: ../src/TaskTreeView.cs:281
+#, fuzzy
+msgid "Task Completed"
+msgstr "已完成"
+
+#: ../src/TaskTreeView.cs:436
 msgid "M/d/yy - ddd"
 msgstr "d/M/yy - ddd"
 
+#: ../src/TaskTreeView.cs:594
+msgid "Action Canceled"
+msgstr ""
+
+#: ../src/TaskTreeView.cs:859
+#, csharp-format
+msgid "Completing Task In: {0}"
+msgstr ""
+
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:152
-#: ../src/TaskWindow.cs:835
-#: ../src/TaskWindow.cs:845
-#: ../src/TaskWindow.cs:856
+#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
 msgid "New task..."
 msgstr "新增工作…"
 
-#: ../src/TaskWindow.cs:167
+#: ../src/TaskWindow.cs:165
 msgid "_Add"
 msgstr "增加 (_A)"
 
-#: ../src/TaskWindow.cs:172
+#: ../src/TaskWindow.cs:170
 msgid "_Add Task"
 msgstr "新增工作 (_A)"
 
-#: ../src/TaskWindow.cs:261
+#: ../src/TaskWindow.cs:257
 msgid "Overdue"
 msgstr "過期"
 
-#: ../src/TaskWindow.cs:315
+#: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
 msgstr "接下來七天"
 
-#: ../src/TaskWindow.cs:331
+#: ../src/TaskWindow.cs:327
 msgid "Future"
 msgstr "未來"
 
-#: ../src/TaskWindow.cs:1024
+#. Translators: This status shows the date and time when the task list was last refreshed
+#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#, csharp-format
+msgid "Tasks loaded: {0}"
+msgstr ""
+
+#. Show error status
+#: ../src/TaskWindow.cs:801
+msgid "Error creating a new task"
+msgstr ""
+
+#. Show successful status
+#: ../src/TaskWindow.cs:805
+msgid "Task created successfully"
+msgstr ""
+
+#: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
 msgstr "註解… (_N)"
 
-#: ../src/TaskWindow.cs:1031
+#: ../src/TaskWindow.cs:1096
 msgid "_Delete task"
 msgstr "刪除工作 (_D)"
 
-#: ../src/TaskWindow.cs:1036
+#: ../src/TaskWindow.cs:1101
 msgid "_Edit task"
 msgstr "編輯工作 (_E)"
 
-#: ../src/TaskWindow.cs:1103
+#. TODO Needs translation.
+#: ../src/TaskWindow.cs:1133
+#, fuzzy
+msgid "_Change category"
+msgstr "分類"
+
+#: ../src/TaskWindow.cs:1162
+#, fuzzy
+msgid "Task deleted"
+msgstr "工作過濾器"
+
+#: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
 msgstr "讀取工作中…"
 
-#: ../src/Utilities.cs:275
+#: ../src/TaskWindow.cs:1225
+msgid "Not connected."
+msgstr ""
+
+#: ../src/Utilities.cs:274
 #, csharp-format
 msgid "Today, {0}"
 msgstr "今天，{0}"
 
-#: ../src/Utilities.cs:281
+#: ../src/Utilities.cs:280
 #, csharp-format
 msgid "Yesterday, {0}"
 msgstr "昨天，{0}"
 
-#: ../src/Utilities.cs:287
+#: ../src/Utilities.cs:286
 #, csharp-format
 msgid "{0} days ago, {1}"
 msgstr "經過 {0} 天，{1}"
 
-#: ../src/Utilities.cs:289
+#: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
 msgstr "經過 {0} 天"
 
-#: ../src/Utilities.cs:294
+#: ../src/Utilities.cs:293
 #, csharp-format
 msgid "Tomorrow, {0}"
 msgstr "明天，{0}"
 
-#: ../src/Utilities.cs:300
+#: ../src/Utilities.cs:299
 #, csharp-format
 msgid "In {0} days, {1}"
 msgstr "在 {0} 天之內，{1}"
 
-#: ../src/Utilities.cs:302
+#: ../src/Utilities.cs:301
 #, csharp-format
 msgid "In {0} days"
 msgstr "在 {0} 之內"
 
-#: ../src/Utilities.cs:306
+#: ../src/Utilities.cs:305
 msgid "MMMM d, h:mm tt"
 msgstr "MMMM d, h:mm tt"
 
-#: ../src/Utilities.cs:307
+#: ../src/Utilities.cs:306
 msgid "MMMM d"
 msgstr "d MMMM"
 
-#: ../src/Utilities.cs:312
+#: ../src/Utilities.cs:311
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "d MMMM yyyy, h:mm tt"
 
-#: ../src/Utilities.cs:313
+#: ../src/Utilities.cs:312
 msgid "MMMM d yyyy"
 msgstr "d MMMM yyyy"
 
-#: ../src/Utilities.cs:322
-msgid "Sunday"
-msgstr "星期日"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
+msgid "Click Here to Connect"
+msgstr ""
 
-#: ../src/Utilities.cs:324
-msgid "Monday"
-msgstr "星期一"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
+msgid "You are currently connected"
+msgstr ""
 
-#: ../src/Utilities.cs:326
-msgid "Tuesday"
-msgstr "星期二"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
+msgid "You are currently connected as"
+msgstr ""
 
-#: ../src/Utilities.cs:328
-msgid "Wednesday"
-msgstr "星期三"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
+msgid "You are not connected"
+msgstr ""
 
-#: ../src/Utilities.cs:330
-msgid "Thursday"
-msgstr "星期四"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
+msgid "Remember the Milk not responding. Try again later."
+msgstr ""
 
-#: ../src/Utilities.cs:332
-msgid "Friday"
-msgstr "星期五"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
+msgid "Click Here After Authorizing"
+msgstr ""
 
-#: ../src/Utilities.cs:334
-msgid "Saturday"
-msgstr "星期六"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
+msgid "Set the default browser and try again"
+msgstr ""
 
-#. Then try some more natural language parsing
-#. A regular expression to capture a task that is due today
-#: ../src/Utilities.cs:380
-msgid "^(?<task>.+)\\s+today\\W*$"
-msgstr "^(?<task>.+)\\s+today\\W*$"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
+msgid "Processing..."
+msgstr ""
 
-#. A regular expression to capture a task that is due tomorrow
-#: ../src/Utilities.cs:382
-msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Failed, Try Again"
+msgstr ""
 
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
+msgid "Thank You"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:47
+msgid "th,st,nd,rd"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:49
+#, fuzzy
+msgid "today"
+msgstr "今天"
+
+#: ../src/libtasque/TaskParser.cs:51
+#, fuzzy
+msgid "tomorrow"
+msgstr "明天"
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:54
+msgid "month|months"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:57
+msgid "week|weeks"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:60
+msgid "year|years"
+msgstr ""
+
+#. L10N: Don't forget to include the plural value, if any
+#: ../src/libtasque/TaskParser.cs:63
+msgid "day|days"
+msgstr ""
+
+#: ../src/libtasque/TaskParser.cs:199
+msgid "due before|due by|due"
+msgstr ""
+
+#. L10N: Examples could be: "Next Month", "Next Monday"
+#: ../src/libtasque/TaskParser.cs:224
+msgid "next"
+msgstr ""
+
+#. L10N: Examples could be: "On April 1st", "On Wednesday"
+#: ../src/libtasque/TaskParser.cs:229
+msgid "on"
+msgstr ""
+
+#. L10N: Examples could be: "In 2 weeks", "In 3 months"
+#: ../src/libtasque/TaskParser.cs:234
+msgid "in"
+msgstr ""
+
+#. "Today and Tomorrow" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:248
+msgid "u T"
+msgstr ""
+
+#. Represents: "Next" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:250
+msgid "n w|n m|n y|n D"
+msgstr ""
+
+#. Represents "Due" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:252
+msgid "u o D|u M O|u M N|u O|u M"
+msgstr ""
+
+#. Represents "On" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:254
+msgid "o D|o O"
+msgstr ""
+
+#. Represents "In" expression. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:256
+msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+msgstr ""
+
+#. Represents all other expressions not using tokens. More information in TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:258
+msgid "T|D|M O|M N|O|A"
+msgstr ""
+
+#, fuzzy
+#~ msgid "New task1..."
+#~ msgstr "新增工作…"
+
+#~ msgid "Sunday"
+#~ msgstr "星期日"
+
+#~ msgid "Monday"
+#~ msgstr "星期一"
+
+#~ msgid "Tuesday"
+#~ msgstr "星期二"
+
+#~ msgid "Wednesday"
+#~ msgstr "星期三"
+
+#~ msgid "Thursday"
+#~ msgstr "星期四"
+
+#~ msgid "Friday"
+#~ msgstr "星期五"
+
+#~ msgid "Saturday"
+#~ msgstr "星期六"
+
+#~ msgid "^(?<task>.+)\\s+today\\W*$"
+#~ msgstr "^(?<task>.+)\\s+today\\W*$"
+
+#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
+#~ msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
