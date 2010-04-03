@@ -1,21 +1,19 @@
 # Slovenian translation of tasque package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the tasque package.
+# Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2009 - 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-30 22:36-0400\n"
-"PO-Revision-Date: 2009-12-01 21:21+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
+"POT-Creation-Date: 2010-03-31 03:05+0000\n"
+"PO-Revision-Date: 2010-04-03 20:39+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -96,11 +94,13 @@ msgstr "Pokaži naloge ..."
 msgid "Refresh Tasks ..."
 msgstr "Osveži naloge ..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
+#: ../src/AllCategory.cs:28
+#: ../src/CompletedTaskGroup.cs:174
 msgid "All"
 msgstr "Vse"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
+#: ../src/CompletedTaskGroup.cs:165
+#: ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "Včeraj"
 
@@ -180,7 +180,8 @@ msgid "New task created."
 msgstr "Nova naloga je ustvarjena"
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
+#: ../src/TaskTreeView.cs:84
+#: ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "Končano"
 
@@ -189,25 +190,29 @@ msgstr "Končano"
 msgid "Priority"
 msgstr "Prednost"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:114
+#: ../src/TaskTreeView.cs:366
 #: ../src/TaskTreeView.cs:612
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:115
+#: ../src/TaskTreeView.cs:363
 #: ../src/TaskTreeView.cs:610
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:116
+#: ../src/TaskTreeView.cs:360
 #: ../src/TaskTreeView.cs:608
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:117
+#: ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
@@ -221,39 +226,52 @@ msgstr "Ime naloge"
 msgid "Due Date"
 msgstr "Rok"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
-#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:702
 msgid "M/d - "
 msgstr "d/M -"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275
+#: ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Danes"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293
+#: ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Jutri"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:434
 #: ../src/TaskTreeView.cs:711
 msgid "M/d - ddd"
 msgstr "d/M - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
 msgstr "Čez 1 teden"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/TaskTreeView.cs:202
+#: ../src/TaskTreeView.cs:699
 #: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Ni datuma"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
+#: ../src/TaskTreeView.cs:203
+#: ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
 msgstr "Izbor datuma ..."
 
@@ -286,8 +304,11 @@ msgstr "Dokončanje naloge v: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
-#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
+#: ../src/TaskWindow.cs:149
+#: ../src/TaskWindow.cs:837
+#: ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903
+#: ../src/TaskWindow.cs:914
 msgid "New task..."
 msgstr "Nova naloga ..."
 
@@ -312,7 +333,8 @@ msgid "Future"
 msgstr "Prihodnost"
 
 #. Translators: This status shows the date and time when the task list was last refreshed
-#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#: ../src/TaskWindow.cs:474
+#: ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
 msgstr "Čas osvežitve nalog: {0}"
@@ -450,116 +472,107 @@ msgstr "Spodletelo, poskusite znova"
 msgid "Thank You"
 msgstr "Hvala vam"
 
+# http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:47
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr " "
 
 #: ../src/libtasque/TaskParser.cs:49
-#, fuzzy
 msgid "today"
-msgstr "Danes"
+msgstr "danes"
 
 #: ../src/libtasque/TaskParser.cs:51
-#, fuzzy
 msgid "tomorrow"
-msgstr "Jutri"
+msgstr "jutri"
 
 #. L10N: Don't forget to include the plural value, if any
 #: ../src/libtasque/TaskParser.cs:54
 msgid "month|months"
-msgstr ""
+msgstr "mesec|meseci"
 
 #. L10N: Don't forget to include the plural value, if any
 #: ../src/libtasque/TaskParser.cs:57
 msgid "week|weeks"
-msgstr ""
+msgstr "teden|tedna|tedni|tedni"
 
 #. L10N: Don't forget to include the plural value, if any
 #: ../src/libtasque/TaskParser.cs:60
 msgid "year|years"
-msgstr ""
+msgstr "leto|leti|leta|let"
 
 #. L10N: Don't forget to include the plural value, if any
 #: ../src/libtasque/TaskParser.cs:63
 msgid "day|days"
-msgstr ""
+msgstr "dan|dneva|dnevi|dni"
 
-#: ../src/libtasque/TaskParser.cs:199
+#: ../src/libtasque/TaskParser.cs:196
 msgid "due before|due by|due"
-msgstr ""
+msgstr "do|rok do"
 
 #. L10N: Examples could be: "Next Month", "Next Monday"
-#: ../src/libtasque/TaskParser.cs:224
+#: ../src/libtasque/TaskParser.cs:221
 msgid "next"
-msgstr ""
+msgstr "naslednji"
 
 #. L10N: Examples could be: "On April 1st", "On Wednesday"
-#: ../src/libtasque/TaskParser.cs:229
+#: ../src/libtasque/TaskParser.cs:226
 msgid "on"
-msgstr ""
+msgstr "na"
 
 #. L10N: Examples could be: "In 2 weeks", "In 3 months"
-#: ../src/libtasque/TaskParser.cs:234
+#: ../src/libtasque/TaskParser.cs:231
 msgid "in"
-msgstr ""
+msgstr "v"
 
 #. "Today and Tomorrow" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:248
+#: ../src/libtasque/TaskParser.cs:245
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:250
+#: ../src/libtasque/TaskParser.cs:247
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n m|n y|n D"
 
 #. Represents "Due" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:252
+#: ../src/libtasque/TaskParser.cs:249
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u D|u N|u M|u "
 
 #. Represents "On" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:254
+#: ../src/libtasque/TaskParser.cs:251
 msgid "o D|o O"
-msgstr ""
+msgstr "o N D|o"
 
 #. Represents "In" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:256
+#: ../src/libtasque/TaskParser.cs:253
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:258
+#: ../src/libtasque/TaskParser.cs:255
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|M O|M"
 
 #, fuzzy
 #~ msgid "New task1..."
 #~ msgstr "Nova naloga ..."
-
 #~ msgid "Sunday"
 #~ msgstr "nedelja"
-
 #~ msgid "Monday"
 #~ msgstr "ponedeljek"
-
 #~ msgid "Tuesday"
 #~ msgstr "torek"
-
 #~ msgid "Wednesday"
 #~ msgstr "sreda"
-
 #~ msgid "Thursday"
 #~ msgstr "četrtek"
-
 #~ msgid "Friday"
 #~ msgstr "petek"
-
 #~ msgid "Saturday"
 #~ msgstr "sobota"
-
 #~ msgid "^(?<task>.+)\\s+today\\W*$"
 #~ msgstr "^(?<task>.+)\\s+danes\\W*$"
-
 #~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
 #~ msgstr "^(?<task>.+)\\s+jutri\\W*$"
+
