@@ -43,23 +43,33 @@ namespace Tasque {
 				return instance;
 			}
 		}
-		
+
+		// Token "O". Notice only the suffix is translated.
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string OrdinalSuffixes = Catalog.GetString ("th,st,nd,rd");
-		
+
+		// Token "T"
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Today = Catalog.GetString ("today");
 
+		// Token "T"
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Tomorrow = Catalog.GetString ("tomorrow");
 
-		// L10N: Don't forget to include the plural value, if any
+		// Token "m". Don't forget to include the plural value, if any
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Month = Catalog.GetString ("month|months");
 
-		// L10N: Don't forget to include the plural value, if any
+		// Token "w". Don't forget to include the plural value, if any
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Week = Catalog.GetString ("week|weeks");
 
-		// L10N: Don't forget to include the plural value, if any
+		// Token "y". Don't forget to include the plural value, if any
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Year = Catalog.GetString ("year|years");
 
-		// L10N: Don't forget to include the plural value, if any
+		// Token "d". Don't forget to include the plural value, if any
+		// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 		public static string Day = Catalog.GetString ("day|days");
 
 		public static string[] MonthsArray {
@@ -193,6 +203,7 @@ namespace Tasque {
 				});
 				// Due
 				tokens.Add ('u', new TranslatableToken () {
+					// Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Expression = Catalog.GetString ("due before|due by|due")
 				});
 				// Day
@@ -217,17 +228,20 @@ namespace Tasque {
 				});
 				// Next
 				tokens.Add ('n', new TranslatableToken () {
-					// L10N: Examples could be: "Next Month", "Next Monday"
+					// Token "n". Examples could be: "Next Month", "Next Monday"
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Expression = Catalog.GetString ("next")
 				});
 				// On
 				tokens.Add ('o', new TranslatableToken () {
-					// L10N: Examples could be: "On April 1st", "On Wednesday"
+					// Token "o". Examples could be: "On April 1st", "On Wednesday"
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Expression = Catalog.GetString ("on")
 				});
 				// In
 				tokens.Add ('i', new TranslatableToken () {
-					// L10N: Examples could be: "In 2 weeks", "In 3 months"
+					// Token "i". Examples could be: "In 2 weeks", "In 3 months"
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Expression = Catalog.GetString ("in")
 				});
 
@@ -241,17 +255,23 @@ namespace Tasque {
 					= new List<RegularExpressionFormatter> ();
 				List<string> translatableExpressions 
 					= new List<string> () {
-					// "Today and Tomorrow" expression. More information in TRANSLATORS
+					// Represents "Today and Tomorrow" expression.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString ("u T"),
-					// Represents: "Next" expression. More information in TRANSLATORS
+					// Represents: "Next" expression.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString ("n w|n m|n y|n D"),
-					// Represents "Due" expression. More information in TRANSLATORS
+					// Represents "Due" expression.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString ("u o D|u M O|u M N|u O|u M"),
-					// Represents "On" expression. More information in TRANSLATORS
+					// Represents "On" expression.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString (@"o D|o O"),
-					// Represents "In" expression. More information in TRANSLATORS
+					// Represents "In" expression.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString (@"i N d|i d|i N w|i w|i N m|i m|i N y|i y"),
-					// Represents all other expressions not using tokens. More information in TRANSLATORS
+					// Represents all other expressions not using tokens.
+					// More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 					Catalog.GetString (@"T|D|M O|M N|O|A")
 				};
 

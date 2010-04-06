@@ -1,3 +1,9 @@
+2010-04-05  Mario Carrion  <mario@carrion.mx>
+
+	* po/*.po: 
+	* src/libtasque/TaskParser.cs:
+	* TRANSLATORS: Updated. More information added.
+
 2010-03-31  Mario Carrion  <mario@carrion.mx>
 
 	* src/Backends/Sqlite/SqliteBackend.cs:

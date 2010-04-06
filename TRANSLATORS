@@ -1,54 +1,106 @@
 TRANSLATORS
 
-This file explains the rules to follow for translating regular expressions.
-The most important one is:
+This file explains the rules to follow for translating regular expressions:
 
-- Do not remove the the vertical separator or pipe ('|') in strings containing
-  it. Only the elements separated by this character are translated.
-- Do not add extra spaces. 
+- Do not add extra spaces.
 - MAKE SURE 'fuzzy' translations are reviewed, and if the translation is valid,
-  remove the fuzzy line.
+  remove the fuzzy line, otherwise the translation is ignored.
+- Do not remove the vertical separator or pipe ('|') in strings containing
+  it. Only the elements separated by this character are translated. 
+  
+  If the English string includes "|" but the translated string doesn't have
+  more than one word, then you will have to remove "|". Also, the opposite, if
+  the English string doesn't include "|" but the translated string is translated 
+  to more than one word, then include "|" to separate them. For example,
+  in Spanish:
 
-For example:
+  "next" would be translated to "siguiente|proxima|próxima"
 
-    "next" would be translated to spanish "siguiente|proxima|próxima"
-
-Notice that "proxima" is also used, the idea here is to be not too strict
-and support spelling errors (that make sense). In this case we are ignoring
-the 'ó' to allow the spelling error.
+  If you understand Spanish, you will notice that "proxima" is misspelled, the
+  idea here is to support spelling errors (that make sense). In this case we
+  are ignoring the 'ó' to allow the spelling error. 
+  As a recommendation include the translations that would make sense.
 
 TRANSLATABLE EXPRESSIONS
 
 The following table shows the tokens and the meaning of them.
 
--------------------------------------------------------------
-| Token | English words           | Description
--------------------------------------------------------------
-| M     | "Jan|January|Feb|..."   | Short and long months.
-| D     | "Sun|Sunday|Mon|..."    | Short and long weekdays.
-| A     | "d/m/y|d-m-y"           | Date separated, locale specific
-| T     | "today", "tomorrow"     | Same.
-| O     | "1st,2nd,3rd,11th,.."   | Ordinal number
-| N     | "1,2,3,11,.."           | Cardinal number, beginning in 1.
+--------------------------------------------------------------------------------
+| Token | English words           | Description                | Translatable? |
+--------------------------------------------------------------------------------
+| M     | "Jan|January|Feb|..."   | Short and long months.     | No            |
+| D     | "Sun|Sunday|Mon|..."    | Short and long weekdays.   | No            |
+| A     | "d/m/y|d-m-y"           | Date separated             | No            |
+| T     | "today", "tomorrow"     | Same.                      | Yes           |
+| O     | "1st,2nd,3rd,11th,.."   | Ordinal number             | No            |
+| N     | "1,2,3,11,.."           | Cardinal number.           | No            |
+--------------------------------------------------------------------------------
+| u     | "due|due by|due before" | Same                       | Yes           |
+| d     | "day|days"              | Same                       | Yes           |
+| w     | "week|weeks"            | Same                       | Yes           |
+| m     | "month|months"          | Same                       | Yes           |
+| y     | "year|years"            | Same                       | Yes           |
+| n     | "next"                  | Same                       | Yes           |
+| o     | "on"                    | Same                       | Yes           |
+| i     | "in"                    | Same                       | Yes           |
+--------------------------------------------------------------------------------
 
-| u     | "due|due by|due before" | Same
-| d     | "day|days"              | Same
-| w     | "week|weeks"            | Same
-| m     | "month|months"          | Same
-| y     | "year|years"            | Same
-| n     | "next"                  | Same
-| o     | "on"                    | Same
-| i     | "in"                    | Same
+NOTE: Token "O", *only* lists the valid suffixes when using ordinal numbers,
+for example, in English, valid ordinal numbers are:
+- 1st
+- 2nd
+- 3rd
+- 4th
+- ..
 
-For example, the following expression:
-"u M O" in English will match: "due by April 2nd"
+So, all valid ordinal suffixes are: "st,nd,rd,th". If we wanted to translate 
+this to Spanish the translation will be:
 
-but in Spanish this expression would need to be changed to:
-"u O 'de' M" to match "antes del 1o de Abril"
+"o"
 
-also notice here that the all tokens are shortcuts to the translation
-and only extra words needed are required to be included in the 
-translated regular expression.
+since all ordinal numbers in Spanish use the "o" suffix to indicate a cordinal
+number:
+
+- 1o
+- 2o
+- 3o
+- ...
+
+TRANSLATING REGULAR EXPRESSIONS
+
+Regular expressions are usually defined by several tokens, for example,
+the following regular expression in English:
+
+"u M O"
+
+In this regular expression we are using the tokens "u" "M" and "O", so the
+following tasks would be valid (See the table for reference):
+
+"due" "April" "2nd"
+"due by" "Apr" "2nd"
+"due before" "Apr" "2nd"
+
+If we want to translate this to Spanish, we will have to, first, translate
+the tokens that need translation, in this case only "u" token:
+
+u = "para|antes de|antes|antes del"
+
+After translating the token, we will have to translate the expression.
+You will have to adapt the expression: add new words or move words,
+to make sure the expression matches the task.
+
+For example in Spanish, dates are "Day Month" not "Month Day", also you have to
+use the word 'de' to join the Month and the Day. The final translated regular
+expression would be
+
+"u O 'de' M"
+
+This will match:
+
+"antes del" "1o" de "Abril"
 
 If you have any question, send an email to the mailing list. We will
-answer all of your questions.
+answer all of your questions:
+
+http://mail.gnome.org/mailman/listinfo/tasque-list
+

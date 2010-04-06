@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-30 22:36-0400\n"
+"POT-Creation-Date: 2010-04-05 23:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -439,83 +439,103 @@ msgstr ""
 msgid "Thank You"
 msgstr ""
 
-#: ../src/libtasque/TaskParser.cs:47
+#. Token "O". Notice only the suffix is translated.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:49
 msgid "th,st,nd,rd"
 msgstr ""
 
-#: ../src/libtasque/TaskParser.cs:49
+#. Token "T"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:53
 msgid "today"
 msgstr ""
 
-#: ../src/libtasque/TaskParser.cs:51
+#. Token "T"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:57
 msgid "tomorrow"
 msgstr ""
 
-#. L10N: Don't forget to include the plural value, if any
-#: ../src/libtasque/TaskParser.cs:54
+#. Token "m". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
 msgstr ""
 
-#. L10N: Don't forget to include the plural value, if any
-#: ../src/libtasque/TaskParser.cs:57
+#. Token "w". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
 msgstr ""
 
-#. L10N: Don't forget to include the plural value, if any
-#: ../src/libtasque/TaskParser.cs:60
+#. Token "y". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
 msgstr ""
 
-#. L10N: Don't forget to include the plural value, if any
-#: ../src/libtasque/TaskParser.cs:63
+#. Token "d". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
 msgstr ""
 
-#: ../src/libtasque/TaskParser.cs:199
+#. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:207
 msgid "due before|due by|due"
 msgstr ""
 
-#. L10N: Examples could be: "Next Month", "Next Monday"
-#: ../src/libtasque/TaskParser.cs:224
+#. Token "n". Examples could be: "Next Month", "Next Monday"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:233
 msgid "next"
 msgstr ""
 
-#. L10N: Examples could be: "On April 1st", "On Wednesday"
-#: ../src/libtasque/TaskParser.cs:229
+#. Token "o". Examples could be: "On April 1st", "On Wednesday"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:239
 msgid "on"
 msgstr ""
 
-#. L10N: Examples could be: "In 2 weeks", "In 3 months"
-#: ../src/libtasque/TaskParser.cs:234
+#. Token "i". Examples could be: "In 2 weeks", "In 3 months"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:245
 msgid "in"
 msgstr ""
 
-#. "Today and Tomorrow" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:248
+#. Represents "Today and Tomorrow" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
 msgstr ""
 
-#. Represents: "Next" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:250
+#. Represents: "Next" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
 msgstr ""
 
-#. Represents "Due" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:252
+#. Represents "Due" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
 msgstr ""
 
-#. Represents "On" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:254
+#. Represents "On" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
 msgstr ""
 
-#. Represents "In" expression. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:256
+#. Represents "In" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 msgstr ""
 
-#. Represents all other expressions not using tokens. More information in TRANSLATORS
-#: ../src/libtasque/TaskParser.cs:258
+#. Represents all other expressions not using tokens.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
 msgstr ""
