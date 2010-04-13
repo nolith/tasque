@@ -51,7 +51,6 @@
     <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChangeLog" />
     <None Include="data\images\clock-16-0.svg" />
     <None Include="data\images\note-22.svg" />
     <None Include="data\images\tasque-icons-source.svg" />
@@ -115,7 +114,6 @@
     <None Include="src\GnomeApplication.cs" />
     <Compile Include="src\GtkApplication.cs" />
     <Compile Include="src\Logger.cs" />
-    <Compile Include="src\NativeApplication.cs" />
     <Compile Include="src\NoteDialog.cs" />
     <Compile Include="src\NoteWidget.cs" />
     <None Include="src\OSXApplication.cs" />

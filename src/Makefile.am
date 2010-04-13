@@ -68,7 +68,6 @@ CSFILES = \
 	$(srcdir)/GtkApplication.cs \
 	$(srcdir)/GnomeApplication.cs \
 	$(srcdir)/Logger.cs \
-	$(srcdir)/NativeApplication.cs \
 	$(srcdir)/NoteDialog.cs \
 	$(srcdir)/NoteWidget.cs \
 	$(srcdir)/Preferences.cs \
@@ -102,6 +101,7 @@ TASQUEDLL_CSFILES = \
 	$(srcdir)/libtasque/Extensions.cs \
 	$(srcdir)/libtasque/IBackend.cs \
 	$(srcdir)/libtasque/ICategory.cs \
+	$(srcdir)/libtasque/INativeApplication.cs \
 	$(srcdir)/libtasque/INote.cs \
 	$(srcdir)/libtasque/ITask.cs \
 	$(srcdir)/libtasque/RegularExpressionFormatter.cs \
