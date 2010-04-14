@@ -5,17 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: tasque.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 23:55-0400\n"
-"PO-Revision-Date: 2009-04-02 13:54+0700\n"
-"Last-Translator: Imam Musthaqim <userindesign@gmail.com>\n"
+"Project-Id-Version: tasque\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
+"POT-Creation-Date: 2010-04-13 21:03+0000\n"
+"PO-Revision-Date: 2010-04-14 15:37+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: INDONESIA <userindesign@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Indonesian\n"
 "X-Poedit-Country: INDONESIA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
@@ -33,28 +34,24 @@ msgstr "Tasque"
 #, csharp-format
 msgid "{0} task is Overdue\n"
 msgid_plural "{0} tasks are Overdue\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tugas Terlambat\n"
 
 #: ../src/Application.cs:526
 #, csharp-format
 msgid "{0} task for Today\n"
 msgid_plural "{0} tasks for Today\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tugas untuk Hari Ini\n"
 
 #: ../src/Application.cs:534
 #, csharp-format
 msgid "{0} task for Tomorrow\n"
 msgid_plural "{0} tasks for Tomorrow\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tugas untuk Besok\n"
 
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
-#, fuzzy
 msgid "Tasque Rocks"
-msgstr "Tasque"
+msgstr "Tasque Hebat"
 
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
@@ -62,7 +59,9 @@ msgstr "Tasque"
 #.
 #: ../src/Application.cs:584
 msgid "translator-credits"
-msgstr "Imam Musthaqim <userindesign@gmail.com>"
+msgstr ""
+"Imam Musthaqim <userindesign@gmail.com>, 2009\n"
+"Andika Triwidada <andika@gmail.com>, 2010."
 
 #: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
@@ -88,11 +87,13 @@ msgstr "Tampilkan Tugas ..."
 msgid "Refresh Tasks ..."
 msgstr "Perbarui Tugas ..."
 
-#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
+#: ../src/AllCategory.cs:28
+#: ../src/CompletedTaskGroup.cs:174
 msgid "All"
 msgstr "Semua"
 
-#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
+#: ../src/CompletedTaskGroup.cs:165
+#: ../src/Utilities.cs:282
 msgid "Yesterday"
 msgstr "Kemarin"
 
@@ -124,7 +125,7 @@ msgstr "_Jendela"
 #. Update the window title
 #: ../src/PreferencesDialog.cs:97
 msgid "Tasque Preferences"
-msgstr ""
+msgstr "Preferensi Tasque"
 
 #: ../src/PreferencesDialog.cs:116
 msgid "General"
@@ -132,21 +133,19 @@ msgstr "Umum"
 
 #: ../src/PreferencesDialog.cs:124
 msgid "Appearance"
-msgstr ""
+msgstr "Penampilan"
 
 #: ../src/PreferencesDialog.cs:160
 msgid "Color Management"
-msgstr ""
+msgstr "Manajemen Warna"
 
 #: ../src/PreferencesDialog.cs:171
-#, fuzzy
 msgid "Today:"
-msgstr "Hari Ini"
+msgstr "Hari ini:"
 
 #: ../src/PreferencesDialog.cs:199
-#, fuzzy
 msgid "Overdue:"
-msgstr "Terlambat"
+msgstr "Terlambat:"
 
 #: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
@@ -174,7 +173,8 @@ msgid "New task created."
 msgstr "Tugas baru telah dibuat."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
+#: ../src/TaskTreeView.cs:84
+#: ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "Selesai"
 
@@ -183,25 +183,29 @@ msgstr "Selesai"
 msgid "Priority"
 msgstr "Prioritas"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
+#: ../src/TaskTreeView.cs:114
+#: ../src/TaskTreeView.cs:366
 #: ../src/TaskTreeView.cs:612
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
+#: ../src/TaskTreeView.cs:115
+#: ../src/TaskTreeView.cs:363
 #: ../src/TaskTreeView.cs:610
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
+#: ../src/TaskTreeView.cs:116
+#: ../src/TaskTreeView.cs:360
 #: ../src/TaskTreeView.cs:608
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:117
+#: ../src/TaskTreeView.cs:369
 msgid "-"
 msgstr "-"
 
@@ -215,39 +219,54 @@ msgstr "Nama Tugas"
 msgid "Due Date"
 msgstr "Tanggal Selesai"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
-#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:702
+#, fuzzy
 msgid "M/d - "
 msgstr "B/t -"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
-#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
+#: ../src/TaskTreeView.cs:187
+#: ../src/TaskTreeView.cs:694
+#: ../src/TaskWindow.cs:275
+#: ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Hari Ini"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
-#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
+#: ../src/TaskTreeView.cs:189
+#: ../src/TaskTreeView.cs:697
+#: ../src/TaskWindow.cs:293
+#: ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Besok"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
+#: ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:193
+#: ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197
+#: ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:434
 #: ../src/TaskTreeView.cs:711
+#, fuzzy
 msgid "M/d - ddd"
 msgstr "B/t - ttt"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:201
+#: ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
 msgstr "Dalam 1 Minggu"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/TaskTreeView.cs:202
+#: ../src/TaskTreeView.cs:699
 #: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Tanpa Tanggal"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
+#: ../src/TaskTreeView.cs:203
+#: ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
 msgstr "Pilih Tanggal..."
 
@@ -266,6 +285,7 @@ msgid "Task Completed"
 msgstr "Tugas Selesai"
 
 #: ../src/TaskTreeView.cs:436
+#, fuzzy
 msgid "M/d/yy - ddd"
 msgstr "B/t/t - ttt"
 
@@ -280,8 +300,11 @@ msgstr "Menyelesaikan Tugas Dalam: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
-#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
-#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
+#: ../src/TaskWindow.cs:149
+#: ../src/TaskWindow.cs:837
+#: ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903
+#: ../src/TaskWindow.cs:914
 msgid "New task..."
 msgstr "Tugas baru..."
 
@@ -306,10 +329,11 @@ msgid "Future"
 msgstr "Mendatang"
 
 #. Translators: This status shows the date and time when the task list was last refreshed
-#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#: ../src/TaskWindow.cs:474
+#: ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
-msgstr ""
+msgstr "Tugas dimuat: {0}"
 
 #. Show error status
 #: ../src/TaskWindow.cs:801
@@ -335,9 +359,8 @@ msgstr "_Edit tugas"
 
 #. TODO Needs translation.
 #: ../src/TaskWindow.cs:1133
-#, fuzzy
 msgid "_Change category"
-msgstr "Kategori"
+msgstr "_Ubah kategori"
 
 #: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
@@ -348,12 +371,8 @@ msgid "Loading tasks..."
 msgstr "Memuat tugas..."
 
 #: ../src/TaskWindow.cs:1225
-#, fuzzy
 msgid "Not connected."
-msgstr ""
-"\n"
-"\n"
-"Anda tidak terhubung"
+msgstr "Tidak tersambung."
 
 #: ../src/Utilities.cs:274
 #, csharp-format
@@ -391,18 +410,22 @@ msgid "In {0} days"
 msgstr "Dalam {0} hari"
 
 #: ../src/Utilities.cs:305
+#, fuzzy
 msgid "MMMM d, h:mm tt"
 msgstr "BBBB t, j:mm tt"
 
 #: ../src/Utilities.cs:306
+#, fuzzy
 msgid "MMMM d"
 msgstr "BBBB t"
 
 #: ../src/Utilities.cs:311
+#, fuzzy
 msgid "MMMM d yyyy, h:mm tt"
 msgstr "BBBB t tttt, j:mm tt"
 
 #: ../src/Utilities.cs:312
+#, fuzzy
 msgid "MMMM d yyyy"
 msgstr "BBB t tttt"
 
@@ -412,29 +435,17 @@ msgstr "Klik Di Sini untuk Menghubungkan"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
-#, fuzzy
 msgid "You are currently connected"
-msgstr ""
-"\n"
-"\n"
-"Anda sekarang terhubung"
+msgstr "Anda sekarang terhubung"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
-#, fuzzy
 msgid "You are currently connected as"
-msgstr ""
-"\n"
-"\n"
-"Anda sekarang terhubung"
+msgstr "Anda sekarang terhubung sebagai"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
-#, fuzzy
 msgid "You are not connected"
-msgstr ""
-"\n"
-"\n"
-"Anda tidak terhubung"
+msgstr "Anda tidak terhubung"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
 msgid "Remember the Milk not responding. Try again later."
@@ -450,11 +461,11 @@ msgstr "Setel browser default dan coba lagi"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
-msgstr ""
+msgstr "Sedang Memproses..."
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Failed, Try Again"
-msgstr ""
+msgstr "Gagal, Coba Lagi"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
@@ -463,133 +474,103 @@ msgstr "Terima Kasih"
 #. Token "O". Notice only the suffix is translated.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:49
+#, fuzzy
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr "NULL"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:53
-#, fuzzy
 msgid "today"
-msgstr "Hari Ini"
+msgstr "hari ini"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:57
-#, fuzzy
 msgid "tomorrow"
-msgstr "Besok"
+msgstr "besok"
 
 #. Token "m". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
-msgstr ""
+msgstr "bulan"
 
 #. Token "w". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
-msgstr ""
+msgstr "minggu"
 
 #. Token "y". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
-msgstr ""
+msgstr "tahun"
 
 #. Token "d". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
-msgstr ""
+msgstr "hari"
 
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
+#, fuzzy
 msgid "due before|due by|due"
-msgstr ""
+msgstr "jatuh tempo sebelum|jatuh tempo"
 
 #. Token "n". Examples could be: "Next Month", "Next Monday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr ""
+msgstr "berikutnya"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:239
 msgid "on"
-msgstr ""
+msgstr "pada"
 
 #. Token "i". Examples could be: "In 2 weeks", "In 3 months"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr ""
+msgstr "dalam"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "w n|m n|y n|D n"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u o D|u O M|u N M|u O|u M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "o D|o O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|O M|N M|O|A"
 
-#, fuzzy
-#~ msgid "New task1..."
-#~ msgstr "Tugas baru..."
-
-#~ msgid "Sunday"
-#~ msgstr "Minggu"
-
-#~ msgid "Monday"
-#~ msgstr "Senin"
-
-#~ msgid "Tuesday"
-#~ msgstr "Selasa"
-
-#~ msgid "Wednesday"
-#~ msgstr "Rabu"
-
-#~ msgid "Thursday"
-#~ msgstr "Kamis"
-
-#~ msgid "Friday"
-#~ msgstr "Jumat"
-
-#~ msgid "Saturday"
-#~ msgstr "Sabtu"
-
-#~ msgid "^(?<task>.+)\\s+today\\W*$"
-#~ msgstr "^(?<task>.+)\\s+today\\W*$"
-
-#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-#~ msgstr "^(?<task>.+)\\s+tomorrow\\W*$"
