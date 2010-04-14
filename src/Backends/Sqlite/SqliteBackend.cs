@@ -295,8 +295,8 @@ namespace Tasque.Backends.Sqlite
 				int id = dataReader.GetInt32(0);
 				int category = dataReader.GetInt32(1);
 				string name = dataReader.GetString(2);
-				int dueDate = dataReader.GetInt32(3);
-				int completionDate = dataReader.GetInt32(4);
+				long dueDate = dataReader.GetInt64(3);
+				long completionDate = dataReader.GetInt64(4);
 				int priority = dataReader.GetInt32(5);
 				int state = dataReader.GetInt32(6);
 
