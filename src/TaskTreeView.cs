@@ -21,6 +21,7 @@ namespace Tasque
 		private Gtk.TreeModelFilter modelFilter;
 		private ICategory filterCategory;	
 		private ITask taskBeingEdited = null;
+		private bool toggled;
 
 		private static string status;
 		
@@ -250,6 +251,9 @@ namespace Tasque
 
 		void CellRenderer_EditingStarted (object o, EditingStartedArgs args)
 		{
+			if (!toggled)
+				return;
+
 			Gtk.TreeIter iter;
 			Gtk.TreePath path = new Gtk.TreePath (args.Path);
 			if (!Model.GetIter (out iter, path))
@@ -269,10 +273,11 @@ namespace Tasque
 			renderer.EditingStarted += CellRenderer_EditingStarted;
 			// Canceled: timer can continue.
 			renderer.EditingCanceled += (o, args) => {
-				if (taskBeingEdited != null) {
+				if (toggled && taskBeingEdited != null) {
 					taskBeingEdited.Inactivate ();
 					InactivateTimer.ToggleTimer (taskBeingEdited);
 					taskBeingEdited = null;
+					toggled = false;
 				}
 			};
 			// Edited: after calling the delegate the timer can continue.
@@ -280,10 +285,11 @@ namespace Tasque
 				if (handler != null)
 					handler (o, args);
 
-				if (taskBeingEdited != null) {
+				if (toggled && taskBeingEdited != null) {
 					taskBeingEdited.Inactivate ();
 					InactivateTimer.ToggleTimer (taskBeingEdited);
 					taskBeingEdited = null;
+					toggled = false;
 				}
 			};
 		}
@@ -466,6 +472,9 @@ namespace Tasque
 		{
 			Gtk.CellRendererCombo crc = renderer as Gtk.CellRendererCombo;
 			ITask task = Model.GetValue (iter, 0) as ITask;
+			if (task == null)
+				return;
+			
 			DateTime date = task.State == TaskState.Completed ?
 									task.CompletionDate :
 									task.DueDate;
@@ -633,6 +642,7 @@ namespace Tasque
 					InactivateTimer timer =
 						new InactivateTimer (this, iter, task, (uint) timeout);
 					timer.StartTimer ();
+					toggled = true;
 				}
 			} else {
 				status = Catalog.GetString ("Action Canceled");
@@ -759,6 +769,8 @@ namespace Tasque
 					}
 				}
 			}
+			
+			Console.WriteLine ("task.State {0}", task.State);
 			
 			if (task.State == TaskState.Completed) {
 				// Modify the completion date
