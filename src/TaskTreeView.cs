@@ -19,7 +19,8 @@ namespace Tasque
 		private static Gdk.Pixbuf[] inactiveAnimPixbufs;
 		
 		private Gtk.TreeModelFilter modelFilter;
-		private ICategory filterCategory;		
+		private ICategory filterCategory;	
+		private ITask taskBeingEdited = null;
 
 		private static string status;
 		
@@ -109,7 +110,7 @@ namespace Tasque
 			renderer = new Gtk.CellRendererCombo ();
 			(renderer as Gtk.CellRendererCombo).Editable = true;
 			(renderer as Gtk.CellRendererCombo).HasEntry = false;
-			(renderer as Gtk.CellRendererCombo).Edited += OnTaskPriorityEdited;
+			SetCellRendererCallbacks ((CellRendererCombo) renderer, OnTaskPriorityEdited);
 			Gtk.ListStore priorityStore = new Gtk.ListStore (typeof (string));
 			priorityStore.AppendValues (Catalog.GetString ("1")); // High
 			priorityStore.AppendValues (Catalog.GetString ("2")); // Medium
@@ -145,7 +146,7 @@ namespace Tasque
 			column.SetCellDataFunc (renderer,
 				new Gtk.TreeCellDataFunc (TaskNameTextCellDataFunc));
 			((Gtk.CellRendererText)renderer).Editable = true;
-			((Gtk.CellRendererText)renderer).Edited += OnTaskNameEdited;
+			SetCellRendererCallbacks ((CellRendererText) renderer, OnTaskNameEdited);
 			
 			AppendColumn (column);
 			
@@ -180,7 +181,7 @@ namespace Tasque
 			renderer = new Gtk.CellRendererCombo ();
 			(renderer as Gtk.CellRendererCombo).Editable = true;
 			(renderer as Gtk.CellRendererCombo).HasEntry = false;
-			(renderer as Gtk.CellRendererCombo).Edited += OnDateEdited;
+			SetCellRendererCallbacks ((CellRendererCombo) renderer, OnDateEdited);
 			Gtk.ListStore dueDateStore = new Gtk.ListStore (typeof (string));
 			DateTime today = DateTime.Now;
 			dueDateStore.AppendValues (
@@ -246,7 +247,47 @@ namespace Tasque
 			
 			AppendColumn (column);
 		}
+
+		void CellRenderer_EditingStarted (object o, EditingStartedArgs args)
+		{
+			Gtk.TreeIter iter;
+			Gtk.TreePath path = new Gtk.TreePath (args.Path);
+			if (!Model.GetIter (out iter, path))
+				return;
+
+			ITask task = Model.GetValue (iter, 0) as ITask;
+			if (task == null)
+				return;
+
+			taskBeingEdited = task;
+			InactivateTimer.ToggleTimer (taskBeingEdited);
+		}
 		
+		void SetCellRendererCallbacks (CellRendererText renderer, EditedHandler handler)
+		{
+			// The user is going to "edit" or "cancel", timer can't continue.
+			renderer.EditingStarted += CellRenderer_EditingStarted;
+			// Canceled: timer can continue.
+			renderer.EditingCanceled += (o, args) => {
+				if (taskBeingEdited != null) {
+					taskBeingEdited.Inactivate ();
+					InactivateTimer.ToggleTimer (taskBeingEdited);
+					taskBeingEdited = null;
+				}
+			};
+			// Edited: after calling the delegate the timer can continue.
+			renderer.Edited += (o, args) => {
+				if (handler != null)
+					handler (o, args);
+
+				if (taskBeingEdited != null) {
+					taskBeingEdited.Inactivate ();
+					InactivateTimer.ToggleTimer (taskBeingEdited);
+					taskBeingEdited = null;
+				}
+			};
+		}
+
 		#region Public Methods
 		public void Refilter ()
 		{
@@ -355,6 +396,9 @@ namespace Tasque
 			// TODO: Add bold (for high), light (for None), and also colors to priority?
 			Gtk.CellRendererCombo crc = cell as Gtk.CellRendererCombo;
 			ITask task = Model.GetValue (iter, 0) as ITask;
+			if (task == null)
+				return;
+			
 			switch (task.Priority) {
 			case TaskPriority.Low:
 				crc.Text = Catalog.GetString ("3");
@@ -783,6 +827,10 @@ namespace Tasque
 				pulseTimeoutId = 0;
 			}
 			
+			public bool Paused {
+				get; set;
+			}
+
 			public void StartTimer ()
 			{
 				pulseTimeoutId = GLib.Timeout.Add (500, PulseAnimation);
@@ -790,7 +838,14 @@ namespace Tasque
 				task.TimerID = GLib.Timeout.Add (delay, CompleteTask);
 				timers [task.TimerID] = this;
 			}
-		
+
+			public static void ToggleTimer (ITask task)
+			{
+				InactivateTimer timer = null;
+				if (timers.TryGetValue (task.TimerID, out timer))
+					timer.Paused = !timer.Paused;
+			}
+
 			public static void CancelTimer(ITask task)
 			{
 				Logger.Debug ("Timeout Canceled for task: " + task.Name);
@@ -802,28 +857,37 @@ namespace Tasque
 						timers.Remove (timerId);
 					}
 					GLib.Source.Remove(timerId);
+					GLib.Source.Remove (timer.pulseTimeoutId);
+					timer.pulseTimeoutId = 0;
 					task.TimerID = 0;
 				}
 				
 				if (timer != null) {
 					GLib.Source.Remove (timer.pulseTimeoutId);
 					timer.pulseTimeoutId = 0;
+					GLib.Source.Remove (timer.secondTimerId);
+					timer.secondTimerId = 0;
+					timer.Paused = false;
 				}
 			}
 			
 			private bool CompleteTask ()
 			{
-				GLib.Source.Remove (pulseTimeoutId);
-				if (timers.ContainsKey (task.TimerID))
-					timers.Remove (task.TimerID);
-				
-				if(task.State != TaskState.Inactive)
-					return false;
+				if (!Paused) {
+					GLib.Source.Remove (pulseTimeoutId);
+					if (timers.ContainsKey (task.TimerID))
+						timers.Remove (task.TimerID);
 					
-				task.Complete ();
-				ShowCompletedTaskStatus ();
-				tree.Refilter ();
-				return false; // Don't automatically call this handler again
+					if(task.State != TaskState.Inactive)
+						return false;
+						
+					task.Complete ();
+					ShowCompletedTaskStatus ();
+					tree.Refilter ();
+					return false; // Don't automatically call this handler again
+				}
+
+				return true;
 			}
 			
 			private bool PulseAnimation ()
@@ -832,15 +896,19 @@ namespace Tasque
 					// Widget has been closed, no need to call this again
 					return false;
 				} else {
-					// Emit this signal to cause the TreeView to update the row
-					// where the task is located.  This will allow the
-					// CellRendererPixbuf to update the icon.
-					tree.Model.EmitRowChanged (path, iter);
-					
-					// Return true so that this method will be called after an
-					// additional timeout duration has elapsed.
-					return true;
+					if (!Paused) {
+						// Emit this signal to cause the TreeView to update the row
+						// where the task is located.  This will allow the
+						// CellRendererPixbuf to update the icon.
+						tree.Model.EmitRowChanged (path, iter);
+						
+						// Return true so that this method will be called after an
+						// additional timeout duration has elapsed.
+						return true;
+					}
 				}
+
+				return true;
 			}
 
 			private void StartSecondCountdown ()
@@ -855,13 +923,16 @@ namespace Tasque
 					// Widget has been closed, no need to call this again
 					return false;
 				}
-				if (secondsLeft > 0 && task.State == TaskState.Inactive) {
-					status = String.Format (Catalog.GetString ("Completing Task In: {0}"), secondsLeft--);
-					TaskWindow.ShowStatus (status);
-					return true;
-				} else {
-					return false;
+				if (!Paused) {
+					if (secondsLeft > 0 && task.State == TaskState.Inactive) {
+						status = String.Format (Catalog.GetString ("Completing Task In: {0}"), secondsLeft--);
+						TaskWindow.ShowStatus (status);
+						return true;
+					} else {
+						return false;
+					}
 				}
+				return true;
 			}
 	
 		}
