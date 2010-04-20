@@ -94,7 +94,6 @@ namespace Tasque.Backends.HmBackend
 
 			runRefreshEvent = new AutoResetEvent(false);
 			runningRefreshThread = false;
-			refreshThread  = new Thread(RefreshThreadLoop);
 		}
 
 		void HandleRowChanged(object o, Gtk.RowChangedArgs args)
@@ -203,8 +202,7 @@ namespace Tasque.Backends.HmBackend
 			categoryListStore.SetValue (iter, 0, allCategory);
 			
 			runningRefreshThread = true;
-			Logger.Debug("ThreadState: " + refreshThread.ThreadState);
-			if (refreshThread.ThreadState == ThreadState.Running) {
+			if (refreshThread == null || refreshThread.ThreadState == ThreadState.Running) {
 				Logger.Debug ("RtmBackend refreshThread already running");
 			} else {
 				if (!refreshThread.IsAlive) {
