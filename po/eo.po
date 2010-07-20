@@ -1,58 +1,61 @@
 # Esperanto translation of tasque.
 # Copyright (C) 2009 Colin Dean
 # This file is distributed under the same license as the tasque package.
-# Colin Dean <cad@cad.cx>, 2009.
+# Colin DEAN <cad@cad.cx>, 2009.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 23:55-0400\n"
-"PO-Revision-Date: 2009-03-07 22:20-0500\n"
-"Last-Translator: Colin Dean <cad@cad.cx>\n"
-"Language-Team: Esperanto <cad@cad.cx>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=tasque&component=general\n"
+"POT-Creation-Date: 2010-04-06 03:58+0000\n"
+"PO-Revision-Date: 2010-07-20 15:06+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <ubuntu-l10n-eo@lists.launchpad.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Esperanto\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/tasque.desktop.in.h:1
 msgid "Easy quick task management"
-msgstr "Facila, rapida administrado de taskoj"
+msgstr "Facila rapida task-administrado"
 
 #: ../data/tasque.desktop.in.h:2
 msgid "Task Manager"
-msgstr "Taskmanaĝero"
+msgstr "Task-administrilo"
 
 #: ../data/tasque.desktop.in.h:3
 msgid "Tasque"
-msgstr "Tasque"
+msgstr "Taskil"
 
 #: ../src/Application.cs:518
 #, csharp-format
 msgid "{0} task is Overdue\n"
 msgid_plural "{0} tasks are Overdue\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tasko estas posttempe\n"
+msgstr[1] "{0} taskoj estas posttempe\n"
 
 #: ../src/Application.cs:526
 #, csharp-format
 msgid "{0} task for Today\n"
 msgid_plural "{0} tasks for Today\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tasko por hodiaŭ\n"
+msgstr[1] "{0} taskoj por hodiaŭ\n"
 
 #: ../src/Application.cs:534
 #, csharp-format
 msgid "{0} task for Tomorrow\n"
 msgid_plural "{0} tasks for Tomorrow\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} tasko por morgaŭ\n"
+msgstr[1] "{0} taskoj por morgaŭ\n"
 
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
-#, fuzzy
 msgid "Tasque Rocks"
-msgstr "Tasque"
+msgstr "Tasko mojosas"
 
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
@@ -60,7 +63,9 @@ msgstr "Tasque"
 #.
 #: ../src/Application.cs:584
 msgid "translator-credits"
-msgstr "Colin Dean <cad@cad.cx>"
+msgstr ""
+"Colin DEAN <cad@cad.cx>\n"
+"Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>"
 
 #: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
@@ -72,7 +77,7 @@ msgstr "Utila tasklisto "
 
 #: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
-msgstr "TTT-paĝo de Tasque projekto"
+msgstr "TTT-paĝo de Taskil-projekto"
 
 #: ../src/Application.cs:710
 msgid "New Task ..."
@@ -80,15 +85,15 @@ msgstr "Nova tasko..."
 
 #: ../src/Application.cs:717
 msgid "Show Tasks ..."
-msgstr "Montri taskoj..."
+msgstr "Montri taskojn..."
 
 #: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
-msgstr "Refreŝigi taskoj..."
+msgstr "Aktualigi taskojn..."
 
 #: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
 msgid "All"
-msgstr "Tuta"
+msgstr "Ĉiuj"
 
 #: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
 msgid "Yesterday"
@@ -96,15 +101,15 @@ msgstr "Hieraŭ"
 
 #: ../src/CompletedTaskGroup.cs:167
 msgid "Last 7 Days"
-msgstr "Lastaj 7 tagoj"
+msgstr "Pasintaj 7 tagoj"
 
 #: ../src/CompletedTaskGroup.cs:169
 msgid "Last Month"
-msgstr "Pasintmonate"
+msgstr "Pasinta monato"
 
 #: ../src/CompletedTaskGroup.cs:171
 msgid "Last Year"
-msgstr "Pasintjare"
+msgstr "Pasinta jaro"
 
 #: ../src/NoteDialog.cs:24
 #, csharp-format
@@ -122,46 +127,44 @@ msgstr "_Fenestro"
 #. Update the window title
 #: ../src/PreferencesDialog.cs:97
 msgid "Tasque Preferences"
-msgstr ""
+msgstr "Taskil-agordoj"
 
 #: ../src/PreferencesDialog.cs:116
 msgid "General"
-msgstr "Ĝenerala"
+msgstr "Ĝenerale"
 
 #: ../src/PreferencesDialog.cs:124
 msgid "Appearance"
-msgstr ""
+msgstr "Aspekto"
 
 #: ../src/PreferencesDialog.cs:160
 msgid "Color Management"
-msgstr ""
+msgstr "Kolor-administrado"
 
 #: ../src/PreferencesDialog.cs:171
-#, fuzzy
 msgid "Today:"
-msgstr "Hodiaŭ"
+msgstr "Hodiaŭ:"
 
 #: ../src/PreferencesDialog.cs:199
-#, fuzzy
 msgid "Overdue:"
-msgstr "Posttempa"
+msgstr "Posttempe:"
 
 #: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
-msgstr "Taskadministrada Sistemo"
+msgstr "Taskadministrad-sistemo"
 
 #: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
-msgstr "Tasko filtranta "
+msgstr "Task-filtrado"
 
 #: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
-msgstr "Montri _kompletaj taskoj"
+msgstr "Montri _plenumitajn taskojn"
 
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr "Montri sole tiuj kategorioj kiam \"Tuta\" elektita"
+msgstr "Montri _nur tiujn kategoriojn kiam \"Ĉiuj\" estas elektite:"
 
 #: ../src/PreferencesDialog.cs:331
 msgid "Category"
@@ -174,7 +177,7 @@ msgstr "Nova tasko kreita."
 #. Title for Completed/Checkbox Column
 #: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
 msgid "Completed"
-msgstr "Kompletita"
+msgstr "Plenumite"
 
 #. Title for Priority Column
 #: ../src/TaskTreeView.cs:101
@@ -211,7 +214,7 @@ msgstr "Tasknomo"
 #. Title for Due Date Column
 #: ../src/TaskTreeView.cs:173
 msgid "Due Date"
-msgstr "Pagdato"
+msgstr "Limdato"
 
 #: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
 #: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
@@ -238,16 +241,16 @@ msgstr "d/M - ddd"
 
 #: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
 msgid "In 1 Week"
-msgstr "En 1 semajno"
+msgstr "Post 1 semajno"
 
 #: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
 #: ../src/Utilities.cs:308
 msgid "No Date"
-msgstr "Ne dato"
+msgstr "Neniu dato"
 
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
 msgid "Choose Date..."
-msgstr "Elekti dato..."
+msgstr "Elekti daton..."
 
 #. Title for Notes Column
 #: ../src/TaskTreeView.cs:219
@@ -257,11 +260,11 @@ msgstr "Notoj"
 #. Title for Timer Column
 #: ../src/TaskTreeView.cs:236
 msgid "Timer"
-msgstr "Minutatoro"
+msgstr "Horloĝo"
 
 #: ../src/TaskTreeView.cs:281
 msgid "Task Completed"
-msgstr "Tasko kompletita"
+msgstr "Tasko estas plenumite"
 
 #: ../src/TaskTreeView.cs:436
 msgid "M/d/yy - ddd"
@@ -274,7 +277,7 @@ msgstr "Ago nuligita"
 #: ../src/TaskTreeView.cs:859
 #, csharp-format
 msgid "Completing Task In: {0}"
-msgstr "Kompletanta taskon en: {0}"
+msgstr "Plenumi taskon en: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
@@ -293,7 +296,7 @@ msgstr "_Aldoni taskon"
 
 #: ../src/TaskWindow.cs:257
 msgid "Overdue"
-msgstr "Posttempa"
+msgstr "Posttempe"
 
 #: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
@@ -307,17 +310,17 @@ msgstr "Estonteco"
 #: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
-msgstr ""
+msgstr "Taskoj ŝargitaj: {0}"
 
 #. Show error status
 #: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
-msgstr "Eraro dum kreanta novan taskon"
+msgstr "Eraro dum kreado de novan taskon"
 
 #. Show successful status
 #: ../src/TaskWindow.cs:805
 msgid "Task created successfully"
-msgstr "Tasko kreita sukcese"
+msgstr "Taskon kreitas sukcese"
 
 #: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
@@ -325,17 +328,16 @@ msgstr "_Notoj..."
 
 #: ../src/TaskWindow.cs:1096
 msgid "_Delete task"
-msgstr "_Forigi taskoj"
+msgstr "_Forigi taskon"
 
 #: ../src/TaskWindow.cs:1101
 msgid "_Edit task"
-msgstr "_Redakti tarea"
+msgstr "_Redakti taskon"
 
 #. TODO Needs translation.
 #: ../src/TaskWindow.cs:1133
-#, fuzzy
 msgid "_Change category"
-msgstr "Kategorio"
+msgstr "_Ŝanĝi kategorio"
 
 #: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
@@ -343,15 +345,11 @@ msgstr "Tasko forigita"
 
 #: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
-msgstr "Ŝarĝanta taskoj..."
+msgstr "Ŝarĝanta taskojn..."
 
 #: ../src/TaskWindow.cs:1225
-#, fuzzy
 msgid "Not connected."
-msgstr ""
-"\n"
-"\n"
-"Vi ne konekita"
+msgstr "Ne konekite."
 
 #: ../src/Utilities.cs:274
 #, csharp-format
@@ -371,7 +369,7 @@ msgstr "antaŭ {0} tagoj, {1}"
 #: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
-msgstr "antaŭ {0} días"
+msgstr "antaŭ {0} tagoj"
 
 #: ../src/Utilities.cs:293
 #, csharp-format
@@ -406,101 +404,87 @@ msgstr "d MMMM yyyy"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
-msgstr "Klaki ĉi tie Konekti"
+msgstr "Klaku ĉi tien por konekti"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
-#, fuzzy
 msgid "You are currently connected"
-msgstr ""
-"\n"
-"\n"
-"Vi estas konektita nuntempe"
+msgstr "Vi nun estas konektite"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
-#, fuzzy
 msgid "You are currently connected as"
-msgstr ""
-"\n"
-"\n"
-"Vi estas konektita nuntempe"
+msgstr "Vi nun estas konektite kiel"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
-#, fuzzy
 msgid "You are not connected"
-msgstr ""
-"\n"
-"\n"
-"Vi ne konekita"
+msgstr "Vi ne estas konektite"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
 msgid "Remember the Milk not responding. Try again later."
-msgstr "Remember the Milk ne respondis. Provi denove poste."
+msgstr "Memoru ke la 'Milk' ne respondis. Provu denove poste."
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
 msgid "Click Here After Authorizing"
-msgstr "Klaki ĉi tie post rajtiganto"
+msgstr "Klaku ĉi tien post rajtigo"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
-msgstr "Fiksu la aŭtomata retumilo kaj provu denove"
+msgstr "Agordu la defaŭltan foliumilon kaj provu denove"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
-msgstr ""
+msgstr "Traktado..."
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Failed, Try Again"
-msgstr ""
+msgstr "Fiaskis, provu denove"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
-msgstr "Dankon!"
+msgstr "Dankon"
 
 #. Token "O". Notice only the suffix is translated.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:49
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr "a,a,a,a"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:53
-#, fuzzy
 msgid "today"
-msgstr "Hodiaŭ"
+msgstr "hodiaŭ"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:57
-#, fuzzy
 msgid "tomorrow"
-msgstr "Morgaŭ"
+msgstr "morgaŭ"
 
 #. Token "m". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
-msgstr ""
+msgstr "monato|monatoj"
 
 #. Token "w". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
-msgstr ""
+msgstr "semajno|semajnoj"
 
 #. Token "y". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
-msgstr ""
+msgstr "jaro|jaroj"
 
 #. Token "d". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
-msgstr ""
+msgstr "tago|tagoj"
 
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
@@ -511,55 +495,55 @@ msgstr ""
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr ""
+msgstr "sekva"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:239
 msgid "on"
-msgstr ""
+msgstr "sur"
 
 #. Token "i". Examples could be: "In 2 weeks", "In 3 months"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr ""
+msgstr "post"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n w|n m|n y|n D"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u o D|u M O|u M N|u O|u M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "o D|o O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|M O|M N|O|A"
 
 #, fuzzy
 #~ msgid "New task1..."
