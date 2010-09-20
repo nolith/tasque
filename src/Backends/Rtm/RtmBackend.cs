@@ -195,6 +195,9 @@ namespace Tasque.Backends.RtmBackend
 		{
 			Logger.Debug("Refreshing data...");
 
+			if (!runningRefreshThread)
+				StartThread();
+
 			runRefreshEvent.Set();
 			
 			Logger.Debug("Done refreshing data!");
@@ -239,7 +242,16 @@ namespace Tasque.Backends.RtmBackend
 
 			if(rtm == null)
 				rtm = new Rtm(apiKey, sharedSecret);
-			
+	
+			StartThread();	
+		}
+
+		public void StartThread()
+		{
+			if (!configured) {
+				Logger.Debug("Backend not configured, not starting thread");
+				return;
+			}
 			runningRefreshThread = true;
 			Logger.Debug("ThreadState: " + refreshThread.ThreadState);
 			if (refreshThread.ThreadState == ThreadState.Running) {
@@ -250,7 +262,7 @@ namespace Tasque.Backends.RtmBackend
 				}
 				refreshThread.Start();
 			}
-			runRefreshEvent.Set();		
+			runRefreshEvent.Set();
 		}
 
 		public void Cleanup()
