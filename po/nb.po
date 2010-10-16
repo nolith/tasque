@@ -2,16 +2,17 @@
 # Copyright © 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the tasks package.
 # Espen Stefansen <espenas@gmail.com>, 2007.
-# Kjartan Maraas <kmaraas@broadpark.no>, 2010.
+# Kjartan Maraas <kmaraas@gnome.org>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque 0.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 23:55-0400\n"
-"PO-Revision-Date: 2010-03-14 11:43+0100\n"
-"Last-Translator: Espen Stefansen <espens@svn.gnome.org>\n"
+"POT-Creation-Date: 2010-10-16 20:53+0200\n"
+"PO-Revision-Date: 2010-10-16 20:57+0200\n"
+"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,15 +61,17 @@ msgstr ""
 #.
 #: ../src/Application.cs:584
 msgid "translator-credits"
-msgstr "Espen Stefansen <espenas@gmail.com>"
+msgstr ""
+"Espen Stefansen <espenas@gmail.com>\n"
+"Kjartan Maraas <kmaraas@gnome.org>"
 
 #: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
-msgstr ""
+msgstr "Opphavsrett © 2008 Novell, Inc."
 
 #: ../src/Application.cs:594
 msgid "A Useful Task List"
-msgstr ""
+msgstr "En nyttig oppgaveliste"
 
 #: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
@@ -170,106 +173,106 @@ msgid "New task created."
 msgstr "Ny oppgave laget."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
+#: ../src/TaskTreeView.cs:86 ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "Fullført"
 
 #. Title for Priority Column
-#: ../src/TaskTreeView.cs:101
+#: ../src/TaskTreeView.cs:103
 msgid "Priority"
 msgstr "Prioritet"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
-#: ../src/TaskTreeView.cs:612
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:416
+#: ../src/TaskTreeView.cs:666
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
-#: ../src/TaskTreeView.cs:610
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:413
+#: ../src/TaskTreeView.cs:664
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:608
+#: ../src/TaskTreeView.cs:118 ../src/TaskTreeView.cs:410
+#: ../src/TaskTreeView.cs:662
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:119 ../src/TaskTreeView.cs:419
 msgid "-"
 msgstr "-"
 
 #. Title for Task Name Column
-#: ../src/TaskTreeView.cs:131
+#: ../src/TaskTreeView.cs:133
 msgid "Task Name"
 msgstr "Oppgavenavn"
 
 #. Title for Due Date Column
-#: ../src/TaskTreeView.cs:173
+#: ../src/TaskTreeView.cs:175
 msgid "Due Date"
 msgstr "Ferdigdato"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
-#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:748
+#: ../src/TaskTreeView.cs:751 ../src/TaskTreeView.cs:756
 msgid "M/d - "
 msgstr ""
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:748
 #: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "I dag"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:751
 #: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "I morgen"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
-#: ../src/TaskTreeView.cs:711
+#: ../src/TaskTreeView.cs:193 ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197 ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:487
+#: ../src/TaskTreeView.cs:765
 msgid "M/d - ddd"
 msgstr ""
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
 msgid "In 1 Week"
 msgstr ""
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/TaskTreeView.cs:204 ../src/TaskTreeView.cs:753
 #: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Ingen dato"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
+#: ../src/TaskTreeView.cs:205 ../src/TaskTreeView.cs:758
 msgid "Choose Date..."
 msgstr "Velg dato..."
 
 #. Title for Notes Column
-#: ../src/TaskTreeView.cs:219
+#: ../src/TaskTreeView.cs:221
 msgid "Notes"
 msgstr "Notater"
 
 #. Title for Timer Column
-#: ../src/TaskTreeView.cs:236
+#: ../src/TaskTreeView.cs:238
 msgid "Timer"
 msgstr ""
 
-#: ../src/TaskTreeView.cs:281
+#: ../src/TaskTreeView.cs:328
 msgid "Task Completed"
 msgstr "Oppgave fullført"
 
-#: ../src/TaskTreeView.cs:436
+#: ../src/TaskTreeView.cs:489
 msgid "M/d/yy - ddd"
 msgstr ""
 
-#: ../src/TaskTreeView.cs:594
+#: ../src/TaskTreeView.cs:648
 msgid "Action Canceled"
 msgstr "Handling avbrutt"
 
-#: ../src/TaskTreeView.cs:859
+#: ../src/TaskTreeView.cs:940
 #, fuzzy, csharp-format
 msgid "Completing Task In: {0}"
 msgstr "Fullfør oppgave"
@@ -279,7 +282,7 @@ msgstr "Fullfør oppgave"
 #: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
 #: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
 msgid "New task..."
-msgstr "Ny oppgave ..."
+msgstr "Ny oppgave …"
 
 #: ../src/TaskWindow.cs:165
 msgid "_Add"
@@ -295,11 +298,11 @@ msgstr ""
 
 #: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
-msgstr ""
+msgstr "De neste 7 dagene"
 
 #: ../src/TaskWindow.cs:327
 msgid "Future"
-msgstr ""
+msgstr "Fremtiden"
 
 #. Translators: This status shows the date and time when the task list was last refreshed
 #: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
@@ -319,7 +322,7 @@ msgstr ""
 
 #: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
-msgstr "_Notater..."
+msgstr "_Notater …"
 
 #: ../src/TaskWindow.cs:1096
 msgid "_Delete task"
@@ -340,7 +343,7 @@ msgstr "Oppgave slettet"
 
 #: ../src/TaskWindow.cs:1204
 msgid "Loading tasks..."
-msgstr "Laster oppgaver..."
+msgstr "Laster oppgaver …"
 
 #: ../src/TaskWindow.cs:1225
 msgid "Not connected."
@@ -354,22 +357,22 @@ msgstr "I dag, {0}"
 #: ../src/Utilities.cs:280
 #, csharp-format
 msgid "Yesterday, {0}"
-msgstr ""
+msgstr "I går, {0}"
 
 #: ../src/Utilities.cs:286
 #, csharp-format
 msgid "{0} days ago, {1}"
-msgstr ""
+msgstr "{0} dager siden, {1}"
 
 #: ../src/Utilities.cs:288
 #, csharp-format
 msgid "{0} days ago"
-msgstr ""
+msgstr "{0} dager siden"
 
 #: ../src/Utilities.cs:293
 #, csharp-format
 msgid "Tomorrow, {0}"
-msgstr ""
+msgstr "I morgen, {0}"
 
 #: ../src/Utilities.cs:299
 #, csharp-format
@@ -421,11 +424,11 @@ msgstr ""
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
 msgid "Click Here After Authorizing"
-msgstr ""
+msgstr "Klikk her etter autorisering"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
-msgstr ""
+msgstr "Sett forvalgt nettleser og prøv igjen"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
@@ -443,45 +446,43 @@ msgstr "Takk"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:49
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr "de,ste,dre,dje"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:53
-#, fuzzy
 msgid "today"
-msgstr "I dag"
+msgstr "i dag"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:57
-#, fuzzy
 msgid "tomorrow"
-msgstr "I morgen"
+msgstr "i morgen"
 
 #. Token "m". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
-msgstr ""
+msgstr "måned|måneder"
 
 #. Token "w". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
-msgstr ""
+msgstr "uke|uker"
 
 #. Token "y". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
-msgstr ""
+msgstr "år|år"
 
 #. Token "d". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
-msgstr ""
+msgstr "dag|dager"
 
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
@@ -492,19 +493,19 @@ msgstr ""
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr ""
+msgstr "neste"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:239
 msgid "on"
-msgstr ""
+msgstr "på"
 
 #. Token "i". Examples could be: "In 2 weeks", "In 3 months"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr ""
+msgstr "om"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
@@ -541,36 +542,3 @@ msgstr ""
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
 msgstr ""
-
-#, fuzzy
-#~ msgid "New task1..."
-#~ msgstr "Ny oppgave ..."
-
-#~ msgid "Sunday"
-#~ msgstr "Søndag"
-
-#~ msgid "Monday"
-#~ msgstr "Mandag"
-
-#~ msgid "Tuesday"
-#~ msgstr "Tirsdag"
-
-#~ msgid "Wednesday"
-#~ msgstr "Onsdag"
-
-#~ msgid "Thursday"
-#~ msgstr "Torsdag"
-
-#~ msgid "Friday"
-#~ msgstr "Fredag"
-
-#~ msgid "Saturday"
-#~ msgstr "Lørdag"
-
-#, fuzzy
-#~ msgid "^(?<task>.+)\\s+today\\W*$"
-#~ msgstr "^(?<task>.+) i dag$"
-
-#, fuzzy
-#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-#~ msgstr "^(?<task>.+) i morgen$"
