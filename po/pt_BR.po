@@ -7,14 +7,16 @@
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 # Henrique P Machado <zehrique@gmail.com>, 2008.
 # Antonio Fernandes C. Neto <fernandes@pelivre.org>, 2009.
+# Mateus Zenaide <matzenh@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 23:55-0400\n"
-"PO-Revision-Date: 2009-12-31 14:49-0300\n"
-"Last-Translator: Antonio Fernandes C. Neto <fernandes@pelivre.org>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=tasque&component=general\n"
+"POT-Creation-Date: 2010-09-11 14:07+0000\n"
+"PO-Revision-Date: 2010-09-11 18:45-0300\n"
+"Last-Translator: Mateus Zenaide Henriques <matzenh@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +72,8 @@ msgstr ""
 "Leonardo Gregianin <leogregianin@gmail.com>\n"
 "Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Henrique P Machado <zehrique@gmail.com>\n"
-"Antonio Fernandes C. Neto <fernandes@pelivre.org>"
+"Antonio Fernandes C. Neto <fernandes@pelivre.org>\n"
+"Mateus Zenaide <matzenh@gmail.com>"
 
 #: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
@@ -78,7 +81,7 @@ msgstr "Copyright © 2008 Novell, Inc."
 
 #: ../src/Application.cs:594
 msgid "A Useful Task List"
-msgstr "Uma lista útil de tarefas"
+msgstr "Uma lista de tarefas útil"
 
 #: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
@@ -180,106 +183,106 @@ msgid "New task created."
 msgstr "Nova tarefa criada."
 
 #. Title for Completed/Checkbox Column
-#: ../src/TaskTreeView.cs:84 ../src/TaskWindow.cs:342
+#: ../src/TaskTreeView.cs:86 ../src/TaskWindow.cs:342
 msgid "Completed"
 msgstr "Concluída"
 
 #. Title for Priority Column
-#: ../src/TaskTreeView.cs:101
+#: ../src/TaskTreeView.cs:103
 msgid "Priority"
 msgstr "Prioridade"
 
-#: ../src/TaskTreeView.cs:114 ../src/TaskTreeView.cs:366
-#: ../src/TaskTreeView.cs:612
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:416
+#: ../src/TaskTreeView.cs:666
 msgid "1"
 msgstr "1"
 
 #. High
-#: ../src/TaskTreeView.cs:115 ../src/TaskTreeView.cs:363
-#: ../src/TaskTreeView.cs:610
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:413
+#: ../src/TaskTreeView.cs:664
 msgid "2"
 msgstr "2"
 
 #. Medium
-#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:360
-#: ../src/TaskTreeView.cs:608
+#: ../src/TaskTreeView.cs:118 ../src/TaskTreeView.cs:410
+#: ../src/TaskTreeView.cs:662
 msgid "3"
 msgstr "3"
 
 #. Low
-#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:369
+#: ../src/TaskTreeView.cs:119 ../src/TaskTreeView.cs:419
 msgid "-"
 msgstr "-"
 
 #. Title for Task Name Column
-#: ../src/TaskTreeView.cs:131
+#: ../src/TaskTreeView.cs:133
 msgid "Task Name"
 msgstr "Nome da tarefa"
 
 #. Title for Due Date Column
-#: ../src/TaskTreeView.cs:173
+#: ../src/TaskTreeView.cs:175
 msgid "Due Date"
 msgstr "Prazo"
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:189
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:694
-#: ../src/TaskTreeView.cs:697 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:748
+#: ../src/TaskTreeView.cs:751 ../src/TaskTreeView.cs:756
 msgid "M/d - "
 msgstr "d/M - "
 
-#: ../src/TaskTreeView.cs:187 ../src/TaskTreeView.cs:694
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:748
 #: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
 msgid "Today"
 msgstr "Hoje"
 
-#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:697
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:751
 #: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
 msgid "Tomorrow"
 msgstr "Amanhã"
 
-#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:193
-#: ../src/TaskTreeView.cs:195 ../src/TaskTreeView.cs:197
-#: ../src/TaskTreeView.cs:199 ../src/TaskTreeView.cs:434
-#: ../src/TaskTreeView.cs:711
+#: ../src/TaskTreeView.cs:193 ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197 ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:487
+#: ../src/TaskTreeView.cs:765
 msgid "M/d - ddd"
 msgstr "d/M - ddd"
 
-#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:702
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
 msgid "In 1 Week"
 msgstr "Em 1 semana"
 
-#: ../src/TaskTreeView.cs:202 ../src/TaskTreeView.cs:699
+#: ../src/TaskTreeView.cs:204 ../src/TaskTreeView.cs:753
 #: ../src/Utilities.cs:308
 msgid "No Date"
 msgstr "Sem data"
 
-#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:704
+#: ../src/TaskTreeView.cs:205 ../src/TaskTreeView.cs:758
 msgid "Choose Date..."
 msgstr "Escolha uma data..."
 
 #. Title for Notes Column
-#: ../src/TaskTreeView.cs:219
+#: ../src/TaskTreeView.cs:221
 msgid "Notes"
 msgstr "Notas"
 
 #. Title for Timer Column
-#: ../src/TaskTreeView.cs:236
+#: ../src/TaskTreeView.cs:238
 msgid "Timer"
 msgstr "Temporizador"
 
-#: ../src/TaskTreeView.cs:281
+#: ../src/TaskTreeView.cs:328
 msgid "Task Completed"
 msgstr "Tarefas concluídas"
 
-#: ../src/TaskTreeView.cs:436
+#: ../src/TaskTreeView.cs:489
 msgid "M/d/yy - ddd"
 msgstr "d/M/yy - ddd"
 
-#: ../src/TaskTreeView.cs:594
+#: ../src/TaskTreeView.cs:648
 msgid "Action Canceled"
 msgstr "Ação cancelada"
 
-#: ../src/TaskTreeView.cs:859
+#: ../src/TaskTreeView.cs:940
 #, csharp-format
 msgid "Completing Task In: {0}"
 msgstr "Completando tarefa em: {0}"
@@ -401,7 +404,7 @@ msgstr "MMMM d"
 
 #: ../src/Utilities.cs:311
 msgid "MMMM d yyyy, h:mm tt"
-msgstr "d MMMM yyyy h:mm tt"
+msgstr "d MMMM yyyy, h:mm tt"
 
 #: ../src/Utilities.cs:312
 msgid "MMMM d yyyy"
@@ -453,135 +456,100 @@ msgstr "Obrigado"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:49
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr "th,st,nd,rd"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:53
-#, fuzzy
 msgid "today"
-msgstr "Hoje"
+msgstr "hoje"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:57
-#, fuzzy
 msgid "tomorrow"
-msgstr "Amanhã"
+msgstr "amanhã"
 
 #. Token "m". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
-msgstr ""
+msgstr "mês|meses"
 
 #. Token "w". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
-msgstr ""
+msgstr "semana|semanas"
 
 #. Token "y". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
-msgstr ""
+msgstr "ano|anos"
 
 #. Token "d". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
-msgstr ""
+msgstr "dia|dias"
 
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
 msgid "due before|due by|due"
-msgstr ""
+msgstr "prazo anterior|prazo de|prazo"
 
 #. Token "n". Examples could be: "Next Month", "Next Monday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr ""
+msgstr "próximo"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:239
 msgid "on"
-msgstr ""
+msgstr "no"
 
 #. Token "i". Examples could be: "In 2 weeks", "In 3 months"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr ""
+msgstr "em"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n w|n m|n y|n D"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u o D|u M O|u M N|u O|u M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "o D|o O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|M O|M N|O|A"
 
-#, fuzzy
-#~ msgid "New task1..."
-#~ msgstr "Nova tarefa..."
-
-#~ msgid "Sunday"
-#~ msgstr "Domingo"
-
-#~ msgid "Monday"
-#~ msgstr "Segunda"
-
-#~ msgid "Tuesday"
-#~ msgstr "Terça"
-
-#~ msgid "Wednesday"
-#~ msgstr "Quarta"
-
-#~ msgid "Thursday"
-#~ msgstr "Quinta"
-
-#~ msgid "Friday"
-#~ msgstr "Sexta"
-
-#~ msgid "Saturday"
-#~ msgstr "Sábado"
-
-#~ msgid "^(?<task>.+)\\s+today\\W*$"
-#~ msgstr "^(?<task>.+)\\s+hoje\\W*$"
-
-#~ msgid "^(?<task>.+)\\s+tomorrow\\W*$"
-#~ msgstr "^(?<task>.+)\\s+amanhã\\W*$"
-
-#~ msgid "Reloading tasks..."
-#~ msgstr "Atualizando tarefas..."
