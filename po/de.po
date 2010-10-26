@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tasque HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 16:47+0200\n"
-"PO-Revision-Date: 2010-04-06 21:53+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
+"POT-Creation-Date: 2010-10-26 23:52+0200\n"
+"PO-Revision-Date: 2010-10-26 18:20+0100\n"
+"Last-Translator: Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +57,7 @@ msgstr[1] "{0} Aufgaben für morgen\n"
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
 msgid "Tasque Rocks"
-msgstr "Tasque Rocks"
+msgstr "Tasque fetzt"
 
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
@@ -66,7 +67,8 @@ msgstr "Tasque Rocks"
 msgid "translator-credits"
 msgstr ""
 "Fabian Buch <fabian.buch@fabian-buch.com>\n"
-"Mario Blättermann <mariobl@gnome.org>"
+"Mario Blättermann <mariobl@gnome.org>\n"
+"Christian Kirbach <Christian.Kirbach@googlemail.com>"
 
 #: ../src/Application.cs:593
 msgid "Copyright © 2008 Novell, Inc."
@@ -221,7 +223,7 @@ msgstr "Fälligkeitsdatum"
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:748
 #: ../src/TaskTreeView.cs:751 ../src/TaskTreeView.cs:756
 msgid "M/d - "
-msgstr "d.M - "
+msgstr "d.M. - "
 
 #: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:748
 #: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
@@ -238,7 +240,7 @@ msgstr "Morgen"
 #: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:487
 #: ../src/TaskTreeView.cs:765
 msgid "M/d - ddd"
-msgstr "d.M - ddd"
+msgstr "d.M. - ddd"
 
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
 msgid "In 1 Week"
@@ -514,37 +516,37 @@ msgstr "in"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n w|n m|n y|n D"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u o D|u O M|u O|u M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "o D|o O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|O M|O|A"
 
 #, fuzzy
 #~ msgid "New task1..."
