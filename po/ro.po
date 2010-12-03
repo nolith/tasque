@@ -1,0 +1,559 @@
+# Romanian translation for tasque.
+# This file is distributed under the same license as the tasque package.
+# Tabita Dolean <dtabita21@gmail.com>, 2010.
+# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: tasque master\n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=tasque&component=general\n"
+"POT-Creation-Date: 2010-11-30 21:11+0000\n"
+"PO-Revision-Date: 2010-12-03 21:54+0300\n"
+"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Virtaal 0.6.1\n"
+
+#: ../data/tasque.desktop.in.h:1
+msgid "Easy quick task management"
+msgstr "Gestionarea ușoară a sarcinilor"
+
+#: ../data/tasque.desktop.in.h:2
+msgid "Task Manager"
+msgstr "Administrator de sarcini"
+
+#: ../data/tasque.desktop.in.h:3
+msgid "Tasque"
+msgstr "Tasque"
+
+#: ../src/Application.cs:518
+#, csharp-format
+msgid "{0} task is Overdue\n"
+msgid_plural "{0} tasks are Overdue\n"
+msgstr[0] "{0} sarcină e restantă\n"
+msgstr[1] "{0} sarcini sunt restante\n"
+msgstr[2] "{0} de sarcini sunt restante\n"
+
+#: ../src/Application.cs:526
+#, csharp-format
+msgid "{0} task for Today\n"
+msgid_plural "{0} tasks for Today\n"
+msgstr[0] "{0} sarcină pentru astăzi\n"
+msgstr[1] "{0} sarcini pentru astăzi\n"
+msgstr[2] "{0} de sarcini pentru astăzi\n"
+
+#: ../src/Application.cs:534
+#, csharp-format
+msgid "{0} task for Tomorrow\n"
+msgid_plural "{0} tasks for Tomorrow\n"
+msgstr[0] "{0} sarcină pentru mâine\n"
+msgstr[1] "{0} sarcini pentru mâine\n"
+msgstr[2] "{0} de sarcini pentru mâine\n"
+
+#. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
+#: ../src/Application.cs:540
+msgid "Tasque Rocks"
+msgstr "Tasque e super"
+
+#. string [] documenters = new string [] {
+#. "Calvin Gaisford <calvinrg@gmail.com>"
+#. };
+#.
+#: ../src/Application.cs:584
+msgid "translator-credits"
+msgstr "Tabita Dolean <dtabita21@gmail.com>"
+
+#: ../src/Application.cs:593
+msgid "Copyright © 2008 Novell, Inc."
+msgstr "Drepturi de autor © 2008 Novell, Inc."
+
+#: ../src/Application.cs:594
+msgid "A Useful Task List"
+msgstr "O listă de sarcini folositoare"
+
+#: ../src/Application.cs:596
+msgid "Tasque Project Homepage"
+msgstr "Pagina de internet a proiectului Tasque"
+
+#: ../src/Application.cs:710
+msgid "New Task ..."
+msgstr "Sarcină nouă ..."
+
+#: ../src/Application.cs:717
+msgid "Show Tasks ..."
+msgstr "Arată sarcinile ..."
+
+#: ../src/Application.cs:732
+msgid "Refresh Tasks ..."
+msgstr "Reîmprospătează sarcinile ..."
+
+#: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
+msgid "All"
+msgstr "Toate"
+
+#: ../src/CompletedTaskGroup.cs:165 ../src/Utilities.cs:282
+msgid "Yesterday"
+msgstr "Ieri"
+
+#: ../src/CompletedTaskGroup.cs:167
+msgid "Last 7 Days"
+msgstr "Ultimele 7 zile"
+
+#: ../src/CompletedTaskGroup.cs:169
+msgid "Last Month"
+msgstr "Ultima lună"
+
+#: ../src/CompletedTaskGroup.cs:171
+msgid "Last Year"
+msgstr "Ultimul an"
+
+#: ../src/NoteDialog.cs:24
+#, csharp-format
+msgid "Notes for: {0:s}"
+msgstr "Notițe pentru: {0:s}"
+
+#: ../src/OSXApplication.cs:38
+msgid "_File"
+msgstr "_Fișier"
+
+#: ../src/OSXApplication.cs:44
+msgid "_Window"
+msgstr "Fe_reastră"
+
+#. Update the window title
+#: ../src/PreferencesDialog.cs:97
+msgid "Tasque Preferences"
+msgstr "Preferințe Tasque"
+
+#: ../src/PreferencesDialog.cs:116
+msgid "General"
+msgstr "Generale"
+
+#: ../src/PreferencesDialog.cs:124
+msgid "Appearance"
+msgstr "Aspect"
+
+#: ../src/PreferencesDialog.cs:160
+msgid "Color Management"
+msgstr "Gestionare culori"
+
+#: ../src/PreferencesDialog.cs:171
+msgid "Today:"
+msgstr "Astăzi:"
+
+#: ../src/PreferencesDialog.cs:199
+msgid "Overdue:"
+msgstr "Restant:"
+
+#: ../src/PreferencesDialog.cs:243
+msgid "Task Management System"
+msgstr "Sistem de gestionare a sarcinilor"
+
+#: ../src/PreferencesDialog.cs:285
+msgid "Task Filtering"
+msgstr "Filtrare de sarcini"
+
+#: ../src/PreferencesDialog.cs:304
+msgid "Sh_ow completed tasks"
+msgstr "Afiș_ează sarcinile terminate"
+
+#. Categories TreeView
+#: ../src/PreferencesDialog.cs:313
+msgid "Only _show these categories when \"All\" is selected:"
+msgstr "Arată doar ace_ste categorii când „Toate” este selectat:"
+
+#: ../src/PreferencesDialog.cs:331
+msgid "Category"
+msgstr "Categorie"
+
+#: ../src/RemoteControl.cs:150
+msgid "New task created."
+msgstr "Sarcină nouă creată."
+
+#. Title for Completed/Checkbox Column
+#: ../src/TaskTreeView.cs:86 ../src/TaskWindow.cs:342
+msgid "Completed"
+msgstr "Terminat"
+
+#. Title for Priority Column
+#: ../src/TaskTreeView.cs:103
+msgid "Priority"
+msgstr "Prioritate"
+
+#: ../src/TaskTreeView.cs:116 ../src/TaskTreeView.cs:416
+#: ../src/TaskTreeView.cs:666
+msgid "1"
+msgstr "1"
+
+#. High
+#: ../src/TaskTreeView.cs:117 ../src/TaskTreeView.cs:413
+#: ../src/TaskTreeView.cs:664
+msgid "2"
+msgstr "2"
+
+#. Medium
+#: ../src/TaskTreeView.cs:118 ../src/TaskTreeView.cs:410
+#: ../src/TaskTreeView.cs:662
+msgid "3"
+msgstr "3"
+
+#. Low
+#: ../src/TaskTreeView.cs:119 ../src/TaskTreeView.cs:419
+msgid "-"
+msgstr "-"
+
+#. Title for Task Name Column
+#: ../src/TaskTreeView.cs:133
+msgid "Task Name"
+msgstr "Nume sarcini"
+
+#. Title for Due Date Column
+#: ../src/TaskTreeView.cs:175
+msgid "Due Date"
+msgstr "Dată terminare"
+
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:191
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:748
+#: ../src/TaskTreeView.cs:751 ../src/TaskTreeView.cs:756
+msgid "M/d - "
+msgstr "d/M - "
+
+#: ../src/TaskTreeView.cs:189 ../src/TaskTreeView.cs:748
+#: ../src/TaskWindow.cs:275 ../src/Utilities.cs:276
+msgid "Today"
+msgstr "Astăzi"
+
+#: ../src/TaskTreeView.cs:191 ../src/TaskTreeView.cs:751
+#: ../src/TaskWindow.cs:293 ../src/Utilities.cs:295
+msgid "Tomorrow"
+msgstr "Mâine"
+
+#: ../src/TaskTreeView.cs:193 ../src/TaskTreeView.cs:195
+#: ../src/TaskTreeView.cs:197 ../src/TaskTreeView.cs:199
+#: ../src/TaskTreeView.cs:201 ../src/TaskTreeView.cs:487
+#: ../src/TaskTreeView.cs:765
+msgid "M/d - ddd"
+msgstr "d/M - ddd"
+
+#: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
+msgid "In 1 Week"
+msgstr "Într-o săptămână"
+
+#: ../src/TaskTreeView.cs:204 ../src/TaskTreeView.cs:753
+#: ../src/Utilities.cs:308
+msgid "No Date"
+msgstr "Nicio dată"
+
+#: ../src/TaskTreeView.cs:205 ../src/TaskTreeView.cs:758
+msgid "Choose Date..."
+msgstr "Alege data..."
+
+#. Title for Notes Column
+#: ../src/TaskTreeView.cs:221
+msgid "Notes"
+msgstr "Notițe"
+
+#. Title for Timer Column
+#: ../src/TaskTreeView.cs:238
+msgid "Timer"
+msgstr "Cronometru"
+
+#: ../src/TaskTreeView.cs:328
+msgid "Task Completed"
+msgstr "Sarcină finalizată"
+
+#: ../src/TaskTreeView.cs:489
+msgid "M/d/yy - ddd"
+msgstr "d/M/yy - ddd"
+
+#: ../src/TaskTreeView.cs:648
+msgid "Action Canceled"
+msgstr "Acțiune anulată"
+
+#: ../src/TaskTreeView.cs:940
+#, csharp-format
+msgid "Completing Task In: {0}"
+msgstr "Se termină sarcina în: {0}"
+
+#. The new task entry widget
+#. Clear the entry if it contains the default text
+#: ../src/TaskWindow.cs:149 ../src/TaskWindow.cs:837 ../src/TaskWindow.cs:893
+#: ../src/TaskWindow.cs:903 ../src/TaskWindow.cs:914
+msgid "New task..."
+msgstr "Sarcină nouă..."
+
+#: ../src/TaskWindow.cs:165
+msgid "_Add"
+msgstr "_Adaugă"
+
+#: ../src/TaskWindow.cs:170
+msgid "_Add Task"
+msgstr "_Adaugă sarcină"
+
+#: ../src/TaskWindow.cs:257
+msgid "Overdue"
+msgstr "Restant"
+
+#: ../src/TaskWindow.cs:311
+msgid "Next 7 Days"
+msgstr "Următoarele 7 zile"
+
+#: ../src/TaskWindow.cs:327
+msgid "Future"
+msgstr "Viitor"
+
+#. Translators: This status shows the date and time when the task list was last refreshed
+#: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
+#, csharp-format
+msgid "Tasks loaded: {0}"
+msgstr "Sarcini încărcate în: {0}"
+
+#. Show error status
+#: ../src/TaskWindow.cs:801
+msgid "Error creating a new task"
+msgstr "Eroare la crearea unei noi sarcini"
+
+#. Show successful status
+#: ../src/TaskWindow.cs:805
+msgid "Task created successfully"
+msgstr "Sarcină creată cu succes"
+
+#: ../src/TaskWindow.cs:1089
+msgid "_Notes..."
+msgstr "_Notițe..."
+
+#: ../src/TaskWindow.cs:1096
+msgid "_Delete task"
+msgstr "Ș_terge sarcina"
+
+#: ../src/TaskWindow.cs:1101
+msgid "_Edit task"
+msgstr "_Editează sarcina"
+
+#. TODO Needs translation.
+#: ../src/TaskWindow.cs:1133
+msgid "_Change category"
+msgstr "S_chimbă categoria"
+
+#: ../src/TaskWindow.cs:1162
+msgid "Task deleted"
+msgstr "Sarcină ștearsă"
+
+#: ../src/TaskWindow.cs:1204
+msgid "Loading tasks..."
+msgstr "Se încarcă sarcinile..."
+
+#: ../src/TaskWindow.cs:1225
+msgid "Not connected."
+msgstr "Nu este conectat."
+
+#: ../src/Utilities.cs:274
+#, csharp-format
+msgid "Today, {0}"
+msgstr "Astăzi, {0}"
+
+#: ../src/Utilities.cs:280
+#, csharp-format
+msgid "Yesterday, {0}"
+msgstr "Ieri, {0} "
+
+#: ../src/Utilities.cs:286
+#, csharp-format
+msgid "{0} days ago, {1}"
+msgstr "acum {0} zile, {1}"
+
+#: ../src/Utilities.cs:288
+#, csharp-format
+msgid "{0} days ago"
+msgstr "acum {0} zile"
+
+#: ../src/Utilities.cs:293
+#, csharp-format
+msgid "Tomorrow, {0}"
+msgstr "Mâine, {0}"
+
+#: ../src/Utilities.cs:299
+#, csharp-format
+msgid "In {0} days, {1}"
+msgstr "În {0} zile, {1}"
+
+#: ../src/Utilities.cs:301
+#, csharp-format
+msgid "In {0} days"
+msgstr "În {0} zile"
+
+#: ../src/Utilities.cs:305
+msgid "MMMM d, h:mm tt"
+msgstr "d MMMM, HH:mm"
+
+#: ../src/Utilities.cs:306
+msgid "MMMM d"
+msgstr "d MMMM"
+
+#: ../src/Utilities.cs:311
+msgid "MMMM d yyyy, h:mm tt"
+msgstr "d MMMM yyyy, HH:mm"
+
+#: ../src/Utilities.cs:312
+msgid "MMMM d yyyy"
+msgstr "d MMMM yyyy"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
+msgid "Click Here to Connect"
+msgstr "Clic aici pentru a vă conecta"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
+msgid "You are currently connected"
+msgstr "În acest moment sunteți conectat"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
+msgid "You are currently connected as"
+msgstr "În acest moment sunteți conectat ca"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
+msgid "You are not connected"
+msgstr "Nu sunteți conectat"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
+msgid "Remember the Milk not responding. Try again later."
+msgstr "„Remember the Milk” nu răspune. Încercați mai târziu."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
+msgid "Click Here After Authorizing"
+msgstr "Clic aici după autorizare"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
+msgid "Set the default browser and try again"
+msgstr "Configurați navigatorul de internet implicit și încercați din nou"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
+msgid "Processing..."
+msgstr "Se procesează..."
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
+msgid "Failed, Try Again"
+msgstr "Nu s-a reușit, încercați din nou"
+
+#: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
+msgid "Thank You"
+msgstr "Mulțumesc"
+
+#. Token "O". Notice only the suffix is translated.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:49
+msgid "th,st,nd,rd"
+msgstr ""
+"În limba română, nu sunt utilizate numerele ordinale în scrierea datei => "
+"„O” din tokeni trebuie înlocuit cu „N”. Ele sunt necesare în engleză unde "
+"șirurile apar ca „due by Oct 1st 2010”, dar în română „scadent după 1 Oct "
+"2010” nu folosește ordinale. Din cauză că „O” nu este utilizat în "
+"traducerile tokenilor în română, această explicație nu va apărea în "
+"interfața aplicației."
+
+#. Token "T"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:53
+msgid "today"
+msgstr "astăzi|astazi|azi"
+
+#. Token "T"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:57
+msgid "tomorrow"
+msgstr "mâine|maine"
+
+#. Token "m". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:61
+msgid "month|months"
+msgstr "lună|luna|luni"
+
+#. Token "w". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:65
+msgid "week|weeks"
+msgstr ""
+"saptămana|saptamană|saptamâna|saptamână|saptămana|saptămană|saptămâna|saptăm"
+"ână|săptămana|săptamană|săptamâna|săptamână|săptămana|săptămană|săptămâna|să"
+"ptămână|saptămani|saptamani|saptamâni|saptamâni|saptămâni|săptămani|săptaman"
+"i|săptamâni|săptamâni|săptămani|săptămâni"
+
+#. Token "y". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:69
+msgid "year|years"
+msgstr "an|ani"
+
+#. Token "d". Don't forget to include the plural value, if any
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:73
+msgid "day|days"
+msgstr "zi|zile"
+
+#. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:207
+msgid "due before|due by|due"
+msgstr "scadent înainte|scadent inainte|scadent după|scadent dupa|scadent"
+
+#. Token "n". Examples could be: "Next Month", "Next Monday"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:233
+msgid "next"
+msgstr ""
+"următoarea|urmatoarea|următorul|următoarele|următorii|urmatorul|urmatoarele|"
+"urmatorii"
+
+#. Token "o". Examples could be: "On April 1st", "On Wednesday"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:239
+msgid "on"
+msgstr "în|in|pe"
+
+#. Token "i". Examples could be: "In 2 weeks", "In 3 months"
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:245
+msgid "in"
+msgstr "în|in"
+
+#. Represents "Today and Tomorrow" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:260
+msgid "u T"
+msgstr "u T"
+
+#. Represents: "Next" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:263
+msgid "n w|n m|n y|n D"
+msgstr "n w|n m|n y|n D"
+
+#. Represents "Due" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:266
+msgid "u o D|u M O|u M N|u O|u M"
+msgstr "u o D|u M N|u M N|u N|u M"
+
+#. Represents "On" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:269
+msgid "o D|o O"
+msgstr "o D|o N"
+
+#. Represents "In" expression.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:272
+msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
+
+#. Represents all other expressions not using tokens.
+#. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
+#: ../src/libtasque/TaskParser.cs:275
+msgid "T|D|M O|M N|O|A"
+msgstr "T|D|M N|M N|N|A"
