@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-30 23:08+0200\n"
-"PO-Revision-Date: 2010-11-30 23:10+0200\n"
+"POT-Creation-Date: 2011-01-14 20:11+0200\n"
+"PO-Revision-Date: 2010-12-06 20:37+0200\n"
 "Last-Translator: Milonas Kostas <milonas.ko@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,28 +35,27 @@ msgstr "Tasque"
 #, csharp-format
 msgid "{0} task is Overdue\n"
 msgid_plural "{0} tasks are Overdue\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} εργασία είναι καθυστερημένη\n"
+msgstr[1] "{0} εργασίες είναι καθυστερημένες\n"
 
 #: ../src/Application.cs:526
 #, csharp-format
 msgid "{0} task for Today\n"
 msgid_plural "{0} tasks for Today\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} εργασία για σήμερα\n"
+msgstr[1] "{0} εργασίες για σήμερα\n"
 
 #: ../src/Application.cs:534
 #, csharp-format
 msgid "{0} task for Tomorrow\n"
 msgid_plural "{0} tasks for Tomorrow\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} εργασία για αύριο\n"
+msgstr[1] "{0} εργασίες για αύριο\n"
 
 #. Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
 #: ../src/Application.cs:540
-#, fuzzy
 msgid "Tasque Rocks"
-msgstr "Tasque"
+msgstr "Το Tasque είναι όλα τα λεφτά"
 
 #. string [] documenters = new string [] {
 #. "Calvin Gaisford <calvinrg@gmail.com>"
@@ -83,7 +83,7 @@ msgstr "Νέα εργασία..."
 
 #: ../src/Application.cs:717
 msgid "Show Tasks ..."
-msgstr "Προβολή εργασιών ..."
+msgstr "Προβολή των εργασιών ..."
 
 #: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
@@ -125,7 +125,7 @@ msgstr "_Παράθυρο"
 #. Update the window title
 #: ../src/PreferencesDialog.cs:97
 msgid "Tasque Preferences"
-msgstr ""
+msgstr "Προτιμήσεις του Tasque"
 
 #: ../src/PreferencesDialog.cs:116
 msgid "General"
@@ -133,21 +133,19 @@ msgstr "Γενικά"
 
 #: ../src/PreferencesDialog.cs:124
 msgid "Appearance"
-msgstr ""
+msgstr "Εμφάνιση"
 
 #: ../src/PreferencesDialog.cs:160
 msgid "Color Management"
-msgstr ""
+msgstr "Διαχείριση χρωμάτων"
 
 #: ../src/PreferencesDialog.cs:171
-#, fuzzy
 msgid "Today:"
 msgstr "Σήμερα"
 
 #: ../src/PreferencesDialog.cs:199
-#, fuzzy
 msgid "Overdue:"
-msgstr "Καθυστερημένες"
+msgstr "Καθυστερημένες:"
 
 #: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
@@ -155,7 +153,7 @@ msgstr "Σύστημα διαχείρισης εργασιών"
 
 #: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
-msgstr "Φιλτράρισμα Εργασιών"
+msgstr "Φιλτράρισμα εργασιών"
 
 #: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
@@ -164,7 +162,7 @@ msgstr "Προ_βολή των ολοκληρωμένων εργασιών"
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr "_Προβολή αυτών των κατηγοριών μόνο όταν είναι επιλεγμένο το \"Όλες\""
+msgstr "_Προβολή αυτών των κατηγοριών μόνο όταν είναι επιλεγμένο το \"Όλες\":"
 
 #: ../src/PreferencesDialog.cs:331
 msgid "Category"
@@ -209,7 +207,7 @@ msgstr "-"
 #. Title for Task Name Column
 #: ../src/TaskTreeView.cs:133
 msgid "Task Name"
-msgstr "Όνομα Εργασίας"
+msgstr "Όνομα εργασίας"
 
 #. Title for Due Date Column
 #: ../src/TaskTreeView.cs:175
@@ -241,16 +239,16 @@ msgstr "Μ/η - ηηη"
 
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
 msgid "In 1 Week"
-msgstr "Σε 1 Εβδομάδα"
+msgstr "Σε 1 εβδομάδα"
 
 #: ../src/TaskTreeView.cs:204 ../src/TaskTreeView.cs:753
 #: ../src/Utilities.cs:308
 msgid "No Date"
-msgstr "Χωρίς Ημερομηνία"
+msgstr "Χωρίς ημερομηνία"
 
 #: ../src/TaskTreeView.cs:205 ../src/TaskTreeView.cs:758
 msgid "Choose Date..."
-msgstr "Επιλέξτε Ημερομηνία..."
+msgstr "Επιλέξτε ημερομηνία..."
 
 #. Title for Notes Column
 #: ../src/TaskTreeView.cs:221
@@ -264,7 +262,7 @@ msgstr "Χρονομετρητής"
 
 #: ../src/TaskTreeView.cs:328
 msgid "Task Completed"
-msgstr "Η Εργασία Ολοκληρώθηκε"
+msgstr "Η εργασία ολοκληρώθηκε"
 
 #: ../src/TaskTreeView.cs:489
 msgid "M/d/yy - ddd"
@@ -272,12 +270,12 @@ msgstr "Μ/η/εε - ηηη"
 
 #: ../src/TaskTreeView.cs:648
 msgid "Action Canceled"
-msgstr "Η Ενέργεια Ακυρώθηκε"
+msgstr "Η ενέργεια ακυρώθηκε"
 
 #: ../src/TaskTreeView.cs:940
 #, csharp-format
 msgid "Completing Task In: {0}"
-msgstr "Ολοκλήρωση Εργασίας Σε: {0}"
+msgstr "Ολοκλήρωση εργασίας σε: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
@@ -292,7 +290,7 @@ msgstr "_Προσθήκη"
 
 #: ../src/TaskWindow.cs:170
 msgid "_Add Task"
-msgstr "_Προσθήκη Εργασίας"
+msgstr "_Προσθήκη εργασίας"
 
 #: ../src/TaskWindow.cs:257
 msgid "Overdue"
@@ -300,7 +298,7 @@ msgstr "Καθυστερημένες"
 
 #: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
-msgstr "Επόμενες 7 Ημέρες"
+msgstr "Επόμενες 7 ημέρες"
 
 #: ../src/TaskWindow.cs:327
 msgid "Future"
@@ -310,12 +308,12 @@ msgstr "Μελλοντικές"
 #: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
-msgstr ""
+msgstr "Φορτωμένες εργασίες: {0}"
 
 #. Show error status
 #: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
-msgstr "Σφάλμα κατά τη δημιουργία νέας εργασίας"
+msgstr "Σφάλμα κατά τη δημιουργία μιας νέας εργασίας"
 
 #. Show successful status
 #: ../src/TaskWindow.cs:805
@@ -336,9 +334,8 @@ msgstr "_Επεξεργασία εργασίας"
 
 #. TODO Needs translation.
 #: ../src/TaskWindow.cs:1133
-#, fuzzy
 msgid "_Change category"
-msgstr "Κατηγορία"
+msgstr "_Αλλαγή κατηγορίας"
 
 #: ../src/TaskWindow.cs:1162
 msgid "Task deleted"
@@ -349,12 +346,8 @@ msgid "Loading tasks..."
 msgstr "Γίνεται φόρτωση των εργασιών..."
 
 #: ../src/TaskWindow.cs:1225
-#, fuzzy
 msgid "Not connected."
-msgstr ""
-"\n"
-"\n"
-"Δεν είστε συνδεδεμένοι"
+msgstr "Μη συνδεδεμένοι."
 
 #: ../src/Utilities.cs:274
 #, csharp-format
@@ -409,33 +402,21 @@ msgstr "ΜΜΜΜ η, εεεε"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:65
 msgid "Click Here to Connect"
-msgstr "Πατήστε Εδώ για να Συνδεθείτε"
+msgstr "Πατήστε εδώ για να συνδεθείτε"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
-#, fuzzy
 msgid "You are currently connected"
-msgstr ""
-"\n"
-"\n"
-"Είστε συνδεδεμένοι"
+msgstr "Είστε συνδεδεμένοι"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
-#, fuzzy
 msgid "You are currently connected as"
-msgstr ""
-"\n"
-"\n"
-"Είστε συνδεδεμένοι"
+msgstr "Είστε συνδεδεμένοι ως"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
-#, fuzzy
 msgid "You are not connected"
-msgstr ""
-"\n"
-"\n"
-"Δεν είστε συνδεδεμένοι"
+msgstr "Δεν είστε συνδεδεμένοι"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:112
 msgid "Remember the Milk not responding. Try again later."
@@ -443,7 +424,7 @@ msgstr "Το Remember the Milk δεν αποκρίνεται. Ξαναδοκιμ
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:119
 msgid "Click Here After Authorizing"
-msgstr "Πατήστε Εδώ Μετά Την Εξουσιοδότηση"
+msgstr "Πατήστε εδώ μετά την εξουσιοδότηση"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:122
 msgid "Set the default browser and try again"
@@ -451,11 +432,11 @@ msgstr "Ορίστε τον προεπιλεγμένο φυλλομετρητή 
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
-msgstr ""
+msgstr "Γίνεται επεξεργασία..."
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Failed, Try Again"
-msgstr ""
+msgstr "Απέτυχε, προσπαθήστε ξανά"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:139
 msgid "Thank You"
@@ -465,104 +446,102 @@ msgstr "Ευχαριστούμε"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:49
 msgid "th,st,nd,rd"
-msgstr ""
+msgstr "η"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:53
-#, fuzzy
 msgid "today"
-msgstr "Σήμερα"
+msgstr "σήμερα"
 
 #. Token "T"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:57
-#, fuzzy
 msgid "tomorrow"
-msgstr "Αύριο"
+msgstr "αύριο"
 
 #. Token "m". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:61
 msgid "month|months"
-msgstr ""
+msgstr "μήνα|μήνες"
 
 #. Token "w". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:65
 msgid "week|weeks"
-msgstr ""
+msgstr "εβδομάδα|εβδομάδες"
 
 #. Token "y". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:69
 msgid "year|years"
-msgstr ""
+msgstr "έτος|έτη"
 
 #. Token "d". Don't forget to include the plural value, if any
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:73
 msgid "day|days"
-msgstr ""
+msgstr "ημέρα|ημέρες"
 
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
 msgid "due before|due by|due"
-msgstr ""
+msgstr "αναμένεται πριν|αναμένεται από|αναμένεται"
 
 #. Token "n". Examples could be: "Next Month", "Next Monday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr ""
+msgstr "επόμενη"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:239
 msgid "on"
-msgstr ""
+msgstr "Την"
 
 #. Token "i". Examples could be: "In 2 weeks", "In 3 months"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr ""
+msgstr "σε"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n w|n m|n y|n D"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u o D|u O M|u N M|u O|u M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "o D|o O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|O M|N M|O|A"
 
 #~ msgid "Sunday"
 #~ msgstr "Κυριακή"
