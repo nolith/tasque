@@ -1,16 +1,18 @@
 # Catalan translation of Tasque.
 # Copyright © 2005, 2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Tasque package.
-# Gil Forcada <gilforcada@guifi.net>, 2009, 2010.
 #
+# Gil Forcada <gilforcada@guifi.net>, 2009, 2010.
+# Sílvia Miranda <silvia@softcatala.cat>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: tasque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 13:32+0200\n"
-"PO-Revision-Date: 2010-06-26 13:32+0200\n"
-"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"POT-Creation-Date: 2011-01-19 22:08+0100\n"
+"PO-Revision-Date: 2010-09-27 19:50+0200\n"
+"Last-Translator: Sílvia Miranda <silvia@softcatala.cat>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,7 +138,7 @@ msgstr "Aparença"
 
 #: ../src/PreferencesDialog.cs:160
 msgid "Color Management"
-msgstr "Gestió de color"
+msgstr "Gestió del color"
 
 #: ../src/PreferencesDialog.cs:171
 msgid "Today:"
@@ -486,13 +488,13 @@ msgstr "dia|dies"
 #. Token "u". More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:207
 msgid "due before|due by|due"
-msgstr ""
+msgstr "per al|abans del|per a|per a l'"
 
 #. Token "n". Examples could be: "Next Month", "Next Monday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:233
 msgid "next"
-msgstr "següent"
+msgstr "proper|propera|pròxim|pròxima|proxim|següent"
 
 #. Token "o". Examples could be: "On April 1st", "On Wednesday"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
@@ -504,43 +506,43 @@ msgstr "el"
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:245
 msgid "in"
-msgstr "d'aquí"
+msgstr "d'aquí a"
 
 #. Represents "Today and Tomorrow" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:260
 msgid "u T"
-msgstr ""
+msgstr "u T"
 
 #. Represents: "Next" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:263
 msgid "n w|n m|n y|n D"
-msgstr ""
+msgstr "n w|n 'de' m|n 'de' y|n D"
 
 #. Represents "Due" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:266
 msgid "u o D|u M O|u M N|u O|u M"
-msgstr ""
+msgstr "u 'de' D|u 'del dia' O 'de' M|u 'del dia' O|u 'de' M"
 
 #. Represents "On" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:269
 msgid "o D|o O"
-msgstr ""
+msgstr "D|'el dia' O"
 
 #. Represents "In" expression.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:272
 msgid "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
-msgstr ""
+msgstr "i N d|i d|i N w|i w|i N m|i m|i N y|i y"
 
 #. Represents all other expressions not using tokens.
 #. More information in http://git.gnome.org/browse/tasque/tree/TRANSLATORS
 #: ../src/libtasque/TaskParser.cs:275
 msgid "T|D|M O|M N|O|A"
-msgstr ""
+msgstr "T|D|O 'de' M|M N|O|A"
 
 #~ msgid "Sunday"
 #~ msgstr "Diumenge"
