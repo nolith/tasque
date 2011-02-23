@@ -2,14 +2,14 @@
 # Copyright © 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the tasks package.
 # Espen Stefansen <espenas@gmail.com>, 2007.
-# Kjartan Maraas <kmaraas@gnome.org>, 2010.
+# Kjartan Maraas <kmaraas@gnome.org>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: tasque 0.x\n"
+"Project-Id-Version: tasque 0.1.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-16 20:53+0200\n"
-"PO-Revision-Date: 2010-10-16 20:57+0200\n"
+"POT-Creation-Date: 2011-02-23 14:25+0100\n"
+"PO-Revision-Date: 2011-02-23 14:29+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -75,19 +75,19 @@ msgstr "En nyttig oppgaveliste"
 
 #: ../src/Application.cs:596
 msgid "Tasque Project Homepage"
-msgstr ""
+msgstr "Hjemmeside for Tasque-prosjektet"
 
 #: ../src/Application.cs:710
 msgid "New Task ..."
-msgstr "Ny oppgave..."
+msgstr "Ny oppgave …"
 
 #: ../src/Application.cs:717
 msgid "Show Tasks ..."
-msgstr "Vis oppgaver..."
+msgstr "Vis oppgaver …"
 
 #: ../src/Application.cs:732
 msgid "Refresh Tasks ..."
-msgstr "Oppdater oppgaver..."
+msgstr "Oppdater oppgaver …"
 
 #: ../src/AllCategory.cs:28 ../src/CompletedTaskGroup.cs:174
 msgid "All"
@@ -112,7 +112,7 @@ msgstr "Siste år"
 #: ../src/NoteDialog.cs:24
 #, csharp-format
 msgid "Notes for: {0:s}"
-msgstr ""
+msgstr "Notater for: {0:s}"
 
 #: ../src/OSXApplication.cs:38
 msgid "_File"
@@ -145,15 +145,15 @@ msgstr "I dag:"
 
 #: ../src/PreferencesDialog.cs:199
 msgid "Overdue:"
-msgstr ""
+msgstr "Utløpt:"
 
 #: ../src/PreferencesDialog.cs:243
 msgid "Task Management System"
-msgstr ""
+msgstr "Oppgavehåndtering"
 
 #: ../src/PreferencesDialog.cs:285
 msgid "Task Filtering"
-msgstr ""
+msgstr "Filtrering av oppgaver"
 
 #: ../src/PreferencesDialog.cs:304
 msgid "Sh_ow completed tasks"
@@ -162,7 +162,7 @@ msgstr "Vi_s fullførte oppgaver"
 #. Categories TreeView
 #: ../src/PreferencesDialog.cs:313
 msgid "Only _show these categories when \"All\" is selected:"
-msgstr ""
+msgstr "Kun vi_s disse kategoriene når «Alle» er valgt:"
 
 #: ../src/PreferencesDialog.cs:331
 msgid "Category"
@@ -239,7 +239,7 @@ msgstr ""
 
 #: ../src/TaskTreeView.cs:203 ../src/TaskTreeView.cs:756
 msgid "In 1 Week"
-msgstr ""
+msgstr "Om en uke"
 
 #: ../src/TaskTreeView.cs:204 ../src/TaskTreeView.cs:753
 #: ../src/Utilities.cs:308
@@ -248,7 +248,7 @@ msgstr "Ingen dato"
 
 #: ../src/TaskTreeView.cs:205 ../src/TaskTreeView.cs:758
 msgid "Choose Date..."
-msgstr "Velg dato..."
+msgstr "Velg dato …"
 
 #. Title for Notes Column
 #: ../src/TaskTreeView.cs:221
@@ -258,7 +258,7 @@ msgstr "Notater"
 #. Title for Timer Column
 #: ../src/TaskTreeView.cs:238
 msgid "Timer"
-msgstr ""
+msgstr "Klokke"
 
 #: ../src/TaskTreeView.cs:328
 msgid "Task Completed"
@@ -273,9 +273,9 @@ msgid "Action Canceled"
 msgstr "Handling avbrutt"
 
 #: ../src/TaskTreeView.cs:940
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "Completing Task In: {0}"
-msgstr "Fullfør oppgave"
+msgstr "Fullfører oppgave om: {0}"
 
 #. The new task entry widget
 #. Clear the entry if it contains the default text
@@ -294,7 +294,7 @@ msgstr "_Legg til oppgave"
 
 #: ../src/TaskWindow.cs:257
 msgid "Overdue"
-msgstr ""
+msgstr "Utløpt"
 
 #: ../src/TaskWindow.cs:311
 msgid "Next 7 Days"
@@ -308,17 +308,17 @@ msgstr "Fremtiden"
 #: ../src/TaskWindow.cs:474 ../src/TaskWindow.cs:1213
 #, csharp-format
 msgid "Tasks loaded: {0}"
-msgstr ""
+msgstr "Lastede oppgaver: {0}"
 
 #. Show error status
 #: ../src/TaskWindow.cs:801
 msgid "Error creating a new task"
-msgstr ""
+msgstr "Feil under oppretting av ny oppgave"
 
 #. Show successful status
 #: ../src/TaskWindow.cs:805
 msgid "Task created successfully"
-msgstr ""
+msgstr "Oppgave opprettet"
 
 #: ../src/TaskWindow.cs:1089
 msgid "_Notes..."
@@ -377,12 +377,12 @@ msgstr "I morgen, {0}"
 #: ../src/Utilities.cs:299
 #, csharp-format
 msgid "In {0} days, {1}"
-msgstr ""
+msgstr "Om {0} dager, {1}"
 
 #: ../src/Utilities.cs:301
 #, csharp-format
 msgid "In {0} days"
-msgstr ""
+msgstr "Om {0} dager"
 
 #: ../src/Utilities.cs:305
 msgid "MMMM d, h:mm tt"
@@ -407,12 +407,12 @@ msgstr "Klikk her for å koble til"
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:71
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:142
 msgid "You are currently connected"
-msgstr ""
+msgstr "Du er tilkoblet"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:75
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:147
 msgid "You are currently connected as"
-msgstr ""
+msgstr "Du er tilkoblet som"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:79
 msgid "You are not connected"
@@ -432,7 +432,7 @@ msgstr "Sett forvalgt nettleser og prøv igjen"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:125
 msgid "Processing..."
-msgstr "Prosesserer..."
+msgstr "Prosesserer …"
 
 #: ../src/Backends/Rtm/RtmPreferencesWidget.cs:135
 msgid "Failed, Try Again"
