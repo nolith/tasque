@@ -69,6 +69,7 @@ namespace Tasque
 		private bool quietStart = false;
 #if ENABLE_APPINDICATOR_SHARP
 		private ApplicationIndicator indicator;
+		private MenuItem[] backendDependantEntry;
 #endif
 		
 		private DateTime currentDay = DateTime.Today;
@@ -247,8 +248,9 @@ namespace Tasque
 			// Discover all available backends
 			LoadAvailableBackends ();
 			
-			//Setup AppIndicator
+#if ENABLE_APPINDICATOR_SHARP
 			SetupAppIndicator();
+#endif
 
 			GLib.Idle.Add(InitializeIdle);
 			GLib.Timeout.Add (60000, CheckForDaySwitch);
@@ -364,6 +366,13 @@ namespace Tasque
 				
 			// Initialize the new backend
 			this.backend = value;
+#if ENABLE_APPINDICATOR_SHARP
+			//disable some appindicator entries and re-enable them when 
+			// the new backend will be initialized
+			UpdateAppIndicator();
+			if(this.backend != null)
+				this.backend.BackendInitialized += UpdateAppIndicator;
+#endif
 			if (this.backend == null) {
 				RefreshTrayIconTooltip ();
 				return;
@@ -754,47 +763,76 @@ namespace Tasque
 			uiManager.AddUiFromString (menuXml);
 			uiManager.InsertActionGroup (trayActionGroup, 0);
 		}
-		
+
+#if ENABLE_APPINDICATOR_SHARP
 		private void SetupAppIndicator()
 		{
-#if ENABLE_APPINDICATOR_SHARP
+			// NewTask and Refresh depends on backend status
+			const int BackendDependantItems = 2;
+			
 			indicator = 
 				new ApplicationIndicator (	"tasque",
 											"tasque-24",
 											Category.ApplicationStatus);
 
 			indicator.Status = AppIndicator.Status.Active;
-
 			
-      		Menu menu = new Menu ();
+			backendDependantEntry = new MenuItem[BackendDependantItems];
+			int backendDependantIndex = 0;
+			
+			indicator.Menu = new Menu();
+			
 			var itm = new MenuItem("Tasque");
 			itm.Activated += (o,e) => TaskWindow.ToggleWindowVisible();
 			itm.Show();
-			menu.Append(itm);
+			indicator.Menu.Append(itm);
 			
-			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/NewTaskAction"));
-			menu.Append(new SeparatorMenuItem());
+			backendDependantEntry[backendDependantIndex++] =
+				AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/NewTaskAction"));
+			indicator.Menu.Append(new SeparatorMenuItem());
 			
-			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/PreferencesAction"));
-			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/AboutAction"));
-			menu.Append(new SeparatorMenuItem());
+			AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/PreferencesAction"));
+			AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/AboutAction"));
+			indicator.Menu.Append(new SeparatorMenuItem());
 			
-			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/RefreshAction"));
-			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/QuitAction"));
+			backendDependantEntry[backendDependantIndex++] =
+				AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/RefreshAction"));
+			AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/QuitAction"));
 			
-			indicator.Menu = menu;
+			UpdateAppIndicator();
 			
-			menu.ShowAll();
-#endif			
+			indicator.Menu.ShowAll();		
 		}
 		
-#if ENABLE_APPINDICATOR_SHARP
-		private void AddActionToIndicator(Menu menu, Gtk.Action action)
+
+		/// <summary>
+		/// Connect AppIndicator menu item with a TrayIcon action.
+		/// The menu item label and action are the same of the action.
+		/// </summary>
+		/// <param name="action">
+		/// The <see cref="Gtk.Action"/> to be added
+		/// </param>
+		/// <returns>
+		/// A <see cref="MenuItem"/> reference to the newly created entry
+		/// </returns>
+		private MenuItem AddActionToIndicator(Gtk.Action action)
 		{
 			var itm = new MenuItem(action.Label);
 			itm.Activated += (o,e) => action.Activate();
 			itm.Show();
-			menu.Append(itm);
+			indicator.Menu.Append(itm);
+			
+			return itm;
+		}
+		
+		/// <summary>
+		/// Enable/disable AppIndicator menu items based on Backend status
+		/// </summary>
+		private void UpdateAppIndicator()
+		{
+			bool backendItemsSensitive = (backend != null && backend.Initialized);
+			foreach(var menuEntry in backendDependantEntry)
+				menuEntry.Sensitive = backendItemsSensitive;
 		}
 #endif
 	}
