@@ -43,6 +43,9 @@ using Mono.Unix.Native;
 #if ENABLE_NOTIFY_SHARP
 using Notifications;
 #endif
+#if ENABLE_APPINDICATOR_SHARP
+using AppIndicator;
+#endif
 using Tasque.Backends;
 
 namespace Tasque
@@ -64,6 +67,9 @@ namespace Tasque
 		private TaskGroupModel overdue_tasks, today_tasks, tomorrow_tasks;
 		private PreferencesDialog preferencesDialog;
 		private bool quietStart = false;
+#if ENABLE_APPINDICATOR_SHARP
+		private ApplicationIndicator indicator;
+#endif
 		
 		private DateTime currentDay = DateTime.Today;
 		
@@ -240,6 +246,9 @@ namespace Tasque
 			
 			// Discover all available backends
 			LoadAvailableBackends ();
+			
+			//Setup AppIndicator
+			SetupAppIndicator();
 
 			GLib.Idle.Add(InitializeIdle);
 			GLib.Timeout.Add (60000, CheckForDaySwitch);
@@ -394,7 +403,9 @@ namespace Tasque
 				}
 			}
 			
+#if !ENABLE_APPINDICATOR_SHARP
 			SetupTrayIcon ();
+#endif
 			
 			if (backend == null) {
 				// Pop open the preferences dialog so the user can choose a
@@ -743,5 +754,48 @@ namespace Tasque
 			uiManager.AddUiFromString (menuXml);
 			uiManager.InsertActionGroup (trayActionGroup, 0);
 		}
+		
+		private void SetupAppIndicator()
+		{
+#if ENABLE_APPINDICATOR_SHARP
+			indicator = 
+				new ApplicationIndicator (	"tasque",
+											"tasque-24",
+											Category.ApplicationStatus);
+
+			indicator.Status = AppIndicator.Status.Active;
+
+			
+      		Menu menu = new Menu ();
+			var itm = new MenuItem("Tasque");
+			itm.Activated += (o,e) => TaskWindow.ToggleWindowVisible();
+			itm.Show();
+			menu.Append(itm);
+			
+			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/NewTaskAction"));
+			menu.Append(new SeparatorMenuItem());
+			
+			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/PreferencesAction"));
+			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/AboutAction"));
+			menu.Append(new SeparatorMenuItem());
+			
+			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/RefreshAction"));
+			AddActionToIndicator(menu, uiManager.GetAction ("/TrayIconMenu/QuitAction"));
+			
+			indicator.Menu = menu;
+			
+			menu.ShowAll();
+#endif			
+		}
+		
+#if ENABLE_APPINDICATOR_SHARP
+		private void AddActionToIndicator(Menu menu, Gtk.Action action)
+		{
+			var itm = new MenuItem(action.Label);
+			itm.Activated += (o,e) => action.Activate();
+			itm.Show();
+			menu.Append(itm);
+		}
+#endif
 	}
 }
