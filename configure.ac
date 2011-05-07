@@ -52,6 +52,34 @@ PKG_CHECK_MODULES(NOTIFY_SHARP, notify-sharp, enable_notify_sharp="yes", enable_
 AM_CONDITIONAL(ENABLE_NOTIFY_SHARP, test "x$enable_notify_sharp" != "xno")
 AC_SUBST(NOTIFY_SHARP_LIBS)
 
+#
+# AppIndicator
+#
+APPINDICATOR_REQUIRED=0.0.7
+
+AC_ARG_ENABLE(appindicator,
+                        AS_HELP_STRING([--enable-appindicator[=@<:@no/auto/yes@:>@]],[Build support for application indicators ]),
+                        [enable_appindicator=$enableval],
+                        [enable_appindicator="auto"])
+
+if test x$enable_appindicator = xauto ; then
+        PKG_CHECK_EXISTS([appindicator-sharp-0.1 >= $APPINDICATOR_REQUIRED],
+                         enable_appindicator="yes",
+                         enable_appindicator="no")
+fi
+
+if test x$enable_appindicator = xyes ; then
+        PKG_CHECK_EXISTS([appindicator-sharp-0.1 >= $APPINDICATOR_REQUIRED],,
+                         AC_MSG_ERROR([appindicator-sharp-0.1 is not installed]))
+        PKG_CHECK_MODULES(APPINDICATOR_SHARP,
+                        appindicator-sharp-0.1 >= $APPINDICATOR_REQUIRED)
+        AC_SUBST(APPINDICATOR_SHARP_CFLAGS)
+        AC_SUBST(APPINDICATOR_SHARP_LIBS)
+        AC_DEFINE(ENABLE_APPINDICATOR_SHARP, 1, [Enable AppIndicator])
+fi
+AM_CONDITIONAL(ENABLE_APPINDICATOR_SHARP, test x"$enable_appindicator" = xyes)
+
+
 AC_ARG_ENABLE(debug,
 	AC_HELP_STRING([--enable-debug],
 		[Use 'Debug' Configuration [default=yes]]),
@@ -277,6 +305,7 @@ Configuration:
 	Debug build:       ${enable_debug}
 	Release build:     ${enable_release}
 	Notification:      ${enable_notify_sharp}
+	AppIndicator:      ${enable_appindicator}
 	Dummy Backend:     ${final_backend_dummy}
 	Evolution Backend: ${final_backend_eds}
 	ICECore Backend:   ${final_backend_icecore}
