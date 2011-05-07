@@ -70,6 +70,7 @@ namespace Tasque
 #if ENABLE_APPINDICATOR_SHARP
 		private ApplicationIndicator indicator;
 		private MenuItem[] backendDependantEntry;
+		private MenuItem indicatorStatusLine;
 #endif
 		
 		private DateTime currentDay = DateTime.Today;
@@ -526,10 +527,19 @@ namespace Tasque
 		
 		private void RefreshTrayIconTooltip ()
 		{
+#if !ENABLE_APPINDICATOR_SHARP
 			if (trayIcon == null) {
 				return;
 			}
-
+			trayIcon.Tooltip = GenerateTooltip();
+#else
+			if(indicatorStatusLine != null)
+				((Label)indicatorStatusLine.Child).Text = GenerateTooltip();
+#endif		   
+		}
+		
+		private string GenerateTooltip()
+		{
 			StringBuilder sb = new StringBuilder ();
 			if (overdue_tasks != null) {
 				int count =  overdue_tasks.IterNChildren ();
@@ -557,11 +567,10 @@ namespace Tasque
 
 			if (sb.Length == 0) {
 				// Translators: This is the status icon's tooltip. When no tasks are overdue, due today, or due tomorrow, it displays this fun message
-				trayIcon.Tooltip = Catalog.GetString ("Tasque Rocks");
-				return;
+				return Catalog.GetString ("Tasque Rocks");
 			}
 
-			trayIcon.Tooltip = sb.ToString ().TrimEnd ('\n');
+			return sb.ToString ().TrimEnd ('\n');
 		}
 
 
@@ -787,6 +796,13 @@ namespace Tasque
 			itm.Show();
 			indicator.Menu.Append(itm);
 			
+			//mimic the tooltip with a non sensitive MenuItem
+			indicator.Menu.Append(new SeparatorMenuItem());
+			indicatorStatusLine = new MenuItem("tooltip");
+			indicatorStatusLine.Sensitive = false;
+			indicator.Menu.Append(indicatorStatusLine);
+			indicator.Menu.Append(new SeparatorMenuItem());
+			
 			backendDependantEntry[backendDependantIndex++] =
 				AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/NewTaskAction"));
 			indicator.Menu.Append(new SeparatorMenuItem());
@@ -800,6 +816,7 @@ namespace Tasque
 			AddActionToIndicator(uiManager.GetAction ("/TrayIconMenu/QuitAction"));
 			
 			UpdateAppIndicator();
+			RefreshTrayIconTooltip();
 			
 			indicator.Menu.ShowAll();		
 		}
