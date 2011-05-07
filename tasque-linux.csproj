@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B19B9840-669D-4984-9772-E1F55193A67F}</ProjectGuid>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>tasque</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NoWin32Manifest>True</NoWin32Manifest>
+    <RootNamespace>tasque</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Posix, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>winbin\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>winbin\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099">
+      <Package>ndesk-dbus-1.0</Package>
+    </Reference>
+    <Reference Include="gnome-sharp, Version=2.24.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gnome-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="NDesk.DBus.GLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099">
+      <Package>ndesk-dbus-glib-1.0</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\images\clock-16-0.svg" />
+    <None Include="data\images\note-22.svg" />
+    <None Include="data\images\tasque-icons-source.svg" />
+    <None Include="data\images\tasque.svg" />
+    <None Include="src\Tasque.exe.config.in" />
+    <Compile Include="src\Defines.cs" />
+    <Compile Include="src\RemoteControl.cs" />
+    <Compile Include="src\RemoteControlProxy.cs" />
+    <Compile Include="src\GnomeApplication.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\images\clock-16-0.png" />
+    <Content Include="data\images\clock-16-1.png" />
+    <Content Include="data\images\clock-16-10.png" />
+    <Content Include="data\images\clock-16-11.png" />
+    <Content Include="data\images\clock-16-2.png" />
+    <Content Include="data\images\clock-16-3.png" />
+    <Content Include="data\images\clock-16-4.png" />
+    <Content Include="data\images\clock-16-5.png" />
+    <Content Include="data\images\clock-16-6.png" />
+    <Content Include="data\images\clock-16-7.png" />
+    <Content Include="data\images\clock-16-8.png" />
+    <Content Include="data\images\clock-16-9.png" />
+    <Content Include="data\images\note-16.png" />
+    <Content Include="data\images\rtmLogo.png" />
+    <Content Include="data\images\tasque-16.png" />
+    <Content Include="data\images\tasque-22.png" />
+    <Content Include="data\images\tasque-24.png" />
+    <Content Include="data\images\tasque-32.png" />
+    <Content Include="data\images\tasque-48.png" />
+    <Content Include="data\sounds\notify.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\AbstractTask.cs" />
+    <Compile Include="src\AllCategory.cs" />
+    <Compile Include="src\Application.cs" />
+    <Compile Include="src\Backends\Dummy\DummyBackend.cs" />
+    <Compile Include="src\Backends\Dummy\DummyCategory.cs" />
+    <Compile Include="src\Backends\Dummy\DummyNote.cs" />
+    <Compile Include="src\Backends\Dummy\DummyTask.cs" />
+    <Compile Include="src\Backends\Hiveminder\HmBackend.cs" />
+    <Compile Include="src\Backends\Hiveminder\HmCategory.cs" />
+    <Compile Include="src\Backends\Hiveminder\HmNote.cs" />
+    <Compile Include="src\Backends\Hiveminder\HmPreferencesWidget.cs" />
+    <Compile Include="src\Backends\Hiveminder\HmTask.cs" />
+    <Compile Include="src\Backends\Hiveminder\service\Group.cs" />
+    <Compile Include="src\Backends\Hiveminder\service\Hiveminder.cs" />
+    <Compile Include="src\Backends\Hiveminder\service\HiveminderException.cs" />
+    <Compile Include="src\Backends\Hiveminder\service\Task.cs" />
+    <Compile Include="src\Backends\Rtm\RtmBackend.cs" />
+    <Compile Include="src\Backends\Rtm\RtmCategory.cs" />
+    <Compile Include="src\Backends\Rtm\RtmNote.cs" />
+    <Compile Include="src\Backends\Rtm\RtmPreferencesWidget.cs" />
+    <Compile Include="src\Backends\Rtm\RtmTask.cs" />
+    <Compile Include="src\Backends\Sqlite\Database.cs" />
+    <Compile Include="src\Backends\Sqlite\SqliteBackend.cs" />
+    <Compile Include="src\Backends\Sqlite\SqliteCategory.cs" />
+    <Compile Include="src\Backends\Sqlite\SqliteNote.cs" />
+    <Compile Include="src\Backends\Sqlite\SqliteTask.cs" />
+    <Compile Include="src\CellRendererDate.cs" />
+    <Compile Include="src\CompletedTaskGroup.cs" />
+    <Compile Include="src\CompletedTaskGroupModel.cs" />
+    <Compile Include="src\DateButton.cs" />
+    <Compile Include="src\Logger.cs" />
+    <Compile Include="src\NoteDialog.cs" />
+    <Compile Include="src\NoteWidget.cs" />
+    <None Include="src\OSXApplication.cs" />
+    <Compile Include="src\Preferences.cs" />
+    <Compile Include="src\PreferencesDialog.cs" />
+    <Compile Include="src\TaskCalendar.cs" />
+    <Compile Include="src\TaskGroup.cs" />
+    <Compile Include="src\TaskGroupModel.cs" />
+    <Compile Include="src\TaskGroupModelFactory.cs" />
+    <Compile Include="src\TaskTreeView.cs" />
+    <Compile Include="src\TaskWindow.cs" />
+    <Compile Include="src\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="RtmNet\RtmNet.csproj">
+      <Project>{0AA1B96E-03DE-4D26-B4FD-507E988FD9B7}</Project>
+      <Name>RtmNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="src\libtasque\libtasque.csproj">
+      <Project>{784C9AA8-2B28-400B-8CC4-DCDC48CA37F0}</Project>
+      <Name>libtasque</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)\winbin" "$(TargetDir)"</PostBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)\data\images\*.png" "$(ProjectDir)"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
